@@ -1,0 +1,23 @@
+{
+  "name": "bilibili-playlist-enhancer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "bilibili 全场景播放列表/选集/合集增强助手",
+  "main": "main.js",
+  "author": "kingsley",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@shared/components": "workspace:*",
+    "@shared/utils": "workspace:*",
+    "vue": "catalog:vue"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "catalog:vue",
+    "unplugin-auto-import": "^21.1.0"
+  }
+}

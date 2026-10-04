@@ -1,0 +1,208 @@
+:host {
+  display: block;
+  font-family: inherit;
+}
+
+:host(:not([visible])) {
+  display: none !important;
+}
+
+@keyframes magic-modal-mask-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes magic-modal-mask-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes magic-modal-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes magic-modal-zoom-out {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.92) translateY(-20px);
+  }
+}
+
+.magic-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--magic-modal-z-index, 99999);
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+  text-align: center;
+  pointer-events: auto;
+
+  &.is-leaving {
+    pointer-events: none !important;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+  }
+
+  &.is-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 16vh;
+
+    &::after {
+      display: none;
+    }
+
+    .magic-modal {
+      top: 0 !important;
+      margin: 24px auto;
+    }
+  }
+}
+
+.magic-modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--magic-modal-z-index, 99999);
+  background: var(--magic-modal-mask-bg, rgba(0, 0, 0, 0.65));
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: magic-modal-mask-fade-in 0.25s ease forwards;
+
+  &.is-leaving {
+    animation: magic-modal-mask-fade-out 0.2s ease forwards;
+    pointer-events: none !important;
+  }
+}
+
+.magic-modal {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: middle;
+  text-align: left;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--magic-modal-bg, rgba(28, 30, 36, 0.96));
+  border: 1px solid var(--magic-modal-border, rgba(255, 255, 255, 0.12));
+  border-radius: var(--magic-modal-radius, 12px);
+  box-shadow: var(--magic-modal-shadow, 0 16px 48px rgba(0, 0, 0, 0.6));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--magic-modal-color, #e5e9ef);
+  animation: magic-modal-zoom-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: auto;
+
+  &.is-leaving {
+    animation: magic-modal-zoom-out 0.2s cubic-bezier(0.4, 0, 1, 1) forwards;
+    pointer-events: none !important;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--magic-modal-divider, rgba(255, 255, 255, 0.08));
+    box-sizing: border-box;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--magic-modal-title-color, #fff);
+  }
+
+  &__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    margin: -4px -6px -4px auto;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--magic-modal-close-color, #9499a0);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+  }
+
+  &__body {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    word-break: break-word;
+    max-height: calc(80vh - 140px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 14px 20px;
+    border-top: 1px solid var(--magic-modal-divider, rgba(255, 255, 255, 0.08));
+    box-sizing: border-box;
+  }
+}

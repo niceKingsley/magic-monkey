@@ -1,0 +1,57 @@
+name: 🐛 问题反馈
+description: 提交脚本在运行过程中遇到的报错、失效或异常情况
+title: '【脚本名称】: xxx 功能失效/样式错乱'
+labels: ['待修复']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您提交反馈！请尽可能详细地填写以下信息，以便本人更快定位并解决问题。
+
+  - type: dropdown
+    id: script-target
+    attributes:
+      label: 发生问题的脚本
+      description: 请选择遇到异常的具体脚本
+      options:
+        - bilibili-playlist-enhancer（哔哩哔哩 播放列表增强）
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 运行环境 (Environment)
+      description: 请提供您的操作系统、浏览器与脚本管理器信息
+      placeholder: '例如：Windows 11 / macOS + Chrome + Tampermonkey'
+    validations:
+      required: false
+
+  - type: input
+    id: page-url
+    attributes:
+      label: 出现异常的链接
+      description: 请提供出现问题的具体链接
+      placeholder: '例如：https://www.bilibili.com/video/BVxxxxx'
+    validations:
+      required: false
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: 异常表现与复现步骤
+      description: 请详细描述遇到了什么问题，以及如何复现
+      placeholder: |
+        1. 打开上述链接页面
+        2. 点击某某按钮/刷新页面进来 发现问题
+        3. 观察到到与该脚本行为不一致，控制台报出异常...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs-or-screenshots
+    attributes:
+      label: 报错日志或截图
+      description: 控制台 Console 报错信息（按 F12 查看）或界面异常截图（可直接拖拽或粘贴图片）
+    validations:
+      required: false

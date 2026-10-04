@@ -1,0 +1,29 @@
+name: 💡 功能建议
+description: 为现有脚本提出改进建议
+title: '【脚本名称】: 建议增加 XXX 功能'
+labels: ['功能建议']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您为本项目出谋划策！欢迎提出任何能提升网页浏览与使用体验的好点子。
+
+  - type: dropdown
+    id: feature-scope
+    attributes:
+      label: 建议涉及的脚本
+      options:
+        - bilibili-playlist-enhancer (B站播放列表增强)
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature-summary
+    attributes:
+      label: 建议描述
+      description: 请清晰说明您希望增加什么新功能，或者解决什么体验痛点（可有参考的效果链接）
+      placeholder: |
+        在当前的选集列表中，希望能够支持...
+    validations:
+      required: true

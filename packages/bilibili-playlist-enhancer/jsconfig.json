@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@shared/utils": ["../../shared/utils/index.js"],
+      "@shared/utils/*": ["../../shared/utils/*"],
+      "@shared/components/*": ["../../shared/components/*"],
+      "@shared/*": ["../../shared/*"],
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

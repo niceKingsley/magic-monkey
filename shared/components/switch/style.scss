@@ -1,0 +1,106 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.magic-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+
+  &--small {
+    --switch-width: 30px;
+    --switch-height: 16px;
+    --switch-knob: 12px;
+    --switch-offset: 14px;
+    --switch-font-size: 12px;
+  }
+
+  &--medium {
+    --switch-width: 38px;
+    --switch-height: 20px;
+    --switch-knob: 16px;
+    --switch-offset: 18px;
+    --switch-font-size: 13px;
+  }
+
+  &--large {
+    --switch-width: 46px;
+    --switch-height: 24px;
+    --switch-knob: 20px;
+    --switch-offset: 22px;
+    --switch-font-size: 14px;
+  }
+
+  &__core {
+    position: relative;
+    display: inline-block;
+    width: var(--switch-width, 38px);
+    height: var(--switch-height, 20px);
+    border-radius: 999px;
+    background-color: var(--magic-switch-inactive-color, rgba(140, 140, 140, 0.35));
+    box-sizing: border-box;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  &__action {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: var(--switch-knob, 16px);
+    height: var(--switch-knob, 16px);
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__label {
+    font-size: 13px;
+    color: var(--text2, #61666d);
+    line-height: 1;
+    transition: color 0.2s ease;
+  }
+
+  &.is-checked {
+    .magic-switch__core {
+      background-color: var(--magic-switch-active-color, var(--magic-primary-color));
+    }
+
+    .magic-switch__action {
+      transform: translateX(var(--switch-offset, 18px));
+    }
+
+    .magic-switch__label {
+      color: var(--text1, #18191c);
+    }
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+
+    .magic-switch__core {
+      cursor: not-allowed;
+    }
+  }
+
+  &.is-loading {
+    cursor: wait;
+    opacity: 0.8;
+  }
+}

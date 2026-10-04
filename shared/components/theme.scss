@@ -1,0 +1,8 @@
+:root {
+  --magic-primary-color: #e11483;
+  --magic-primary-hover-color: color-mix(in srgb, var(--magic-primary-color) 85%, #fff);
+  --magic-primary-active-color: color-mix(in srgb, var(--magic-primary-color) 85%, #000);
+  --magic-primary-light-bg: color-mix(in srgb, var(--magic-primary-color) 12%, transparent);
+  --magic-primary-shadow: color-mix(in srgb, var(--magic-primary-color) 35%, transparent);
+  --magic-primary-focus-shadow: color-mix(in srgb, var(--magic-primary-color) 20%, transparent);
+}

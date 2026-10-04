@@ -1,0 +1,23 @@
+{
+  "name": "@shared/components",
+  "version": "1.0.0",
+  "type": "module",
+  "sideEffects": true,
+  "web-types": "./web-types.json",
+  "exports": {
+    "./button": "./button/index.js",
+    "./spinner": "./spinner/index.js",
+    "./toast": "./toast/index.js",
+    "./radio": "./radio/index.js",
+    "./select": "./select/index.js",
+    "./modal": "./modal/index.js",
+    "./switch": "./switch/index.js",
+    "./input": "./input/index.js",
+    "./theme": "./theme.js",
+    "./theme.css": "./theme.scss"
+  },
+  "dependencies": {
+    "@shared/utils": "workspace:*",
+    "lit": "^3.2.1"
+  }
+}
