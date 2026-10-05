@@ -4,24 +4,19 @@
 >
 > 重写一套接近B站的侧边选集面板 UI，将合集浏览、智能随机、即时搜索、自定义快捷键、动态高亮与播放规则深度整合，提高您的听歌与学习体验🤗
 
-## 📥 快速安装与使用
+## 🎬 效果演示
 
-1. 浏览器安装 [Tampermonkey](https://www.tampermonkey.net/) 或 [ScriptCat](https://scriptcat.org/) 扩展插件。
-2. 前往平台安装脚本：
-   - 🐒 **Greasy Fork（油猴）**：[安装](https://greasyfork.org/zh-CN/scripts/598685-bilibili-playlist-enhancer)
-   - 🐱 **ScriptCat（脚本猫）**：[安装](https://scriptcat.org/zh-CN/script-show-page/8259)
-3. 打开任意 B 站视频或合集播放页，右侧选集面板已自动增强生效！
+[![bilibili-playlist-enhancer 效果演示](https://raw.githubusercontent.com/niceKingsley/magic-monkey/main/packages/bilibili-playlist-enhancer/assets/preview.gif)](https://raw.githubusercontent.com/niceKingsley/magic-monkey/main/packages/bilibili-playlist-enhancer/assets/preview.gif)
 
 ---
 
 ## ✨ 功能详解
 
-### 1. 🔀 智能随机播放模式
+### 1. 🔀 随机播放模式
 
-- **智能候选池抽取**：优先从未播放视频池中随机抽取，已播放过的视频不会重复切入，全部播完后自动开启新一轮轮转。
-- **双范围灵活配置**：支持「全合集随机」与「仅当前分组随机」，音乐合辑与分段长剧皆可轻松应对。
-- **历史回溯栈管理**：支持上一集回退到刚随机过的上一首，下一集继续探索新视频。
-- **顶部一键切换**：顶部操作栏提供的图标会有状态反馈。
+- **候选池抽取**：优先从未播放视频池中随机抽取，已播放过的视频不会重复切入，全部播完后自动开启新一轮轮转。
+- **围灵活配置**：支持「全合集随机」与「仅当前分组随机」，音乐合辑与分段长剧皆可轻松应对。
+- **历史回溯栈**：支持上一集回退到刚随机过的上一首，下一集继续探索新视频。
 
 ### 2. 🔍 列表内即时搜索与过滤
 
