@@ -68,6 +68,13 @@
   --magic-border-color: var(--line_regular);
   --magic-tabs-mask-bg: var(--graph_bg_regular);
   --magic-tabs-hover-color: var(--brand_blue);
+  --magic-bg-overlay: var(--bg1_float, var(--graph_bg_regular));
+  --magic-modal-bg: var(--bg1_float, var(--graph_bg_regular));
+  --magic-modal-border: var(--line_regular);
+  --magic-modal-divider: var(--line_regular);
+  --magic-modal-title-color: var(--text1);
+  --magic-modal-color: var(--text1);
+  --magic-modal-close-color: var(--text3);
 }
 
 .tk-reaction {

@@ -31,15 +31,15 @@
 .settings-card {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--magic-bg-subtle, var(--graph_bg_thin, var(--bg2)));
+  border: 1px solid var(--magic-border-color, var(--line_regular));
   border-radius: 10px;
   padding: 4px 16px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    border-color: rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--magic-border-color-hover, var(--line_regular));
+    background: var(--magic-bg-hover, var(--line_regular));
   }
 }
 
@@ -52,7 +52,7 @@
   transition: opacity 0.2s ease;
 
   &:not(:last-child) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid var(--magic-border-color, var(--line_regular));
   }
 
   &.is-disabled {
@@ -71,13 +71,13 @@
   &__title {
     font-size: 13.5px;
     font-weight: 500;
-    color: #e5e9ef;
+    color: var(--text1);
     line-height: 1.4;
   }
 
   &__desc {
     font-size: 12px;
-    color: #9499a0;
+    color: var(--text3);
     line-height: 1.45;
   }
 
@@ -91,9 +91,9 @@
       height: 28px;
       padding: 0 10px;
       border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--magic-primary-color, #00aeec);
+      border: 1px solid var(--magic-border-color, var(--line_regular));
+      background: var(--magic-bg-subtle, var(--graph_bg_thin));
+      color: var(--magic-primary-color, var(--brand_blue));
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-size: 12px;
       font-weight: 600;
@@ -106,13 +106,13 @@
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
       &:hover {
-        background: var(--magic-primary-light-bg, rgba(0, 174, 236, 0.12));
-        border-color: var(--magic-primary-color, #00aeec);
+        background: var(--magic-primary-light-bg, var(--brand_blue_thin));
+        border-color: var(--magic-primary-color, var(--brand_blue));
       }
 
       &.is-recording {
-        background: var(--magic-primary-color, #00aeec);
-        border-color: var(--magic-primary-color, #00aeec);
+        background: var(--magic-primary-color, var(--brand_blue));
+        border-color: var(--magic-primary-color, var(--brand_blue));
         color: #fff;
         box-shadow: 0 0 0 3px var(--magic-primary-focus-shadow, rgba(0, 174, 236, 0.25));
         animation: tk-hotkey-pulse 1.2s infinite ease-in-out;
