@@ -5,4 +5,148 @@
   --magic-primary-light-bg: color-mix(in srgb, var(--magic-primary-color) 12%, transparent);
   --magic-primary-shadow: color-mix(in srgb, var(--magic-primary-color) 35%, transparent);
   --magic-primary-focus-shadow: color-mix(in srgb, var(--magic-primary-color) 20%, transparent);
+
+  --magic-color-success: #2ac864;
+  --magic-color-success-hover: #3ad473;
+  --magic-color-success-active: #23b056;
+  --magic-color-success-shadow: rgba(42, 200, 100, 0.35);
+
+  --magic-color-warning: #fa9600;
+  --magic-color-warning-hover: #ffaa1a;
+  --magic-color-warning-active: #e08700;
+  --magic-color-warning-shadow: rgba(250, 150, 0, 0.35);
+
+  --magic-color-danger: #ff5c7c;
+  --magic-color-danger-hover: #ff7591;
+  --magic-color-danger-active: #e64567;
+  --magic-color-danger-shadow: rgba(255, 92, 124, 0.35);
+
+  --magic-text-primary: #ffffff;
+  --magic-text-secondary: rgba(255, 255, 255, 0.7);
+  --magic-text-tertiary: #9499a0;
+  --magic-text-disabled: rgba(255, 255, 255, 0.35);
+
+  --magic-bg-base: rgba(255, 255, 255, 0.04);
+  --magic-bg-subtle: rgba(255, 255, 255, 0.08);
+  --magic-bg-hover: rgba(255, 255, 255, 0.14);
+  --magic-bg-active: rgba(255, 255, 255, 0.2);
+  --magic-bg-overlay: rgba(28, 30, 36, 0.94);
+  --magic-mask-bg: rgba(0, 0, 0, 0.65);
+
+  --magic-border-color: rgba(255, 255, 255, 0.12);
+  --magic-border-color-hover: rgba(255, 255, 255, 0.25);
+
+  --magic-radius-sm: 4px;
+  --magic-radius-base: 6px;
+  --magic-radius-lg: 8px;
+
+  --magic-shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --magic-shadow-modal: 0 16px 40px rgba(0, 0, 0, 0.45);
+  --magic-shadow-toast: 0 10px 30px rgba(0, 0, 0, 0.45);
+
+  --magic-z-index-dropdown: 1000;
+  --magic-z-index-modal: 99999;
+  --magic-z-index-toast: 999999;
+
+  --magic-btn-default-bg: var(--magic-bg-subtle);
+  --magic-btn-default-color: var(--magic-text-primary);
+  --magic-btn-default-border: var(--magic-border-color);
+  --magic-btn-default-hover-bg: var(--magic-bg-hover);
+  --magic-btn-default-hover-border: var(--magic-border-color-hover);
+  --magic-btn-default-active-bg: var(--magic-bg-active);
+  --magic-btn-primary-bg: var(--magic-primary-color);
+  --magic-btn-primary-hover-bg: var(--magic-primary-hover-color);
+  --magic-btn-primary-active-bg: var(--magic-primary-active-color);
+  --magic-btn-success-bg: var(--magic-color-success);
+  --magic-btn-success-hover-bg: var(--magic-color-success-hover);
+  --magic-btn-success-active-bg: var(--magic-color-success-active);
+  --magic-btn-warning-bg: var(--magic-color-warning);
+  --magic-btn-warning-hover-bg: var(--magic-color-warning-hover);
+  --magic-btn-warning-active-bg: var(--magic-color-warning-active);
+  --magic-btn-danger-bg: var(--magic-color-danger);
+  --magic-btn-danger-hover-bg: var(--magic-color-danger-hover);
+  --magic-btn-danger-active-bg: var(--magic-color-danger-active);
+  --magic-btn-text-color: var(--magic-text-secondary);
+  --magic-btn-text-hover-bg: var(--magic-bg-subtle);
+  --magic-btn-text-active-bg: var(--magic-bg-hover);
+
+  --magic-input-radius: var(--magic-radius-base);
+  --magic-input-bg: var(--magic-bg-subtle);
+  --magic-input-border: var(--magic-border-color);
+  --magic-input-color: var(--magic-text-primary);
+  --magic-input-hover-border: var(--magic-border-color-hover);
+  --magic-input-hover-bg: var(--magic-bg-hover);
+  --magic-input-focus-border: var(--magic-primary-color);
+  --magic-input-focus-bg: var(--magic-bg-subtle);
+  --magic-input-focus-shadow: var(--magic-primary-focus-shadow);
+  --magic-input-prefix-color: var(--magic-text-tertiary);
+  --magic-input-placeholder-color: var(--magic-text-tertiary);
+  --magic-input-suffix-color: var(--magic-text-tertiary);
+  --magic-input-clear-color: var(--magic-text-tertiary);
+  --magic-input-clear-hover-color: var(--magic-text-primary);
+
+  --magic-select-bg: var(--magic-bg-subtle);
+  --magic-select-color: var(--magic-text-primary);
+  --magic-select-border: var(--magic-border-color);
+  --magic-select-placeholder-color: var(--magic-text-tertiary);
+  --magic-select-suffix-color: var(--magic-text-tertiary);
+  --magic-select-clear-color: var(--magic-text-tertiary);
+  --magic-select-clear-hover-color: var(--magic-text-primary);
+  --magic-select-hover-border: var(--magic-border-color-hover);
+  --magic-select-hover-bg: var(--magic-bg-hover);
+  --magic-select-active-color: var(--magic-primary-color);
+  --magic-select-z-index: var(--magic-z-index-dropdown);
+  --magic-select-dropdown-bg: var(--magic-bg-overlay);
+  --magic-select-dropdown-border: var(--magic-border-color);
+  --magic-select-dropdown-shadow: var(--magic-shadow-dropdown);
+  --magic-select-option-hover-bg: var(--magic-bg-hover);
+  --magic-select-option-active-bg: var(--magic-primary-light-bg);
+
+  --magic-tabs-capsule-bg: var(--magic-bg-subtle);
+  --magic-tabs-color: var(--magic-text-secondary);
+  --magic-tabs-hover-color: var(--magic-text-primary);
+  --magic-tabs-hover-bg: var(--magic-bg-hover);
+  --magic-tabs-border: transparent;
+  --magic-tabs-active-border: var(--magic-primary-light-bg);
+  --magic-tabs-line-border: var(--magic-border-color);
+  --magic-tabs-mask-bg: var(--magic-mask-bg);
+
+  --magic-switch-color: var(--magic-text-secondary);
+  --magic-switch-active-label-color: var(--magic-text-primary);
+  --magic-switch-inactive-color: rgba(140, 140, 140, 0.35);
+  --magic-switch-active-color: var(--magic-primary-color);
+
+  --magic-spinner-size: 24px;
+  --magic-spinner-border-width: 3px;
+  --magic-spinner-track: var(--magic-bg-subtle);
+  --magic-spinner-color: var(--magic-primary-color);
+  --magic-spinner-text-color: var(--magic-text-tertiary);
+
+  --magic-modal-z-index: var(--magic-z-index-modal);
+  --magic-modal-mask-bg: var(--magic-mask-bg);
+  --magic-modal-bg: var(--magic-bg-overlay);
+  --magic-modal-border: var(--magic-border-color);
+  --magic-modal-radius: var(--magic-radius-lg);
+  --magic-modal-shadow: var(--magic-shadow-modal);
+  --magic-modal-color: var(--magic-text-primary);
+  --magic-modal-divider: var(--magic-border-color);
+  --magic-modal-title-color: var(--magic-text-primary);
+  --magic-modal-close-color: var(--magic-text-tertiary);
+
+  --magic-radio-text-color: var(--magic-text-primary);
+  --magic-radio-border-color: var(--magic-border-color);
+  --magic-radio-bg: var(--magic-bg-subtle);
+  --magic-radio-color: var(--magic-primary-color);
+  --magic-radio-disabled-opacity: 0.45;
+
+  --magic-toast-z-index: var(--magic-z-index-toast);
+  --magic-toast-radius: var(--magic-radius-lg);
+  --magic-toast-bg: var(--magic-bg-overlay);
+  --magic-toast-color: var(--magic-text-primary);
+  --magic-toast-border: var(--magic-border-color);
+  --magic-toast-shadow: var(--magic-shadow-toast);
+  --magic-toast-info-color: var(--magic-primary-color);
+  --magic-toast-success-color: var(--magic-color-success);
+  --magic-toast-warning-color: var(--magic-color-warning);
+  --magic-toast-error-color: var(--magic-color-danger);
 }

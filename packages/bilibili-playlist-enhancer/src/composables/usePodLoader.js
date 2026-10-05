@@ -7,6 +7,7 @@ import {
   hasSeasonBvid,
   isSameVideoTarget,
 } from '../helpers/podHelper.js';
+import { usePodSections } from './usePodSections.js';
 
 /**
  * 合集数据加载与位置同步调度管理
@@ -26,6 +27,24 @@ export function usePodLoader({
   const isLoading = ref(false);
   const podMode = ref(POD_MODE.LIST);
 
+  const {
+    seasonSections,
+    hasMultipleSections,
+    currentSectionId,
+    initSections,
+    resetSections,
+    switchSection,
+    trySwitchSectionByBvid,
+  } = usePodSections({
+    rawGroups,
+    podType,
+    activeBvid,
+    activePage,
+    setExpanded,
+    setActiveTarget,
+    refreshActiveStates,
+  });
+
   const onModeChange = (isExpandedMode) => {
     podMode.value = isExpandedMode ? POD_MODE.CARD : POD_MODE.LIST;
 
@@ -38,7 +57,17 @@ export function usePodLoader({
     podType,
     rootRef,
     onModeChange,
+    hasMultipleSections,
   );
+
+  /**
+   * 重置加载器状态
+   */
+  const resetPodState = () => {
+    rawGroups.value = [];
+    podType.value = null;
+    resetSections();
+  };
 
   /**
    * 尝试在当前合集内快速切集（命中当前合集则直接刷新高亮并平滑定位）
@@ -59,9 +88,8 @@ export function usePodLoader({
    */
   const initPodState = async (payload, bvid, page) => {
     if (!payload) {
-      rawGroups.value = [];
+      resetPodState();
       setExpanded('');
-      podType.value = null;
       return;
     }
 
@@ -69,10 +97,27 @@ export function usePodLoader({
     podMode.value = payload.mode;
     rawGroups.value = payload.groups;
     setActiveTarget(bvid, page);
+    initSections(payload);
 
     setExpanded(findActiveAccordionBvid(currentPlaying.value));
     await startSync(podType.value);
     scrollActiveItem(scrollContainerRef.value, false);
+  };
+
+  /**
+   * 全量远端拉取并载入合集
+   */
+  const fetchFullPod = async (nextBvid, nextPage) => {
+    setActiveTarget(nextBvid, nextPage);
+    resetPodState();
+    isLoading.value = true;
+
+    try {
+      const payload = await fetchPodPayload(nextBvid, nextPage);
+      await initPodState(payload, nextBvid, nextPage);
+    } finally {
+      isLoading.value = false;
+    }
   };
 
   /**
@@ -87,31 +132,24 @@ export function usePodLoader({
       return;
     }
 
-    // 如果是当前合集内切集，直接切高亮
     if (trySwitchSameSeason(nextBvid, nextPage)) return;
+    if (trySwitchSectionByBvid(nextBvid, nextPage)) return;
 
-    // 切外部视频情况
-    setActiveTarget(nextBvid, nextPage);
-    rawGroups.value = [];
-    podType.value = null;
-    isLoading.value = true;
-
-    try {
-      const payload = await fetchPodPayload(nextBvid, nextPage);
-      await initPodState(payload, nextBvid, nextPage);
-    } finally {
-      isLoading.value = false;
-    }
+    await fetchFullPod(nextBvid, nextPage);
   };
 
   return {
     isAnimating,
     isLoading,
     podMode,
+    seasonSections,
+    hasMultipleSections,
+    currentSectionId,
     containerStyle,
     videoBodyStyle,
     initPodState,
     loadPod,
+    switchSection,
     trySwitchSameSeason,
   };
 }

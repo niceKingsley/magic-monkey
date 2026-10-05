@@ -11,6 +11,9 @@ export function injectNativeHidingStyles() {
     .video-pod__body {
       overflow: hidden !important;
     }
+    .video-pod__body {
+      min-height: 250px !important;
+    }
     .action-list-item-wrap,
     .video-pod__body .pod-item {
       visibility: hidden !important;

@@ -71,7 +71,7 @@
 
   &__label {
     font-size: 13px;
-    color: var(--text2, #61666d);
+    color: var(--magic-switch-color, #9499a0);
     line-height: 1;
     transition: color 0.2s ease;
   }
@@ -86,7 +86,7 @@
     }
 
     .magic-switch__label {
-      color: var(--text1, #18191c);
+      color: var(--magic-switch-active-label-color, #ffffff);
     }
   }
 

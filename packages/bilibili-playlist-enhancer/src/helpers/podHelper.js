@@ -47,6 +47,9 @@ export async function fetchPodPayload(bvid, page) {
   return {
     type: podData.type,
     mode: podData.mode,
+    seasonSections: podData.seasonSections || [],
+    hasMultipleSections: !!podData.hasMultipleSections,
+    currentSectionId: podData.currentSectionId || '',
     groups: processSeasonData(podData.type, podData.sections, bvid, page),
   };
 }
@@ -61,6 +64,12 @@ export const isSameVideoTarget = (currentBvid, currentPage, nextBvid, nextPage) 
  * 判断目标视频是否存在于合集列表中
  */
 export const hasSeasonBvid = (groups, bvid) => groups.some((g) => g.bvid === bvid);
+
+/**
+ * 根据 bvid 在合集分卷列表中查找所属分卷
+ */
+export const findSectionByBvid = (seasonSections = [], bvid = '') =>
+  seasonSections.find((s) => (s.episodes || []).some((ep) => ep.bvid === bvid));
 
 /**
  * 将多组视频与子分 P 拍平为线性列表

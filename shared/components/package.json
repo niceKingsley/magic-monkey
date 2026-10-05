@@ -13,6 +13,7 @@
     "./modal": "./modal/index.js",
     "./switch": "./switch/index.js",
     "./input": "./input/index.js",
+    "./tabs": "./tabs/index.js",
     "./theme": "./theme.js",
     "./theme.css": "./theme.scss"
   },

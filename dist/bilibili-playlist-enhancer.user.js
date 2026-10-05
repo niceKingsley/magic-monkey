@@ -37,66 +37,8 @@
     })(t);
   };
   _css(
-    ' .settings-container[data-v-e52d7f12]{-webkit-user-select:none;user-select:none;overscroll-behavior:contain;flex-direction:column;gap:18px;display:flex}.settings-section[data-v-e52d7f12]{flex-direction:column;gap:8px;display:flex}.settings-section__title[data-v-e52d7f12]{color:var(--magic-primary-color,#00aeec);letter-spacing:.3px;align-items:center;gap:6px;font-size:13px;font-weight:600;display:flex}.settings-section__title .section-icon[data-v-e52d7f12]{opacity:.9;width:14px;height:14px}.settings-card[data-v-e52d7f12]{background:#ffffff0a;border:1px solid #ffffff14;border-radius:10px;flex-direction:column;padding:4px 16px;transition:all .25s cubic-bezier(.16,1,.3,1);display:flex}.settings-card[data-v-e52d7f12]:hover{background:#ffffff0f;border-color:#ffffff24}.settings-item[data-v-e52d7f12]{justify-content:space-between;align-items:center;gap:16px;padding:12px 0;transition:opacity .2s;display:flex}.settings-item[data-v-e52d7f12]:not(:last-child){border-bottom:1px solid #ffffff0f}.settings-item.is-disabled[data-v-e52d7f12]{opacity:.38;pointer-events:none}.settings-item__info[data-v-e52d7f12]{flex-direction:column;flex:1;gap:3px;min-width:0;display:flex}.settings-item__title[data-v-e52d7f12]{color:#e5e9ef;font-size:13.5px;font-weight:500;line-height:1.4}.settings-item__desc[data-v-e52d7f12]{color:#9499a0;font-size:12px;line-height:1.45}.settings-item__action[data-v-e52d7f12]{flex-shrink:0;align-items:center;display:flex}.settings-item__action .hotkey-badge[data-v-e52d7f12]{min-width:80px;height:28px;color:var(--magic-primary-color,#00aeec);cursor:pointer;-webkit-user-select:none;user-select:none;background:#ffffff0f;border:1px solid #ffffff26;border-radius:6px;outline:none;justify-content:center;align-items:center;padding:0 10px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;font-weight:600;transition:all .2s cubic-bezier(.16,1,.3,1);display:inline-flex}.settings-item__action .hotkey-badge[data-v-e52d7f12]:hover{background:var(--magic-primary-light-bg,#00aeec1f);border-color:var(--magic-primary-color,#00aeec)}.settings-item__action .hotkey-badge.is-recording[data-v-e52d7f12]{background:var(--magic-primary-color,#00aeec);border-color:var(--magic-primary-color,#00aeec);color:#fff;box-shadow:0 0 0 3px var(--magic-primary-focus-shadow,#00aeec40);animation:1.2s ease-in-out infinite tk-hotkey-pulse-e52d7f12}@keyframes tk-hotkey-pulse-e52d7f12{0%,to{opacity:1}50%{opacity:.6}}.settings-modal-footer[data-v-e52d7f12]{justify-content:space-between;align-items:center;width:100%;display:flex}.settings-modal-footer .footer-buttons[data-v-e52d7f12]{align-items:center;gap:10px;display:flex}@keyframes tk-spin-81fdaee1{0%{transform:rotate(0)}to{transform:rotate(360deg)}}:root{--magic-primary-color:var(--brand_blue,#00aeec);--magic-primary-hover-color:var(--brand_blue_hover,color-mix(in srgb, var(--magic-primary-color) 85%, #fff));--magic-primary-active-color:var(--brand_blue_active,color-mix(in srgb, var(--magic-primary-color) 85%, #000));--magic-primary-light-bg:var(--brand_blue_thin,color-mix(in srgb, var(--magic-primary-color) 12%, transparent))}.tk-reaction[data-v-81fdaee1]{z-index:10;background-color:var(--graph_bg_regular);box-sizing:border-box;flex-direction:column;display:flex;position:absolute;left:4321px;overflow:hidden}.tk-reaction.is-animating[data-v-81fdaee1]{transition:max-height .3s ease-in-out,top .29s ease-in-out}.tk-reaction .tk-reaction-header[data-v-81fdaee1]{border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;justify-content:space-between;align-items:center;margin-bottom:6px;padding:6px 12px;display:flex}.tk-reaction .tk-reaction-header .header-left[data-v-81fdaee1]{align-items:center;gap:12px;display:flex}.tk-reaction .tk-reaction-header .header-left .sort-select[data-v-81fdaee1]{--magic-select-bg:var(--bg2);--magic-select-border:var(--line_regular);--magic-select-color:var(--text1);--magic-select-placeholder-color:var(--text3);--magic-select-suffix-color:var(--text3);--magic-select-hover-bg:var(--bg2_hover,var(--bg3));--magic-select-hover-border:var(--magic-primary-color,var(--brand_blue));--magic-select-active-color:var(--magic-primary-color,var(--brand_blue));--magic-select-dropdown-bg:var(--graph_bg_thick,var(--bg1));--magic-select-dropdown-border:var(--line_regular);--magic-select-dropdown-shadow:0 4px 16px #0003;--magic-select-option-hover-bg:var(--bg2);--magic-select-option-active-bg:var(--magic-primary-light-bg,var(--brand_blue_thin));width:104px}.tk-reaction .tk-reaction-header .header-left magic-switch[data-v-81fdaee1]{--magic-switch-active-color:var(--magic-primary-color,var(--brand_blue));--magic-switch-inactive-color:var(--text4)}.tk-reaction .tk-reaction-header .header-right[data-v-81fdaee1]{align-items:center;gap:6px;display:flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-81fdaee1],.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-81fdaee1]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border-radius:4px;justify-content:center;align-items:center;padding:0;transition:color .2s,background-color .2s,transform .15s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn .icon[data-v-81fdaee1],.tk-reaction .tk-reaction-header .header-right .search-btn .icon[data-v-81fdaee1]{fill:currentColor;width:15px;height:15px}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-81fdaee1]:hover,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-81fdaee1]:hover{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--bg2)}.tk-reaction .tk-reaction-header .header-right .shuffle-btn.is-active[data-v-81fdaee1],.tk-reaction .tk-reaction-header .header-right .search-btn.is-active[data-v-81fdaee1]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin))}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-81fdaee1]:active,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-81fdaee1]:active{transform:scale(.92)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-81fdaee1]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border:none;outline:none;justify-content:center;align-items:center;padding:0;transition:color .2s,transform .2s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .settings-btn .icon[data-v-81fdaee1]{width:16px;height:16px;color:inherit;fill:currentColor;transition:transform .3s}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-81fdaee1]:hover{color:var(--magic-primary-color,var(--brand_blue));background:0 0}.tk-reaction .tk-reaction-header .header-right .settings-btn:hover .icon[data-v-81fdaee1]{transform:rotate(60deg)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-81fdaee1]:active{transform:scale(.92)}.tk-reaction .tk-reaction-search[data-v-81fdaee1]{flex-shrink:0;padding:0 12px 6px}.tk-reaction .tk-reaction-search .search-input[data-v-81fdaee1]{--magic-input-bg:var(--bg2);--magic-input-border:var(--line_regular);--magic-input-color:var(--text1);--magic-input-placeholder-color:var(--text3);--magic-input-hover-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-bg:var(--graph_bg_regular);--magic-input-prefix-color:var(--text3);--magic-input-suffix-color:var(--text3);--magic-input-clear-color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .search-prefix-icon[data-v-81fdaee1]{width:14px;height:14px;color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .match-badge[data-v-81fdaee1]{color:var(--text3);white-space:nowrap;font-size:11px}.tk-reaction .tk-reaction-video[data-v-81fdaee1]{overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#78787880 transparent;flex:1;min-height:0;position:relative;overflow:auto}.tk-reaction .tk-reaction-video.is-loading[data-v-81fdaee1]{overflow:hidden!important}.tk-reaction .tk-reaction-video[data-v-81fdaee1]::-webkit-scrollbar{width:8px;height:8px}.tk-reaction .tk-reaction-video[data-v-81fdaee1]::-webkit-scrollbar-thumb{background:#78787880;border-radius:8px}.tk-reaction .tk-reaction-video[data-v-81fdaee1]::-webkit-scrollbar-thumb:hover{background:#787878}.tk-reaction .tk-reaction-video .empty-state[data-v-81fdaee1]{min-height:160px;color:var(--text3);text-align:center;justify-content:center;align-items:center;padding:48px 16px;font-size:13px;display:flex}.tk-reaction .tk-reaction-video .loading-state[data-v-81fdaee1]{justify-content:center;align-items:center;min-height:160px;padding:48px 0;display:flex}.tk-reaction .tk-reaction-video .list[data-v-81fdaee1]{box-sizing:border-box;width:calc(100% - 12px);margin:0 auto;position:relative}.tk-reaction .tk-reaction-video .list .item[data-v-81fdaee1]{content-visibility:auto;contain-intrinsic-size:auto 36px;margin-bottom:4px}.tk-reaction .tk-reaction-video .list .item .header[data-v-81fdaee1]{cursor:pointer;border-radius:2px;align-items:center;padding:0 10px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header[data-v-81fdaee1]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .header.is-active[data-v-81fdaee1]{background-color:var(--bg2,#ffffff14)}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title[data-v-81fdaee1],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title[data-v-81fdaee1]{color:var(--magic-primary-color,var(--brand_blue))!important}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title .playing-gif[data-v-81fdaee1],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title .playing-gif[data-v-81fdaee1]{display:block!important}.tk-reaction .tk-reaction-video .list .item .header .mode-list[data-v-81fdaee1]{justify-content:space-between;align-items:center;width:100%;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-81fdaee1]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-81fdaee1]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .playing-gif[data-v-81fdaee1]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .title-text[data-v-81fdaee1]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions[data-v-81fdaee1]{color:var(--text3);flex-shrink:0;align-items:center;gap:8px;margin-left:10px;font-size:14px;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand[data-v-81fdaee1]{cursor:pointer;align-items:center;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand .icon[data-v-81fdaee1]{color:var(--text3);width:14px;height:14px;transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand.is-expanded .icon[data-v-81fdaee1]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .header .mode-card[data-v-81fdaee1]{align-items:stretch;gap:10px;width:100%;padding:6px 0;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover[data-v-81fdaee1]{background-color:var(--bg2,#0000001a);border-radius:4px;flex-shrink:0;width:114px;height:64px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover .cover-img[data-v-81fdaee1]{object-fit:cover;width:100%;height:100%;display:block}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info[data-v-81fdaee1]{flex-direction:column;flex:1;justify-content:space-between;min-width:0;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-81fdaee1]{color:var(--text1);align-items:flex-start;max-height:36px;font-size:13px;line-height:18px;transition:color .2s;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-81fdaee1]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .playing-gif[data-v-81fdaee1]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-top:3px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .title-text[data-v-81fdaee1]{-webkit-line-clamp:2;text-overflow:ellipsis;word-break:break-all;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats[data-v-81fdaee1]{color:var(--text3);align-items:center;gap:8px;min-width:0;font-size:12px;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item[data-v-81fdaee1]{flex-shrink:1;align-items:center;gap:3px;min-width:0;display:inline-flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .icon[data-v-81fdaee1]{fill:currentColor;flex-shrink:0;width:14px;height:14px}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .count-text[data-v-81fdaee1]{white-space:nowrap;text-overflow:ellipsis;line-height:14px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.views[data-v-81fdaee1],.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.danmaku[data-v-81fdaee1]{flex-shrink:0}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn[data-v-81fdaee1]{cursor:pointer;flex-shrink:0;margin-left:auto}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn .icon[data-v-81fdaee1]{width:14px;height:14px;color:var(--text3);transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn.is-expanded .icon[data-v-81fdaee1]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .episodes[data-v-81fdaee1]{margin-top:4px}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-81fdaee1]{content-visibility:auto;contain-intrinsic-size:auto 31px;background:var(--bg1);cursor:pointer;border-radius:2px;justify-content:space-between;align-items:center;padding:0 10px 0 24px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-81fdaee1]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title[data-v-81fdaee1]{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title .playing-gif[data-v-81fdaee1]{display:block}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-81fdaee1]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-81fdaee1]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .playing-gif[data-v-81fdaee1]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .title-txt[data-v-81fdaee1]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-meta[data-v-81fdaee1]{color:var(--text3);flex-shrink:0;margin-left:10px;font-size:14px}.tk-reaction.is-card-mode .item[data-v-81fdaee1]{contain-intrinsic-size:auto 80px!important}.tk-reaction.is-card-mode .header .mode-list[data-v-81fdaee1]{display:none!important}.tk-reaction.is-card-mode .header .mode-card[data-v-81fdaee1]{display:flex!important}\n/*$vite$:1*/ ',
+    ' .settings-container[data-v-e52d7f12]{-webkit-user-select:none;user-select:none;overscroll-behavior:contain;flex-direction:column;gap:18px;display:flex}.settings-section[data-v-e52d7f12]{flex-direction:column;gap:8px;display:flex}.settings-section__title[data-v-e52d7f12]{color:var(--magic-primary-color,#00aeec);letter-spacing:.3px;align-items:center;gap:6px;font-size:13px;font-weight:600;display:flex}.settings-section__title .section-icon[data-v-e52d7f12]{opacity:.9;width:14px;height:14px}.settings-card[data-v-e52d7f12]{background:#ffffff0a;border:1px solid #ffffff14;border-radius:10px;flex-direction:column;padding:4px 16px;transition:all .25s cubic-bezier(.16,1,.3,1);display:flex}.settings-card[data-v-e52d7f12]:hover{background:#ffffff0f;border-color:#ffffff24}.settings-item[data-v-e52d7f12]{justify-content:space-between;align-items:center;gap:16px;padding:12px 0;transition:opacity .2s;display:flex}.settings-item[data-v-e52d7f12]:not(:last-child){border-bottom:1px solid #ffffff0f}.settings-item.is-disabled[data-v-e52d7f12]{opacity:.38;pointer-events:none}.settings-item__info[data-v-e52d7f12]{flex-direction:column;flex:1;gap:3px;min-width:0;display:flex}.settings-item__title[data-v-e52d7f12]{color:#e5e9ef;font-size:13.5px;font-weight:500;line-height:1.4}.settings-item__desc[data-v-e52d7f12]{color:#9499a0;font-size:12px;line-height:1.45}.settings-item__action[data-v-e52d7f12]{flex-shrink:0;align-items:center;display:flex}.settings-item__action .hotkey-badge[data-v-e52d7f12]{min-width:80px;height:28px;color:var(--magic-primary-color,#00aeec);cursor:pointer;-webkit-user-select:none;user-select:none;background:#ffffff0f;border:1px solid #ffffff26;border-radius:6px;outline:none;justify-content:center;align-items:center;padding:0 10px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;font-weight:600;transition:all .2s cubic-bezier(.16,1,.3,1);display:inline-flex}.settings-item__action .hotkey-badge[data-v-e52d7f12]:hover{background:var(--magic-primary-light-bg,#00aeec1f);border-color:var(--magic-primary-color,#00aeec)}.settings-item__action .hotkey-badge.is-recording[data-v-e52d7f12]{background:var(--magic-primary-color,#00aeec);border-color:var(--magic-primary-color,#00aeec);color:#fff;box-shadow:0 0 0 3px var(--magic-primary-focus-shadow,#00aeec40);animation:1.2s ease-in-out infinite tk-hotkey-pulse-e52d7f12}@keyframes tk-hotkey-pulse-e52d7f12{0%,to{opacity:1}50%{opacity:.6}}.settings-modal-footer[data-v-e52d7f12]{justify-content:space-between;align-items:center;width:100%;display:flex}.settings-modal-footer .footer-buttons[data-v-e52d7f12]{align-items:center;gap:10px;display:flex}@keyframes tk-spin-f3f41387{0%{transform:rotate(0)}to{transform:rotate(360deg)}}:root{--magic-primary-color:var(--brand_blue);--magic-primary-hover-color:var(--brand_blue_hover,color-mix(in srgb, var(--magic-primary-color) 85%, #fff));--magic-primary-active-color:var(--brand_blue_active,color-mix(in srgb, var(--magic-primary-color) 85%, #000));--magic-primary-light-bg:var(--brand_blue_thin,color-mix(in srgb, var(--magic-primary-color) 12%, transparent));--magic-text-primary:var(--text1);--magic-text-secondary:var(--text2);--magic-text-tertiary:var(--text3);--magic-bg-subtle:var(--graph_bg_thin,var(--bg2));--magic-bg-hover:var(--line_regular,var(--bg3));--magic-border-color:var(--line_regular);--magic-tabs-mask-bg:var(--graph_bg_regular);--magic-tabs-hover-color:var(--brand_blue)}.tk-reaction[data-v-f3f41387]{z-index:10;background-color:var(--graph_bg_regular);box-sizing:border-box;flex-direction:column;display:flex;position:absolute;left:4321px;overflow:hidden}.tk-reaction.is-animating[data-v-f3f41387]{transition:max-height .3s ease-in-out,top .29s ease-in-out;overflow:hidden}.tk-reaction .tk-reaction-pod-slide[data-v-f3f41387]{z-index:15;border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;align-items:center;min-width:0;padding:4px 0;display:flex;position:relative}.tk-reaction .tk-reaction-pod-slide magic-tabs[data-v-f3f41387]{flex:1;min-width:0}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-f3f41387]{cursor:pointer;width:26px;height:26px;color:var(--text3);border-radius:4px;justify-content:center;align-items:center;margin-left:6px;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-f3f41387]:hover{color:var(--text1)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn:hover .icon[data-v-f3f41387],.tk-reaction .tk-reaction-pod-slide .more-sections-btn:hover svg[data-v-f3f41387]{transform:rotate(180deg)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-f3f41387]:active{transform:scale(.92)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active[data-v-f3f41387],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded[data-v-f3f41387]{color:var(--text1)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active .icon[data-v-f3f41387],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active svg[data-v-f3f41387],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded .icon[data-v-f3f41387],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded svg[data-v-f3f41387]{transform:rotate(180deg)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn .icon[data-v-f3f41387],.tk-reaction .tk-reaction-pod-slide .more-sections-btn svg[data-v-f3f41387]{width:14px;height:14px;transition:transform .2s cubic-bezier(.4,0,.2,1);display:block}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu[data-v-f3f41387]{z-index:50;overscroll-behavior:contain;background:var(--graph_bg_thick,var(--bg1));border:1px solid var(--line_regular);box-sizing:border-box;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);scrollbar-width:none;-ms-overflow-style:none;border-radius:6px;max-height:250px;padding:4px;position:absolute;top:calc(100% + 2px);left:0;right:0;overflow-y:auto;box-shadow:0 6px 20px #00000059}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu[data-v-f3f41387]::-webkit-scrollbar{width:0;height:0;display:none}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item[data-v-f3f41387]{cursor:pointer;height:32px;color:var(--text2);-webkit-user-select:none;user-select:none;border-radius:4px;justify-content:space-between;align-items:center;gap:8px;padding:0 10px;font-size:13px;transition:all .15s;display:flex}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item[data-v-f3f41387]:hover{color:var(--text1);background-color:var(--bg2)}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item.is-active[data-v-f3f41387]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin));font-weight:500}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item .item-label[data-v-f3f41387]{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.tk-reaction .dropdown-fade-enter-active[data-v-f3f41387],.tk-reaction .dropdown-fade-leave-active[data-v-f3f41387]{transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1)}.tk-reaction .dropdown-fade-enter-from[data-v-f3f41387],.tk-reaction .dropdown-fade-leave-to[data-v-f3f41387]{opacity:0;transform:translateY(-4px)}.tk-reaction .tk-reaction-header[data-v-f3f41387]{border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;justify-content:space-between;align-items:center;margin-bottom:6px;padding:6px 12px;display:flex}.tk-reaction .tk-reaction-header .header-left[data-v-f3f41387]{align-items:center;gap:12px;display:flex}.tk-reaction .tk-reaction-header .header-left .sort-select[data-v-f3f41387]{--magic-select-bg:var(--bg2);--magic-select-border:var(--line_regular);--magic-select-color:var(--text1);--magic-select-placeholder-color:var(--text3);--magic-select-suffix-color:var(--text3);--magic-select-hover-bg:var(--bg2_hover);--magic-select-hover-border:var(--magic-primary-color);--magic-select-active-color:var(--magic-primary-color);--magic-select-dropdown-bg:var(--graph_bg_thick);--magic-select-dropdown-border:var(--line_regular);--magic-select-dropdown-shadow:0 4px 16px #0003;--magic-select-option-hover-bg:var(--bg2);--magic-select-option-active-bg:var(--magic-primary-light-bg);width:104px}.tk-reaction .tk-reaction-header .header-left magic-switch[data-v-f3f41387]{--magic-switch-active-color:var(--magic-primary-color,var(--brand_blue));--magic-switch-inactive-color:var(--text4)}.tk-reaction .tk-reaction-header .header-right[data-v-f3f41387]{align-items:center;gap:6px;display:flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-f3f41387],.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-f3f41387]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border-radius:4px;justify-content:center;align-items:center;padding:0;transition:color .2s,background-color .2s,transform .15s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn .icon[data-v-f3f41387],.tk-reaction .tk-reaction-header .header-right .search-btn .icon[data-v-f3f41387]{fill:currentColor;width:15px;height:15px}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-f3f41387]:hover,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-f3f41387]:hover{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--bg2)}.tk-reaction .tk-reaction-header .header-right .shuffle-btn.is-active[data-v-f3f41387],.tk-reaction .tk-reaction-header .header-right .search-btn.is-active[data-v-f3f41387]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin))}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-f3f41387]:active,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-f3f41387]:active{transform:scale(.92)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-f3f41387]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border:none;outline:none;justify-content:center;align-items:center;padding:0;transition:color .2s,transform .2s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .settings-btn .icon[data-v-f3f41387]{width:16px;height:16px;color:inherit;fill:currentColor;transition:transform .3s}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-f3f41387]:hover{color:var(--magic-primary-color,var(--brand_blue));background:0 0}.tk-reaction .tk-reaction-header .header-right .settings-btn:hover .icon[data-v-f3f41387]{transform:rotate(60deg)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-f3f41387]:active{transform:scale(.92)}.tk-reaction .tk-reaction-search[data-v-f3f41387]{flex-shrink:0;padding:0 12px 6px}.tk-reaction .tk-reaction-search .search-input[data-v-f3f41387]{--magic-input-bg:var(--bg2);--magic-input-border:var(--line_regular);--magic-input-color:var(--text1);--magic-input-placeholder-color:var(--text3);--magic-input-hover-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-bg:var(--graph_bg_regular);--magic-input-prefix-color:var(--text3);--magic-input-suffix-color:var(--text3);--magic-input-clear-color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .search-prefix-icon[data-v-f3f41387]{width:14px;height:14px;color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .match-badge[data-v-f3f41387]{color:var(--text3);white-space:nowrap;font-size:11px}.tk-reaction .tk-reaction-video[data-v-f3f41387]{overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#78787880 transparent;flex:1;min-height:0;position:relative;overflow:auto}.tk-reaction .tk-reaction-video.is-loading[data-v-f3f41387]{overflow:hidden!important}.tk-reaction .tk-reaction-video[data-v-f3f41387]::-webkit-scrollbar{width:8px;height:8px}.tk-reaction .tk-reaction-video[data-v-f3f41387]::-webkit-scrollbar-thumb{background:#78787880;border-radius:8px}.tk-reaction .tk-reaction-video[data-v-f3f41387]::-webkit-scrollbar-thumb:hover{background:#787878}.tk-reaction .tk-reaction-video .empty-state[data-v-f3f41387]{min-height:160px;color:var(--text3);text-align:center;justify-content:center;align-items:center;padding:48px 16px;font-size:13px;display:flex}.tk-reaction .tk-reaction-video .loading-state[data-v-f3f41387]{justify-content:center;align-items:center;min-height:160px;padding:48px 0;display:flex}.tk-reaction .tk-reaction-video .list[data-v-f3f41387]{box-sizing:border-box;width:calc(100% - 12px);margin:0 auto;position:relative}.tk-reaction .tk-reaction-video .list .item[data-v-f3f41387]{content-visibility:auto;contain-intrinsic-size:auto 36px;margin-bottom:4px}.tk-reaction .tk-reaction-video .list .item .header[data-v-f3f41387]{cursor:pointer;border-radius:2px;align-items:center;padding:0 10px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header[data-v-f3f41387]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .header.is-active[data-v-f3f41387]{background-color:var(--bg2,#ffffff14)}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title[data-v-f3f41387],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title[data-v-f3f41387]{color:var(--magic-primary-color,var(--brand_blue))!important}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title .playing-gif[data-v-f3f41387],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title .playing-gif[data-v-f3f41387]{display:block!important}.tk-reaction .tk-reaction-video .list .item .header .mode-list[data-v-f3f41387]{justify-content:space-between;align-items:center;width:100%;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-f3f41387]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-f3f41387]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .playing-gif[data-v-f3f41387]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .title-text[data-v-f3f41387]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions[data-v-f3f41387]{color:var(--text3);flex-shrink:0;align-items:center;gap:8px;margin-left:10px;font-size:14px;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand[data-v-f3f41387]{cursor:pointer;align-items:center;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand .icon[data-v-f3f41387]{color:var(--text3);width:14px;height:14px;transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand.is-expanded .icon[data-v-f3f41387]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .header .mode-card[data-v-f3f41387]{align-items:stretch;gap:10px;width:100%;padding:6px 0;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover[data-v-f3f41387]{background-color:var(--bg2,#0000001a);border-radius:4px;flex-shrink:0;width:114px;height:64px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover .cover-img[data-v-f3f41387]{object-fit:cover;width:100%;height:100%;display:block}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info[data-v-f3f41387]{flex-direction:column;flex:1;justify-content:space-between;min-width:0;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-f3f41387]{color:var(--text1);align-items:flex-start;max-height:36px;font-size:13px;line-height:18px;transition:color .2s;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-f3f41387]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .playing-gif[data-v-f3f41387]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-top:3px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .title-text[data-v-f3f41387]{-webkit-line-clamp:2;text-overflow:ellipsis;word-break:break-all;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats[data-v-f3f41387]{color:var(--text3);align-items:center;gap:8px;min-width:0;font-size:12px;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item[data-v-f3f41387]{flex-shrink:1;align-items:center;gap:3px;min-width:0;display:inline-flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .icon[data-v-f3f41387]{fill:currentColor;flex-shrink:0;width:14px;height:14px}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .count-text[data-v-f3f41387]{white-space:nowrap;text-overflow:ellipsis;line-height:14px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.views[data-v-f3f41387],.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.danmaku[data-v-f3f41387]{flex-shrink:0}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn[data-v-f3f41387]{cursor:pointer;flex-shrink:0;margin-left:auto}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn .icon[data-v-f3f41387]{width:14px;height:14px;color:var(--text3);transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn.is-expanded .icon[data-v-f3f41387]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .episodes[data-v-f3f41387]{margin-top:4px}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-f3f41387]{content-visibility:auto;contain-intrinsic-size:auto 31px;background:var(--bg1);cursor:pointer;border-radius:2px;justify-content:space-between;align-items:center;padding:0 10px 0 24px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-f3f41387]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title[data-v-f3f41387]{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title .playing-gif[data-v-f3f41387]{display:block}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-f3f41387]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-f3f41387]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .playing-gif[data-v-f3f41387]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .title-txt[data-v-f3f41387]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-meta[data-v-f3f41387]{color:var(--text3);flex-shrink:0;margin-left:10px;font-size:14px}.tk-reaction.is-card-mode .item[data-v-f3f41387]{contain-intrinsic-size:auto 80px!important}.tk-reaction.is-card-mode .header .mode-list[data-v-f3f41387]{display:none!important}.tk-reaction.is-card-mode .header .mode-card[data-v-f3f41387]{display:flex!important}\n/*$vite$:1*/ ',
   );
-  var STORAGE_NAMESPACE = 'bilibili-playlist-enhancer';
-  var POD_MODE = {
-    LIST: 'LIST',
-    CARD: 'CARD',
-  };
-  var POD_TYPE = {
-    EPISODE: 'EPISODE',
-    COLLECTION: 'COLLECTION',
-    SERIES: 'SERIES',
-  };
-  var SORT_MODE = {
-    DEFAULT: 'DEFAULT',
-    TIME_DESC: 'TIME_DESC',
-    TIME_ASC: 'TIME_ASC',
-  };
-  var CTRL_ACTION = {
-    PREV: 'PREV',
-    NEXT: 'NEXT',
-  };
-  var SHUFFLE_SCOPE = {
-    ALL: 'ALL',
-    GROUP: 'GROUP',
-  };
-  var DEFAULT_SETTINGS = {
-    autoPlayNext: true,
-    shuffle: false,
-    shuffleScope: SHUFFLE_SCOPE.ALL,
-    stopOnGroupEnd: false,
-    scrollActiveOnClick: true,
-    scrollToActiveOnSort: true,
-    hotkeyPrev: '[',
-    hotkeyNext: ']',
-    sortMode: SORT_MODE.TIME_DESC,
-  };
-  var SORT_OPTIONS = [
-    {
-      label: '官方排序',
-      value: SORT_MODE.DEFAULT,
-    },
-    {
-      label: '最新发布',
-      value: SORT_MODE.TIME_DESC,
-    },
-    {
-      label: '最早发布',
-      value: SORT_MODE.TIME_ASC,
-    },
-  ];
-  var SHUFFLE_SCOPE_OPTIONS = [
-    {
-      label: '全合集随机',
-      value: SHUFFLE_SCOPE.ALL,
-    },
-    {
-      label: '仅当前分组',
-      value: SHUFFLE_SCOPE.GROUP,
-    },
-  ];
   var isArray = Array.isArray;
   var isFunction = (val) => typeof val === 'function';
   var isString = (val) => typeof val === 'string';
@@ -421,6 +363,64 @@
         : { once: true },
     );
   }
+  var STORAGE_NAMESPACE = 'bilibili-playlist-enhancer';
+  var POD_MODE = {
+    LIST: 'LIST',
+    CARD: 'CARD',
+  };
+  var POD_TYPE = {
+    EPISODE: 'EPISODE',
+    COLLECTION: 'COLLECTION',
+    SERIES: 'SERIES',
+  };
+  var SORT_MODE = {
+    DEFAULT: 'DEFAULT',
+    TIME_DESC: 'TIME_DESC',
+    TIME_ASC: 'TIME_ASC',
+  };
+  var CTRL_ACTION = {
+    PREV: 'PREV',
+    NEXT: 'NEXT',
+  };
+  var SHUFFLE_SCOPE = {
+    ALL: 'ALL',
+    GROUP: 'GROUP',
+  };
+  var DEFAULT_SETTINGS = {
+    autoPlayNext: true,
+    shuffle: false,
+    shuffleScope: SHUFFLE_SCOPE.ALL,
+    stopOnGroupEnd: true,
+    scrollActiveOnClick: true,
+    scrollToActiveOnSort: true,
+    hotkeyPrev: '[',
+    hotkeyNext: ']',
+    sortMode: SORT_MODE.TIME_DESC,
+  };
+  var SORT_OPTIONS = [
+    {
+      label: '官方排序',
+      value: SORT_MODE.DEFAULT,
+    },
+    {
+      label: '最新发布',
+      value: SORT_MODE.TIME_DESC,
+    },
+    {
+      label: '最早发布',
+      value: SORT_MODE.TIME_ASC,
+    },
+  ];
+  var SHUFFLE_SCOPE_OPTIONS = [
+    {
+      label: '全合集随机',
+      value: SHUFFLE_SCOPE.ALL,
+    },
+    {
+      label: '仅当前分组',
+      value: SHUFFLE_SCOPE.GROUP,
+    },
+  ];
   function getNativeInnerVm() {
     let vm = document.querySelector('.multip-list-item-inner')?.__vue__;
     let switchVideoVm = null;
@@ -498,6 +498,7 @@
       { capture: true },
     );
   }
+  var correctionOffset = 17;
   function getPodTargetSelectors(podType) {
     const isSeries = (0, vue.toValue)(podType) === POD_TYPE.SERIES;
     return {
@@ -557,7 +558,12 @@
     }
     observeContainerSettling(container, () => alignActiveItem(container, false));
   }
-  function calculateCollectionToggleTargetLayout(podType, isExpanded, currentTop) {
+  function calculateCollectionToggleTargetLayout(
+    podType,
+    isExpanded,
+    currentTop,
+    hasMultipleSections,
+  ) {
     if (podType === POD_TYPE.COLLECTION) {
       const toolbar = document.querySelector('#arc_toolbar_report');
       const card = document.querySelector(
@@ -571,25 +577,28 @@
       const c = card?.getBoundingClientRect().top ?? 0;
       const l = aboveModule?.getBoundingClientRect().height || aboveModule?.scrollHeight || 0;
       const n = podBody?.clientHeight ?? 0;
-      if (isExpanded) {
-        const diff = s && c ? s - c : 0;
-        return {
-          targetHeight: Math.max(250, Math.floor(n + diff + l)),
-          targetTop: currentTop - l,
-        };
-      }
+      const totalOffset =
+        correctionOffset +
+        ((0, vue.toValue)(hasMultipleSections)
+          ? document.querySelector('.video-pod__slide')?.clientHeight || 0
+          : 0);
+      const diff = s && c ? s - c : 0;
+      const baseHeight = isExpanded ? Math.max(250, Math.floor(n + diff + l)) : 250;
+      const targetTop = isExpanded ? currentTop - l : currentTop + l;
       return {
-        targetHeight: 250,
-        targetTop: currentTop + l,
+        targetHeight: baseHeight + totalOffset,
+        targetTop,
       };
     }
     if (podType === POD_TYPE.SERIES) {
       const listEl = document.querySelector('#playlist-video-action-list');
-      const targetTop = listEl ? listEl.getBoundingClientRect().top + window.scrollY : currentTop;
+      let targetTop = listEl
+        ? listEl.getBoundingClientRect().top + window.scrollY - correctionOffset
+        : currentTop;
+      const bodyBottomHeight =
+        document.querySelector('.action-list-body-bottom')?.clientHeight ?? 0;
       return {
-        targetHeight: isExpanded
-          ? 0
-          : (document.querySelector('.action-list-body-bottom')?.clientHeight ?? 0),
+        targetHeight: isExpanded ? 0 : bodyBottomHeight + correctionOffset,
         targetTop,
       };
     }
@@ -598,7 +607,7 @@
       targetTop: currentTop,
     };
   }
-  async function watchPositionSync(podType, hostEl, onPositionUpdate) {
+  async function watchPositionSync(podType, hostEl, onPositionUpdate, hasMultipleSections) {
     const currentType = (0, vue.toValue)(podType);
     const selectors = getPodTargetSelectors(currentType);
     const wrapEl = await waitElement(selectors.playlistContainerRight);
@@ -610,9 +619,13 @@
       const host = getHost();
       if (!targetEl.isConnected || (host && !host.isConnected)) return;
       const { top, left, width, height } = targetEl.getBoundingClientRect();
-      const maxHeight = calculateMaxHeight(currentType, wrapEl, height);
+      const slideHeight =
+        ((0, vue.toValue)(hasMultipleSections) ? document.querySelector('.video-pod__slide') : null)
+          ?.clientHeight || 0;
+      let maxHeight = calculateMaxHeight(currentType, wrapEl, height) + slideHeight;
+      maxHeight = maxHeight ? maxHeight + correctionOffset : 0;
       onPositionUpdate({
-        top: top + window.scrollY,
+        top: top + window.scrollY - slideHeight - correctionOffset,
         left: left + window.scrollX,
         width,
         maxHeight,
@@ -660,7 +673,7 @@
     };
     return on(nativeToggleBtn, 'click', handler, { capture: true });
   }
-  function usePositionSync(podType, rootRef, onModeChange) {
+  function usePositionSync(podType, rootRef, onModeChange, hasMultipleSections) {
     const position = (0, vue.ref)({
       top: 0,
       left: 0,
@@ -688,9 +701,14 @@
       stopSync();
       const resolvedType = (0, vue.toValue)(type);
       if (!resolvedType) return;
-      cleanupTracker = await watchPositionSync(resolvedType, rootRef, (newPos) => {
-        position.value = newPos;
-      });
+      cleanupTracker = await watchPositionSync(
+        resolvedType,
+        rootRef,
+        (newPos) => {
+          position.value = newPos;
+        },
+        hasMultipleSections,
+      );
       cleanupResize = await listenNativeToggle(resolvedType, (isExpanded) => {
         isAnimating.value = true;
         cleanupTracker.setAnimating(true);
@@ -698,6 +716,7 @@
           resolvedType,
           isExpanded,
           position.value.top,
+          hasMultipleSections,
         );
         position.value = {
           ...position.value,
@@ -796,6 +815,9 @@
     if (!rawList.length) return null;
     return {
       sections: rawList,
+      seasonSections: [],
+      hasMultipleSections: false,
+      currentSectionId: '',
       mode: POD_MODE.CARD,
       type: POD_TYPE.SERIES,
     };
@@ -807,17 +829,37 @@
     });
     if (res?.code !== 0 || !res?.data) return null;
     const { data } = res;
-    const seasonEpisodes = data.ugc_season?.sections?.flatMap((s) => s.episodes || []) || [];
-    if (seasonEpisodes.length > 0)
+    const rawSections = data.ugc_season?.sections || [];
+    if (rawSections.length > 0) {
+      const seasonSections = rawSections.map((s) => {
+        const sectionId = String(s.id || s.season_id || '');
+        const title = s.title || '';
+        return {
+          id: sectionId,
+          title,
+          label: title,
+          value: sectionId,
+          episodes: s.episodes || [],
+        };
+      });
+      const currentSection =
+        seasonSections.find((s) => s.episodes.some((ep) => ep.bvid === bvid)) || seasonSections[0];
       return {
-        sections: seasonEpisodes,
+        sections: currentSection?.episodes || [],
+        seasonSections,
+        hasMultipleSections: seasonSections.length > 1,
+        currentSectionId: currentSection?.value || '',
         mode: POD_MODE.LIST,
         type: POD_TYPE.COLLECTION,
       };
+    }
     const pages = data.pages || [];
     if (pages.length <= 1) return null;
     return {
       sections: pages,
+      seasonSections: [],
+      hasMultipleSections: false,
+      currentSectionId: '',
       mode: POD_MODE.LIST,
       type: POD_TYPE.EPISODE,
     };
@@ -946,12 +988,17 @@
     return {
       type: podData.type,
       mode: podData.mode,
+      seasonSections: podData.seasonSections || [],
+      hasMultipleSections: !!podData.hasMultipleSections,
+      currentSectionId: podData.currentSectionId || '',
       groups: processSeasonData(podData.type, podData.sections, bvid, page),
     };
   }
   var isSameVideoTarget = (currentBvid, currentPage, nextBvid, nextPage) =>
     currentBvid === nextBvid && Number(currentPage || 1) === Number(nextPage || 1);
   var hasSeasonBvid = (groups, bvid) => groups.some((g) => g.bvid === bvid);
+  var findSectionByBvid = (seasonSections = [], bvid = '') =>
+    seasonSections.find((s) => (s.episodes || []).some((ep) => ep.bvid === bvid));
   var flattenEpisodes = (groups) =>
     groups.flatMap((group, groupIndex) =>
       (group.episodes || []).map((ep, epIndex) => ({
@@ -1098,6 +1145,60 @@
       setActiveTarget,
     };
   }
+  function usePodSections({
+    rawGroups,
+    podType,
+    activeBvid,
+    activePage,
+    setExpanded,
+    setActiveTarget,
+    refreshActiveStates,
+  }) {
+    const seasonSections = (0, vue.ref)([]);
+    const hasMultipleSections = (0, vue.ref)(false);
+    const currentSectionId = (0, vue.ref)('');
+    const initSections = (payload) => {
+      seasonSections.value = payload?.seasonSections || [];
+      hasMultipleSections.value = !!payload?.hasMultipleSections;
+      currentSectionId.value = payload?.currentSectionId || '';
+    };
+    const resetSections = () => {
+      seasonSections.value = [];
+      hasMultipleSections.value = false;
+      currentSectionId.value = '';
+    };
+    const applySectionEpisodes = (section, targetBvid, targetPage) => {
+      currentSectionId.value = String(section.value);
+      setExpanded('');
+      rawGroups.value = processSeasonData(podType.value, section.episodes, targetBvid, targetPage);
+    };
+    const switchSection = (sectionId) => {
+      const targetId = String(sectionId);
+      if (targetId === String(currentSectionId.value)) return;
+      const targetSection = seasonSections.value.find((s) => String(s.value) === targetId);
+      if (!targetSection) return;
+      applySectionEpisodes(targetSection, activeBvid.value, activePage.value);
+      refreshActiveStates();
+    };
+    const trySwitchSectionByBvid = (nextBvid, nextPage) => {
+      if (!(0, vue.toValue)(hasMultipleSections)) return false;
+      const targetSection = findSectionByBvid(seasonSections.value, nextBvid);
+      if (!targetSection) return false;
+      applySectionEpisodes(targetSection, nextBvid, nextPage);
+      setActiveTarget(nextBvid, nextPage);
+      refreshActiveStates();
+      return true;
+    };
+    return {
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      initSections,
+      resetSections,
+      switchSection,
+      trySwitchSectionByBvid,
+    };
+  }
   function usePodLoader({
     rawGroups,
     podType,
@@ -1112,6 +1213,23 @@
   }) {
     const isLoading = (0, vue.ref)(false);
     const podMode = (0, vue.ref)(POD_MODE.LIST);
+    const {
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      initSections,
+      resetSections,
+      switchSection,
+      trySwitchSectionByBvid,
+    } = usePodSections({
+      rawGroups,
+      podType,
+      activeBvid,
+      activePage,
+      setExpanded,
+      setActiveTarget,
+      refreshActiveStates,
+    });
     const onModeChange = (isExpandedMode) => {
       podMode.value = isExpandedMode ? POD_MODE.CARD : POD_MODE.LIST;
       setTimeout(() => {
@@ -1122,7 +1240,13 @@
       podType,
       rootRef,
       onModeChange,
+      hasMultipleSections,
     );
+    const resetPodState = () => {
+      rawGroups.value = [];
+      podType.value = null;
+      resetSections();
+    };
     const trySwitchSameSeason = (nextBvid, nextPage) => {
       if (!hasSeasonBvid(rawGroups.value, nextBvid)) return false;
       if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return true;
@@ -1132,28 +1256,22 @@
     };
     const initPodState = async (payload, bvid, page) => {
       if (!payload) {
-        rawGroups.value = [];
+        resetPodState();
         setExpanded('');
-        podType.value = null;
         return;
       }
       podType.value = payload.type;
       podMode.value = payload.mode;
       rawGroups.value = payload.groups;
       setActiveTarget(bvid, page);
+      initSections(payload);
       setExpanded(findActiveAccordionBvid(currentPlaying.value));
       await startSync(podType.value);
       scrollActiveItem(scrollContainerRef.value, false);
     };
-    const loadPod = async () => {
-      const nextBvid = getCurrentBvid();
-      const nextPage = getCurrentPage();
-      if (!nextBvid) return;
-      if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return;
-      if (trySwitchSameSeason(nextBvid, nextPage)) return;
+    const fetchFullPod = async (nextBvid, nextPage) => {
       setActiveTarget(nextBvid, nextPage);
-      rawGroups.value = [];
-      podType.value = null;
+      resetPodState();
       isLoading.value = true;
       try {
         const payload = await fetchPodPayload(nextBvid, nextPage);
@@ -1162,14 +1280,27 @@
         isLoading.value = false;
       }
     };
+    const loadPod = async () => {
+      const nextBvid = getCurrentBvid();
+      const nextPage = getCurrentPage();
+      if (!nextBvid) return;
+      if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return;
+      if (trySwitchSameSeason(nextBvid, nextPage)) return;
+      if (trySwitchSectionByBvid(nextBvid, nextPage)) return;
+      await fetchFullPod(nextBvid, nextPage);
+    };
     return {
       isAnimating,
       isLoading,
       podMode,
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
       containerStyle,
       videoBodyStyle,
       initPodState,
       loadPod,
+      switchSection,
       trySwitchSameSeason,
     };
   }
@@ -2015,10 +2146,10 @@
   var o = s.litElementPolyfillSupport;
   o?.({ LitElement: i });
   (s.litElementVersions ??= []).push('4.2.2');
-  var style_default$7 =
+  var style_default$8 =
     ':host{font-family:inherit;display:block}@keyframes magic-toast-in{0%{opacity:0;transform:translateY(-16px)scale(.95)}to{opacity:1;transform:translateY(0)scale(1)}}@keyframes magic-toast-out{0%{opacity:1;transform:translateY(0)scale(1)}to{opacity:0;transform:translateY(-16px)scale(.95)}}.magic-toast-container{z-index:var(--magic-toast-z-index,999999);pointer-events:none;box-sizing:border-box;flex-direction:column;align-items:center;gap:10px;width:max-content;max-width:90vw;display:flex;position:fixed;left:50%;transform:translate(-50%)}.magic-toast-container--top{top:24px}.magic-toast-container--center{top:50%;transform:translate(-50%,-50%)}.magic-toast-container--bottom{bottom:24px}.magic-toast{box-sizing:border-box;border-radius:var(--magic-toast-radius,8px);background:var(--magic-toast-bg,#1c1e24f0);min-height:40px;color:var(--magic-toast-color,#e5e9ef);border:1px solid var(--magic-toast-border,#ffffff1f);box-shadow:var(--magic-toast-shadow,0 10px 30px #00000073);-webkit-backdrop-filter:blur(12px);pointer-events:auto;-webkit-user-select:none;user-select:none;align-items:center;gap:10px;padding:10px 18px;font-size:14px;line-height:1.4;transition:all .25s;animation:.25s cubic-bezier(.16,1,.3,1) forwards magic-toast-in;display:inline-flex}.magic-toast.is-leaving{animation:.2s cubic-bezier(.4,0,1,1) forwards magic-toast-out}.magic-toast__icon{flex-shrink:0;justify-content:center;align-items:center;width:18px;height:18px;display:inline-flex}.magic-toast__icon svg{width:100%;height:100%;display:block}.magic-toast__content{word-break:break-word;align-items:center;display:inline-flex}.magic-toast__close{cursor:pointer;opacity:.6;color:inherit;background:0 0;border:none;border-radius:4px;justify-content:center;align-items:center;margin-left:6px;padding:2px;transition:opacity .2s,background-color .2s;display:inline-flex}.magic-toast__close:hover{opacity:1;background-color:#ffffff1a}.magic-toast__close svg{width:14px;height:14px}.magic-toast--info .magic-toast__icon{color:var(--magic-toast-info-color,var(--magic-primary-color))}.magic-toast--success .magic-toast__icon{color:var(--magic-toast-success-color,#2ac864)}.magic-toast--warning .magic-toast__icon{color:var(--magic-toast-warning-color,#fa9600)}.magic-toast--error .magic-toast__icon{color:var(--magic-toast-error-color,#ff5c7c)}';
   var theme_default =
-    ':root{--magic-primary-color:#e11483;--magic-primary-hover-color:color-mix(in srgb, var(--magic-primary-color) 85%, #fff);--magic-primary-active-color:color-mix(in srgb, var(--magic-primary-color) 85%, #000);--magic-primary-light-bg:color-mix(in srgb, var(--magic-primary-color) 12%, transparent);--magic-primary-shadow:color-mix(in srgb, var(--magic-primary-color) 35%, transparent);--magic-primary-focus-shadow:color-mix(in srgb, var(--magic-primary-color) 20%, transparent)}';
+    ':root{--magic-primary-color:#e11483;--magic-primary-hover-color:color-mix(in srgb, var(--magic-primary-color) 85%, #fff);--magic-primary-active-color:color-mix(in srgb, var(--magic-primary-color) 85%, #000);--magic-primary-light-bg:color-mix(in srgb, var(--magic-primary-color) 12%, transparent);--magic-primary-shadow:color-mix(in srgb, var(--magic-primary-color) 35%, transparent);--magic-primary-focus-shadow:color-mix(in srgb, var(--magic-primary-color) 20%, transparent);--magic-color-success:#2ac864;--magic-color-success-hover:#3ad473;--magic-color-success-active:#23b056;--magic-color-success-shadow:#2ac86459;--magic-color-warning:#fa9600;--magic-color-warning-hover:#ffaa1a;--magic-color-warning-active:#e08700;--magic-color-warning-shadow:#fa960059;--magic-color-danger:#ff5c7c;--magic-color-danger-hover:#ff7591;--magic-color-danger-active:#e64567;--magic-color-danger-shadow:#ff5c7c59;--magic-text-primary:#fff;--magic-text-secondary:#ffffffb3;--magic-text-tertiary:#9499a0;--magic-text-disabled:#ffffff59;--magic-bg-base:#ffffff0a;--magic-bg-subtle:#ffffff14;--magic-bg-hover:#ffffff24;--magic-bg-active:#fff3;--magic-bg-overlay:#1c1e24f0;--magic-mask-bg:#000000a6;--magic-border-color:#ffffff1f;--magic-border-color-hover:#ffffff40;--magic-radius-sm:4px;--magic-radius-base:6px;--magic-radius-lg:8px;--magic-shadow-dropdown:0 4px 16px #0003;--magic-shadow-modal:0 16px 40px #00000073;--magic-shadow-toast:0 10px 30px #00000073;--magic-z-index-dropdown:1000;--magic-z-index-modal:99999;--magic-z-index-toast:999999;--magic-btn-default-bg:var(--magic-bg-subtle);--magic-btn-default-color:var(--magic-text-primary);--magic-btn-default-border:var(--magic-border-color);--magic-btn-default-hover-bg:var(--magic-bg-hover);--magic-btn-default-hover-border:var(--magic-border-color-hover);--magic-btn-default-active-bg:var(--magic-bg-active);--magic-btn-primary-bg:var(--magic-primary-color);--magic-btn-primary-hover-bg:var(--magic-primary-hover-color);--magic-btn-primary-active-bg:var(--magic-primary-active-color);--magic-btn-success-bg:var(--magic-color-success);--magic-btn-success-hover-bg:var(--magic-color-success-hover);--magic-btn-success-active-bg:var(--magic-color-success-active);--magic-btn-warning-bg:var(--magic-color-warning);--magic-btn-warning-hover-bg:var(--magic-color-warning-hover);--magic-btn-warning-active-bg:var(--magic-color-warning-active);--magic-btn-danger-bg:var(--magic-color-danger);--magic-btn-danger-hover-bg:var(--magic-color-danger-hover);--magic-btn-danger-active-bg:var(--magic-color-danger-active);--magic-btn-text-color:var(--magic-text-secondary);--magic-btn-text-hover-bg:var(--magic-bg-subtle);--magic-btn-text-active-bg:var(--magic-bg-hover);--magic-input-radius:var(--magic-radius-base);--magic-input-bg:var(--magic-bg-subtle);--magic-input-border:var(--magic-border-color);--magic-input-color:var(--magic-text-primary);--magic-input-hover-border:var(--magic-border-color-hover);--magic-input-hover-bg:var(--magic-bg-hover);--magic-input-focus-border:var(--magic-primary-color);--magic-input-focus-bg:var(--magic-bg-subtle);--magic-input-focus-shadow:var(--magic-primary-focus-shadow);--magic-input-prefix-color:var(--magic-text-tertiary);--magic-input-placeholder-color:var(--magic-text-tertiary);--magic-input-suffix-color:var(--magic-text-tertiary);--magic-input-clear-color:var(--magic-text-tertiary);--magic-input-clear-hover-color:var(--magic-text-primary);--magic-select-bg:var(--magic-bg-subtle);--magic-select-color:var(--magic-text-primary);--magic-select-border:var(--magic-border-color);--magic-select-placeholder-color:var(--magic-text-tertiary);--magic-select-suffix-color:var(--magic-text-tertiary);--magic-select-clear-color:var(--magic-text-tertiary);--magic-select-clear-hover-color:var(--magic-text-primary);--magic-select-hover-border:var(--magic-border-color-hover);--magic-select-hover-bg:var(--magic-bg-hover);--magic-select-active-color:var(--magic-primary-color);--magic-select-z-index:var(--magic-z-index-dropdown);--magic-select-dropdown-bg:var(--magic-bg-overlay);--magic-select-dropdown-border:var(--magic-border-color);--magic-select-dropdown-shadow:var(--magic-shadow-dropdown);--magic-select-option-hover-bg:var(--magic-bg-hover);--magic-select-option-active-bg:var(--magic-primary-light-bg);--magic-tabs-capsule-bg:var(--magic-bg-subtle);--magic-tabs-color:var(--magic-text-secondary);--magic-tabs-hover-color:var(--magic-text-primary);--magic-tabs-hover-bg:var(--magic-bg-hover);--magic-tabs-border:transparent;--magic-tabs-active-border:var(--magic-primary-light-bg);--magic-tabs-line-border:var(--magic-border-color);--magic-tabs-mask-bg:var(--magic-mask-bg);--magic-switch-color:var(--magic-text-secondary);--magic-switch-active-label-color:var(--magic-text-primary);--magic-switch-inactive-color:#8c8c8c59;--magic-switch-active-color:var(--magic-primary-color);--magic-spinner-size:24px;--magic-spinner-border-width:3px;--magic-spinner-track:var(--magic-bg-subtle);--magic-spinner-color:var(--magic-primary-color);--magic-spinner-text-color:var(--magic-text-tertiary);--magic-modal-z-index:var(--magic-z-index-modal);--magic-modal-mask-bg:var(--magic-mask-bg);--magic-modal-bg:var(--magic-bg-overlay);--magic-modal-border:var(--magic-border-color);--magic-modal-radius:var(--magic-radius-lg);--magic-modal-shadow:var(--magic-shadow-modal);--magic-modal-color:var(--magic-text-primary);--magic-modal-divider:var(--magic-border-color);--magic-modal-title-color:var(--magic-text-primary);--magic-modal-close-color:var(--magic-text-tertiary);--magic-radio-text-color:var(--magic-text-primary);--magic-radio-border-color:var(--magic-border-color);--magic-radio-bg:var(--magic-bg-subtle);--magic-radio-color:var(--magic-primary-color);--magic-radio-disabled-opacity:.45;--magic-toast-z-index:var(--magic-z-index-toast);--magic-toast-radius:var(--magic-radius-lg);--magic-toast-bg:var(--magic-bg-overlay);--magic-toast-color:var(--magic-text-primary);--magic-toast-border:var(--magic-border-color);--magic-toast-shadow:var(--magic-shadow-toast);--magic-toast-info-color:var(--magic-primary-color);--magic-toast-success-color:var(--magic-color-success);--magic-toast-warning-color:var(--magic-color-warning);--magic-toast-error-color:var(--magic-color-danger)}';
   function ensureTheme() {
     if (typeof document === 'undefined') return;
     if (document.getElementById('magic-theme-tokens')) return;
@@ -2077,7 +2208,7 @@
       closable: Boolean,
       _isLeaving: { state: true },
     };
-    static styles = r$2(style_default$7);
+    static styles = r$2(style_default$8);
     #timer = null;
     constructor() {
       super();
@@ -2233,7 +2364,7 @@
     `;
     }
   };
-  var toast = {
+  var toast$1 = {
     show: (options) => MagicToast.show(options),
     info: (msg, dur) => MagicToast.info(msg, dur),
     success: (msg, dur) => MagicToast.success(msg, dur),
@@ -2282,7 +2413,7 @@
     if (remainingKeys.length > 0) return remainingKeys;
     const refreshedKeys = buildCandidateKeys(flatEpisodes, settings.shuffleScope, curBvid, curKey);
     if (refreshedKeys.length === 0 && settings.shuffleScope === SHUFFLE_SCOPE.GROUP)
-      toast.info('当前分 P 仅有 1 集，无法在分组内随机播放');
+      toast$1.info('当前分 P 仅有 1 集，无法在分组内随机播放');
     return refreshedKeys;
   }
   function useShuffle({ settings, flatEpisodes, currentPlaying }) {
@@ -2396,19 +2527,29 @@
         recordManualPlay,
       },
     });
-    const { isAnimating, isLoading, podMode, containerStyle, videoBodyStyle, loadPod } =
-      usePodLoader({
-        rawGroups,
-        podType,
-        activeBvid,
-        activePage,
-        rootRef,
-        scrollContainerRef,
-        setExpanded,
-        currentPlaying,
-        setActiveTarget,
-        refreshActiveStates,
-      });
+    const {
+      isAnimating,
+      isLoading,
+      podMode,
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      containerStyle,
+      videoBodyStyle,
+      loadPod,
+      switchSection,
+    } = usePodLoader({
+      rawGroups,
+      podType,
+      activeBvid,
+      activePage,
+      rootRef,
+      scrollContainerRef,
+      setExpanded,
+      currentPlaying,
+      setActiveTarget,
+      refreshActiveStates,
+    });
     (0, vue.watch)(
       () => settings.sortMode,
       () => {
@@ -2461,6 +2602,10 @@
       sortMode,
       setSortMode,
       groups,
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      switchSection,
       flatEpisodes,
       currentPlaying,
       containerStyle,
@@ -2543,8 +2688,220 @@
       toggleSearch,
     };
   }
+  var style_default$7 =
+    ':host{box-sizing:border-box;flex:1;width:100%;min-width:0;font-family:inherit;display:block}:host([inline]){width:auto;display:inline-block}.magic-tabs{box-sizing:border-box;align-items:center;width:100%;display:flex;position:relative}.magic-tabs__wrap{flex:1;align-items:center;min-width:0;display:flex;position:relative;overflow:hidden}.magic-tabs__shadow{z-index:2;pointer-events:none;opacity:0;width:24px;transition:opacity .2s;position:absolute;top:0;bottom:0}.magic-tabs__shadow--left{background:linear-gradient(to right, var(--magic-tabs-mask-bg,#000000d9), transparent);left:0}.magic-tabs__shadow--right{background:linear-gradient(to left, var(--magic-tabs-mask-bg,#000000d9), transparent);right:0}.magic-tabs__shadow.is-show{opacity:1}.magic-tabs__nav{white-space:nowrap;scroll-behavior:smooth;box-sizing:border-box;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;align-items:center;gap:8px;width:100%;padding:4px 2px;display:flex;overflow:auto hidden}.magic-tabs__nav::-webkit-scrollbar{width:0;height:0;display:none}.magic-tabs__item{-webkit-user-select:none;user-select:none;cursor:pointer;white-space:nowrap;box-sizing:border-box;outline:none;flex-shrink:0;justify-content:center;align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-tabs__item.is-disabled{cursor:not-allowed;opacity:.45;pointer-events:none}.magic-tabs--capsule .magic-tabs__item{color:var(--magic-tabs-color,#ffffffb3);background:var(--magic-tabs-capsule-bg,#ffffff14);border:1px solid var(--magic-tabs-border,transparent);border-radius:999px}.magic-tabs--capsule .magic-tabs__item:hover:not(.is-disabled):not(.is-active){color:var(--magic-tabs-hover-color,#fff);background:var(--magic-tabs-hover-bg,#ffffff24)}.magic-tabs--capsule .magic-tabs__item.is-active{color:var(--magic-primary-color);background:var(--magic-primary-light-bg);border-color:var(--magic-tabs-active-border,var(--magic-primary-light-bg));font-weight:500}.magic-tabs--line{border-bottom:1px solid var(--magic-tabs-line-border,#ffffff1f)}.magic-tabs--line .magic-tabs__item{color:var(--magic-tabs-color,#ffffffb3);background:0 0;border-radius:4px}.magic-tabs--line .magic-tabs__item:hover:not(.is-disabled):not(.is-active){color:var(--magic-tabs-hover-color,#fff)}.magic-tabs--line .magic-tabs__item.is-active{color:var(--magic-primary-color);font-weight:500}.magic-tabs--line .magic-tabs__item.is-active:after{content:"";background:var(--magic-primary-color);border-radius:2px;width:80%;height:2px;position:absolute;bottom:-4px;left:10%}.magic-tabs--small .magic-tabs__item{height:24px;padding:0 10px;font-size:12px}.magic-tabs--medium .magic-tabs__item{height:30px;padding:0 14px;font-size:13px}.magic-tabs--large .magic-tabs__item{height:36px;padding:0 18px;font-size:14px}.magic-tabs .magic-tabs__label{font-weight:600}';
+  var MagicTabs = class extends i {
+    static properties = {
+      items: Array,
+      value: {
+        type: String,
+        reflect: true,
+      },
+      size: String,
+      type: String,
+      scrollable: {
+        type: Boolean,
+        reflect: true,
+      },
+      block: {
+        type: Boolean,
+        reflect: true,
+      },
+      _canScrollLeft: { state: true },
+      _canScrollRight: { state: true },
+    };
+    static styles = r$2(style_default$7);
+    #cleanups = [];
+    constructor() {
+      super();
+      this.items = [];
+      this.value = '';
+      this.size = 'medium';
+      this.type = 'capsule';
+      this.scrollable = true;
+      this.block = true;
+      this._canScrollLeft = false;
+      this._canScrollRight = false;
+      this._isDragging = false;
+      this._startX = 0;
+      this._scrollLeftStart = 0;
+      this._hasDragged = false;
+      this._onScroll = this._onScroll.bind(this);
+      this._onWheel = this._onWheel.bind(this);
+      this._onMouseDown = this._onMouseDown.bind(this);
+      this._onMouseMove = this._onMouseMove.bind(this);
+      this._onMouseUp = this._onMouseUp.bind(this);
+    }
+    get navElement() {
+      return this.renderRoot?.querySelector('.magic-tabs__nav');
+    }
+    firstUpdated() {
+      const nav = this.navElement;
+      if (nav)
+        this.#cleanups.push(
+          on(nav, 'scroll', this._onScroll, { passive: true }),
+          on(nav, 'wheel', this._onWheel, { passive: false }),
+          on(nav, 'mousedown', this._onMouseDown),
+          on(window, 'mousemove', this._onMouseMove),
+          on(window, 'mouseup', this._onMouseUp),
+        );
+      this.updateScrollState();
+    }
+    disconnectedCallback() {
+      super.disconnectedCallback();
+      this.#cleanups.forEach((fn) => fn?.());
+      this.#cleanups = [];
+    }
+    updated(changedProperties) {
+      if (changedProperties.has('items') || changedProperties.has('value')) {
+        this.updateScrollState();
+        const shouldSmooth = !changedProperties.has('items');
+        setTimeout(() => {
+          this.scrollToActiveItem(shouldSmooth);
+        }, 0);
+      }
+    }
+    updateScrollState() {
+      const nav = this.navElement;
+      if (!nav) return;
+      const { scrollLeft, scrollWidth, clientWidth } = nav;
+      const maxScrollLeft = Math.max(0, scrollWidth - clientWidth);
+      this._canScrollLeft = scrollLeft > 2;
+      this._canScrollRight = maxScrollLeft - scrollLeft > 2;
+    }
+    _onScroll() {
+      this.updateScrollState();
+    }
+    _onWheel(event) {
+      if (!this.scrollable) return;
+      const nav = this.navElement;
+      if (!nav) return;
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        event.preventDefault();
+        nav.scrollLeft += event.deltaY;
+      }
+    }
+    _onMouseDown(event) {
+      if (!this.scrollable || event.button !== 0) return;
+      const nav = this.navElement;
+      if (!nav) return;
+      this._isDragging = true;
+      this._hasDragged = false;
+      this._startX = event.pageX;
+      this._scrollLeftStart = nav.scrollLeft;
+      nav.style.scrollBehavior = 'auto';
+    }
+    _onMouseMove(event) {
+      if (!this._isDragging) return;
+      const nav = this.navElement;
+      if (!nav) return;
+      const deltaX = event.pageX - this._startX;
+      if (Math.abs(deltaX) > 4) this._hasDragged = true;
+      nav.scrollLeft = this._scrollLeftStart - deltaX;
+    }
+    _onMouseUp() {
+      if (!this._isDragging) return;
+      this._isDragging = false;
+      const nav = this.navElement;
+      if (nav) nav.style.scrollBehavior = 'smooth';
+    }
+    scrollToActiveItem(smooth = true) {
+      const nav = this.navElement;
+      if (!nav) return;
+      const activeItem = nav.querySelector('.magic-tabs__item.is-active');
+      if (!activeItem) return;
+      const targetLeft = activeItem.offsetLeft - (nav.clientWidth - activeItem.clientWidth) / 2;
+      nav.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: smooth ? 'smooth' : 'auto',
+      });
+      this.updateScrollState();
+    }
+    handleItemClick(item, index, event) {
+      if (this._hasDragged) {
+        event.preventDefault();
+        event.stopPropagation();
+        return;
+      }
+      const itemObj = isObject(item) ? item : null;
+      if (itemObj ? Boolean(itemObj.disabled) : false) {
+        event.preventDefault();
+        return;
+      }
+      const val = itemObj ? (itemObj.value ?? itemObj.label) : item;
+      this.value = String(val);
+      const detail = {
+        value: this.value,
+        item,
+        index,
+      };
+      this.dispatchEvent(
+        new CustomEvent('change', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.dispatchEvent(
+        new CustomEvent('tab-click', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+    renderTabItem(item, index) {
+      const itemObj = isObject(item) ? item : null;
+      const label = itemObj ? (itemObj.label ?? itemObj.value) : item;
+      const val = itemObj ? (itemObj.value ?? itemObj.label) : item;
+      const isDisabled = itemObj ? Boolean(itemObj.disabled) : false;
+      const isActive = String(this.value) === String(val);
+      return b`
+      <div
+        class="${['magic-tabs__item', isActive ? 'is-active' : '', isDisabled ? 'is-disabled' : '']
+          .filter(Boolean)
+          .join(' ')}"
+        role="tab"
+        tabindex="${isDisabled ? '-1' : '0'}"
+        aria-selected="${isActive ? 'true' : 'false'}"
+        @click=${(e) => this.handleItemClick(item, index, e)}
+      >
+        <span class="magic-tabs__label">${label}</span>
+      </div>
+    `;
+    }
+    render() {
+      const navClasses = [
+        'magic-tabs',
+        `magic-tabs--${this.size || 'medium'}`,
+        `magic-tabs--${this.type || 'capsule'}`,
+        this.block ? 'is-block' : '',
+      ]
+        .filter(Boolean)
+        .join(' ');
+      const safeItems = isArray(this.items) ? this.items : [];
+      return b`
+      <div class="${navClasses}">
+        <slot name="prefix"></slot>
+        <div class="magic-tabs__wrap">
+          <div
+            class="magic-tabs__shadow magic-tabs__shadow--left ${this._canScrollLeft ? 'is-show' : ''}"
+          ></div>
+          <div class="magic-tabs__nav" role="tablist">
+            ${safeItems.map((item, index) => this.renderTabItem(item, index))}
+          </div>
+          <div
+            class="magic-tabs__shadow magic-tabs__shadow--right ${this._canScrollRight ? 'is-show' : ''}"
+          ></div>
+        </div>
+        <slot name="suffix"></slot>
+      </div>
+    `;
+    }
+  };
+  if (!customElements.get('magic-tabs')) customElements.define('magic-tabs', MagicTabs);
   var style_default$6 =
-    ':host{vertical-align:middle;display:inline-flex}@keyframes magic-spinner-rotate{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.magic-spinner{justify-content:center;align-items:center;gap:10px;display:inline-flex}.magic-spinner.is-vertical{flex-direction:column;gap:12px}.magic-spinner__circle{box-sizing:border-box;width:var(--magic-spinner-size,24px);height:var(--magic-spinner-size,24px);border-style:solid;border-width:var(--magic-spinner-border-width,3px);border-color:var(--magic-spinner-track,var(--bg2,#ffffff1a));border-top-color:var(--magic-spinner-color,var(--magic-primary-color));border-radius:50%;flex-shrink:0;animation:.8s linear infinite magic-spinner-rotate}.magic-spinner__text{color:var(--magic-spinner-text-color,var(--text3,#9499a0));-webkit-user-select:none;user-select:none;font-size:13px;line-height:1.4}';
+    ':host{vertical-align:middle;display:inline-flex}@keyframes magic-spinner-rotate{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.magic-spinner{justify-content:center;align-items:center;gap:10px;display:inline-flex}.magic-spinner.is-vertical{flex-direction:column;gap:12px}.magic-spinner__circle{box-sizing:border-box;width:var(--magic-spinner-size,24px);height:var(--magic-spinner-size,24px);border-style:solid;border-width:var(--magic-spinner-border-width,3px);border-color:var(--magic-spinner-track,#ffffff1a);border-top-color:var(--magic-spinner-color,var(--magic-primary-color));border-radius:50%;flex-shrink:0;animation:.8s linear infinite magic-spinner-rotate}.magic-spinner__text{color:var(--magic-spinner-text-color,#9499a0);-webkit-user-select:none;user-select:none;font-size:13px;line-height:1.4}';
   var MagicSpinner = class extends i {
     static properties = {
       size: String,
@@ -2585,7 +2942,7 @@
   };
   if (!customElements.get('magic-spinner')) customElements.define('magic-spinner', MagicSpinner);
   var style_default$5 =
-    ':host{vertical-align:middle;-webkit-user-select:none;user-select:none;align-items:center;display:inline-flex}.magic-switch{cursor:pointer;background:0 0;border:none;outline:none;align-items:center;gap:6px;margin:0;padding:0;font-family:inherit;display:inline-flex}.magic-switch--small{--switch-width:30px;--switch-height:16px;--switch-knob:12px;--switch-offset:14px;--switch-font-size:12px}.magic-switch--medium{--switch-width:38px;--switch-height:20px;--switch-knob:16px;--switch-offset:18px;--switch-font-size:13px}.magic-switch--large{--switch-width:46px;--switch-height:24px;--switch-knob:20px;--switch-offset:22px;--switch-font-size:14px}.magic-switch__core{width:var(--switch-width,38px);height:var(--switch-height,20px);background-color:var(--magic-switch-inactive-color,#8c8c8c59);box-sizing:border-box;border-radius:999px;transition:background-color .25s,border-color .25s;display:inline-block;position:relative}.magic-switch__action{width:var(--switch-knob,16px);height:var(--switch-knob,16px);background-color:#fff;border-radius:50%;justify-content:center;align-items:center;transition:transform .25s cubic-bezier(.4,0,.2,1);display:flex;position:absolute;top:2px;left:2px;box-shadow:0 1px 3px #00000040}.magic-switch__label{color:var(--text2,#61666d);font-size:13px;line-height:1;transition:color .2s}.magic-switch.is-checked .magic-switch__core{background-color:var(--magic-switch-active-color,var(--magic-primary-color))}.magic-switch.is-checked .magic-switch__action{transform:translateX(var(--switch-offset,18px))}.magic-switch.is-checked .magic-switch__label{color:var(--text1,#18191c)}.magic-switch.is-disabled{cursor:not-allowed;opacity:.55}.magic-switch.is-disabled .magic-switch__core{cursor:not-allowed}.magic-switch.is-loading{cursor:wait;opacity:.8}';
+    ':host{vertical-align:middle;-webkit-user-select:none;user-select:none;align-items:center;display:inline-flex}.magic-switch{cursor:pointer;background:0 0;border:none;outline:none;align-items:center;gap:6px;margin:0;padding:0;font-family:inherit;display:inline-flex}.magic-switch--small{--switch-width:30px;--switch-height:16px;--switch-knob:12px;--switch-offset:14px;--switch-font-size:12px}.magic-switch--medium{--switch-width:38px;--switch-height:20px;--switch-knob:16px;--switch-offset:18px;--switch-font-size:13px}.magic-switch--large{--switch-width:46px;--switch-height:24px;--switch-knob:20px;--switch-offset:22px;--switch-font-size:14px}.magic-switch__core{width:var(--switch-width,38px);height:var(--switch-height,20px);background-color:var(--magic-switch-inactive-color,#8c8c8c59);box-sizing:border-box;border-radius:999px;transition:background-color .25s,border-color .25s;display:inline-block;position:relative}.magic-switch__action{width:var(--switch-knob,16px);height:var(--switch-knob,16px);background-color:#fff;border-radius:50%;justify-content:center;align-items:center;transition:transform .25s cubic-bezier(.4,0,.2,1);display:flex;position:absolute;top:2px;left:2px;box-shadow:0 1px 3px #00000040}.magic-switch__label{color:var(--magic-switch-color,#9499a0);font-size:13px;line-height:1;transition:color .2s}.magic-switch.is-checked .magic-switch__core{background-color:var(--magic-switch-active-color,var(--magic-primary-color))}.magic-switch.is-checked .magic-switch__action{transform:translateX(var(--switch-offset,18px))}.magic-switch.is-checked .magic-switch__label{color:var(--magic-switch-active-label-color,#fff)}.magic-switch.is-disabled{cursor:not-allowed;opacity:.55}.magic-switch.is-disabled .magic-switch__core{cursor:not-allowed}.magic-switch.is-loading{cursor:wait;opacity:.8}';
   var MagicSwitch = class extends i {
     static properties = {
       checked: {
@@ -3148,7 +3505,7 @@
   var ICONS = {
     expand: {
       viewBox: '0 0 24 24',
-      d: 'M12 15.375L6 9.375L7.4 7.975L12 12.575L16.6 7.975L18 9.375L12 15.375Z',
+      d: 'M2.68934 7.68934C3.27513 7.10356 4.22487 7.10356 4.81066 7.68934L12 14.8787L19.18935 7.68934C19.7751 7.10356 20.7249 7.10356 21.31065 7.68934C21.89645 8.27512 21.89645 9.22488 21.31065 9.81066L13.41425 17.70715C12.6332 18.48815 11.3668 18.48815 10.58575 17.70715L2.68934 9.81066C2.10356 9.22488 2.10356 8.27513 2.68934 7.68934z',
     },
     views: {
       viewBox: '0 0 18 18',
@@ -3842,7 +4199,7 @@
           if (!keyString) return;
           formData.value[field] = keyString;
           recordingField.value = '';
-          toast.success(`已设置快捷键为: ${keyString}`);
+          toast$1.success(`已设置快捷键为: ${keyString}`);
         };
         const handleChange = (key, event) => {
           formData.value[key] = event.detail.value;
@@ -3850,7 +4207,7 @@
         const handleResetDefaults = () => {
           formData.value = { ...DEFAULT_SETTINGS };
           recordingField.value = '';
-          toast.info('已恢复为默认设置');
+          toast$1.info('已恢复为默认设置');
         };
         const handleCancel = () => {
           formData.value = { ...settings };
@@ -3860,7 +4217,7 @@
         };
         const handleConfirm = () => {
           updateSettings(formData.value);
-          toast.success('设置保存成功');
+          toast$1.success('设置保存成功');
           emit('update:visible', false);
           emit('close');
         };
@@ -4292,59 +4649,62 @@
   var _hoisted_4 = ['checked'];
   var _hoisted_5 = { class: 'header-right' };
   var _hoisted_6 = ['title'];
-  var _hoisted_7 = ['value'];
-  var _hoisted_8 = {
+  var _hoisted_7 = ['items', 'value'];
+  var _hoisted_8 = ['onClick'];
+  var _hoisted_9 = { class: 'item-label' };
+  var _hoisted_10 = ['value'];
+  var _hoisted_11 = {
     key: 0,
     slot: 'suffix',
     class: 'match-badge',
   };
-  var _hoisted_9 = {
+  var _hoisted_12 = {
     key: 0,
     class: 'loading-state',
   };
-  var _hoisted_10 = {
+  var _hoisted_13 = {
     key: 1,
     class: 'empty-state',
   };
-  var _hoisted_11 = { class: 'empty-text' };
-  var _hoisted_12 = {
+  var _hoisted_14 = { class: 'empty-text' };
+  var _hoisted_15 = {
     key: 2,
     class: 'list',
   };
-  var _hoisted_13 = ['data-bvid'];
-  var _hoisted_14 = ['data-bvid', 'data-page', 'onClick'];
-  var _hoisted_15 = { class: 'mode-list' };
-  var _hoisted_16 = { class: 'title' };
-  var _hoisted_17 = ['title'];
-  var _hoisted_18 = { class: 'actions' };
-  var _hoisted_19 = ['onClick'];
-  var _hoisted_20 = {
+  var _hoisted_16 = ['data-bvid'];
+  var _hoisted_17 = ['data-bvid', 'data-page', 'onClick'];
+  var _hoisted_18 = { class: 'mode-list' };
+  var _hoisted_19 = { class: 'title' };
+  var _hoisted_20 = ['title'];
+  var _hoisted_21 = { class: 'actions' };
+  var _hoisted_22 = ['onClick'];
+  var _hoisted_23 = {
     key: 1,
     class: 'expand-duration',
   };
-  var _hoisted_21 = { class: 'mode-card' };
-  var _hoisted_22 = { class: 'cover' };
-  var _hoisted_23 = ['alt', 'src'];
-  var _hoisted_24 = { class: 'info' };
-  var _hoisted_25 = { class: 'title' };
-  var _hoisted_26 = ['title'];
-  var _hoisted_27 = { class: 'stats' };
-  var _hoisted_28 = { class: 'stat-item views' };
-  var _hoisted_29 = { class: 'count-text views-text' };
-  var _hoisted_30 = { class: 'stat-item danmaku' };
-  var _hoisted_31 = { class: 'count-text danmaku-text' };
-  var _hoisted_32 = { class: 'stat-item pubdate' };
-  var _hoisted_33 = ['title'];
-  var _hoisted_34 = ['onClick'];
-  var _hoisted_35 = {
+  var _hoisted_24 = { class: 'mode-card' };
+  var _hoisted_25 = { class: 'cover' };
+  var _hoisted_26 = ['alt', 'src'];
+  var _hoisted_27 = { class: 'info' };
+  var _hoisted_28 = { class: 'title' };
+  var _hoisted_29 = ['title'];
+  var _hoisted_30 = { class: 'stats' };
+  var _hoisted_31 = { class: 'stat-item views' };
+  var _hoisted_32 = { class: 'count-text views-text' };
+  var _hoisted_33 = { class: 'stat-item danmaku' };
+  var _hoisted_34 = { class: 'count-text danmaku-text' };
+  var _hoisted_35 = { class: 'stat-item pubdate' };
+  var _hoisted_36 = ['title'];
+  var _hoisted_37 = ['onClick'];
+  var _hoisted_38 = {
     key: 0,
     class: 'episodes',
   };
-  var _hoisted_36 = ['onClick'];
-  var _hoisted_37 = { class: 'episode-title' };
-  var _hoisted_38 = ['title'];
-  var _hoisted_39 = { class: 'episode-meta' };
-  var _hoisted_40 = { class: 'episode-duration' };
+  var _hoisted_39 = ['onClick'];
+  var _hoisted_40 = { class: 'episode-title' };
+  var _hoisted_41 = ['title'];
+  var _hoisted_42 = { class: 'episode-meta' };
+  var _hoisted_43 = { class: 'episode-duration' };
   var App_default = _plugin_vue_export_helper_default(
     {
       __name: 'App',
@@ -4357,6 +4717,9 @@
           scrollContainerRef,
           podMode,
           groups,
+          seasonSections,
+          hasMultipleSections,
+          currentSectionId,
           containerStyle,
           videoBodyStyle,
           isExpanded,
@@ -4365,6 +4728,7 @@
           switchActiveVideo,
           toggleShuffle,
           loadPod,
+          switchSection,
         } = useVideoPod();
         const {
           keyword,
@@ -4379,6 +4743,73 @@
         } = usePodSearch(groups);
         const { settings } = useSettings();
         const isSettingsOpen = (0, vue.ref)(false);
+        const slideRef = (0, vue.ref)(null);
+        const isSectionDropdownOpen = (0, vue.ref)(false);
+        let dropdownTimer = null;
+        const openSectionDropdown = () => {
+          if (dropdownTimer) {
+            clearTimeout(dropdownTimer);
+            dropdownTimer = null;
+          }
+          isSectionDropdownOpen.value = true;
+        };
+        const handleBtnMouseLeave = () => {
+          if (dropdownTimer) clearTimeout(dropdownTimer);
+          dropdownTimer = setTimeout(() => {
+            isSectionDropdownOpen.value = false;
+            dropdownTimer = null;
+          }, 120);
+        };
+        const keepSectionDropdown = () => {
+          if (dropdownTimer) {
+            clearTimeout(dropdownTimer);
+            dropdownTimer = null;
+          }
+        };
+        const closeSectionDropdownImmediately = () => {
+          if (dropdownTimer) {
+            clearTimeout(dropdownTimer);
+            dropdownTimer = null;
+          }
+          isSectionDropdownOpen.value = false;
+        };
+        const toggleSectionDropdown = () => {
+          if (isSectionDropdownOpen.value) closeSectionDropdownImmediately();
+          else openSectionDropdown();
+        };
+        const handleDropdownWheel = (event) => {
+          const el = event.currentTarget;
+          if (!el) return;
+          el.scrollTop += event.deltaY;
+        };
+        const selectSection = (item) => {
+          const nextId = String(item.value);
+          switchSection(nextId);
+          closeSectionDropdownImmediately();
+        };
+        let cleanupDocumentClick = null;
+        const handleDocumentClick = (event) => {
+          if (
+            isSectionDropdownOpen.value &&
+            slideRef.value &&
+            !slideRef.value.contains(event.target)
+          )
+            closeSectionDropdownImmediately();
+        };
+        (0, vue.watch)(isSectionDropdownOpen, (open) => {
+          cleanupDocumentClick?.();
+          cleanupDocumentClick = null;
+          if (open) cleanupDocumentClick = on(window, 'click', handleDocumentClick);
+        });
+        (0, vue.onUnmounted)(() => {
+          if (dropdownTimer) clearTimeout(dropdownTimer);
+          cleanupDocumentClick?.();
+          cleanupDocumentClick = null;
+        });
+        const handleSectionChange = (event) => {
+          const nextId = event.detail?.value;
+          switchSection(nextId);
+        };
         const handleKeywordInput = (event) => {
           keyword.value = event.detail?.value ?? event.target?.value ?? '';
         };
@@ -4505,6 +4936,119 @@
                       ),
                     ]),
                   ]),
+                  (0, vue.unref)(hasMultipleSections)
+                    ? ((0, vue.openBlock)(),
+                      (0, vue.createElementBlock)(
+                        'div',
+                        {
+                          key: 0,
+                          ref_key: 'slideRef',
+                          ref: slideRef,
+                          class: 'tk-reaction-pod-slide',
+                        },
+                        [
+                          (0, vue.createElementVNode)(
+                            'magic-tabs',
+                            {
+                              items: (0, vue.unref)(seasonSections),
+                              value: (0, vue.unref)(currentSectionId),
+                              onChange: handleSectionChange,
+                            },
+                            [
+                              (0, vue.createElementVNode)(
+                                'div',
+                                {
+                                  slot: 'suffix',
+                                  class: (0, vue.normalizeClass)([
+                                    'more-sections-btn',
+                                    { 'is-active': (0, vue.unref)(isSectionDropdownOpen) },
+                                  ]),
+                                  onClick: toggleSectionDropdown,
+                                  onMouseenter: openSectionDropdown,
+                                  onMouseleave: handleBtnMouseLeave,
+                                },
+                                [
+                                  (0, vue.createVNode)((0, vue.unref)(_sfc_main$2), {
+                                    name: 'expand',
+                                  }),
+                                ],
+                                34,
+                              ),
+                            ],
+                            40,
+                            _hoisted_7,
+                          ),
+                          (0, vue.createVNode)(
+                            vue.Transition,
+                            { name: 'dropdown-fade' },
+                            {
+                              default: (0, vue.withCtx)(() => [
+                                (0, vue.unref)(isSectionDropdownOpen)
+                                  ? ((0, vue.openBlock)(),
+                                    (0, vue.createElementBlock)(
+                                      'div',
+                                      {
+                                        key: 0,
+                                        class: 'sections-dropdown-menu',
+                                        onMouseenter: keepSectionDropdown,
+                                        onMouseleave: closeSectionDropdownImmediately,
+                                        onWheel: (0, vue.withModifiers)(handleDropdownWheel, [
+                                          'stop',
+                                          'prevent',
+                                        ]),
+                                      },
+                                      [
+                                        ((0, vue.openBlock)(true),
+                                        (0, vue.createElementBlock)(
+                                          vue.Fragment,
+                                          null,
+                                          (0, vue.renderList)(
+                                            (0, vue.unref)(seasonSections),
+                                            (item) => {
+                                              return (
+                                                (0, vue.openBlock)(),
+                                                (0, vue.createElementBlock)(
+                                                  'div',
+                                                  {
+                                                    key: item.value,
+                                                    class: (0, vue.normalizeClass)([
+                                                      'dropdown-item',
+                                                      {
+                                                        'is-active':
+                                                          String(item.value) ===
+                                                          String((0, vue.unref)(currentSectionId)),
+                                                      },
+                                                    ]),
+                                                    onClick: ($event) => selectSection(item),
+                                                  },
+                                                  [
+                                                    (0, vue.createElementVNode)(
+                                                      'span',
+                                                      _hoisted_9,
+                                                      (0, vue.toDisplayString)(item.label),
+                                                      1,
+                                                    ),
+                                                  ],
+                                                  10,
+                                                  _hoisted_8,
+                                                )
+                                              );
+                                            },
+                                          ),
+                                          128,
+                                        )),
+                                      ],
+                                      32,
+                                    ))
+                                  : (0, vue.createCommentVNode)('', true),
+                              ]),
+                              _: 1,
+                            },
+                          ),
+                        ],
+                        512,
+                      ))
+                    : (0, vue.createCommentVNode)('', true),
                   (0, vue.withDirectives)(
                     (0, vue.createElementVNode)(
                       'div',
@@ -4556,7 +5100,7 @@
                               ? ((0, vue.openBlock)(),
                                 (0, vue.createElementBlock)(
                                   'span',
-                                  _hoisted_8,
+                                  _hoisted_11,
                                   (0, vue.toDisplayString)(
                                     (0, vue.unref)(matchCount) > 0
                                       ? `${(0, vue.unref)(matchCount)} 个结果`
@@ -4567,7 +5111,7 @@
                               : (0, vue.createCommentVNode)('', true),
                           ],
                           40,
-                          _hoisted_7,
+                          _hoisted_10,
                         ),
                       ],
                       544,
@@ -4588,7 +5132,7 @@
                     [
                       (0, vue.unref)(isLoading)
                         ? ((0, vue.openBlock)(),
-                          (0, vue.createElementBlock)('div', _hoisted_9, [
+                          (0, vue.createElementBlock)('div', _hoisted_12, [
                             ...(_cache[6] ||
                               (_cache[6] = [
                                 (0, vue.createElementVNode)(
@@ -4604,10 +5148,10 @@
                           ]))
                         : (0, vue.unref)(filteredGroups).length === 0
                           ? ((0, vue.openBlock)(),
-                            (0, vue.createElementBlock)('div', _hoisted_10, [
+                            (0, vue.createElementBlock)('div', _hoisted_13, [
                               (0, vue.createElementVNode)(
                                 'div',
-                                _hoisted_11,
+                                _hoisted_14,
                                 '未找到与“' +
                                   (0, vue.toDisplayString)((0, vue.unref)(keyword)) +
                                   '”相关的视频',
@@ -4615,7 +5159,7 @@
                               ),
                             ]))
                           : ((0, vue.openBlock)(),
-                            (0, vue.createElementBlock)('div', _hoisted_12, [
+                            (0, vue.createElementBlock)('div', _hoisted_15, [
                               ((0, vue.openBlock)(true),
                               (0, vue.createElementBlock)(
                                 vue.Fragment,
@@ -4646,8 +5190,8 @@
                                                 (0, vue.unref)(handleHeaderClick)(group),
                                             },
                                             [
-                                              (0, vue.createElementVNode)('div', _hoisted_15, [
-                                                (0, vue.createElementVNode)('div', _hoisted_16, [
+                                              (0, vue.createElementVNode)('div', _hoisted_18, [
+                                                (0, vue.createElementVNode)('div', _hoisted_19, [
                                                   _cache[7] ||
                                                     (_cache[7] = (0, vue.createElementVNode)(
                                                       'div',
@@ -4663,10 +5207,10 @@
                                                     },
                                                     (0, vue.toDisplayString)(group.title),
                                                     9,
-                                                    _hoisted_17,
+                                                    _hoisted_20,
                                                   ),
                                                 ]),
-                                                (0, vue.createElementVNode)('div', _hoisted_18, [
+                                                (0, vue.createElementVNode)('div', _hoisted_21, [
                                                   group.isMultiPage
                                                     ? ((0, vue.openBlock)(),
                                                       (0, vue.createElementBlock)(
@@ -4699,13 +5243,13 @@
                                                           ),
                                                         ],
                                                         10,
-                                                        _hoisted_19,
+                                                        _hoisted_22,
                                                       ))
                                                     : group.episodes?.[0]?.duration
                                                       ? ((0, vue.openBlock)(),
                                                         (0, vue.createElementBlock)(
                                                           'div',
-                                                          _hoisted_20,
+                                                          _hoisted_23,
                                                           (0, vue.toDisplayString)(
                                                             group.episodes[0].duration,
                                                           ),
@@ -4714,8 +5258,8 @@
                                                       : (0, vue.createCommentVNode)('', true),
                                                 ]),
                                               ]),
-                                              (0, vue.createElementVNode)('div', _hoisted_21, [
-                                                (0, vue.createElementVNode)('div', _hoisted_22, [
+                                              (0, vue.createElementVNode)('div', _hoisted_24, [
+                                                (0, vue.createElementVNode)('div', _hoisted_25, [
                                                   (0, vue.createElementVNode)(
                                                     'img',
                                                     {
@@ -4726,11 +5270,11 @@
                                                     },
                                                     null,
                                                     8,
-                                                    _hoisted_23,
+                                                    _hoisted_26,
                                                   ),
                                                 ]),
-                                                (0, vue.createElementVNode)('div', _hoisted_24, [
-                                                  (0, vue.createElementVNode)('div', _hoisted_25, [
+                                                (0, vue.createElementVNode)('div', _hoisted_27, [
+                                                  (0, vue.createElementVNode)('div', _hoisted_28, [
                                                     _cache[8] ||
                                                       (_cache[8] = (0, vue.createElementVNode)(
                                                         'div',
@@ -4746,13 +5290,13 @@
                                                       },
                                                       (0, vue.toDisplayString)(group.title),
                                                       9,
-                                                      _hoisted_26,
+                                                      _hoisted_29,
                                                     ),
                                                   ]),
-                                                  (0, vue.createElementVNode)('div', _hoisted_27, [
+                                                  (0, vue.createElementVNode)('div', _hoisted_30, [
                                                     (0, vue.createElementVNode)(
                                                       'div',
-                                                      _hoisted_28,
+                                                      _hoisted_31,
                                                       [
                                                         (0, vue.createVNode)(
                                                           (0, vue.unref)(_sfc_main$2),
@@ -4760,7 +5304,7 @@
                                                         ),
                                                         (0, vue.createElementVNode)(
                                                           'span',
-                                                          _hoisted_29,
+                                                          _hoisted_32,
                                                           (0, vue.toDisplayString)(group.views),
                                                           1,
                                                         ),
@@ -4768,7 +5312,7 @@
                                                     ),
                                                     (0, vue.createElementVNode)(
                                                       'div',
-                                                      _hoisted_30,
+                                                      _hoisted_33,
                                                       [
                                                         (0, vue.createVNode)(
                                                           (0, vue.unref)(_sfc_main$2),
@@ -4776,7 +5320,7 @@
                                                         ),
                                                         (0, vue.createElementVNode)(
                                                           'span',
-                                                          _hoisted_31,
+                                                          _hoisted_34,
                                                           (0, vue.toDisplayString)(group.danmakus),
                                                           1,
                                                         ),
@@ -4784,7 +5328,7 @@
                                                     ),
                                                     (0, vue.createElementVNode)(
                                                       'div',
-                                                      _hoisted_32,
+                                                      _hoisted_35,
                                                       [
                                                         (0, vue.createVNode)(
                                                           (0, vue.unref)(_sfc_main$2),
@@ -4798,7 +5342,7 @@
                                                           },
                                                           (0, vue.toDisplayString)(group.pubdate),
                                                           9,
-                                                          _hoisted_33,
+                                                          _hoisted_36,
                                                         ),
                                                       ],
                                                     ),
@@ -4834,7 +5378,7 @@
                                                             ),
                                                           ],
                                                           10,
-                                                          _hoisted_34,
+                                                          _hoisted_37,
                                                         ))
                                                       : (0, vue.createCommentVNode)('', true),
                                                   ]),
@@ -4842,14 +5386,14 @@
                                               ]),
                                             ],
                                             10,
-                                            _hoisted_14,
+                                            _hoisted_17,
                                           ),
                                           group.isMultiPage
                                             ? (0, vue.withDirectives)(
                                                 ((0, vue.openBlock)(),
                                                 (0, vue.createElementBlock)(
                                                   'div',
-                                                  _hoisted_35,
+                                                  _hoisted_38,
                                                   [
                                                     ((0, vue.openBlock)(true),
                                                     (0, vue.createElementBlock)(
@@ -4885,7 +5429,7 @@
                                                               [
                                                                 (0, vue.createElementVNode)(
                                                                   'div',
-                                                                  _hoisted_37,
+                                                                  _hoisted_40,
                                                                   [
                                                                     _cache[9] ||
                                                                       (_cache[9] = (0,
@@ -4905,17 +5449,17 @@
                                                                         ep.title,
                                                                       ),
                                                                       9,
-                                                                      _hoisted_38,
+                                                                      _hoisted_41,
                                                                     ),
                                                                   ],
                                                                 ),
                                                                 (0, vue.createElementVNode)(
                                                                   'div',
-                                                                  _hoisted_39,
+                                                                  _hoisted_42,
                                                                   [
                                                                     (0, vue.createElementVNode)(
                                                                       'span',
-                                                                      _hoisted_40,
+                                                                      _hoisted_43,
                                                                       (0, vue.toDisplayString)(
                                                                         ep.duration,
                                                                       ),
@@ -4925,7 +5469,7 @@
                                                                 ),
                                                               ],
                                                               10,
-                                                              _hoisted_36,
+                                                              _hoisted_39,
                                                             )
                                                           );
                                                         },
@@ -4947,7 +5491,7 @@
                                             : (0, vue.createCommentVNode)('', true),
                                         ],
                                         8,
-                                        _hoisted_13,
+                                        _hoisted_16,
                                       )
                                     );
                                   },
@@ -4976,7 +5520,7 @@
         };
       },
     },
-    [['__scopeId', 'data-v-81fdaee1']],
+    [['__scopeId', 'data-v-f3f41387']],
   );
   function isWatchLaterRoute() {
     return window.location.pathname.startsWith('/list/watchlater');
@@ -5013,6 +5557,9 @@
     .action-list-item-wrap,
     .video-pod__body {
       overflow: hidden !important;
+    }
+    .video-pod__body {
+      min-height: 250px !important;
     }
     .action-list-item-wrap,
     .video-pod__body .pod-item {

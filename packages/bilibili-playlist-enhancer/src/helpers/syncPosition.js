@@ -2,6 +2,8 @@ import { POD_TYPE } from '../constants.js';
 import { isFunction, on, waitElement } from '@shared/utils';
 import { playerState } from '@/helpers/playerBridge.js';
 
+const correctionOffset = 17;
+
 function getPodTargetSelectors(podType) {
   const isSeries = toValue(podType) === POD_TYPE.SERIES;
   return {
@@ -98,7 +100,12 @@ export function scrollActiveItem(container, smooth = true) {
 /**
  * 计算合集折叠或展开状态下的目标位置
  */
-function calculateCollectionToggleTargetLayout(podType, isExpanded, currentTop) {
+function calculateCollectionToggleTargetLayout(
+  podType,
+  isExpanded,
+  currentTop,
+  hasMultipleSections,
+) {
   if (podType === POD_TYPE.COLLECTION) {
     const toolbar = document.querySelector('#arc_toolbar_report');
     const card = document.querySelector(
@@ -114,25 +121,29 @@ function calculateCollectionToggleTargetLayout(podType, isExpanded, currentTop) 
     const l = aboveModule?.getBoundingClientRect().height || aboveModule?.scrollHeight || 0;
     const n = podBody?.clientHeight ?? 0;
 
-    if (isExpanded) {
-      const diff = s && c ? s - c : 0;
-      const targetHeight = Math.max(250, Math.floor(n + diff + l));
-      const targetTop = currentTop - l;
-      return { targetHeight, targetTop };
-    }
+    const slideHeight = toValue(hasMultipleSections)
+      ? document.querySelector('.video-pod__slide')?.clientHeight || 0
+      : 0;
+
+    const totalOffset = correctionOffset + slideHeight;
+    const diff = s && c ? s - c : 0;
+    const baseHeight = isExpanded ? Math.max(250, Math.floor(n + diff + l)) : 250;
+    const targetTop = isExpanded ? currentTop - l : currentTop + l;
 
     return {
-      targetHeight: 250,
-      targetTop: currentTop + l,
+      targetHeight: baseHeight + totalOffset,
+      targetTop,
     };
   }
 
   if (podType === POD_TYPE.SERIES) {
     const listEl = document.querySelector('#playlist-video-action-list');
-    const targetTop = listEl ? listEl.getBoundingClientRect().top + window.scrollY : currentTop;
-    const targetHeight = isExpanded
-      ? 0
-      : (document.querySelector('.action-list-body-bottom')?.clientHeight ?? 0);
+    let targetTop = listEl
+      ? listEl.getBoundingClientRect().top + window.scrollY - correctionOffset
+      : currentTop;
+    const bodyBottomHeight = document.querySelector('.action-list-body-bottom')?.clientHeight ?? 0;
+
+    const targetHeight = isExpanded ? 0 : bodyBottomHeight + correctionOffset;
     return { targetHeight, targetTop };
   }
 
@@ -145,7 +156,7 @@ function calculateCollectionToggleTargetLayout(podType, isExpanded, currentTop) 
 /**
  * 监听并同步原生侧边栏的绝对对齐位置
  */
-export async function watchPositionSync(podType, hostEl, onPositionUpdate) {
+export async function watchPositionSync(podType, hostEl, onPositionUpdate, hasMultipleSections) {
   const currentType = toValue(podType);
   const selectors = getPodTargetSelectors(currentType);
   const wrapEl = await waitElement(selectors.playlistContainerRight);
@@ -159,10 +170,16 @@ export async function watchPositionSync(podType, hostEl, onPositionUpdate) {
     if (!targetEl.isConnected || (host && !host.isConnected)) return;
 
     const { top, left, width, height } = targetEl.getBoundingClientRect();
-    const maxHeight = calculateMaxHeight(currentType, wrapEl, height);
+    const slideEl = toValue(hasMultipleSections)
+      ? document.querySelector('.video-pod__slide')
+      : null;
+
+    const slideHeight = slideEl?.clientHeight || 0;
+    let maxHeight = calculateMaxHeight(currentType, wrapEl, height) + slideHeight;
+    maxHeight = maxHeight ? maxHeight + correctionOffset : 0;
 
     onPositionUpdate({
-      top: top + window.scrollY,
+      top: top + window.scrollY - slideHeight - correctionOffset,
       left: left + window.scrollX,
       width,
       maxHeight,
@@ -234,7 +251,7 @@ export async function listenNativeToggle(podType, onToggle) {
 /**
  * 面板位置与尺寸和原生同步浮动
  */
-export function usePositionSync(podType, rootRef, onModeChange) {
+export function usePositionSync(podType, rootRef, onModeChange, hasMultipleSections) {
   const position = ref({ top: 0, left: 0, width: 0, maxHeight: 0 });
   const isAnimating = ref(false);
   let cleanupTracker = null;
@@ -264,9 +281,14 @@ export function usePositionSync(podType, rootRef, onModeChange) {
     const resolvedType = toValue(type);
     if (!resolvedType) return;
 
-    cleanupTracker = await watchPositionSync(resolvedType, rootRef, (newPos) => {
-      position.value = newPos;
-    });
+    cleanupTracker = await watchPositionSync(
+      resolvedType,
+      rootRef,
+      (newPos) => {
+        position.value = newPos;
+      },
+      hasMultipleSections,
+    );
 
     cleanupResize = await listenNativeToggle(resolvedType, (isExpanded) => {
       isAnimating.value = true;
@@ -276,6 +298,7 @@ export function usePositionSync(podType, rootRef, onModeChange) {
         resolvedType,
         isExpanded,
         position.value.top,
+        hasMultipleSections,
       );
 
       position.value = {

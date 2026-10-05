@@ -82,6 +82,9 @@ async function fetchMedialistEpisodes(type, bizId) {
 
   return {
     sections: rawList,
+    seasonSections: [],
+    hasMultipleSections: false,
+    currentSectionId: '',
     mode: POD_MODE.CARD,
     type: POD_TYPE.SERIES,
   };
@@ -101,10 +104,28 @@ async function fetchVideoEpisodes(bvid) {
   }
 
   const { data } = res;
-  const seasonEpisodes = data.ugc_season?.sections?.flatMap((s) => s.episodes || []) || [];
-  if (seasonEpisodes.length > 0) {
+  const rawSections = data.ugc_season?.sections || [];
+  if (rawSections.length > 0) {
+    const seasonSections = rawSections.map((s) => {
+      const sectionId = String(s.id || s.season_id || '');
+      const title = s.title || '';
+      return {
+        id: sectionId,
+        title,
+        label: title,
+        value: sectionId,
+        episodes: s.episodes || [],
+      };
+    });
+
+    const currentSection =
+      seasonSections.find((s) => s.episodes.some((ep) => ep.bvid === bvid)) || seasonSections[0];
+
     return {
-      sections: seasonEpisodes,
+      sections: currentSection?.episodes || [],
+      seasonSections,
+      hasMultipleSections: seasonSections.length > 1,
+      currentSectionId: currentSection?.value || '',
       mode: POD_MODE.LIST,
       type: POD_TYPE.COLLECTION,
     };
@@ -115,6 +136,9 @@ async function fetchVideoEpisodes(bvid) {
 
   return {
     sections: pages,
+    seasonSections: [],
+    hasMultipleSections: false,
+    currentSectionId: '',
     mode: POD_MODE.LIST,
     type: POD_TYPE.EPISODE,
   };
@@ -130,7 +154,7 @@ function getMediaListMid() {
 }
 
 /**
- * 获取选集、合集、序列数据
+ * 统一获取选集、合集、系列数据
  */
 export async function fetchSeasonInfo(bvid, sid) {
   try {

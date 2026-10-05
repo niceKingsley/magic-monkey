@@ -47,7 +47,7 @@
 }
 
 :global(:root) {
-  --magic-primary-color: var(--brand_blue, #00aeec);
+  --magic-primary-color: var(--brand_blue);
   --magic-primary-hover-color: var(
     --brand_blue_hover,
     color-mix(in srgb, var(--magic-primary-color) 85%, #fff)
@@ -60,6 +60,14 @@
     --brand_blue_thin,
     color-mix(in srgb, var(--magic-primary-color) 12%, transparent)
   );
+  --magic-text-primary: var(--text1);
+  --magic-text-secondary: var(--text2);
+  --magic-text-tertiary: var(--text3);
+  --magic-bg-subtle: var(--graph_bg_thin, var(--bg2));
+  --magic-bg-hover: var(--line_regular, var(--bg3));
+  --magic-border-color: var(--line_regular);
+  --magic-tabs-mask-bg: var(--graph_bg_regular);
+  --magic-tabs-hover-color: var(--brand_blue);
 }
 
 .tk-reaction {
@@ -73,9 +81,143 @@
   overflow: hidden;
 
   &.is-animating {
+    overflow: hidden;
     transition:
       max-height 0.3s ease-in-out,
       top 0.29s ease-in-out;
+  }
+
+  .tk-reaction-pod-slide {
+    position: relative;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--line_regular);
+    box-sizing: border-box;
+    flex-shrink: 0;
+    min-width: 0;
+
+    magic-tabs {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .more-sections-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      margin-left: 6px;
+      cursor: pointer;
+      color: var(--text3);
+      border-radius: 4px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        color: var(--text1);
+
+        .icon,
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+
+      &:active {
+        transform: scale(0.92);
+      }
+
+      &.is-active,
+      &.is-expanded {
+        color: var(--text1);
+
+        .icon,
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+
+      .icon,
+      svg {
+        display: block;
+        width: 14px;
+        height: 14px;
+        transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+
+    .sections-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      right: 0;
+      z-index: 50;
+      max-height: 250px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      background: var(--graph_bg_thick, var(--bg1));
+      border: 1px solid var(--line_regular);
+      border-radius: 6px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      padding: 4px;
+      box-sizing: border-box;
+      backdrop-filter: blur(12px);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        height: 32px;
+        padding: 0 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 13px;
+        color: var(--text2);
+        transition: all 0.15s ease;
+        user-select: none;
+
+        &:hover {
+          color: var(--text1);
+          background-color: var(--bg2);
+        }
+
+        &.is-active {
+          color: var(--magic-primary-color, var(--brand_blue));
+          background-color: var(--magic-primary-light-bg, var(--brand_blue_thin));
+          font-weight: 500;
+        }
+
+        .item-label {
+          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .dropdown-fade-enter-active,
+  .dropdown-fade-leave-active {
+    transition:
+      opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .dropdown-fade-enter-from,
+  .dropdown-fade-leave-to {
+    opacity: 0;
+    transform: translateY(-4px);
   }
 
   .tk-reaction-header {
@@ -100,14 +242,14 @@
         --magic-select-color: var(--text1);
         --magic-select-placeholder-color: var(--text3);
         --magic-select-suffix-color: var(--text3);
-        --magic-select-hover-bg: var(--bg2_hover, var(--bg3));
-        --magic-select-hover-border: var(--magic-primary-color, var(--brand_blue));
-        --magic-select-active-color: var(--magic-primary-color, var(--brand_blue));
-        --magic-select-dropdown-bg: var(--graph_bg_thick, var(--bg1));
+        --magic-select-hover-bg: var(--bg2_hover);
+        --magic-select-hover-border: var(--magic-primary-color);
+        --magic-select-active-color: var(--magic-primary-color);
+        --magic-select-dropdown-bg: var(--graph_bg_thick);
         --magic-select-dropdown-border: var(--line_regular);
         --magic-select-dropdown-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         --magic-select-option-hover-bg: var(--bg2);
-        --magic-select-option-active-bg: var(--magic-primary-light-bg, var(--brand_blue_thin));
+        --magic-select-option-active-bg: var(--magic-primary-light-bg);
       }
 
       magic-switch {

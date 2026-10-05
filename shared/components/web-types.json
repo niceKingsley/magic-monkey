@@ -653,6 +653,68 @@
           ]
         },
         {
+          "name": "magic-tabs",
+          "description": "Magic Monkey 共享组件 <magic-tabs>",
+          "source": {
+            "module": "./tabs/index.js",
+            "symbol": "MagicTabs"
+          },
+          "attributes": [
+            {
+              "name": "items",
+              "description": "选项卡列表数据 [{ label, value, disabled }]",
+              "value": {
+                "type": "array"
+              }
+            },
+            {
+              "name": "value",
+              "description": "当前选中的选项卡值",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "size",
+              "description": "选项卡尺寸规格 (small, medium, large)",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "type",
+              "description": "选项卡展示类型 (capsule 胶囊模式, line 下划线模式)",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "scrollable",
+              "description": "是否开启横向平滑滚动",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "block",
+              "description": "是否撑满父级容器宽度",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "change",
+              "description": "<magic-tabs> 触发的 @change 事件"
+            },
+            {
+              "name": "tab-click",
+              "description": "<magic-tabs> 触发的 @tab-click 事件"
+            }
+          ]
+        },
+        {
           "name": "magic-toast",
           "description": "Magic Monkey 共享组件 <magic-toast>",
           "source": {

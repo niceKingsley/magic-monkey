@@ -29,7 +29,7 @@
     height: var(--magic-spinner-size, 24px);
     border-style: solid;
     border-width: var(--magic-spinner-border-width, 3px);
-    border-color: var(--magic-spinner-track, var(--bg2, rgba(255, 255, 255, 0.1)));
+    border-color: var(--magic-spinner-track, rgba(255, 255, 255, 0.1));
     border-top-color: var(--magic-spinner-color, var(--magic-primary-color));
     border-radius: 50%;
     animation: magic-spinner-rotate 0.8s linear infinite;
@@ -38,7 +38,7 @@
 
   &__text {
     font-size: 13px;
-    color: var(--magic-spinner-text-color, var(--text3, #9499a0));
+    color: var(--magic-spinner-text-color, #9499a0);
     user-select: none;
     line-height: 1.4;
   }

@@ -48,6 +48,41 @@
         </div>
       </div>
     </div>
+    <div v-if="hasMultipleSections" ref="slideRef" class="tk-reaction-pod-slide">
+      <magic-tabs :items="seasonSections" :value="currentSectionId" @change="handleSectionChange">
+        <div
+          slot="suffix"
+          :class="['more-sections-btn', { 'is-active': isSectionDropdownOpen }]"
+          @click="toggleSectionDropdown"
+          @mouseenter="openSectionDropdown"
+          @mouseleave="handleBtnMouseLeave"
+        >
+          <SvgIcon name="expand" />
+        </div>
+      </magic-tabs>
+
+      <transition name="dropdown-fade">
+        <div
+          v-if="isSectionDropdownOpen"
+          class="sections-dropdown-menu"
+          @mouseenter="keepSectionDropdown"
+          @mouseleave="closeSectionDropdownImmediately"
+          @wheel.stop.prevent="handleDropdownWheel"
+        >
+          <div
+            v-for="item in seasonSections"
+            :key="item.value"
+            :class="[
+              'dropdown-item',
+              { 'is-active': String(item.value) === String(currentSectionId) },
+            ]"
+            @click="selectSection(item)"
+          >
+            <span class="item-label">{{ item.label }}</span>
+          </div>
+        </div>
+      </transition>
+    </div>
 
     <div v-show="isSearchOpen" class="tk-reaction-search" @keydown.stop @keyup.stop>
       <magic-input
@@ -191,11 +226,12 @@
 </template>
 
 <script setup>
+import { on } from '@shared/utils';
 import { POD_MODE, POD_TYPE, SHUFFLE_SCOPE, SORT_OPTIONS } from './constants.js';
 import { useVideoPod } from './composables/useVideoPod.js';
 import { usePodSearch } from './composables/usePodSearch.js';
 import { initSettings, useSettings } from './composables/useSettings.js';
-import { toast } from '@shared/components/toast';
+import '@shared/components/tabs';
 import '@shared/components/spinner';
 import '@shared/components/switch';
 import '@shared/components/select';
@@ -211,6 +247,9 @@ const {
   scrollContainerRef,
   podMode,
   groups,
+  seasonSections,
+  hasMultipleSections,
+  currentSectionId,
   containerStyle,
   videoBodyStyle,
   isExpanded,
@@ -219,6 +258,7 @@ const {
   switchActiveVideo,
   toggleShuffle,
   loadPod,
+  switchSection,
 } = useVideoPod();
 
 const {
@@ -235,6 +275,92 @@ const {
 
 const { settings } = useSettings();
 const isSettingsOpen = ref(false);
+
+const slideRef = ref(null);
+const isSectionDropdownOpen = ref(false);
+let dropdownTimer = null;
+
+const openSectionDropdown = () => {
+  if (dropdownTimer) {
+    clearTimeout(dropdownTimer);
+    dropdownTimer = null;
+  }
+  isSectionDropdownOpen.value = true;
+};
+
+const handleBtnMouseLeave = () => {
+  if (dropdownTimer) {
+    clearTimeout(dropdownTimer);
+  }
+  dropdownTimer = setTimeout(() => {
+    isSectionDropdownOpen.value = false;
+    dropdownTimer = null;
+  }, 120);
+};
+
+const keepSectionDropdown = () => {
+  if (dropdownTimer) {
+    clearTimeout(dropdownTimer);
+    dropdownTimer = null;
+  }
+};
+
+const closeSectionDropdownImmediately = () => {
+  if (dropdownTimer) {
+    clearTimeout(dropdownTimer);
+    dropdownTimer = null;
+  }
+  isSectionDropdownOpen.value = false;
+};
+
+const toggleSectionDropdown = () => {
+  if (isSectionDropdownOpen.value) {
+    closeSectionDropdownImmediately();
+  } else {
+    openSectionDropdown();
+  }
+};
+
+const handleDropdownWheel = (event) => {
+  const el = event.currentTarget;
+  if (!el) return;
+  el.scrollTop += event.deltaY;
+};
+
+const selectSection = (item) => {
+  const nextId = String(item.value);
+  switchSection(nextId);
+  closeSectionDropdownImmediately();
+};
+
+let cleanupDocumentClick = null;
+
+const handleDocumentClick = (event) => {
+  if (isSectionDropdownOpen.value && slideRef.value && !slideRef.value.contains(event.target)) {
+    closeSectionDropdownImmediately();
+  }
+};
+
+watch(isSectionDropdownOpen, (open) => {
+  cleanupDocumentClick?.();
+  cleanupDocumentClick = null;
+  if (open) {
+    cleanupDocumentClick = on(window, 'click', handleDocumentClick);
+  }
+});
+
+onUnmounted(() => {
+  if (dropdownTimer) {
+    clearTimeout(dropdownTimer);
+  }
+  cleanupDocumentClick?.();
+  cleanupDocumentClick = null;
+});
+
+const handleSectionChange = (event) => {
+  const nextId = event.detail?.value;
+  switchSection(nextId);
+};
 
 const handleKeywordInput = (event) => {
   keyword.value = event.detail?.value ?? event.target?.value ?? '';

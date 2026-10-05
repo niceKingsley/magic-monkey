@@ -58,20 +58,29 @@ export function useVideoPod() {
     },
   });
 
-  const { isAnimating, isLoading, podMode, containerStyle, videoBodyStyle, loadPod } = usePodLoader(
-    {
-      rawGroups,
-      podType,
-      activeBvid,
-      activePage,
-      rootRef,
-      scrollContainerRef,
-      setExpanded,
-      currentPlaying,
-      setActiveTarget,
-      refreshActiveStates,
-    },
-  );
+  const {
+    isAnimating,
+    isLoading,
+    podMode,
+    seasonSections,
+    hasMultipleSections,
+    currentSectionId,
+    containerStyle,
+    videoBodyStyle,
+    loadPod,
+    switchSection,
+  } = usePodLoader({
+    rawGroups,
+    podType,
+    activeBvid,
+    activePage,
+    rootRef,
+    scrollContainerRef,
+    setExpanded,
+    currentPlaying,
+    setActiveTarget,
+    refreshActiveStates,
+  });
 
   watch(
     () => settings.sortMode,
@@ -132,6 +141,10 @@ export function useVideoPod() {
     sortMode,
     setSortMode,
     groups,
+    seasonSections,
+    hasMultipleSections,
+    currentSectionId,
+    switchSection,
     flatEpisodes,
     currentPlaying,
     containerStyle,

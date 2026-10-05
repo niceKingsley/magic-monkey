@@ -37,7 +37,7 @@ export const DEFAULT_SETTINGS = {
   /* 随机播放范围 */
   shuffleScope: SHUFFLE_SCOPE.ALL,
   /* 当前视频分 P 播完即停止 */
-  stopOnGroupEnd: false,
+  stopOnGroupEnd: true,
   /* 切集自动定位高亮位置 */
   scrollActiveOnClick: true,
   /* 排序切换自动定位高亮位置（关闭则回到顶部） */
