@@ -97,6 +97,11 @@ export function scrollActiveItem(container, smooth = true) {
   observeContainerSettling(container, () => alignActiveItem(container, false));
 }
 
+export function setBilibiliVideoPodMinHeight() {
+  document.querySelector(getPodTargetSelectors(POD_TYPE.COLLECTION).listBody).style.minHeight =
+    '250px';
+}
+
 /**
  * 计算合集折叠或展开状态下的目标位置
  */
@@ -108,13 +113,9 @@ function calculateCollectionToggleTargetLayout(
 ) {
   if (podType === POD_TYPE.COLLECTION) {
     const toolbar = document.querySelector('#arc_toolbar_report');
-    const card = document.querySelector(
-      '.video-page-card-small, .video-page-special-card-small, .video-page-operator-card-small, .video-page-game-card-small',
-    );
-    const aboveModule = document.querySelector(
-      '.video-pod-above-modules.collapsed, .video-pod-above-modules',
-    );
-    const podBody = document.querySelector('.video-pod__body');
+    const card = document.querySelector('.video-page-card-small');
+    const aboveModule = document.querySelector('.video-pod-above-modules');
+    const podBody = document.querySelector(getPodTargetSelectors(podType).listBody);
 
     const s = toolbar?.getBoundingClientRect().bottom ?? 0;
     const c = card?.getBoundingClientRect().top ?? 0;
@@ -129,7 +130,6 @@ function calculateCollectionToggleTargetLayout(
     const diff = s && c ? s - c : 0;
     const baseHeight = isExpanded ? Math.max(250, Math.floor(n + diff + l)) : 250;
     const targetTop = isExpanded ? currentTop - l : currentTop + l;
-
     return {
       targetHeight: baseHeight + totalOffset,
       targetTop,
@@ -182,7 +182,7 @@ export async function watchPositionSync(podType, hostEl, onPositionUpdate, hasMu
       top: top + window.scrollY - slideHeight - correctionOffset,
       left: left + window.scrollX,
       width,
-      maxHeight,
+      height: maxHeight,
     });
   };
 
@@ -252,7 +252,7 @@ export async function listenNativeToggle(podType, onToggle) {
  * 面板位置与尺寸和原生同步浮动
  */
 export function usePositionSync(podType, rootRef, onModeChange, hasMultipleSections) {
-  const position = ref({ top: 0, left: 0, width: 0, maxHeight: 0 });
+  const position = ref({ top: 0, left: 0, width: 0, height: 0 });
   const isAnimating = ref(false);
   let cleanupTracker = null;
   let cleanupResize = null;
@@ -261,7 +261,7 @@ export function usePositionSync(podType, rootRef, onModeChange, hasMultipleSecti
     top: `${position.value.top}px`,
     left: `${position.value.left}px`,
     width: `${position.value.width}px`,
-    maxHeight: `${position.value.maxHeight}px`,
+    height: `${position.value.height}px`,
   }));
 
   const videoBodyStyle = computed(() => ({
@@ -294,6 +294,8 @@ export function usePositionSync(podType, rootRef, onModeChange, hasMultipleSecti
       isAnimating.value = true;
       cleanupTracker.setAnimating(true);
 
+      if (podType.value === POD_TYPE.COLLECTION && !isExpanded) setBilibiliVideoPodMinHeight();
+
       const { targetHeight, targetTop } = calculateCollectionToggleTargetLayout(
         resolvedType,
         isExpanded,
@@ -304,7 +306,7 @@ export function usePositionSync(podType, rootRef, onModeChange, hasMultipleSecti
       position.value = {
         ...position.value,
         top: targetTop,
-        maxHeight: targetHeight,
+        height: targetHeight,
       };
       onModeChange?.(isExpanded);
 

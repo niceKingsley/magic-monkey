@@ -1,4 +1,4 @@
-import { scrollActiveItem } from '../helpers/syncPosition.js';
+import { scrollActiveItem, setBilibiliVideoPodMinHeight } from '../helpers/syncPosition.js';
 import {
   interceptPlayerControls,
   interceptPlayerEnding,
@@ -123,7 +123,9 @@ export function useVideoPod() {
   };
 
   onMounted(() => {
-    loadPod().then();
+    loadPod().then(() => {
+      setBilibiliVideoPodMinHeight();
+    });
     const cleanups = [
       interceptPlayerControls(handlePlayerCtrl),
       interceptPlayerEnding(handleVideoEnded),

@@ -238,6 +238,7 @@ import '@shared/components/select';
 import '@shared/components/input';
 import SvgIcon from './components/SvgIcon';
 import SettingsModal from './components/SettingsModal';
+import { toast } from '@shared/components/toast/index.js';
 
 const {
   isAnimating,
@@ -359,6 +360,7 @@ onUnmounted(() => {
 
 const handleSectionChange = (event) => {
   const nextId = event.detail?.value;
+  if (toValue(currentSectionId) === nextId) return;
   switchSection(nextId);
 };
 
