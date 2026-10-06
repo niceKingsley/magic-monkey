@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili-playlist-enhancer
 // @namespace    https://github.com/niceKingsley/magic-monkey
-// @version      1.1.2
+// @version      1.2.0
 // @author       kingsley
 // @description  bilibili 播放列表/选集/合集增强助手
 // @license      GPL-3.0-or-later
@@ -15,6 +15,7 @@
 // @grant        GM_addStyle
 // @grant        GM_deleteValue
 // @grant        GM_getValue
+// @grant        GM_info
 // @grant        GM_listValues
 // @grant        GM_setValue
 // @grant        GM_xmlhttpRequest
@@ -37,7 +38,7 @@
     })(t);
   };
   _css(
-    ' .settings-container[data-v-e52d7f12]{-webkit-user-select:none;user-select:none;overscroll-behavior:contain;flex-direction:column;gap:18px;display:flex}.settings-section[data-v-e52d7f12]{flex-direction:column;gap:8px;display:flex}.settings-section__title[data-v-e52d7f12]{color:var(--magic-primary-color,#00aeec);letter-spacing:.3px;align-items:center;gap:6px;font-size:13px;font-weight:600;display:flex}.settings-section__title .section-icon[data-v-e52d7f12]{opacity:.9;width:14px;height:14px}.settings-card[data-v-e52d7f12]{background:var(--magic-bg-subtle,var(--graph_bg_thin,var(--bg2)));border:1px solid var(--magic-border-color,var(--line_regular));border-radius:10px;flex-direction:column;padding:4px 16px;transition:all .25s cubic-bezier(.16,1,.3,1);display:flex}.settings-card[data-v-e52d7f12]:hover{border-color:var(--magic-border-color-hover,var(--line_regular));background:var(--magic-bg-hover,var(--line_regular))}.settings-item[data-v-e52d7f12]{justify-content:space-between;align-items:center;gap:16px;padding:12px 0;transition:opacity .2s;display:flex}.settings-item[data-v-e52d7f12]:not(:last-child){border-bottom:1px solid var(--magic-border-color,var(--line_regular))}.settings-item.is-disabled[data-v-e52d7f12]{opacity:.38;pointer-events:none}.settings-item__info[data-v-e52d7f12]{flex-direction:column;flex:1;gap:3px;min-width:0;display:flex}.settings-item__title[data-v-e52d7f12]{color:var(--text1);font-size:13.5px;font-weight:500;line-height:1.4}.settings-item__desc[data-v-e52d7f12]{color:var(--text3);font-size:12px;line-height:1.45}.settings-item__action[data-v-e52d7f12]{flex-shrink:0;align-items:center;display:flex}.settings-item__action .hotkey-badge[data-v-e52d7f12]{border:1px solid var(--magic-border-color,var(--line_regular));background:var(--magic-bg-subtle,var(--graph_bg_thin));min-width:80px;height:28px;color:var(--magic-primary-color,var(--brand_blue));cursor:pointer;-webkit-user-select:none;user-select:none;border-radius:6px;outline:none;justify-content:center;align-items:center;padding:0 10px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;font-weight:600;transition:all .2s cubic-bezier(.16,1,.3,1);display:inline-flex}.settings-item__action .hotkey-badge[data-v-e52d7f12]:hover{background:var(--magic-primary-light-bg,var(--brand_blue_thin));border-color:var(--magic-primary-color,var(--brand_blue))}.settings-item__action .hotkey-badge.is-recording[data-v-e52d7f12]{background:var(--magic-primary-color,var(--brand_blue));border-color:var(--magic-primary-color,var(--brand_blue));color:#fff;box-shadow:0 0 0 3px var(--magic-primary-focus-shadow,#00aeec40);animation:1.2s ease-in-out infinite tk-hotkey-pulse-e52d7f12}@keyframes tk-hotkey-pulse-e52d7f12{0%,to{opacity:1}50%{opacity:.6}}.settings-modal-footer[data-v-e52d7f12]{justify-content:space-between;align-items:center;width:100%;display:flex}.settings-modal-footer .footer-buttons[data-v-e52d7f12]{align-items:center;gap:10px;display:flex}@keyframes tk-spin-58ef3700{0%{transform:rotate(0)}to{transform:rotate(360deg)}}:root{--magic-primary-color:var(--brand_blue);--magic-primary-hover-color:var(--brand_blue_hover,color-mix(in srgb, var(--magic-primary-color) 85%, #fff));--magic-primary-active-color:var(--brand_blue_active,color-mix(in srgb, var(--magic-primary-color) 85%, #000));--magic-primary-light-bg:var(--brand_blue_thin,color-mix(in srgb, var(--magic-primary-color) 12%, transparent));--magic-text-primary:var(--text1);--magic-text-secondary:var(--text2);--magic-text-tertiary:var(--text3);--magic-bg-subtle:var(--graph_bg_thin,var(--bg2));--magic-bg-hover:var(--line_regular,var(--bg3));--magic-border-color:var(--line_regular);--magic-tabs-mask-bg:var(--graph_bg_regular);--magic-tabs-hover-color:var(--brand_blue);--magic-bg-overlay:var(--bg1_float,var(--graph_bg_regular));--magic-modal-bg:var(--bg1_float,var(--graph_bg_regular));--magic-modal-border:var(--line_regular);--magic-modal-divider:var(--line_regular);--magic-modal-title-color:var(--text1);--magic-modal-color:var(--text1);--magic-modal-close-color:var(--text3)}.tk-reaction[data-v-58ef3700]{z-index:10;background-color:var(--graph_bg_regular);box-sizing:border-box;flex-direction:column;display:flex;position:absolute;left:4321px;overflow:hidden}.tk-reaction.is-animating[data-v-58ef3700]{transition:height .3s ease-in-out,top .29s ease-in-out;overflow:hidden}.tk-reaction .tk-reaction-pod-slide[data-v-58ef3700]{z-index:15;border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;align-items:center;min-width:0;padding:4px 0;display:flex;position:relative}.tk-reaction .tk-reaction-pod-slide magic-tabs[data-v-58ef3700]{flex:1;min-width:0}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-58ef3700]{cursor:pointer;width:26px;height:26px;color:var(--text3);border-radius:4px;justify-content:center;align-items:center;margin-left:6px;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-58ef3700]:hover{color:var(--text1)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn:hover .icon[data-v-58ef3700],.tk-reaction .tk-reaction-pod-slide .more-sections-btn:hover svg[data-v-58ef3700]{transform:rotate(180deg)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-58ef3700]:active{transform:scale(.92)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active[data-v-58ef3700],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded[data-v-58ef3700]{color:var(--text1)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active .icon[data-v-58ef3700],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active svg[data-v-58ef3700],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded .icon[data-v-58ef3700],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded svg[data-v-58ef3700]{transform:rotate(180deg)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn .icon[data-v-58ef3700],.tk-reaction .tk-reaction-pod-slide .more-sections-btn svg[data-v-58ef3700]{width:14px;height:14px;transition:transform .2s cubic-bezier(.4,0,.2,1);display:block}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu[data-v-58ef3700]{z-index:50;overscroll-behavior:contain;background:var(--graph_bg_thick,var(--bg1));border:1px solid var(--line_regular);box-sizing:border-box;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);scrollbar-width:none;-ms-overflow-style:none;border-radius:6px;max-height:200px;padding:4px;position:absolute;top:calc(100% + 2px);left:0;right:0;overflow-y:auto;box-shadow:0 6px 20px #00000059}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu[data-v-58ef3700]::-webkit-scrollbar{width:0;height:0;display:none}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item[data-v-58ef3700]{cursor:pointer;height:32px;color:var(--text2);-webkit-user-select:none;user-select:none;border-radius:4px;justify-content:space-between;align-items:center;gap:8px;padding:0 10px;font-size:13px;transition:all .15s;display:flex}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item[data-v-58ef3700]:hover{color:var(--text1);background-color:var(--bg2)}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item.is-active[data-v-58ef3700]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin));font-weight:500}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item .item-label[data-v-58ef3700]{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.tk-reaction .dropdown-fade-enter-active[data-v-58ef3700],.tk-reaction .dropdown-fade-leave-active[data-v-58ef3700]{transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1)}.tk-reaction .dropdown-fade-enter-from[data-v-58ef3700],.tk-reaction .dropdown-fade-leave-to[data-v-58ef3700]{opacity:0;transform:translateY(-4px)}.tk-reaction .tk-reaction-header[data-v-58ef3700]{border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;justify-content:space-between;align-items:center;margin-bottom:6px;padding:6px 12px;display:flex}.tk-reaction .tk-reaction-header .header-left[data-v-58ef3700]{align-items:center;gap:12px;display:flex}.tk-reaction .tk-reaction-header .header-left .sort-select[data-v-58ef3700]{--magic-select-bg:var(--bg2);--magic-select-border:var(--line_regular);--magic-select-color:var(--text1);--magic-select-placeholder-color:var(--text3);--magic-select-suffix-color:var(--text3);--magic-select-hover-bg:var(--bg2_hover);--magic-select-hover-border:var(--magic-primary-color);--magic-select-active-color:var(--magic-primary-color);--magic-select-dropdown-bg:var(--graph_bg_thick);--magic-select-dropdown-border:var(--line_regular);--magic-select-dropdown-shadow:0 4px 16px #0003;--magic-select-option-hover-bg:var(--bg2);--magic-select-option-active-bg:var(--magic-primary-light-bg);width:104px}.tk-reaction .tk-reaction-header .header-left magic-switch[data-v-58ef3700]{--magic-switch-active-color:var(--magic-primary-color,var(--brand_blue));--magic-switch-inactive-color:var(--text4)}.tk-reaction .tk-reaction-header .header-right[data-v-58ef3700]{align-items:center;gap:6px;display:flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-58ef3700],.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-58ef3700]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border-radius:4px;justify-content:center;align-items:center;padding:0;transition:color .2s,background-color .2s,transform .15s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn .icon[data-v-58ef3700],.tk-reaction .tk-reaction-header .header-right .search-btn .icon[data-v-58ef3700]{fill:currentColor;width:15px;height:15px}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-58ef3700]:hover,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-58ef3700]:hover{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--bg2)}.tk-reaction .tk-reaction-header .header-right .shuffle-btn.is-active[data-v-58ef3700],.tk-reaction .tk-reaction-header .header-right .search-btn.is-active[data-v-58ef3700]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin))}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-58ef3700]:active,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-58ef3700]:active{transform:scale(.92)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-58ef3700]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border:none;outline:none;justify-content:center;align-items:center;padding:0;transition:color .2s,transform .2s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .settings-btn .icon[data-v-58ef3700]{width:16px;height:16px;color:inherit;fill:currentColor;transition:transform .3s}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-58ef3700]:hover{color:var(--magic-primary-color,var(--brand_blue));background:0 0}.tk-reaction .tk-reaction-header .header-right .settings-btn:hover .icon[data-v-58ef3700]{transform:rotate(60deg)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-58ef3700]:active{transform:scale(.92)}.tk-reaction .tk-reaction-search[data-v-58ef3700]{flex-shrink:0;padding:0 12px 6px}.tk-reaction .tk-reaction-search .search-input[data-v-58ef3700]{--magic-input-bg:var(--bg2);--magic-input-border:var(--line_regular);--magic-input-color:var(--text1);--magic-input-placeholder-color:var(--text3);--magic-input-hover-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-bg:var(--graph_bg_regular);--magic-input-prefix-color:var(--text3);--magic-input-suffix-color:var(--text3);--magic-input-clear-color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .search-prefix-icon[data-v-58ef3700]{width:14px;height:14px;color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .match-badge[data-v-58ef3700]{color:var(--text3);white-space:nowrap;font-size:11px}.tk-reaction .tk-reaction-video[data-v-58ef3700]{overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#78787880 transparent;flex:1;position:relative;overflow:auto}.tk-reaction .tk-reaction-video.is-loading[data-v-58ef3700]{overflow:hidden!important}.tk-reaction .tk-reaction-video[data-v-58ef3700]::-webkit-scrollbar{width:8px;height:8px}.tk-reaction .tk-reaction-video[data-v-58ef3700]::-webkit-scrollbar-thumb{background:#78787880;border-radius:8px}.tk-reaction .tk-reaction-video[data-v-58ef3700]::-webkit-scrollbar-thumb:hover{background:#787878}.tk-reaction .tk-reaction-video .empty-state[data-v-58ef3700]{min-height:160px;color:var(--text3);text-align:center;justify-content:center;align-items:center;padding:48px 16px;font-size:13px;display:flex}.tk-reaction .tk-reaction-video .loading-state[data-v-58ef3700]{justify-content:center;align-items:center;min-height:160px;padding:48px 0;display:flex}.tk-reaction .tk-reaction-video .list[data-v-58ef3700]{box-sizing:border-box;width:calc(100% - 12px);margin:0 auto;position:relative}.tk-reaction .tk-reaction-video .list .item[data-v-58ef3700]{content-visibility:auto;contain-intrinsic-size:auto 36px;margin-bottom:4px}.tk-reaction .tk-reaction-video .list .item .header[data-v-58ef3700]{cursor:pointer;border-radius:2px;align-items:center;padding:0 10px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header[data-v-58ef3700]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .header.is-active[data-v-58ef3700]{background-color:var(--bg2,#ffffff14)}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title[data-v-58ef3700],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title[data-v-58ef3700]{color:var(--magic-primary-color,var(--brand_blue))!important}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title .playing-gif[data-v-58ef3700],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title .playing-gif[data-v-58ef3700]{display:block!important}.tk-reaction .tk-reaction-video .list .item .header .mode-list[data-v-58ef3700]{justify-content:space-between;align-items:center;width:100%;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-58ef3700]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-58ef3700]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .playing-gif[data-v-58ef3700]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .title-text[data-v-58ef3700]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions[data-v-58ef3700]{color:var(--text3);flex-shrink:0;align-items:center;gap:8px;margin-left:10px;font-size:14px;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand[data-v-58ef3700]{cursor:pointer;align-items:center;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand .icon[data-v-58ef3700]{color:var(--text3);width:14px;height:14px;transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand.is-expanded .icon[data-v-58ef3700]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .header .mode-card[data-v-58ef3700]{align-items:stretch;gap:10px;width:100%;padding:6px 0;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover[data-v-58ef3700]{background-color:var(--bg2,#0000001a);border-radius:4px;flex-shrink:0;width:114px;height:64px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover .cover-img[data-v-58ef3700]{object-fit:cover;width:100%;height:100%;display:block}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info[data-v-58ef3700]{flex-direction:column;flex:1;justify-content:space-between;min-width:0;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-58ef3700]{color:var(--text1);align-items:flex-start;max-height:36px;font-size:13px;line-height:18px;transition:color .2s;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-58ef3700]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .playing-gif[data-v-58ef3700]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-top:3px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .title-text[data-v-58ef3700]{-webkit-line-clamp:2;text-overflow:ellipsis;word-break:break-all;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats[data-v-58ef3700]{color:var(--text3);align-items:center;gap:8px;min-width:0;font-size:12px;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item[data-v-58ef3700]{flex-shrink:1;align-items:center;gap:3px;min-width:0;display:inline-flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .icon[data-v-58ef3700]{fill:currentColor;flex-shrink:0;width:14px;height:14px}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .count-text[data-v-58ef3700]{white-space:nowrap;text-overflow:ellipsis;line-height:14px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.views[data-v-58ef3700],.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.danmaku[data-v-58ef3700]{flex-shrink:0}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn[data-v-58ef3700]{cursor:pointer;flex-shrink:0;margin-left:auto}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn .icon[data-v-58ef3700]{width:14px;height:14px;color:var(--text3);transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn.is-expanded .icon[data-v-58ef3700]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .episodes[data-v-58ef3700]{margin-top:4px}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-58ef3700]{content-visibility:auto;contain-intrinsic-size:auto 31px;background:var(--bg1);cursor:pointer;border-radius:2px;justify-content:space-between;align-items:center;padding:0 10px 0 24px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-58ef3700]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title[data-v-58ef3700]{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title .playing-gif[data-v-58ef3700]{display:block}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-58ef3700]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-58ef3700]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .playing-gif[data-v-58ef3700]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .title-txt[data-v-58ef3700]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-meta[data-v-58ef3700]{color:var(--text3);flex-shrink:0;margin-left:10px;font-size:14px}.tk-reaction.is-card-mode .item[data-v-58ef3700]{contain-intrinsic-size:auto 80px!important}.tk-reaction.is-card-mode .header .mode-list[data-v-58ef3700]{display:none!important}.tk-reaction.is-card-mode .header .mode-card[data-v-58ef3700]{display:flex!important}\n/*$vite$:1*/ ',
+    ' .settings-container[data-v-77da4900]{-webkit-user-select:none;user-select:none;overscroll-behavior:contain;flex-direction:column;gap:18px;display:flex}.settings-section[data-v-77da4900]{flex-direction:column;gap:8px;display:flex}.settings-section__title[data-v-77da4900]{color:var(--magic-primary-color,#00aeec);letter-spacing:.3px;align-items:center;gap:6px;font-size:13px;font-weight:600;display:flex}.settings-section__title .section-icon[data-v-77da4900]{opacity:.9;width:14px;height:14px}.settings-card[data-v-77da4900]{background:var(--magic-bg-subtle,var(--graph_bg_thin,var(--bg2)));border:1px solid var(--magic-border-color,var(--line_regular));border-radius:10px;flex-direction:column;padding:4px 16px;transition:all .25s cubic-bezier(.16,1,.3,1);display:flex}.settings-card[data-v-77da4900]:hover{border-color:var(--magic-border-color-hover,var(--line_regular));background:var(--magic-bg-hover,var(--line_regular))}.settings-item[data-v-77da4900]{justify-content:space-between;align-items:center;gap:16px;padding:12px 0;transition:opacity .2s;display:flex}.settings-item[data-v-77da4900]:not(:last-child){border-bottom:1px solid var(--magic-border-color,var(--line_regular))}.settings-item.is-disabled[data-v-77da4900]{opacity:.38;pointer-events:none}.settings-item__info[data-v-77da4900]{flex-direction:column;flex:1;gap:3px;min-width:0;display:flex}.settings-item__title[data-v-77da4900]{color:var(--text1);font-size:13.5px;font-weight:500;line-height:1.4}.settings-item__desc[data-v-77da4900]{color:var(--text3);font-size:12px;line-height:1.45}.settings-item__action[data-v-77da4900]{flex-shrink:0;align-items:center;display:flex}.settings-item__action .hotkey-badge[data-v-77da4900]{border:1px solid var(--magic-border-color,var(--line_regular));background:var(--magic-bg-subtle,var(--graph_bg_thin));min-width:80px;height:28px;color:var(--magic-primary-color,var(--brand_blue));cursor:pointer;-webkit-user-select:none;user-select:none;border-radius:6px;outline:none;justify-content:center;align-items:center;padding:0 10px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;font-weight:600;transition:all .2s cubic-bezier(.16,1,.3,1);display:inline-flex}.settings-item__action .hotkey-badge[data-v-77da4900]:hover{background:var(--magic-primary-light-bg,var(--brand_blue_thin));border-color:var(--magic-primary-color,var(--brand_blue))}.settings-item__action .hotkey-badge.is-recording[data-v-77da4900]{background:var(--magic-primary-color,var(--brand_blue));border-color:var(--magic-primary-color,var(--brand_blue));color:#fff;box-shadow:0 0 0 3px var(--magic-primary-focus-shadow,#00aeec40);animation:1.2s ease-in-out infinite tk-hotkey-pulse-77da4900}@keyframes tk-hotkey-pulse-77da4900{0%,to{opacity:1}50%{opacity:.6}}.settings-modal-footer[data-v-77da4900]{justify-content:space-between;align-items:center;width:100%;display:flex}.settings-modal-footer .footer-buttons[data-v-77da4900],.settings-modal-header[data-v-77da4900]{align-items:center;gap:10px;display:flex}.settings-modal-header .settings-modal-title[data-v-77da4900]{color:var(--magic-modal-title-color,var(--magic-text-primary,#fff));letter-spacing:.2px;font-size:15px;font-weight:600;line-height:1.4}@keyframes tk-spin-e7b9fa61{0%{transform:rotate(0)}to{transform:rotate(360deg)}}:root{--magic-primary-color:var(--brand_blue);--magic-primary-hover-color:var(--brand_blue_hover,color-mix(in srgb, var(--magic-primary-color) 85%, #fff));--magic-primary-active-color:var(--brand_blue_active,color-mix(in srgb, var(--magic-primary-color) 85%, #000));--magic-primary-light-bg:var(--brand_blue_thin,color-mix(in srgb, var(--magic-primary-color) 12%, transparent));--magic-text-primary:var(--text1);--magic-text-secondary:var(--text2);--magic-text-tertiary:var(--text3);--magic-bg-subtle:var(--graph_bg_thin,var(--bg2));--magic-bg-hover:var(--line_regular,var(--bg3));--magic-border-color:var(--line_regular);--magic-tabs-mask-bg:var(--graph_bg_regular);--magic-tabs-hover-color:var(--brand_blue);--magic-bg-overlay:var(--bg1_float,var(--graph_bg_regular));--magic-modal-bg:var(--bg1_float,var(--graph_bg_regular));--magic-modal-border:var(--line_regular);--magic-modal-divider:var(--line_regular);--magic-modal-title-color:var(--text1);--magic-modal-color:var(--text1);--magic-modal-close-color:var(--text3)}.tk-reaction[data-v-e7b9fa61]{z-index:10;background-color:var(--graph_bg_regular);box-sizing:border-box;flex-direction:column;display:flex;position:absolute;left:4321px;overflow:hidden}.tk-reaction .tk-search-highlight[data-v-e7b9fa61]{background-color:var(--magic-primary-light-bg,var(--brand_blue_thin,#00aeec26));border-radius:2px;padding:0 1px;font-weight:600;color:var(--magic-primary-color,var(--brand_blue,#00aeec))!important}.tk-reaction.is-animating[data-v-e7b9fa61]{transition:height .3s ease-in-out,top .29s ease-in-out;overflow:hidden}.tk-reaction .tk-reaction-pod-slide[data-v-e7b9fa61]{z-index:15;border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;align-items:center;min-width:0;padding:4px 0;display:flex;position:relative}.tk-reaction .tk-reaction-pod-slide magic-tabs[data-v-e7b9fa61]{flex:1;min-width:0}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-e7b9fa61]{cursor:pointer;width:26px;height:26px;color:var(--text3);border-radius:4px;justify-content:center;align-items:center;margin-left:6px;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-e7b9fa61]:hover{color:var(--text1)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn:hover .icon[data-v-e7b9fa61],.tk-reaction .tk-reaction-pod-slide .more-sections-btn:hover svg[data-v-e7b9fa61]{transform:rotate(180deg)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-e7b9fa61]:active{transform:scale(.92)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active[data-v-e7b9fa61],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded[data-v-e7b9fa61]{color:var(--text1)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active .icon[data-v-e7b9fa61],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active svg[data-v-e7b9fa61],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded .icon[data-v-e7b9fa61],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded svg[data-v-e7b9fa61]{transform:rotate(180deg)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn .icon[data-v-e7b9fa61],.tk-reaction .tk-reaction-pod-slide .more-sections-btn svg[data-v-e7b9fa61]{width:14px;height:14px;transition:transform .2s cubic-bezier(.4,0,.2,1);display:block}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu[data-v-e7b9fa61]{z-index:50;overscroll-behavior:contain;background:var(--graph_bg_thick,var(--bg1));border:1px solid var(--line_regular);box-sizing:border-box;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);scrollbar-width:none;-ms-overflow-style:none;border-radius:6px;max-height:200px;padding:4px;position:absolute;top:calc(100% + 2px);left:0;right:0;overflow-y:auto;box-shadow:0 6px 20px #00000059}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu[data-v-e7b9fa61]::-webkit-scrollbar{width:0;height:0;display:none}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item[data-v-e7b9fa61]{cursor:pointer;height:32px;color:var(--text2);-webkit-user-select:none;user-select:none;border-radius:4px;justify-content:space-between;align-items:center;gap:8px;padding:0 10px;font-size:13px;transition:all .15s;display:flex}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item[data-v-e7b9fa61]:hover{color:var(--text1);background-color:var(--bg2)}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item.is-active[data-v-e7b9fa61]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin));font-weight:500}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item .item-label[data-v-e7b9fa61]{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.tk-reaction .dropdown-fade-enter-active[data-v-e7b9fa61],.tk-reaction .dropdown-fade-leave-active[data-v-e7b9fa61]{transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1)}.tk-reaction .dropdown-fade-enter-from[data-v-e7b9fa61],.tk-reaction .dropdown-fade-leave-to[data-v-e7b9fa61]{opacity:0;transform:translateY(-4px)}.tk-reaction .tk-reaction-header[data-v-e7b9fa61]{border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;justify-content:space-between;align-items:center;margin-bottom:6px;padding:6px 12px;display:flex}.tk-reaction .tk-reaction-header .header-left[data-v-e7b9fa61]{align-items:center;gap:12px;display:flex}.tk-reaction .tk-reaction-header .header-left .sort-select[data-v-e7b9fa61]{--magic-select-bg:var(--bg2);--magic-select-border:var(--line_regular);--magic-select-color:var(--text1);--magic-select-placeholder-color:var(--text3);--magic-select-suffix-color:var(--text3);--magic-select-hover-bg:var(--bg2_hover);--magic-select-hover-border:var(--magic-primary-color);--magic-select-active-color:var(--magic-primary-color);--magic-select-dropdown-bg:var(--graph_bg_thick);--magic-select-dropdown-border:var(--line_regular);--magic-select-dropdown-shadow:0 4px 16px #0003;--magic-select-option-hover-bg:var(--bg2);--magic-select-option-active-bg:var(--magic-primary-light-bg);width:104px}.tk-reaction .tk-reaction-header .header-left magic-switch[data-v-e7b9fa61]{--magic-switch-active-color:var(--magic-primary-color,var(--brand_blue));--magic-switch-inactive-color:var(--text4)}.tk-reaction .tk-reaction-header .header-right[data-v-e7b9fa61]{align-items:center;gap:6px;display:flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-e7b9fa61],.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-e7b9fa61]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border-radius:4px;justify-content:center;align-items:center;padding:0;transition:color .2s,background-color .2s,transform .15s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn .icon[data-v-e7b9fa61],.tk-reaction .tk-reaction-header .header-right .search-btn .icon[data-v-e7b9fa61]{fill:currentColor;width:15px;height:15px}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-e7b9fa61]:hover,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-e7b9fa61]:hover{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--bg2)}.tk-reaction .tk-reaction-header .header-right .shuffle-btn.is-active[data-v-e7b9fa61],.tk-reaction .tk-reaction-header .header-right .search-btn.is-active[data-v-e7b9fa61]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin))}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-e7b9fa61]:active,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-e7b9fa61]:active{transform:scale(.92)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-e7b9fa61]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border:none;outline:none;justify-content:center;align-items:center;padding:0;transition:color .2s,transform .2s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .settings-btn .icon[data-v-e7b9fa61]{width:16px;height:16px;color:inherit;fill:currentColor;transition:transform .3s}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-e7b9fa61]:hover{color:var(--magic-primary-color,var(--brand_blue));background:0 0}.tk-reaction .tk-reaction-header .header-right .settings-btn:hover .icon[data-v-e7b9fa61]{transform:rotate(60deg)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-e7b9fa61]:active{transform:scale(.92)}.tk-reaction .tk-reaction-search[data-v-e7b9fa61]{flex-shrink:0;padding:0 12px 6px}.tk-reaction .tk-reaction-search .search-input[data-v-e7b9fa61]{--magic-input-bg:var(--bg2);--magic-input-border:var(--line_regular);--magic-input-color:var(--text1);--magic-input-placeholder-color:var(--text3);--magic-input-hover-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-bg:var(--graph_bg_regular);--magic-input-prefix-color:var(--text3);--magic-input-suffix-color:var(--text3);--magic-input-clear-color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .search-prefix-icon[data-v-e7b9fa61]{width:14px;height:14px;color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .match-badge[data-v-e7b9fa61]{color:var(--text3);white-space:nowrap;font-size:11px}.tk-reaction .tk-reaction-video[data-v-e7b9fa61]{overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#78787880 transparent;flex:1;position:relative;overflow:auto}.tk-reaction .tk-reaction-video.is-loading[data-v-e7b9fa61]{overflow:hidden!important}.tk-reaction .tk-reaction-video[data-v-e7b9fa61]::-webkit-scrollbar{width:8px;height:8px}.tk-reaction .tk-reaction-video[data-v-e7b9fa61]::-webkit-scrollbar-thumb{background:#78787880;border-radius:8px}.tk-reaction .tk-reaction-video[data-v-e7b9fa61]::-webkit-scrollbar-thumb:hover{background:#787878}.tk-reaction .tk-reaction-video .empty-state[data-v-e7b9fa61]{min-height:160px;color:var(--text3);text-align:center;justify-content:center;align-items:center;padding:48px 16px;font-size:13px;display:flex}.tk-reaction .tk-reaction-video .loading-state[data-v-e7b9fa61]{justify-content:center;align-items:center;min-height:160px;padding:48px 0;display:flex}.tk-reaction .tk-reaction-video .list[data-v-e7b9fa61]{box-sizing:border-box;width:calc(100% - 12px);margin:0 auto;position:relative}.tk-reaction .tk-reaction-video .list .item[data-v-e7b9fa61]{content-visibility:auto;contain-intrinsic-size:auto 36px;margin-bottom:4px}.tk-reaction .tk-reaction-video .list .item .header[data-v-e7b9fa61]{cursor:pointer;border-radius:2px;align-items:center;padding:0 10px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header[data-v-e7b9fa61]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .header.is-active[data-v-e7b9fa61]{background-color:var(--bg2,#ffffff14)}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title[data-v-e7b9fa61],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title[data-v-e7b9fa61]{color:var(--magic-primary-color,var(--brand_blue))!important}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title .playing-gif[data-v-e7b9fa61],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title .playing-gif[data-v-e7b9fa61]{display:block!important}.tk-reaction .tk-reaction-video .list .item .header.is-played .mode-list .title[data-v-e7b9fa61],.tk-reaction .tk-reaction-video .list .item .header.is-played .mode-card .info .title[data-v-e7b9fa61]{opacity:.75;color:var(--text3)!important}.tk-reaction .tk-reaction-video .list .item .header.is-played .mode-card .cover[data-v-e7b9fa61]{opacity:.75}.tk-reaction .tk-reaction-video .list .item .header.is-played:hover .mode-list .title[data-v-e7b9fa61],.tk-reaction .tk-reaction-video .list .item .header.is-played:hover .mode-card .info .title[data-v-e7b9fa61]{opacity:1;color:var(--text1)!important}.tk-reaction .tk-reaction-video .list .item .header.is-played:hover .mode-card .cover[data-v-e7b9fa61]{opacity:1}.tk-reaction .tk-reaction-video .list .item .header .mode-list[data-v-e7b9fa61]{justify-content:space-between;align-items:center;width:100%;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-e7b9fa61]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-e7b9fa61]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .playing-gif[data-v-e7b9fa61]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .title-text[data-v-e7b9fa61]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions[data-v-e7b9fa61]{color:var(--text3);flex-shrink:0;align-items:center;gap:8px;margin-left:10px;font-size:14px;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand[data-v-e7b9fa61]{cursor:pointer;align-items:center;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand .icon[data-v-e7b9fa61]{color:var(--text3);width:14px;height:14px;transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand.is-expanded .icon[data-v-e7b9fa61]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .header .mode-card[data-v-e7b9fa61]{align-items:stretch;gap:10px;width:100%;padding:6px 0;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover[data-v-e7b9fa61]{background-color:var(--bg2,#0000001a);border-radius:4px;flex-shrink:0;width:114px;height:64px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover .cover-img[data-v-e7b9fa61]{object-fit:cover;width:100%;height:100%;display:block}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info[data-v-e7b9fa61]{flex-direction:column;flex:1;justify-content:space-between;min-width:0;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-e7b9fa61]{color:var(--text1);align-items:flex-start;max-height:36px;font-size:13px;line-height:18px;transition:color .2s;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-e7b9fa61]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .playing-gif[data-v-e7b9fa61]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-top:3px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .title-text[data-v-e7b9fa61]{-webkit-line-clamp:2;text-overflow:ellipsis;word-break:break-all;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats[data-v-e7b9fa61]{color:var(--text3);align-items:center;gap:8px;min-width:0;font-size:12px;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item[data-v-e7b9fa61]{flex-shrink:1;align-items:center;gap:3px;min-width:0;display:inline-flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .icon[data-v-e7b9fa61]{fill:currentColor;flex-shrink:0;width:14px;height:14px}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .count-text[data-v-e7b9fa61]{white-space:nowrap;text-overflow:ellipsis;line-height:14px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.views[data-v-e7b9fa61],.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.danmaku[data-v-e7b9fa61]{flex-shrink:0}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn[data-v-e7b9fa61]{cursor:pointer;flex-shrink:0;margin-left:auto}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn .icon[data-v-e7b9fa61]{width:14px;height:14px;color:var(--text3);transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn.is-expanded .icon[data-v-e7b9fa61]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .episodes[data-v-e7b9fa61]{margin-top:4px}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-e7b9fa61]{content-visibility:auto;contain-intrinsic-size:auto 31px;background:var(--bg1);cursor:pointer;border-radius:2px;justify-content:space-between;align-items:center;padding:0 10px 0 24px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-e7b9fa61]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title[data-v-e7b9fa61]{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title .playing-gif[data-v-e7b9fa61]{display:block}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-played .episode-title[data-v-e7b9fa61]{opacity:.75;color:var(--text3)!important}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-played:hover .episode-title[data-v-e7b9fa61]{opacity:1;color:var(--text1)!important}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-e7b9fa61]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-e7b9fa61]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .playing-gif[data-v-e7b9fa61]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .title-txt[data-v-e7b9fa61]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-meta[data-v-e7b9fa61]{color:var(--text3);flex-shrink:0;margin-left:10px;font-size:14px}.tk-reaction.is-card-mode .item[data-v-e7b9fa61]{contain-intrinsic-size:auto 80px!important}.tk-reaction.is-card-mode .header .mode-list[data-v-e7b9fa61]{display:none!important}.tk-reaction.is-card-mode .header .mode-card[data-v-e7b9fa61]{display:flex!important}\n/*$vite$:1*/ ',
   );
   var isArray = Array.isArray;
   var isFunction = (val) => typeof val === 'function';
@@ -174,6 +175,16 @@
   }
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+  function throttle(fn, interval = 300) {
+    let lastTime = 0;
+    return function (...args) {
+      const now = Date.now();
+      if (now - lastTime >= interval) {
+        lastTime = now;
+        fn.apply(this, args);
+      }
+    };
   }
   function queryElement(container, selector) {
     if (!isFunction(container?.querySelector)) return null;
@@ -363,7 +374,11 @@
         : { once: true },
     );
   }
-  var STORAGE_NAMESPACE = 'bilibili-playlist-enhancer';
+  var name = 'bilibili-playlist-enhancer';
+  var version = '1.2.0';
+  var STORAGE_NAMESPACE = name;
+  var SCRIPT_VERSION = version;
+  var PROJECT_TITLE = 'bilibili-playlist-enhancer';
   var POD_MODE = {
     LIST: 'LIST',
     CARD: 'CARD',
@@ -374,9 +389,15 @@
     SERIES: 'SERIES',
   };
   var SORT_MODE = {
-    DEFAULT: 'DEFAULT',
+    DEFAULT: 'DEFAULT_ASC',
+    DEFAULT_ASC: 'DEFAULT_ASC',
+    DEFAULT_DESC: 'DEFAULT_DESC',
     TIME_DESC: 'TIME_DESC',
     TIME_ASC: 'TIME_ASC',
+    VIEWS_DESC: 'VIEWS_DESC',
+    VIEWS_ASC: 'VIEWS_ASC',
+    DANMAKUS_DESC: 'DANMAKUS_DESC',
+    DANMAKUS_ASC: 'DANMAKUS_ASC',
   };
   var CTRL_ACTION = {
     PREV: 'PREV',
@@ -389,8 +410,9 @@
   var DEFAULT_SETTINGS = {
     autoPlayNext: true,
     shuffle: false,
-    shuffleScope: SHUFFLE_SCOPE.ALL,
+    shuffleScope: SHUFFLE_SCOPE.GROUP,
     stopOnGroupEnd: true,
+    markPlayedVideos: true,
     scrollActiveOnClick: true,
     scrollToActiveOnSort: true,
     hotkeyPrev: '[',
@@ -400,15 +422,59 @@
   var SORT_OPTIONS = [
     {
       label: '官方排序',
-      value: SORT_MODE.DEFAULT,
+      value: 'GROUP_DEFAULT',
+      children: [
+        {
+          label: '升序',
+          value: SORT_MODE.DEFAULT_ASC,
+        },
+        {
+          label: '降序',
+          value: SORT_MODE.DEFAULT_DESC,
+        },
+      ],
     },
     {
-      label: '最新发布',
-      value: SORT_MODE.TIME_DESC,
+      label: '发布时间',
+      value: 'GROUP_TIME',
+      children: [
+        {
+          label: '最新发布',
+          value: SORT_MODE.TIME_DESC,
+        },
+        {
+          label: '最早发布',
+          value: SORT_MODE.TIME_ASC,
+        },
+      ],
     },
     {
-      label: '最早发布',
-      value: SORT_MODE.TIME_ASC,
+      label: '播放热度',
+      value: 'GROUP_VIEWS',
+      children: [
+        {
+          label: '最多播放',
+          value: SORT_MODE.VIEWS_DESC,
+        },
+        {
+          label: '最少播放',
+          value: SORT_MODE.VIEWS_ASC,
+        },
+      ],
+    },
+    {
+      label: '弹幕互动',
+      value: 'GROUP_DANMAKUS',
+      children: [
+        {
+          label: '最多弹幕',
+          value: SORT_MODE.DANMAKUS_DESC,
+        },
+        {
+          label: '最少弹幕',
+          value: SORT_MODE.DANMAKUS_ASC,
+        },
+      ],
     },
   ];
   var SHUFFLE_SCOPE_OPTIONS = [
@@ -936,6 +1002,10 @@
       danmakus: formatCount(
         item.arc?.stat?.danmaku ?? item.stat?.danmaku ?? item.cnt_info?.danmaku ?? 0,
       ),
+      rawViews: Number(item.arc?.stat?.view ?? item.stat?.view ?? item.cnt_info?.play ?? 0),
+      rawDanmakus: Number(
+        item.arc?.stat?.danmaku ?? item.stat?.danmaku ?? item.cnt_info?.danmaku ?? 0,
+      ),
       pubTimestamp: item.pubdate || item.arc?.pubdate || item.pubtime || 0,
       page: item.page,
       rawIndex: index,
@@ -968,11 +1038,38 @@
     });
   }
   var SORT_STRATEGIES = {
-    [SORT_MODE.TIME_ASC]: (list) =>
-      [...list].sort((a, b) => (a.pubTimestamp || 0) - (b.pubTimestamp || 0)),
+    [SORT_MODE.DEFAULT_ASC]: (list) =>
+      [...list].sort((a, b) => (a.rawIndex || 0) - (b.rawIndex || 0)),
+    [SORT_MODE.DEFAULT_DESC]: (list) =>
+      [...list].sort((a, b) => (b.rawIndex || 0) - (a.rawIndex || 0)),
     [SORT_MODE.TIME_DESC]: (list) =>
-      [...list].sort((a, b) => (b.pubTimestamp || 0) - (a.pubTimestamp || 0)),
-    [SORT_MODE.DEFAULT]: (list) => [...list].sort((a, b) => (a.rawIndex || 0) - (b.rawIndex || 0)),
+      [...list].sort(
+        (a, b) =>
+          (b.pubTimestamp || 0) - (a.pubTimestamp || 0) || (b.rawIndex || 0) - (a.rawIndex || 0),
+      ),
+    [SORT_MODE.TIME_ASC]: (list) =>
+      [...list].sort(
+        (a, b) =>
+          (a.pubTimestamp || 0) - (b.pubTimestamp || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+      ),
+    [SORT_MODE.VIEWS_DESC]: (list) =>
+      [...list].sort(
+        (a, b) => (b.rawViews || 0) - (a.rawViews || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+      ),
+    [SORT_MODE.VIEWS_ASC]: (list) =>
+      [...list].sort(
+        (a, b) => (a.rawViews || 0) - (b.rawViews || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+      ),
+    [SORT_MODE.DANMAKUS_DESC]: (list) =>
+      [...list].sort(
+        (a, b) =>
+          (b.rawDanmakus || 0) - (a.rawDanmakus || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+      ),
+    [SORT_MODE.DANMAKUS_ASC]: (list) =>
+      [...list].sort(
+        (a, b) =>
+          (a.rawDanmakus || 0) - (b.rawDanmakus || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+      ),
   };
   var findActiveAccordionBvid = (current) =>
     current?.group?.isMultiPage ? current.group.bvid : '';
@@ -983,7 +1080,7 @@
     const isActive = podType === POD_TYPE.EPISODE ? isGroupActive && isEpisodeMatch : isGroupActive;
     const episodes = (group.episodes || []).map((ep) => ({
       ...ep,
-      isActive: isGroupActive && Number(ep.page || 1) === currentP,
+      isActive: isGroupActive && (Number(ep.page || 1) === currentP || !group.isMultiPage),
     }));
     return {
       ...group,
@@ -1022,9 +1119,11 @@
     );
   function findCurrentPlaying(flatList, activeBvid, activePage) {
     const currentP = Number(activePage) || 1;
-    const flatIndex = flatList.findIndex(
+    let flatIndex = flatList.findIndex(
       (item) => item.bvid === activeBvid && item.page === currentP,
     );
+    if (flatIndex === -1 && activeBvid)
+      flatIndex = flatList.findIndex((item) => item.bvid === activeBvid);
     if (flatIndex === -1) return null;
     const currentItem = flatList[flatIndex];
     const totalEpisodes = flatList.length;
@@ -1044,7 +1143,18 @@
   }
   function getAdjacentVideo(flatList, currentFlatIndex, action) {
     if (currentFlatIndex === -1 || currentFlatIndex == null) return null;
-    return flatList[currentFlatIndex + (action === CTRL_ACTION.PREV ? -1 : 1)] || null;
+    if (action === CTRL_ACTION.PREV) {
+      const currentItem = flatList[currentFlatIndex];
+      if (currentItem?.epIndex === 0) {
+        const prevGroupIndex = currentItem.groupIndex - 1;
+        if (prevGroupIndex < 0) return null;
+        return (
+          flatList.find((item) => item.groupIndex === prevGroupIndex && item.epIndex === 0) || null
+        );
+      }
+      return flatList[currentFlatIndex - 1] || null;
+    }
+    return flatList[currentFlatIndex + 1] || null;
   }
   function useAccordion() {
     const expandedBvid = (0, vue.ref)('');
@@ -1080,283 +1190,6 @@
       groups,
       setSortMode,
     };
-  }
-  function usePodPlayback({
-    rawGroups,
-    podType,
-    activeBvid,
-    activePage,
-    flatEpisodes,
-    currentPlaying,
-    scrollContainerRef,
-    setExpanded,
-    toggleAccordion,
-    settings,
-    shuffleActions,
-  }) {
-    const refreshActiveStates = (isManualClick = false) => {
-      rawGroups.value = rawGroups.value.map((g) =>
-        updateGroupActive(g, podType.value, activeBvid.value, activePage.value),
-      );
-      setExpanded(findActiveAccordionBvid(currentPlaying.value));
-      if (isManualClick && settings && !settings.scrollActiveOnClick) return;
-      scrollActiveItem(scrollContainerRef.value, true);
-    };
-    const switchActiveVideo = (type, data, index, isManual = true) => {
-      const { bvid, aid, episodes } = data;
-      const { page, cid, isActive } = episodes[index];
-      if (isActive) return;
-      if (isManual)
-        shuffleActions?.recordManualPlay?.({
-          bvid,
-          page,
-        });
-      activeBvid.value = bvid;
-      activePage.value = page;
-      executeVideoSwitch(podType.value, {
-        aid,
-        bvid,
-        cid,
-        p: page,
-      });
-      refreshActiveStates(isManual);
-    };
-    const handleHeaderClick = (group) => {
-      if (group.isActive && group.isMultiPage) {
-        toggleAccordion(group.bvid);
-        return;
-      }
-      switchActiveVideo(podType.value, group, 0, true);
-    };
-    const getNextTarget = (action) => {
-      if (settings?.shuffle) {
-        const shuffleTarget =
-          action === CTRL_ACTION.PREV
-            ? shuffleActions?.getPrevShuffleTarget?.()
-            : shuffleActions?.getNextShuffleTarget?.();
-        if (shuffleTarget) return shuffleTarget;
-      }
-      const currentIndex = currentPlaying.value?.flatIndex;
-      return getAdjacentVideo(flatEpisodes.value, currentIndex, action);
-    };
-    const handlePlayerCtrl = (action) => {
-      const target = getNextTarget(action);
-      if (target) switchActiveVideo(podType.value, target.group, target.epIndex, false);
-    };
-    const setActiveTarget = (bvid, page) => {
-      activeBvid.value = bvid;
-      activePage.value = page;
-    };
-    return {
-      refreshActiveStates,
-      switchActiveVideo,
-      handleHeaderClick,
-      handlePlayerCtrl,
-      setActiveTarget,
-    };
-  }
-  function usePodSections({
-    rawGroups,
-    podType,
-    activeBvid,
-    activePage,
-    setExpanded,
-    setActiveTarget,
-    refreshActiveStates,
-  }) {
-    const seasonSections = (0, vue.ref)([]);
-    const hasMultipleSections = (0, vue.ref)(false);
-    const currentSectionId = (0, vue.ref)('');
-    const initSections = (payload) => {
-      seasonSections.value = payload?.seasonSections || [];
-      hasMultipleSections.value = !!payload?.hasMultipleSections;
-      currentSectionId.value = payload?.currentSectionId || '';
-    };
-    const resetSections = () => {
-      seasonSections.value = [];
-      hasMultipleSections.value = false;
-      currentSectionId.value = '';
-    };
-    const applySectionEpisodes = (section, targetBvid, targetPage) => {
-      currentSectionId.value = String(section.value);
-      setExpanded('');
-      rawGroups.value = processSeasonData(podType.value, section.episodes, targetBvid, targetPage);
-    };
-    const switchSection = (sectionId) => {
-      const targetId = String(sectionId);
-      if (targetId === String(currentSectionId.value)) return;
-      const targetSection = seasonSections.value.find((s) => String(s.value) === targetId);
-      if (!targetSection) return;
-      applySectionEpisodes(targetSection, activeBvid.value, activePage.value);
-      refreshActiveStates();
-    };
-    const trySwitchSectionByBvid = (nextBvid, nextPage) => {
-      if (!(0, vue.toValue)(hasMultipleSections)) return false;
-      const targetSection = findSectionByBvid(seasonSections.value, nextBvid);
-      if (!targetSection) return false;
-      applySectionEpisodes(targetSection, nextBvid, nextPage);
-      setActiveTarget(nextBvid, nextPage);
-      refreshActiveStates();
-      return true;
-    };
-    return {
-      seasonSections,
-      hasMultipleSections,
-      currentSectionId,
-      initSections,
-      resetSections,
-      switchSection,
-      trySwitchSectionByBvid,
-    };
-  }
-  function usePodLoader({
-    rawGroups,
-    podType,
-    activeBvid,
-    activePage,
-    rootRef,
-    scrollContainerRef,
-    setExpanded,
-    currentPlaying,
-    setActiveTarget,
-    refreshActiveStates,
-  }) {
-    const isLoading = (0, vue.ref)(false);
-    const podMode = (0, vue.ref)(POD_MODE.LIST);
-    const {
-      seasonSections,
-      hasMultipleSections,
-      currentSectionId,
-      initSections,
-      resetSections,
-      switchSection,
-      trySwitchSectionByBvid,
-    } = usePodSections({
-      rawGroups,
-      podType,
-      activeBvid,
-      activePage,
-      setExpanded,
-      setActiveTarget,
-      refreshActiveStates,
-    });
-    const onModeChange = (isExpandedMode) => {
-      podMode.value = isExpandedMode ? POD_MODE.CARD : POD_MODE.LIST;
-      setTimeout(() => {
-        scrollActiveItem(scrollContainerRef.value, true);
-      }, 300);
-    };
-    const { isAnimating, containerStyle, videoBodyStyle, startSync } = usePositionSync(
-      podType,
-      rootRef,
-      onModeChange,
-      hasMultipleSections,
-    );
-    const resetPodState = () => {
-      rawGroups.value = [];
-      podType.value = null;
-      resetSections();
-    };
-    const trySwitchSameSeason = (nextBvid, nextPage) => {
-      if (!hasSeasonBvid(rawGroups.value, nextBvid)) return false;
-      if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return true;
-      setActiveTarget(nextBvid, nextPage);
-      refreshActiveStates();
-      return true;
-    };
-    const initPodState = async (payload, bvid, page) => {
-      if (!payload) {
-        resetPodState();
-        setExpanded('');
-        return;
-      }
-      podType.value = payload.type;
-      podMode.value = payload.mode;
-      rawGroups.value = payload.groups;
-      setActiveTarget(bvid, page);
-      initSections(payload);
-      setExpanded(findActiveAccordionBvid(currentPlaying.value));
-      await startSync(podType.value);
-      scrollActiveItem(scrollContainerRef.value, false);
-    };
-    const fetchFullPod = async (nextBvid, nextPage) => {
-      setActiveTarget(nextBvid, nextPage);
-      resetPodState();
-      isLoading.value = true;
-      try {
-        const payload = await fetchPodPayload(nextBvid, nextPage);
-        await initPodState(payload, nextBvid, nextPage);
-      } finally {
-        isLoading.value = false;
-      }
-    };
-    const loadPod = async () => {
-      const nextBvid = getCurrentBvid();
-      const nextPage = getCurrentPage();
-      if (!nextBvid) return;
-      if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return;
-      if (trySwitchSameSeason(nextBvid, nextPage)) return;
-      if (trySwitchSectionByBvid(nextBvid, nextPage)) return;
-      await fetchFullPod(nextBvid, nextPage);
-    };
-    return {
-      isAnimating,
-      isLoading,
-      podMode,
-      seasonSections,
-      hasMultipleSections,
-      currentSectionId,
-      containerStyle,
-      videoBodyStyle,
-      initPodState,
-      loadPod,
-      switchSection,
-      trySwitchSameSeason,
-    };
-  }
-  function isInputElement(event) {
-    return (event.composedPath ? event.composedPath() : [event.target]).some((el) => {
-      const tag = el?.tagName?.toLowerCase();
-      return (
-        tag === 'input' || tag === 'textarea' || tag === 'magic-input' || el?.isContentEditable
-      );
-    });
-  }
-  function formatKeyboardKey(event) {
-    if (['Control', 'Shift', 'Alt', 'Meta'].includes(event.key)) return '';
-    const parts = [];
-    if (event.ctrlKey) parts.push('Ctrl');
-    if (event.altKey) parts.push('Alt');
-    if (event.shiftKey) parts.push('Shift');
-    if (event.metaKey) parts.push('Meta');
-    let key = event.key;
-    if (key === ' ') key = 'Space';
-    else if (key.length === 1) key = key.toUpperCase();
-    parts.push(key);
-    return parts.join('+');
-  }
-  function matchesHotkey(event, targetHotkey) {
-    if (!targetHotkey) return false;
-    const currentKey = formatKeyboardKey(event);
-    if (!currentKey) return false;
-    return currentKey.toLowerCase() === targetHotkey.trim().toLowerCase();
-  }
-  function usePodHotkeys({ settings, handlePlayerCtrl }) {
-    const onKeyDown = (event) => {
-      if (isInputElement(event.target)) return;
-      if (matchesHotkey(event, settings.hotkeyPrev)) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        handlePlayerCtrl?.(CTRL_ACTION.PREV);
-        return;
-      }
-      if (matchesHotkey(event, settings.hotkeyNext)) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        handlePlayerCtrl?.(CTRL_ACTION.NEXT);
-      }
-    };
-    return on(window, 'keydown', onKeyDown, { capture: true });
   }
   var t$1 = globalThis;
   var e$2 =
@@ -2156,10 +1989,10 @@
   var o = s.litElementPolyfillSupport;
   o?.({ LitElement: i });
   (s.litElementVersions ??= []).push('4.2.2');
-  var style_default$8 =
+  var style_default$9 =
     ':host{font-family:inherit;display:block}@keyframes magic-toast-in{0%{opacity:0;transform:translateY(-16px)scale(.95)}to{opacity:1;transform:translateY(0)scale(1)}}@keyframes magic-toast-out{0%{opacity:1;transform:translateY(0)scale(1)}to{opacity:0;transform:translateY(-16px)scale(.95)}}.magic-toast-container{z-index:var(--magic-toast-z-index,999999);pointer-events:none;box-sizing:border-box;flex-direction:column;align-items:center;gap:10px;width:max-content;max-width:90vw;display:flex;position:fixed;left:50%;transform:translate(-50%)}.magic-toast-container--top{top:24px}.magic-toast-container--center{top:50%;transform:translate(-50%,-50%)}.magic-toast-container--bottom{bottom:24px}.magic-toast{box-sizing:border-box;border-radius:var(--magic-toast-radius,8px);background:var(--magic-toast-bg,#1c1e24f0);min-height:40px;color:var(--magic-toast-color,#e5e9ef);border:1px solid var(--magic-toast-border,#ffffff1f);box-shadow:var(--magic-toast-shadow,0 10px 30px #00000073);-webkit-backdrop-filter:blur(12px);pointer-events:auto;-webkit-user-select:none;user-select:none;align-items:center;gap:10px;padding:10px 18px;font-size:14px;line-height:1.4;transition:all .25s;animation:.25s cubic-bezier(.16,1,.3,1) forwards magic-toast-in;display:inline-flex}.magic-toast.is-leaving{animation:.2s cubic-bezier(.4,0,1,1) forwards magic-toast-out}.magic-toast__icon{flex-shrink:0;justify-content:center;align-items:center;width:18px;height:18px;display:inline-flex}.magic-toast__icon svg{width:100%;height:100%;display:block}.magic-toast__content{word-break:break-word;align-items:center;display:inline-flex}.magic-toast__close{cursor:pointer;opacity:.6;color:inherit;background:0 0;border:none;border-radius:4px;justify-content:center;align-items:center;margin-left:6px;padding:2px;transition:opacity .2s,background-color .2s;display:inline-flex}.magic-toast__close:hover{opacity:1;background-color:#ffffff1a}.magic-toast__close svg{width:14px;height:14px}.magic-toast--info .magic-toast__icon{color:var(--magic-toast-info-color,var(--magic-primary-color))}.magic-toast--success .magic-toast__icon{color:var(--magic-toast-success-color,#2ac864)}.magic-toast--warning .magic-toast__icon{color:var(--magic-toast-warning-color,#fa9600)}.magic-toast--error .magic-toast__icon{color:var(--magic-toast-error-color,#ff5c7c)}';
   var theme_default =
-    ':root{--magic-primary-color:#e11483;--magic-primary-hover-color:color-mix(in srgb, var(--magic-primary-color) 85%, #fff);--magic-primary-active-color:color-mix(in srgb, var(--magic-primary-color) 85%, #000);--magic-primary-light-bg:color-mix(in srgb, var(--magic-primary-color) 12%, transparent);--magic-primary-shadow:color-mix(in srgb, var(--magic-primary-color) 35%, transparent);--magic-primary-focus-shadow:color-mix(in srgb, var(--magic-primary-color) 20%, transparent);--magic-color-success:#2ac864;--magic-color-success-hover:#3ad473;--magic-color-success-active:#23b056;--magic-color-success-shadow:#2ac86459;--magic-color-warning:#fa9600;--magic-color-warning-hover:#ffaa1a;--magic-color-warning-active:#e08700;--magic-color-warning-shadow:#fa960059;--magic-color-danger:#ff5c7c;--magic-color-danger-hover:#ff7591;--magic-color-danger-active:#e64567;--magic-color-danger-shadow:#ff5c7c59;--magic-text-primary:#fff;--magic-text-secondary:#ffffffb3;--magic-text-tertiary:#9499a0;--magic-text-disabled:#ffffff59;--magic-bg-base:#ffffff0a;--magic-bg-subtle:#ffffff14;--magic-bg-hover:#ffffff24;--magic-bg-active:#fff3;--magic-bg-overlay:#1c1e24f0;--magic-mask-bg:#000000a6;--magic-border-color:#ffffff1f;--magic-border-color-hover:#ffffff40;--magic-radius-sm:4px;--magic-radius-base:6px;--magic-radius-lg:8px;--magic-shadow-dropdown:0 4px 16px #0003;--magic-shadow-modal:0 16px 40px #00000073;--magic-shadow-toast:0 10px 30px #00000073;--magic-z-index-dropdown:1000;--magic-z-index-modal:99999;--magic-z-index-toast:999999;--magic-btn-default-bg:var(--magic-bg-subtle);--magic-btn-default-color:var(--magic-text-primary);--magic-btn-default-border:var(--magic-border-color);--magic-btn-default-hover-bg:var(--magic-bg-hover);--magic-btn-default-hover-border:var(--magic-border-color-hover);--magic-btn-default-active-bg:var(--magic-bg-active);--magic-btn-primary-bg:var(--magic-primary-color);--magic-btn-primary-hover-bg:var(--magic-primary-hover-color);--magic-btn-primary-active-bg:var(--magic-primary-active-color);--magic-btn-success-bg:var(--magic-color-success);--magic-btn-success-hover-bg:var(--magic-color-success-hover);--magic-btn-success-active-bg:var(--magic-color-success-active);--magic-btn-warning-bg:var(--magic-color-warning);--magic-btn-warning-hover-bg:var(--magic-color-warning-hover);--magic-btn-warning-active-bg:var(--magic-color-warning-active);--magic-btn-danger-bg:var(--magic-color-danger);--magic-btn-danger-hover-bg:var(--magic-color-danger-hover);--magic-btn-danger-active-bg:var(--magic-color-danger-active);--magic-btn-text-color:var(--magic-text-secondary);--magic-btn-text-hover-bg:var(--magic-bg-subtle);--magic-btn-text-active-bg:var(--magic-bg-hover);--magic-input-radius:var(--magic-radius-base);--magic-input-bg:var(--magic-bg-subtle);--magic-input-border:var(--magic-border-color);--magic-input-color:var(--magic-text-primary);--magic-input-hover-border:var(--magic-border-color-hover);--magic-input-hover-bg:var(--magic-bg-hover);--magic-input-focus-border:var(--magic-primary-color);--magic-input-focus-bg:var(--magic-bg-subtle);--magic-input-focus-shadow:var(--magic-primary-focus-shadow);--magic-input-prefix-color:var(--magic-text-tertiary);--magic-input-placeholder-color:var(--magic-text-tertiary);--magic-input-suffix-color:var(--magic-text-tertiary);--magic-input-clear-color:var(--magic-text-tertiary);--magic-input-clear-hover-color:var(--magic-text-primary);--magic-select-bg:var(--magic-bg-subtle);--magic-select-color:var(--magic-text-primary);--magic-select-border:var(--magic-border-color);--magic-select-placeholder-color:var(--magic-text-tertiary);--magic-select-suffix-color:var(--magic-text-tertiary);--magic-select-clear-color:var(--magic-text-tertiary);--magic-select-clear-hover-color:var(--magic-text-primary);--magic-select-hover-border:var(--magic-border-color-hover);--magic-select-hover-bg:var(--magic-bg-hover);--magic-select-active-color:var(--magic-primary-color);--magic-select-z-index:var(--magic-z-index-dropdown);--magic-select-dropdown-bg:var(--magic-bg-overlay);--magic-select-dropdown-border:var(--magic-border-color);--magic-select-dropdown-shadow:var(--magic-shadow-dropdown);--magic-select-option-hover-bg:var(--magic-bg-hover);--magic-select-option-active-bg:var(--magic-primary-light-bg);--magic-tabs-capsule-bg:var(--magic-bg-subtle);--magic-tabs-color:var(--magic-text-secondary);--magic-tabs-hover-color:var(--magic-text-primary);--magic-tabs-hover-bg:var(--magic-bg-hover);--magic-tabs-border:transparent;--magic-tabs-active-border:var(--magic-primary-light-bg);--magic-tabs-line-border:var(--magic-border-color);--magic-tabs-mask-bg:var(--magic-mask-bg);--magic-switch-color:var(--magic-text-secondary);--magic-switch-active-label-color:var(--magic-text-primary);--magic-switch-inactive-color:#8c8c8c59;--magic-switch-active-color:var(--magic-primary-color);--magic-spinner-size:24px;--magic-spinner-border-width:3px;--magic-spinner-track:var(--magic-bg-subtle);--magic-spinner-color:var(--magic-primary-color);--magic-spinner-text-color:var(--magic-text-tertiary);--magic-modal-z-index:var(--magic-z-index-modal);--magic-modal-mask-bg:var(--magic-mask-bg);--magic-modal-bg:var(--magic-bg-overlay);--magic-modal-border:var(--magic-border-color);--magic-modal-radius:var(--magic-radius-lg);--magic-modal-shadow:var(--magic-shadow-modal);--magic-modal-color:var(--magic-text-primary);--magic-modal-divider:var(--magic-border-color);--magic-modal-title-color:var(--magic-text-primary);--magic-modal-close-color:var(--magic-text-tertiary);--magic-radio-text-color:var(--magic-text-primary);--magic-radio-border-color:var(--magic-border-color);--magic-radio-bg:var(--magic-bg-subtle);--magic-radio-color:var(--magic-primary-color);--magic-radio-disabled-opacity:.45;--magic-toast-z-index:var(--magic-z-index-toast);--magic-toast-radius:var(--magic-radius-lg);--magic-toast-bg:var(--magic-bg-overlay);--magic-toast-color:var(--magic-text-primary);--magic-toast-border:var(--magic-border-color);--magic-toast-shadow:var(--magic-shadow-toast);--magic-toast-info-color:var(--magic-primary-color);--magic-toast-success-color:var(--magic-color-success);--magic-toast-warning-color:var(--magic-color-warning);--magic-toast-error-color:var(--magic-color-danger)}';
+    ':root{--magic-primary-color:#e11483;--magic-primary-hover-color:color-mix(in srgb, var(--magic-primary-color) 85%, #fff);--magic-primary-active-color:color-mix(in srgb, var(--magic-primary-color) 85%, #000);--magic-primary-light-bg:color-mix(in srgb, var(--magic-primary-color) 12%, transparent);--magic-primary-shadow:color-mix(in srgb, var(--magic-primary-color) 35%, transparent);--magic-primary-focus-shadow:color-mix(in srgb, var(--magic-primary-color) 20%, transparent);--magic-color-success:#2ac864;--magic-color-success-hover:#3ad473;--magic-color-success-active:#23b056;--magic-color-success-shadow:#2ac86459;--magic-color-warning:#fa9600;--magic-color-warning-hover:#ffaa1a;--magic-color-warning-active:#e08700;--magic-color-warning-shadow:#fa960059;--magic-color-danger:#ff5c7c;--magic-color-danger-hover:#ff7591;--magic-color-danger-active:#e64567;--magic-color-danger-shadow:#ff5c7c59;--magic-text-primary:#fff;--magic-text-secondary:#ffffffb3;--magic-text-tertiary:#9499a0;--magic-text-disabled:#ffffff59;--magic-bg-base:#ffffff0a;--magic-bg-subtle:#ffffff14;--magic-bg-hover:#ffffff24;--magic-bg-active:#fff3;--magic-bg-overlay:#1c1e24f0;--magic-mask-bg:#000000a6;--magic-border-color:#ffffff1f;--magic-border-color-hover:#ffffff40;--magic-radius-sm:4px;--magic-radius-base:6px;--magic-radius-lg:8px;--magic-shadow-dropdown:0 4px 16px #0003;--magic-shadow-modal:0 16px 40px #00000073;--magic-shadow-toast:0 10px 30px #00000073;--magic-z-index-dropdown:1000;--magic-z-index-modal:99999;--magic-z-index-toast:999999;--magic-btn-default-bg:var(--magic-bg-subtle);--magic-btn-default-color:var(--magic-text-primary);--magic-btn-default-border:var(--magic-border-color);--magic-btn-default-hover-bg:var(--magic-bg-hover);--magic-btn-default-hover-border:var(--magic-border-color-hover);--magic-btn-default-active-bg:var(--magic-bg-active);--magic-btn-primary-bg:var(--magic-primary-color);--magic-btn-primary-hover-bg:var(--magic-primary-hover-color);--magic-btn-primary-active-bg:var(--magic-primary-active-color);--magic-btn-success-bg:var(--magic-color-success);--magic-btn-success-hover-bg:var(--magic-color-success-hover);--magic-btn-success-active-bg:var(--magic-color-success-active);--magic-btn-warning-bg:var(--magic-color-warning);--magic-btn-warning-hover-bg:var(--magic-color-warning-hover);--magic-btn-warning-active-bg:var(--magic-color-warning-active);--magic-btn-danger-bg:var(--magic-color-danger);--magic-btn-danger-hover-bg:var(--magic-color-danger-hover);--magic-btn-danger-active-bg:var(--magic-color-danger-active);--magic-btn-text-color:var(--magic-text-secondary);--magic-btn-text-hover-bg:var(--magic-bg-subtle);--magic-btn-text-active-bg:var(--magic-bg-hover);--magic-input-radius:var(--magic-radius-base);--magic-input-bg:var(--magic-bg-subtle);--magic-input-border:var(--magic-border-color);--magic-input-color:var(--magic-text-primary);--magic-input-hover-border:var(--magic-border-color-hover);--magic-input-hover-bg:var(--magic-bg-hover);--magic-input-focus-border:var(--magic-primary-color);--magic-input-focus-bg:var(--magic-bg-subtle);--magic-input-focus-shadow:var(--magic-primary-focus-shadow);--magic-input-prefix-color:var(--magic-text-tertiary);--magic-input-placeholder-color:var(--magic-text-tertiary);--magic-input-suffix-color:var(--magic-text-tertiary);--magic-input-clear-color:var(--magic-text-tertiary);--magic-input-clear-hover-color:var(--magic-text-primary);--magic-select-bg:var(--magic-bg-subtle);--magic-select-color:var(--magic-text-primary);--magic-select-border:var(--magic-border-color);--magic-select-placeholder-color:var(--magic-text-tertiary);--magic-select-suffix-color:var(--magic-text-tertiary);--magic-select-clear-color:var(--magic-text-tertiary);--magic-select-clear-hover-color:var(--magic-text-primary);--magic-select-hover-border:var(--magic-border-color-hover);--magic-select-hover-bg:var(--magic-bg-hover);--magic-select-active-color:var(--magic-primary-color);--magic-select-z-index:var(--magic-z-index-dropdown);--magic-select-dropdown-bg:var(--magic-bg-overlay);--magic-select-dropdown-border:var(--magic-border-color);--magic-select-dropdown-shadow:var(--magic-shadow-dropdown);--magic-select-option-hover-bg:var(--magic-bg-hover);--magic-select-option-active-bg:var(--magic-primary-light-bg);--magic-tabs-capsule-bg:var(--magic-bg-subtle);--magic-tabs-color:var(--magic-text-secondary);--magic-tabs-hover-color:var(--magic-text-primary);--magic-tabs-hover-bg:var(--magic-bg-hover);--magic-tabs-border:transparent;--magic-tabs-active-border:var(--magic-primary-light-bg);--magic-tabs-line-border:var(--magic-border-color);--magic-tabs-mask-bg:var(--magic-mask-bg);--magic-switch-color:var(--magic-text-secondary);--magic-switch-active-label-color:var(--magic-text-primary);--magic-switch-inactive-color:#8c8c8c59;--magic-switch-active-color:var(--magic-primary-color);--magic-spinner-size:24px;--magic-spinner-border-width:3px;--magic-spinner-track:var(--magic-bg-subtle);--magic-spinner-color:var(--magic-primary-color);--magic-spinner-text-color:var(--magic-text-tertiary);--magic-modal-z-index:var(--magic-z-index-modal);--magic-modal-mask-bg:var(--magic-mask-bg);--magic-modal-bg:var(--magic-bg-overlay);--magic-modal-border:var(--magic-border-color);--magic-modal-radius:var(--magic-radius-lg);--magic-modal-shadow:var(--magic-shadow-modal);--magic-modal-color:var(--magic-text-primary);--magic-modal-divider:var(--magic-border-color);--magic-modal-title-color:var(--magic-text-primary);--magic-modal-close-color:var(--magic-text-tertiary);--magic-radio-text-color:var(--magic-text-primary);--magic-radio-border-color:var(--magic-border-color);--magic-radio-bg:var(--magic-bg-subtle);--magic-radio-color:var(--magic-primary-color);--magic-radio-disabled-opacity:.45;--magic-toast-z-index:var(--magic-z-index-toast);--magic-toast-radius:var(--magic-radius-lg);--magic-toast-bg:var(--magic-bg-overlay);--magic-toast-color:var(--magic-text-primary);--magic-toast-border:var(--magic-border-color);--magic-toast-shadow:var(--magic-shadow-toast);--magic-toast-info-color:var(--magic-primary-color);--magic-toast-success-color:var(--magic-color-success);--magic-toast-warning-color:var(--magic-color-warning);--magic-toast-error-color:var(--magic-color-danger);--magic-version-bg:var(--magic-bg-subtle);--magic-version-color:var(--magic-text-secondary);--magic-version-border:var(--magic-border-color)}';
   function ensureTheme() {
     if (typeof document === 'undefined') return;
     if (document.getElementById('magic-theme-tokens')) return;
@@ -2218,7 +2051,7 @@
       closable: Boolean,
       _isLeaving: { state: true },
     };
-    static styles = r$2(style_default$8);
+    static styles = r$2(style_default$9);
     #timer = null;
     constructor() {
       super();
@@ -2382,6 +2215,288 @@
     error: (msg, dur) => MagicToast.error(msg, dur),
   };
   if (!customElements.get('magic-toast')) customElements.define('magic-toast', MagicToast);
+  function usePodPlayback({
+    rawGroups,
+    podType,
+    activeBvid,
+    activePage,
+    flatEpisodes,
+    currentPlaying,
+    scrollContainerRef,
+    setExpanded,
+    toggleAccordion,
+    settings,
+    shuffleActions,
+  }) {
+    const refreshActiveStates = (isManualClick = false) => {
+      rawGroups.value = rawGroups.value.map((g) =>
+        updateGroupActive(g, podType.value, activeBvid.value, activePage.value),
+      );
+      setExpanded(findActiveAccordionBvid(currentPlaying.value));
+      if (isManualClick && settings && !settings.scrollActiveOnClick) return;
+      scrollActiveItem(scrollContainerRef.value, true);
+    };
+    const switchActiveVideo = (type, data, index, isManual = true) => {
+      const { bvid, aid, episodes } = data;
+      const { page, cid, isActive } = episodes[index];
+      if (isActive) return;
+      if (isManual)
+        shuffleActions?.recordManualPlay?.({
+          bvid,
+          page,
+        });
+      activeBvid.value = bvid;
+      activePage.value = page;
+      executeVideoSwitch(podType.value, {
+        aid,
+        bvid,
+        cid,
+        p: page,
+      });
+      refreshActiveStates(isManual);
+    };
+    const handleHeaderClick = (group) => {
+      if (group.isActive && group.isMultiPage) {
+        toggleAccordion(group.bvid);
+        return;
+      }
+      switchActiveVideo(podType.value, group, 0, true);
+    };
+    const getNextTarget = (action) => {
+      if (settings?.shuffle) {
+        const shuffleTarget =
+          action === CTRL_ACTION.PREV
+            ? shuffleActions?.getPrevShuffleTarget?.()
+            : shuffleActions?.getNextShuffleTarget?.();
+        if (shuffleTarget) return shuffleTarget;
+      }
+      const currentIndex = currentPlaying.value?.flatIndex;
+      return getAdjacentVideo(flatEpisodes.value, currentIndex, action);
+    };
+    const handlePlayerCtrl = throttle((action) => {
+      const target = getNextTarget(action);
+      if (target) {
+        switchActiveVideo(podType.value, target.group, target.epIndex, false);
+        return;
+      }
+      toast.info(action === CTRL_ACTION.PREV ? '已经是第一集了' : '已经是最后一集了');
+    }, 300);
+    const setActiveTarget = (bvid, page) => {
+      activeBvid.value = bvid;
+      activePage.value = page;
+    };
+    return {
+      refreshActiveStates,
+      switchActiveVideo,
+      handleHeaderClick,
+      handlePlayerCtrl,
+      setActiveTarget,
+    };
+  }
+  function usePodSections({
+    rawGroups,
+    podType,
+    activeBvid,
+    activePage,
+    setExpanded,
+    setActiveTarget,
+    refreshActiveStates,
+  }) {
+    const seasonSections = (0, vue.ref)([]);
+    const hasMultipleSections = (0, vue.ref)(false);
+    const currentSectionId = (0, vue.ref)('');
+    const initSections = (payload) => {
+      seasonSections.value = payload?.seasonSections || [];
+      hasMultipleSections.value = !!payload?.hasMultipleSections;
+      currentSectionId.value = payload?.currentSectionId || '';
+    };
+    const resetSections = () => {
+      seasonSections.value = [];
+      hasMultipleSections.value = false;
+      currentSectionId.value = '';
+    };
+    const applySectionEpisodes = (section, targetBvid, targetPage) => {
+      currentSectionId.value = String(section.value);
+      setExpanded('');
+      rawGroups.value = processSeasonData(podType.value, section.episodes, targetBvid, targetPage);
+    };
+    const switchSection = (sectionId) => {
+      const targetId = String(sectionId);
+      if (targetId === String(currentSectionId.value)) return;
+      const targetSection = seasonSections.value.find((s) => String(s.value) === targetId);
+      if (!targetSection) return;
+      applySectionEpisodes(targetSection, activeBvid.value, activePage.value);
+      refreshActiveStates();
+    };
+    const trySwitchSectionByBvid = (nextBvid, nextPage) => {
+      if (!(0, vue.toValue)(hasMultipleSections)) return false;
+      const targetSection = findSectionByBvid(seasonSections.value, nextBvid);
+      if (!targetSection) return false;
+      applySectionEpisodes(targetSection, nextBvid, nextPage);
+      setActiveTarget(nextBvid, nextPage);
+      refreshActiveStates();
+      return true;
+    };
+    return {
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      initSections,
+      resetSections,
+      switchSection,
+      trySwitchSectionByBvid,
+    };
+  }
+  function usePodLoader({
+    rawGroups,
+    podType,
+    activeBvid,
+    activePage,
+    rootRef,
+    scrollContainerRef,
+    setExpanded,
+    currentPlaying,
+    setActiveTarget,
+    refreshActiveStates,
+  }) {
+    const isLoading = (0, vue.ref)(false);
+    const podMode = (0, vue.ref)(POD_MODE.LIST);
+    const {
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      initSections,
+      resetSections,
+      switchSection,
+      trySwitchSectionByBvid,
+    } = usePodSections({
+      rawGroups,
+      podType,
+      activeBvid,
+      activePage,
+      setExpanded,
+      setActiveTarget,
+      refreshActiveStates,
+    });
+    const onModeChange = (isExpandedMode) => {
+      podMode.value = isExpandedMode ? POD_MODE.CARD : POD_MODE.LIST;
+      setTimeout(() => {
+        scrollActiveItem(scrollContainerRef.value, true);
+      }, 300);
+    };
+    const { isAnimating, containerStyle, videoBodyStyle, startSync } = usePositionSync(
+      podType,
+      rootRef,
+      onModeChange,
+      hasMultipleSections,
+    );
+    const resetPodState = () => {
+      rawGroups.value = [];
+      podType.value = null;
+      resetSections();
+    };
+    const trySwitchSameSeason = (nextBvid, nextPage) => {
+      if (!hasSeasonBvid(rawGroups.value, nextBvid)) return false;
+      if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return true;
+      setActiveTarget(nextBvid, nextPage);
+      refreshActiveStates();
+      return true;
+    };
+    const initPodState = async (payload, bvid, page) => {
+      if (!payload) {
+        resetPodState();
+        setExpanded('');
+        return;
+      }
+      podType.value = payload.type;
+      podMode.value = payload.mode;
+      rawGroups.value = payload.groups;
+      setActiveTarget(bvid, page);
+      initSections(payload);
+      setExpanded(findActiveAccordionBvid(currentPlaying.value));
+      await startSync(podType.value);
+      scrollActiveItem(scrollContainerRef.value, false);
+    };
+    const fetchFullPod = async (nextBvid, nextPage) => {
+      setActiveTarget(nextBvid, nextPage);
+      resetPodState();
+      isLoading.value = true;
+      try {
+        const payload = await fetchPodPayload(nextBvid, nextPage);
+        await initPodState(payload, nextBvid, nextPage);
+      } finally {
+        isLoading.value = false;
+      }
+    };
+    const loadPod = async () => {
+      const nextBvid = getCurrentBvid();
+      const nextPage = getCurrentPage();
+      if (!nextBvid) return;
+      if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return;
+      if (trySwitchSameSeason(nextBvid, nextPage)) return;
+      if (trySwitchSectionByBvid(nextBvid, nextPage)) return;
+      await fetchFullPod(nextBvid, nextPage);
+    };
+    return {
+      isAnimating,
+      isLoading,
+      podMode,
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      containerStyle,
+      videoBodyStyle,
+      initPodState,
+      loadPod,
+      switchSection,
+      trySwitchSameSeason,
+    };
+  }
+  function isInputElement(event) {
+    return (event.composedPath ? event.composedPath() : [event.target]).some((el) => {
+      const tag = el?.tagName?.toLowerCase();
+      return (
+        tag === 'input' || tag === 'textarea' || tag === 'magic-input' || el?.isContentEditable
+      );
+    });
+  }
+  function formatKeyboardKey(event) {
+    if (['Control', 'Shift', 'Alt', 'Meta'].includes(event.key)) return '';
+    const parts = [];
+    if (event.ctrlKey) parts.push('Ctrl');
+    if (event.altKey) parts.push('Alt');
+    if (event.shiftKey) parts.push('Shift');
+    if (event.metaKey) parts.push('Meta');
+    let key = event.key;
+    if (key === ' ') key = 'Space';
+    else if (key.length === 1) key = key.toUpperCase();
+    parts.push(key);
+    return parts.join('+');
+  }
+  function matchesHotkey(event, targetHotkey) {
+    if (!targetHotkey) return false;
+    const currentKey = formatKeyboardKey(event);
+    if (!currentKey) return false;
+    return currentKey.toLowerCase() === targetHotkey.trim().toLowerCase();
+  }
+  function usePodHotkeys({ settings, handlePlayerCtrl }) {
+    const onKeyDown = (event) => {
+      if (event.repeat) return;
+      if (isInputElement(event.target)) return;
+      if (matchesHotkey(event, settings.hotkeyPrev)) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        handlePlayerCtrl?.(CTRL_ACTION.PREV);
+        return;
+      }
+      if (matchesHotkey(event, settings.hotkeyNext)) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        handlePlayerCtrl?.(CTRL_ACTION.NEXT);
+      }
+    };
+    return on(window, 'keydown', onKeyDown, { capture: true });
+  }
   var MAX_HISTORY_LENGTH = 50;
   var getEpisodeKey = (bvid, page) => `${bvid}_${Number(page || 1)}`;
   var extractCurrentKey = (current) => {
@@ -2494,6 +2609,34 @@
       toggleShuffle,
     };
   }
+  function usePlayedHistory({ activeBvid, activePage }) {
+    const playedKeys = (0, vue.ref)(new Set());
+    const recordPlayedVideo = (bvid, page) => {
+      if (!bvid) return;
+      const key = `${bvid}_${page || 1}`;
+      if (!playedKeys.value.has(key)) playedKeys.value = new Set(playedKeys.value.add(key));
+    };
+    const isEpisodePlayed = (bvid, ep) => {
+      if (!bvid || !ep) return false;
+      const page = ep.page ?? ep.cid ?? 1;
+      return playedKeys.value.has(`${bvid}_${page}`);
+    };
+    const isGroupPlayed = (group) => {
+      if (!group || !group.episodes?.length) return false;
+      return group.episodes.every((ep) => isEpisodePlayed(group.bvid, ep));
+    };
+    (0, vue.watch)(
+      [activeBvid, activePage],
+      ([bvid, page]) => {
+        if (bvid) recordPlayedVideo(bvid, page);
+      },
+      { immediate: true },
+    );
+    return {
+      isEpisodePlayed,
+      isGroupPlayed,
+    };
+  }
   function useVideoPod() {
     const rootRef = (0, vue.ref)(null);
     const scrollContainerRef = (0, vue.ref)(null);
@@ -2514,6 +2657,10 @@
         flatEpisodes,
         currentPlaying,
       });
+    const { isEpisodePlayed, isGroupPlayed } = usePlayedHistory({
+      activeBvid,
+      activePage,
+    });
     const {
       refreshActiveStates,
       switchActiveVideo,
@@ -2563,12 +2710,14 @@
     (0, vue.watch)(
       () => settings.sortMode,
       () => {
-        if (settings.scrollToActiveOnSort) scrollActiveItem(scrollContainerRef.value, true);
-        else
-          scrollContainerRef.value?.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-          });
+        if (settings.scrollToActiveOnSort) {
+          scrollActiveItem(scrollContainerRef.value, true);
+          return;
+        }
+        scrollContainerRef.value?.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
       },
       { flush: 'post' },
     );
@@ -2579,15 +2728,15 @@
       },
       { immediate: true },
     );
+    const isPlaybackEndReached = () => {
+      if (settings.shuffle) return false;
+      return (
+        currentPlaying.value?.isLast ||
+        (settings.stopOnGroupEnd && currentPlaying.value?.isGroupLast)
+      );
+    };
     const handleVideoEnded = () => {
-      if (!settings.autoPlayNext) return;
-      if (!settings.shuffle) {
-        if (
-          currentPlaying.value?.isLast ||
-          (settings.stopOnGroupEnd && currentPlaying.value?.isGroupLast)
-        )
-          return;
-      }
+      if (!settings.autoPlayNext || isPlaybackEndReached()) return;
       handlePlayerCtrl(CTRL_ACTION.NEXT);
     };
     (0, vue.onMounted)(() => {
@@ -2628,6 +2777,8 @@
       switchActiveVideo,
       toggleShuffle,
       loadPod,
+      isGroupPlayed,
+      isEpisodePlayed,
     };
   }
   var normalizeQuery = (str) => (str || '').trim().toLowerCase();
@@ -2655,6 +2806,47 @@
   }
   function countTotalMatches(filteredGroups) {
     return (filteredGroups || []).reduce((acc, g) => acc + (g.episodes?.length || 1), 0);
+  }
+  function getHighlightSegments(text, keyword) {
+    if (!text) return [];
+    const query = (keyword || '').trim().toLowerCase();
+    if (!query)
+      return [
+        {
+          text,
+          isMatch: false,
+        },
+      ];
+    const textLower = text.toLowerCase();
+    let currIndex = textLower.indexOf(query);
+    if (currIndex === -1)
+      return [
+        {
+          text,
+          isMatch: false,
+        },
+      ];
+    const segments = [];
+    let startIndex = 0;
+    while (currIndex !== -1) {
+      if (currIndex > startIndex)
+        segments.push({
+          text: text.slice(startIndex, currIndex),
+          isMatch: false,
+        });
+      segments.push({
+        text: text.slice(currIndex, currIndex + query.length),
+        isMatch: true,
+      });
+      startIndex = currIndex + query.length;
+      currIndex = textLower.indexOf(query, startIndex);
+    }
+    if (startIndex < text.length)
+      segments.push({
+        text: text.slice(startIndex),
+        isMatch: false,
+      });
+    return segments;
   }
   function usePodSearch(groups) {
     const keyword = (0, vue.ref)('');
@@ -2693,9 +2885,10 @@
       closeSearch,
       clearKeyword,
       toggleSearch,
+      getHighlightSegments,
     };
   }
-  var style_default$7 =
+  var style_default$8 =
     ':host{box-sizing:border-box;flex:1;width:100%;min-width:0;font-family:inherit;display:block}:host([inline]){width:auto;display:inline-block}.magic-tabs{box-sizing:border-box;align-items:center;width:100%;display:flex;position:relative}.magic-tabs__wrap{flex:1;align-items:center;min-width:0;display:flex;position:relative;overflow:hidden}.magic-tabs__shadow{z-index:2;pointer-events:none;opacity:0;width:24px;transition:opacity .2s;position:absolute;top:0;bottom:0}.magic-tabs__shadow--left{background:linear-gradient(to right, var(--magic-tabs-mask-bg,#000000d9), transparent);left:0}.magic-tabs__shadow--right{background:linear-gradient(to left, var(--magic-tabs-mask-bg,#000000d9), transparent);right:0}.magic-tabs__shadow.is-show{opacity:1}.magic-tabs__nav{white-space:nowrap;scroll-behavior:smooth;box-sizing:border-box;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;align-items:center;gap:8px;width:100%;padding:4px 2px;display:flex;overflow:auto hidden}.magic-tabs__nav::-webkit-scrollbar{width:0;height:0;display:none}.magic-tabs__item{-webkit-user-select:none;user-select:none;cursor:pointer;white-space:nowrap;box-sizing:border-box;outline:none;flex-shrink:0;justify-content:center;align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-tabs__item.is-disabled{cursor:not-allowed;opacity:.45;pointer-events:none}.magic-tabs--capsule .magic-tabs__item{color:var(--magic-tabs-color,#ffffffb3);background:var(--magic-tabs-capsule-bg,#ffffff14);border:1px solid var(--magic-tabs-border,transparent);border-radius:999px}.magic-tabs--capsule .magic-tabs__item:hover:not(.is-disabled):not(.is-active){color:var(--magic-tabs-hover-color,#fff);background:var(--magic-tabs-hover-bg,#ffffff24)}.magic-tabs--capsule .magic-tabs__item.is-active{color:var(--magic-primary-color);background:var(--magic-primary-light-bg);border-color:var(--magic-tabs-active-border,var(--magic-primary-light-bg));font-weight:500}.magic-tabs--line{border-bottom:1px solid var(--magic-tabs-line-border,#ffffff1f)}.magic-tabs--line .magic-tabs__item{color:var(--magic-tabs-color,#ffffffb3);background:0 0;border-radius:4px}.magic-tabs--line .magic-tabs__item:hover:not(.is-disabled):not(.is-active){color:var(--magic-tabs-hover-color,#fff)}.magic-tabs--line .magic-tabs__item.is-active{color:var(--magic-primary-color);font-weight:500}.magic-tabs--line .magic-tabs__item.is-active:after{content:"";background:var(--magic-primary-color);border-radius:2px;width:80%;height:2px;position:absolute;bottom:-4px;left:10%}.magic-tabs--small .magic-tabs__item{height:24px;padding:0 10px;font-size:12px}.magic-tabs--medium .magic-tabs__item{height:30px;padding:0 14px;font-size:13px}.magic-tabs--large .magic-tabs__item{height:36px;padding:0 18px;font-size:14px}.magic-tabs .magic-tabs__label{font-weight:600}';
   var MagicTabs = class extends i {
     static properties = {
@@ -2717,7 +2910,7 @@
       _canScrollLeft: { state: true },
       _canScrollRight: { state: true },
     };
-    static styles = r$2(style_default$7);
+    static styles = r$2(style_default$8);
     #cleanups = [];
     constructor() {
       super();
@@ -2907,7 +3100,7 @@
     }
   };
   if (!customElements.get('magic-tabs')) customElements.define('magic-tabs', MagicTabs);
-  var style_default$6 =
+  var style_default$7 =
     ':host{vertical-align:middle;display:inline-flex}@keyframes magic-spinner-rotate{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.magic-spinner{justify-content:center;align-items:center;gap:10px;display:inline-flex}.magic-spinner.is-vertical{flex-direction:column;gap:12px}.magic-spinner__circle{box-sizing:border-box;width:var(--magic-spinner-size,24px);height:var(--magic-spinner-size,24px);border-style:solid;border-width:var(--magic-spinner-border-width,3px);border-color:var(--magic-spinner-track,#ffffff1a);border-top-color:var(--magic-spinner-color,var(--magic-primary-color));border-radius:50%;flex-shrink:0;animation:.8s linear infinite magic-spinner-rotate}.magic-spinner__text{color:var(--magic-spinner-text-color,#9499a0);-webkit-user-select:none;user-select:none;font-size:13px;line-height:1.4}';
   var MagicSpinner = class extends i {
     static properties = {
@@ -2920,7 +3113,7 @@
         attribute: 'stroke-width',
       },
     };
-    static styles = r$2(style_default$6);
+    static styles = r$2(style_default$7);
     constructor() {
       super();
       this.size = '24';
@@ -2948,7 +3141,7 @@
     }
   };
   if (!customElements.get('magic-spinner')) customElements.define('magic-spinner', MagicSpinner);
-  var style_default$5 =
+  var style_default$6 =
     ':host{vertical-align:middle;-webkit-user-select:none;user-select:none;align-items:center;display:inline-flex}.magic-switch{cursor:pointer;background:0 0;border:none;outline:none;align-items:center;gap:6px;margin:0;padding:0;font-family:inherit;display:inline-flex}.magic-switch--small{--switch-width:30px;--switch-height:16px;--switch-knob:12px;--switch-offset:14px;--switch-font-size:12px}.magic-switch--medium{--switch-width:38px;--switch-height:20px;--switch-knob:16px;--switch-offset:18px;--switch-font-size:13px}.magic-switch--large{--switch-width:46px;--switch-height:24px;--switch-knob:20px;--switch-offset:22px;--switch-font-size:14px}.magic-switch__core{width:var(--switch-width,38px);height:var(--switch-height,20px);background-color:var(--magic-switch-inactive-color,#8c8c8c59);box-sizing:border-box;border-radius:999px;transition:background-color .25s,border-color .25s;display:inline-block;position:relative}.magic-switch__action{width:var(--switch-knob,16px);height:var(--switch-knob,16px);background-color:#fff;border-radius:50%;justify-content:center;align-items:center;transition:transform .25s cubic-bezier(.4,0,.2,1);display:flex;position:absolute;top:2px;left:2px;box-shadow:0 1px 3px #00000040}.magic-switch__label{color:var(--magic-switch-color,#9499a0);font-size:13px;line-height:1;transition:color .2s}.magic-switch.is-checked .magic-switch__core{background-color:var(--magic-switch-active-color,var(--magic-primary-color))}.magic-switch.is-checked .magic-switch__action{transform:translateX(var(--switch-offset,18px))}.magic-switch.is-checked .magic-switch__label{color:var(--magic-switch-active-label-color,#fff)}.magic-switch.is-disabled{cursor:not-allowed;opacity:.55}.magic-switch.is-disabled .magic-switch__core{cursor:not-allowed}.magic-switch.is-loading{cursor:wait;opacity:.8}';
   var MagicSwitch = class extends i {
     static properties = {
@@ -2974,7 +3167,7 @@
         reflect: true,
       },
     };
-    static styles = r$2(style_default$5);
+    static styles = r$2(style_default$6);
     constructor() {
       super();
       this.checked = false;
@@ -3043,12 +3236,17 @@
     }
   };
   if (!customElements.get('magic-switch')) customElements.define('magic-switch', MagicSwitch);
-  var style_default$4 =
-    ':host{vertical-align:middle;box-sizing:border-box;font-family:inherit;display:inline-block;position:relative}:host([block]){width:100%;display:block}@keyframes magic-select-dropdown-in{0%{opacity:0;transform:translateY(-8px)scaleY(.95)}to{opacity:1;transform:translateY(0)scaleY(1)}}.magic-select{box-sizing:border-box;-webkit-user-select:none;user-select:none;width:100%;position:relative}.magic-select__trigger{box-sizing:border-box;border:1px solid var(--magic-select-border,#ffffff26);background:var(--magic-select-bg,#ffffff14);width:100%;color:var(--magic-select-color,#e5e9ef);cursor:pointer;border-radius:6px;outline:none;justify-content:space-between;align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:flex}.magic-select__label{text-overflow:ellipsis;white-space:nowrap;text-align:left;flex:1;overflow:hidden}.magic-select__label.is-placeholder{color:var(--magic-select-placeholder-color,#9499a0)}.magic-select__suffix{color:var(--magic-select-suffix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:transform .2s;display:inline-flex}.magic-select__suffix svg{width:14px;height:14px;transition:transform .2s;display:block}.magic-select__suffix.is-reverse svg{transform:rotate(180deg)}.magic-select__clear{color:var(--magic-select-clear-color,#9499a0);cursor:pointer;flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:color .2s;display:none}.magic-select__clear:hover{color:var(--magic-select-clear-hover-color,#e5e9ef)}.magic-select__clear svg{width:14px;height:14px;display:block}.magic-select--small .magic-select__trigger{height:28px;padding:0 8px;font-size:12px}.magic-select--medium .magic-select__trigger{height:34px;padding:0 12px;font-size:14px}.magic-select--large .magic-select__trigger{height:40px;padding:0 16px;font-size:16px}.magic-select:hover:not(.is-disabled) .magic-select__trigger{border-color:var(--magic-select-hover-border,#ffffff40);background:var(--magic-select-hover-bg,#ffffff1f)}.magic-select:hover:not(.is-disabled).has-value.is-clearable .magic-select__suffix{display:none}.magic-select:hover:not(.is-disabled).has-value.is-clearable .magic-select__clear{display:inline-flex}.magic-select.is-open .magic-select__trigger{border-color:var(--magic-select-active-color,var(--magic-primary-color));box-shadow:0 0 0 2px var(--magic-primary-focus-shadow)}.magic-select.is-disabled .magic-select__trigger{cursor:not-allowed;opacity:.5;background:#ffffff0a;border-color:#ffffff1a}.magic-select__dropdown{box-sizing:border-box;width:100%;min-width:100%;max-height:220px;z-index:var(--magic-select-z-index,10000);background:var(--magic-select-dropdown-bg,#1c1e24f5);border:1px solid var(--magic-select-dropdown-border,#ffffff1f);box-shadow:var(--magic-select-dropdown-shadow,0 10px 30px #00000080);-webkit-backdrop-filter:blur(12px);transform-origin:top;border-radius:6px;padding:4px;animation:.2s cubic-bezier(.16,1,.3,1) forwards magic-select-dropdown-in;position:absolute;top:calc(100% + 4px);left:0;overflow-y:auto}.magic-select__dropdown::-webkit-scrollbar{width:5px}.magic-select__dropdown::-webkit-scrollbar-thumb{background:#fff3;border-radius:4px}.magic-select__empty{text-align:center;color:var(--magic-select-placeholder-color,#9499a0);padding:12px;font-size:13px}.magic-option{box-sizing:border-box;color:var(--magic-select-color,#e5e9ef);cursor:pointer;-webkit-user-select:none;user-select:none;border-radius:4px;justify-content:space-between;align-items:center;padding:8px 10px;font-size:14px;line-height:1.2;transition:all .15s;display:flex}.magic-option:hover:not(.is-disabled){background-color:var(--magic-select-option-hover-bg,#ffffff14)}.magic-option.is-selected{color:var(--magic-select-active-color,var(--magic-primary-color));background-color:var(--magic-select-option-active-bg,var(--magic-primary-light-bg));font-weight:500}.magic-option.is-disabled{cursor:not-allowed;opacity:.4}';
+  var style_default$5 =
+    ':host{vertical-align:middle;box-sizing:border-box;font-family:inherit;display:inline-block;position:relative}:host([block]){width:100%;display:block}@keyframes magic-select-dropdown-in{0%{opacity:0;transform:translateY(-8px)scaleY(.95)}to{opacity:1;transform:translateY(0)scaleY(1)}}.magic-select{box-sizing:border-box;-webkit-user-select:none;user-select:none;width:100%;position:relative}.magic-select__trigger{box-sizing:border-box;border:1px solid var(--magic-select-border,#ffffff26);background:var(--magic-select-bg,#ffffff14);width:100%;color:var(--magic-select-color,#e5e9ef);cursor:pointer;border-radius:6px;outline:none;justify-content:space-between;align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:flex}.magic-select__label{text-overflow:ellipsis;white-space:nowrap;text-align:left;flex:1;overflow:hidden}.magic-select__label.is-placeholder{color:var(--magic-select-placeholder-color,#9499a0)}.magic-select__suffix{color:var(--magic-select-suffix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:transform .2s;display:inline-flex}.magic-select__suffix svg{width:14px;height:14px;transition:transform .2s;display:block}.magic-select__suffix.is-reverse svg{transform:rotate(180deg)}.magic-select__clear{color:var(--magic-select-clear-color,#9499a0);cursor:pointer;flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:color .2s;display:none}.magic-select__clear:hover{color:var(--magic-select-clear-hover-color,#e5e9ef)}.magic-select__clear svg{width:14px;height:14px;display:block}.magic-select--small .magic-select__trigger{height:28px;padding:0 8px;font-size:12px}.magic-select--medium .magic-select__trigger{height:34px;padding:0 12px;font-size:14px}.magic-select--large .magic-select__trigger{height:40px;padding:0 16px;font-size:16px}.magic-select:hover:not(.is-disabled) .magic-select__trigger{border-color:var(--magic-select-hover-border,#ffffff40);background:var(--magic-select-hover-bg,#ffffff1f)}.magic-select:hover:not(.is-disabled).has-value.is-clearable .magic-select__suffix{display:none}.magic-select:hover:not(.is-disabled).has-value.is-clearable .magic-select__clear{display:inline-flex}.magic-select.is-open .magic-select__trigger{border-color:var(--magic-select-active-color,var(--magic-primary-color));box-shadow:0 0 0 2px var(--magic-primary-focus-shadow)}.magic-select.is-disabled .magic-select__trigger{cursor:not-allowed;opacity:.5;background:#ffffff0a;border-color:#ffffff1a}.magic-select__dropdown-container{min-width:100%;z-index:var(--magic-select-z-index,10000);position:absolute;top:calc(100% + 4px);left:0}.magic-select__dropdown{box-sizing:border-box;background:var(--magic-select-dropdown-bg,#1c1e24f5);border:1px solid var(--magic-select-dropdown-border,#ffffff1f);width:100%;min-width:100%;max-height:240px;box-shadow:var(--magic-select-dropdown-shadow,0 10px 30px #00000080);-webkit-backdrop-filter:blur(12px);transform-origin:top;border-radius:6px;padding:4px;animation:.2s cubic-bezier(.16,1,.3,1) forwards magic-select-dropdown-in;overflow-y:auto}.magic-select__dropdown::-webkit-scrollbar{width:5px}.magic-select__dropdown::-webkit-scrollbar-thumb{background:#fff3;border-radius:4px}.magic-select__sub-dropdown{box-sizing:border-box;background:var(--magic-select-dropdown-bg,#1c1e24f5);border:1px solid var(--magic-select-dropdown-border,#ffffff1f);width:max-content;min-width:130px;box-shadow:var(--magic-select-dropdown-shadow,0 10px 30px #00000080);-webkit-backdrop-filter:blur(12px);transform-origin:0 0;border-radius:6px;padding:4px;animation:.18s cubic-bezier(.16,1,.3,1) forwards magic-select-dropdown-in;position:absolute;left:calc(100% + 4px)}.magic-select__sub-dropdown:before{content:"";width:8px;height:100%;position:absolute;top:0;left:-8px}.magic-select__empty{text-align:center;color:var(--magic-select-placeholder-color,#9499a0);padding:12px;font-size:13px}.magic-option{box-sizing:border-box;color:var(--magic-select-color,#e5e9ef);cursor:pointer;-webkit-user-select:none;user-select:none;white-space:nowrap;border-radius:4px;justify-content:space-between;align-items:center;padding:8px 10px;font-size:14px;line-height:1.2;transition:all .15s;display:flex}.magic-option:hover:not(.is-disabled),.magic-option.is-active-parent{background-color:var(--magic-select-option-hover-bg,#ffffff14)}.magic-option.is-selected,.magic-option.has-selected-child{color:var(--magic-select-active-color,var(--magic-primary-color));font-weight:500}.magic-option.is-selected{background-color:var(--magic-select-option-active-bg,var(--magic-primary-light-bg))}.magic-option.is-disabled{cursor:not-allowed;opacity:.4}.magic-option__arrow{color:var(--magic-select-suffix-color,#9499a0);justify-content:center;align-items:center;margin-left:8px;display:inline-flex}.magic-option__arrow svg{width:12px;height:12px;display:block}';
   var SELECT_ICONS = {
     arrowDown: b`
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <polyline points="6 9 12 15 18 9" />
+    </svg>
+  `,
+    chevronRight: b`
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="9 18 15 12 9 6" />
     </svg>
   `,
     clear: b`
@@ -3072,7 +3270,7 @@
         reflect: true,
       },
     };
-    static styles = r$2(style_default$4);
+    static styles = r$2(style_default$5);
     constructor() {
       super();
       this.value = '';
@@ -3116,8 +3314,10 @@
         reflect: true,
       },
       options: Array,
+      activeSubmenuValue: { state: true },
+      submenuTop: { state: true },
     };
-    static styles = r$2(style_default$4);
+    static styles = r$2(style_default$5);
     #cleanupOutsideClick = null;
     constructor() {
       super();
@@ -3129,6 +3329,8 @@
       this.block = false;
       this.open = false;
       this.options = [];
+      this.activeSubmenuValue = '';
+      this.submenuTop = 0;
     }
     connectedCallback() {
       super.connectedCallback();
@@ -3141,17 +3343,22 @@
       this.#cleanupOutsideClick?.();
     }
     handleOutsideClick(event) {
-      if (this.open && !event.composedPath().includes(this)) this.open = false;
+      if (this.open && !event.composedPath().includes(this)) {
+        this.open = false;
+        this.activeSubmenuValue = '';
+      }
     }
     toggleDropdown(event) {
       event.stopPropagation();
       if (this.disabled) return;
       this.open = !this.open;
+      if (!this.open) this.activeSubmenuValue = '';
     }
     handleClear(event) {
       event.stopPropagation();
       this.value = '';
       this.open = false;
+      this.activeSubmenuValue = '';
       this.dispatchEvent(
         new CustomEvent('clear', {
           bubbles: true,
@@ -3165,6 +3372,7 @@
       if (option.disabled) return;
       this.value = option.value;
       this.open = false;
+      this.activeSubmenuValue = '';
       this.dispatchChangeEvent(option.value, option.label);
     }
     dispatchChangeEvent(value, label = '') {
@@ -3189,8 +3397,21 @@
     }
     get currentLabel() {
       if (isArray(this.options) && this.options.length > 0) {
-        const match = this.options.find((item) => String(item.value) === String(this.value));
-        if (match) return match.label ?? match.value;
+        const findInList = (list, parent = null) => {
+          for (const item of list) {
+            if (String(item.value) === String(this.value))
+              return parent
+                ? `${parent.label} · ${item.label ?? item.value}`
+                : (item.label ?? item.value);
+            if (isArray(item.children)) {
+              const match = findInList(item.children, item);
+              if (match) return match;
+            }
+          }
+          return null;
+        };
+        const match = findInList(this.options);
+        if (match) return match;
       }
       const slot = this.shadowRoot?.querySelector('slot');
       if (slot) {
@@ -3201,6 +3422,12 @@
       }
       return this.value || '';
     }
+    get activeSubmenuItem() {
+      if (!this.activeSubmenuValue || !isArray(this.options)) return null;
+      return (
+        this.options.find((item) => String(item.value) === String(this.activeSubmenuValue)) || null
+      );
+    }
     handleSlotClick(event) {
       const target = event.target.closest('magic-option');
       if (target && !target.disabled)
@@ -3208,6 +3435,32 @@
           value: target.value,
           label: target.label || target.textContent?.trim(),
         });
+    }
+    handleOptionMouseEnter(item, event) {
+      if (isArray(item.children) && item.children.length > 0) {
+        this.activeSubmenuValue = item.value;
+        const target = event.currentTarget;
+        this.submenuTop = target?.offsetTop || 0;
+      } else this.activeSubmenuValue = '';
+    }
+    handleDropdownMouseLeave() {
+      this.activeSubmenuValue = '';
+    }
+    renderSubOptionList(children) {
+      if (!isArray(children) || children.length === 0) return b``;
+      return children.map((item) => {
+        return b`
+        <div class="${[
+          'magic-option',
+          String(item.value) === String(this.value) ? 'is-selected' : '',
+          item.disabled ? 'is-disabled' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}" @click=${(e) => this.handleSelectOption(item, e)}>
+          <span>${item.label ?? item.value}</span>
+        </div>
+      `;
+      });
     }
     renderOptionList() {
       if (!this.options || this.options.length === 0)
@@ -3217,15 +3470,30 @@
         </div>
       `;
       return this.options.map((item) => {
+        const hasChildren = isArray(item.children) && item.children.length > 0;
+        const isSelected = String(item.value) === String(this.value);
+        const hasSelectedChild =
+          hasChildren && item.children.some((c) => String(c.value) === String(this.value));
+        const isActiveParent = String(item.value) === String(this.activeSubmenuValue);
         return b`
-        <div class="${[
-          'magic-option',
-          String(item.value) === String(this.value) ? 'is-selected' : '',
-          item.disabled ? 'is-disabled' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}" @click=${(e) => this.handleSelectOption(item, e)}>
-          ${item.label ?? item.value}
+        <div
+          class="${[
+            'magic-option',
+            isSelected ? 'is-selected' : '',
+            hasSelectedChild ? 'has-selected-child' : '',
+            isActiveParent ? 'is-active-parent' : '',
+            item.disabled ? 'is-disabled' : '',
+            hasChildren ? 'has-children' : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}"
+          @mouseenter=${(e) => this.handleOptionMouseEnter(item, e)}
+          @click=${(e) => {
+            if (!hasChildren) this.handleSelectOption(item, e);
+          }}
+        >
+          <span>${item.label ?? item.value}</span>
+          ${hasChildren ? b`<span class="magic-option__arrow">${SELECT_ICONS.chevronRight}</span>` : b``}
         </div>
       `;
       });
@@ -3233,6 +3501,7 @@
     render() {
       const hasValue = this.value !== void 0 && this.value !== null && this.value !== '';
       const displayLabel = this.currentLabel;
+      const subItem = this.activeSubmenuItem;
       return b`
       <div class="${[
         'magic-select',
@@ -3270,7 +3539,27 @@
         ${
           this.open
             ? b`
-                <div class="magic-select__dropdown" role="listbox">${this.renderOptionList()}</div>
+                <div
+                  class="magic-select__dropdown-container"
+                  @mouseleave=${this.handleDropdownMouseLeave}
+                >
+                  <div class="magic-select__dropdown" role="listbox">
+                    ${this.renderOptionList()}
+                  </div>
+                  ${
+                    subItem && isArray(subItem.children)
+                      ? b`
+                          <div
+                            class="magic-select__sub-dropdown"
+                            style="top: ${this.submenuTop}px"
+                            role="listbox"
+                          >
+                            ${this.renderSubOptionList(subItem.children)}
+                          </div>
+                        `
+                      : b``
+                  }
+                </div>
               `
             : b``
         }
@@ -3280,7 +3569,7 @@
   };
   if (!customElements.get('magic-option')) customElements.define('magic-option', MagicOption);
   if (!customElements.get('magic-select')) customElements.define('magic-select', MagicSelect);
-  var style_default$3 =
+  var style_default$4 =
     ':host{vertical-align:middle;box-sizing:border-box;font-family:inherit;display:inline-block}:host([block]){width:100%;display:block}.magic-input{box-sizing:border-box;border-radius:var(--magic-input-radius,6px);background:var(--magic-input-bg,#ffffff14);border:1px solid var(--magic-input-border,#ffffff26);width:100%;color:var(--magic-input-color,#e5e9ef);align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-input--small{height:28px;padding:0 8px;font-size:12px}.magic-input--medium{height:34px;padding:0 12px;font-size:14px}.magic-input--large{height:40px;padding:0 16px;font-size:16px}.magic-input:hover:not(.is-disabled):not(.is-focused){border-color:var(--magic-input-hover-border,#ffffff40);background:var(--magic-input-hover-bg,#ffffff1f)}.magic-input.is-focused{border-color:var(--magic-input-focus-border,var(--magic-primary-color));background:var(--magic-input-focus-bg,#ffffff1a);box-shadow:var(--magic-input-focus-shadow,var(--magic-primary-focus-shadow))}.magic-input.is-disabled{cursor:not-allowed;opacity:.5;background:#ffffff0a;border-color:#ffffff1a}.magic-input.is-disabled .magic-input__inner{cursor:not-allowed}.magic-input__prefix{color:var(--magic-input-prefix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-right:6px;line-height:1;display:inline-flex}.magic-input__prefix svg{width:14px;height:14px;display:block}.magic-input__inner{width:100%;min-width:0;height:100%;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;box-sizing:border-box;background:0 0;border:none;outline:none;flex:1;margin:0;padding:0}.magic-input__inner::placeholder{color:var(--magic-input-placeholder-color,#9499a0)}.magic-input__suffix{color:var(--magic-input-suffix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;line-height:1;display:inline-flex}.magic-input__suffix svg{width:14px;height:14px;display:block}.magic-input__clear{cursor:pointer;color:var(--magic-input-clear-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:color .15s;display:inline-flex}.magic-input__clear svg{width:14px;height:14px;display:block}.magic-input__clear:hover{color:var(--magic-input-clear-hover-color,#e5e9ef)}';
   var INPUT_ICONS = {
     clear: b`
@@ -3320,7 +3609,7 @@
       autofocus: Boolean,
       focused: { state: true },
     };
-    static styles = r$2(style_default$3);
+    static styles = r$2(style_default$4);
     constructor() {
       super();
       this.value = '';
@@ -3606,9 +3895,9 @@
       };
     },
   };
-  var style_default$2 =
+  var style_default$3 =
     ':host{font-family:inherit;display:block}:host(:not([visible])){display:none!important}@keyframes magic-modal-mask-fade-in{0%{opacity:0}to{opacity:1}}@keyframes magic-modal-mask-fade-out{0%{opacity:1}to{opacity:0}}@keyframes magic-modal-zoom-in{0%{opacity:0;transform:scale(.92)translateY(-20px)}to{opacity:1;transform:scale(1)translateY(0)}}@keyframes magic-modal-zoom-out{0%{opacity:1;transform:scale(1)translateY(0)}to{opacity:0;transform:scale(.92)translateY(-20px)}}.magic-modal-wrapper{z-index:var(--magic-modal-z-index,99999);overscroll-behavior:contain;box-sizing:border-box;text-align:center;pointer-events:auto;position:fixed;inset:0;overflow:hidden auto}.magic-modal-wrapper.is-leaving{pointer-events:none!important}.magic-modal-wrapper:after{content:"";vertical-align:middle;width:0;height:100%;display:inline-block}.magic-modal-wrapper.is-centered{justify-content:center;align-items:center;padding-bottom:16vh;display:flex}.magic-modal-wrapper.is-centered:after{display:none}.magic-modal-wrapper.is-centered .magic-modal{margin:24px auto;top:0!important}.magic-modal-mask{z-index:var(--magic-modal-z-index,99999);background:var(--magic-modal-mask-bg,#000000a6);-webkit-backdrop-filter:blur(4px);animation:.25s forwards magic-modal-mask-fade-in;position:fixed;inset:0}.magic-modal-mask.is-leaving{animation:.2s forwards magic-modal-mask-fade-out;pointer-events:none!important}.magic-modal{vertical-align:middle;text-align:left;box-sizing:border-box;background:var(--magic-modal-bg,#1c1e24f5);border:1px solid var(--magic-modal-border,#ffffff1f);border-radius:var(--magic-modal-radius,12px);width:100%;box-shadow:var(--magic-modal-shadow,0 16px 48px #0009);-webkit-backdrop-filter:blur(16px);color:var(--magic-modal-color,#e5e9ef);pointer-events:auto;flex-direction:column;margin:0 auto;animation:.25s cubic-bezier(.16,1,.3,1) forwards magic-modal-zoom-in;display:inline-flex;position:relative}.magic-modal.is-leaving{animation:.2s cubic-bezier(.4,0,1,1) forwards magic-modal-zoom-out;pointer-events:none!important}.magic-modal__header{border-bottom:1px solid var(--magic-modal-divider,#ffffff14);box-sizing:border-box;justify-content:space-between;align-items:center;padding:16px 20px;display:flex}.magic-modal__title{color:var(--magic-modal-title-color,#fff);font-size:16px;font-weight:600;line-height:1.4}.magic-modal__close{width:28px;height:28px;color:var(--magic-modal-close-color,#9499a0);cursor:pointer;background:0 0;border:none;border-radius:6px;justify-content:center;align-items:center;margin:-4px -6px -4px auto;padding:0;transition:all .2s;display:inline-flex}.magic-modal__close:hover{color:#fff;background:#ffffff1a}.magic-modal__close svg{width:16px;height:16px;display:block}.magic-modal__body{word-break:break-word;overscroll-behavior:contain;box-sizing:border-box;scrollbar-width:thin;scrollbar-color:#fff3 transparent;max-height:calc(80vh - 140px);padding:20px;font-size:14px;line-height:1.6;overflow-y:auto}.magic-modal__body::-webkit-scrollbar{width:5px}.magic-modal__body::-webkit-scrollbar-thumb{background:#fff3;border-radius:4px}.magic-modal__footer{border-top:1px solid var(--magic-modal-divider,#ffffff14);box-sizing:border-box;justify-content:flex-end;align-items:center;gap:12px;padding:14px 20px;display:flex}';
-  var style_default$1 =
+  var style_default$2 =
     ':host{vertical-align:middle;display:inline-flex}:host([block]){width:100%;display:flex}.magic-button{box-sizing:border-box;white-space:nowrap;text-align:center;cursor:pointer;-webkit-user-select:none;user-select:none;vertical-align:middle;border:1px solid #0000;border-radius:6px;outline:none;justify-content:center;align-items:center;width:100%;font-family:inherit;font-weight:500;line-height:1;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-button--small{gap:4px;height:28px;padding:0 10px;font-size:12px}.magic-button--medium{gap:6px;height:34px;padding:0 16px;font-size:14px}.magic-button--large{gap:8px;height:40px;padding:0 20px;font-size:16px}.magic-button.is-round{border-radius:9999px}.magic-button.is-circle{border-radius:50%;padding:0}.magic-button.is-circle.magic-button--small{width:28px}.magic-button.is-circle.magic-button--medium{width:34px}.magic-button.is-circle.magic-button--large{width:40px}.magic-button--default{background:var(--magic-btn-default-bg,#ffffff14);color:var(--magic-btn-default-color,#e5e9ef);border-color:var(--magic-btn-default-border,#ffffff26)}.magic-button--default:hover:not(.is-disabled){background:var(--magic-btn-default-hover-bg,#ffffff24);border-color:var(--magic-btn-default-hover-border,#ffffff40)}.magic-button--default:active:not(.is-disabled){background:var(--magic-btn-default-active-bg,#fff3)}.magic-button--primary{background:var(--magic-btn-primary-bg,var(--magic-primary-color));color:#fff;border-color:var(--magic-btn-primary-bg,var(--magic-primary-color))}.magic-button--primary:hover:not(.is-disabled){background:var(--magic-btn-primary-hover-bg,var(--magic-primary-hover-color));border-color:var(--magic-btn-primary-hover-bg,var(--magic-primary-hover-color));box-shadow:0 2px 8px var(--magic-primary-shadow)}.magic-button--primary:active:not(.is-disabled){background:var(--magic-btn-primary-active-bg,var(--magic-primary-active-color));border-color:var(--magic-btn-primary-active-bg,var(--magic-primary-active-color))}.magic-button--success{background:var(--magic-btn-success-bg,#2ac864);color:#fff;border-color:var(--magic-btn-success-bg,#2ac864)}.magic-button--success:hover:not(.is-disabled){background:var(--magic-btn-success-hover-bg,#3ad473);border-color:var(--magic-btn-success-hover-bg,#3ad473);box-shadow:0 2px 8px #2ac86459}.magic-button--success:active:not(.is-disabled){background:var(--magic-btn-success-active-bg,#23b056);border-color:var(--magic-btn-success-active-bg,#23b056)}.magic-button--warning{background:var(--magic-btn-warning-bg,#fa9600);color:#fff;border-color:var(--magic-btn-warning-bg,#fa9600)}.magic-button--warning:hover:not(.is-disabled){background:var(--magic-btn-warning-hover-bg,#ffa624);border-color:var(--magic-btn-warning-hover-bg,#ffa624);box-shadow:0 2px 8px #fa960059}.magic-button--warning:active:not(.is-disabled){background:var(--magic-btn-warning-active-bg,#e08700);border-color:var(--magic-btn-warning-active-bg,#e08700)}.magic-button--danger{background:var(--magic-btn-danger-bg,#ff5c7c);color:#fff;border-color:var(--magic-btn-danger-bg,#ff5c7c)}.magic-button--danger:hover:not(.is-disabled){background:var(--magic-btn-danger-hover-bg,#ff738e);border-color:var(--magic-btn-danger-hover-bg,#ff738e);box-shadow:0 2px 8px #ff5c7c59}.magic-button--danger:active:not(.is-disabled){background:var(--magic-btn-danger-active-bg,#e64b69);border-color:var(--magic-btn-danger-active-bg,#e64b69)}.magic-button--text{color:var(--magic-btn-text-color,var(--magic-primary-color));background:0 0;border-color:#0000;padding-left:4px;padding-right:4px}.magic-button--text:hover:not(.is-disabled){background:var(--magic-btn-text-hover-bg,var(--magic-primary-light-bg))}.magic-button--text:active:not(.is-disabled){background:var(--magic-btn-text-active-bg,var(--magic-primary-light-bg))}.magic-button.is-disabled{cursor:not-allowed;opacity:.5;box-shadow:none!important}.magic-button.is-loading{cursor:default;pointer-events:none}.magic-button .magic-button__loading-icon,.magic-button .magic-button__icon{justify-content:center;align-items:center;display:inline-flex}.magic-button .magic-button__content{align-items:center;display:inline-flex}';
   var MagicButton = class extends i {
     static properties = {
@@ -3626,7 +3915,7 @@
       circle: Boolean,
       block: Boolean,
     };
-    static styles = r$2(style_default$1);
+    static styles = r$2(style_default$2);
     constructor() {
       super();
       this.type = 'default';
@@ -3751,7 +4040,7 @@
       },
       _isLeaving: { state: true },
     };
-    static styles = r$2(style_default$2);
+    static styles = r$2(style_default$3);
     #cleanupKeydown = null;
     constructor() {
       super();
@@ -3969,7 +4258,7 @@
     }
   };
   if (!customElements.get('magic-modal')) customElements.define('magic-modal', MagicModal);
-  var style_default =
+  var style_default$1 =
     ':host{vertical-align:middle;display:inline-flex}:host([direction=vertical]){display:flex}.magic-radio{cursor:pointer;-webkit-user-select:none;user-select:none;color:var(--magic-radio-text-color,#e5e9ef);align-items:center;font-family:inherit;font-size:14px;line-height:1;transition:opacity .2s;display:inline-flex;position:relative}.magic-radio__input{flex-shrink:0;justify-content:center;align-items:center;display:inline-flex;position:relative}.magic-radio__original{opacity:0;z-index:-1;pointer-events:none;outline:none;margin:0;position:absolute;inset:0}.magic-radio__inner{box-sizing:border-box;border:1.5px solid var(--magic-radio-border-color,#ffffff40);background:var(--magic-radio-bg,#ffffff0d);border-radius:50%;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-block;position:relative}.magic-radio__inner:after{content:"";background-color:#fff;border-radius:50%;transition:transform .2s cubic-bezier(.175,.885,.32,1.275);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)scale(0)}.magic-radio__label{align-items:center;line-height:1.2;display:inline-flex}.magic-radio--small{gap:6px;font-size:12px}.magic-radio--small .magic-radio__inner{width:14px;height:14px}.magic-radio--small .magic-radio__inner:after{width:6px;height:6px}.magic-radio--medium{gap:8px;font-size:14px}.magic-radio--medium .magic-radio__inner{width:16px;height:16px}.magic-radio--medium .magic-radio__inner:after{width:7px;height:7px}.magic-radio--large{gap:10px;font-size:16px}.magic-radio--large .magic-radio__inner{width:18px;height:18px}.magic-radio--large .magic-radio__inner:after{width:8px;height:8px}.magic-radio:hover:not(.is-disabled) .magic-radio__inner{border-color:var(--magic-radio-color,var(--magic-primary-color))}.magic-radio.is-checked .magic-radio__inner{border-color:var(--magic-radio-color,var(--magic-primary-color));background-color:var(--magic-radio-color,var(--magic-primary-color))}.magic-radio.is-checked .magic-radio__inner:after{transform:translate(-50%,-50%)scale(1)}.magic-radio.is-disabled{cursor:not-allowed;opacity:var(--magic-radio-disabled-opacity,.5)}.magic-radio.is-disabled .magic-radio__inner{background-color:#ffffff05;border-color:#ffffff26}.magic-radio-group{flex-wrap:wrap;align-items:center;gap:16px;display:inline-flex}.magic-radio-group--vertical{flex-direction:column;align-items:flex-start;gap:10px;display:flex}';
   var MagicRadio = class extends i {
     static properties = {
@@ -3986,7 +4275,7 @@
       },
       size: String,
     };
-    static styles = r$2(style_default);
+    static styles = r$2(style_default$1);
     constructor() {
       super();
       this.value = '';
@@ -4063,7 +4352,7 @@
       direction: String,
       size: String,
     };
-    static styles = r$2(style_default);
+    static styles = r$2(style_default$1);
     #cleanupChange = null;
     constructor() {
       super();
@@ -4132,42 +4421,87 @@
   if (!customElements.get('magic-radio')) customElements.define('magic-radio', MagicRadio);
   if (!customElements.get('magic-radio-group'))
     customElements.define('magic-radio-group', MagicRadioGroup);
+  var style_default =
+    ':host{vertical-align:middle;display:inline-block}.magic-version{box-sizing:border-box;font-variant-numeric:tabular-nums;background:var(--magic-version-bg,var(--magic-bg-subtle));border:1px solid var(--magic-version-border,var(--magic-border-color));color:var(--magic-version-color,var(--magic-text-secondary));-webkit-user-select:none;user-select:none;border-radius:9999px;justify-content:center;align-items:center;gap:4px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-weight:500;line-height:1;transition:all .2s cubic-bezier(.16,1,.3,1);display:inline-flex}.magic-version--mini{height:18px;padding:0 6px;font-size:11px}.magic-version--small{height:20px;padding:0 8px;font-size:12px}.magic-version--medium{height:24px;padding:0 10px;font-size:13px}.magic-version__content{align-items:center;display:inline-flex}';
+  var MagicVersion = class extends i {
+    static properties = {
+      version: String,
+      prefix: String,
+      size: String,
+    };
+    static styles = r$2(style_default);
+    constructor() {
+      super();
+      this.version = '';
+      this.prefix = 'v';
+      this.size = 'small';
+    }
+    get displayVersion() {
+      let ver = (this.version || '').trim();
+      if (!ver && typeof GM_info !== 'undefined') ver = (GM_info?.script?.version || '').trim();
+      if (!ver) return '';
+      const p = this.prefix != null ? this.prefix : 'v';
+      if (!p) return ver;
+      return `${p}${ver.replace(new RegExp(`^${p}`, 'i'), '')}`;
+    }
+    render() {
+      return b`
+      <span class="${['magic-version', `magic-version--${this.size || 'small'}`].filter(Boolean).join(' ')}">
+        <slot name="prefix"></slot>
+        <span class="magic-version__content">
+          <slot>${this.displayVersion}</slot>
+        </span>
+        <slot name="suffix"></slot>
+      </span>
+    `;
+    }
+  };
+  if (!customElements.get('magic-version')) customElements.define('magic-version', MagicVersion);
   var _plugin_vue_export_helper_default = (sfc, props) => {
     const target = sfc.__vccOpts || sfc;
     for (const [key, val] of props) target[key] = val;
     return target;
   };
   var _hoisted_1$1 = ['visible'];
-  var _hoisted_2$1 = { class: 'settings-container' };
-  var _hoisted_3$1 = { class: 'settings-section' };
-  var _hoisted_4$1 = { class: 'settings-section__title' };
-  var _hoisted_5$1 = { class: 'settings-card' };
-  var _hoisted_6$1 = { class: 'settings-item' };
-  var _hoisted_7$1 = { class: 'settings-item__action' };
-  var _hoisted_8$1 = ['checked'];
+  var _hoisted_2$1 = {
+    slot: 'header',
+    class: 'settings-modal-header',
+  };
+  var _hoisted_3$1 = { class: 'settings-modal-title' };
+  var _hoisted_4$1 = ['version'];
+  var _hoisted_5$1 = { class: 'settings-container' };
+  var _hoisted_6$1 = { class: 'settings-section' };
+  var _hoisted_7$1 = { class: 'settings-section__title' };
+  var _hoisted_8$1 = { class: 'settings-card' };
   var _hoisted_9$1 = { class: 'settings-item' };
   var _hoisted_10$1 = { class: 'settings-item__action' };
   var _hoisted_11$1 = ['checked'];
   var _hoisted_12$1 = { class: 'settings-item' };
   var _hoisted_13$1 = { class: 'settings-item__action' };
-  var _hoisted_14$1 = ['value'];
-  var _hoisted_15$1 = ['label', 'value'];
-  var _hoisted_16$1 = { class: 'settings-item' };
-  var _hoisted_17$1 = { class: 'settings-item__action' };
-  var _hoisted_18$1 = ['checked'];
+  var _hoisted_14$1 = ['checked'];
+  var _hoisted_15$1 = { class: 'settings-item' };
+  var _hoisted_16$1 = { class: 'settings-item__action' };
+  var _hoisted_17$1 = ['value'];
+  var _hoisted_18$1 = ['label', 'value'];
   var _hoisted_19$1 = { class: 'settings-item' };
   var _hoisted_20$1 = { class: 'settings-item__action' };
-  var _hoisted_21$1 = { class: 'settings-item' };
-  var _hoisted_22$1 = { class: 'settings-item__action' };
-  var _hoisted_23$1 = { class: 'settings-section' };
-  var _hoisted_24$1 = { class: 'settings-section__title' };
-  var _hoisted_25$1 = { class: 'settings-card' };
-  var _hoisted_26$1 = { class: 'settings-item' };
-  var _hoisted_27$1 = { class: 'settings-item__action' };
-  var _hoisted_28$1 = ['checked'];
+  var _hoisted_21$1 = ['checked'];
+  var _hoisted_22$1 = { class: 'settings-item' };
+  var _hoisted_23$1 = { class: 'settings-item__action' };
+  var _hoisted_24$1 = { class: 'settings-item' };
+  var _hoisted_25$1 = { class: 'settings-item__action' };
+  var _hoisted_26$1 = { class: 'settings-section' };
+  var _hoisted_27$1 = { class: 'settings-section__title' };
+  var _hoisted_28$1 = { class: 'settings-card' };
   var _hoisted_29$1 = { class: 'settings-item' };
   var _hoisted_30$1 = { class: 'settings-item__action' };
   var _hoisted_31$1 = ['checked'];
+  var _hoisted_32$1 = { class: 'settings-item' };
+  var _hoisted_33$1 = { class: 'settings-item__action' };
+  var _hoisted_34$1 = ['checked'];
+  var _hoisted_35$1 = { class: 'settings-item' };
+  var _hoisted_36$1 = { class: 'settings-item__action' };
+  var _hoisted_37$1 = ['checked'];
   var SettingsModal_default = _plugin_vue_export_helper_default(
     {
       __name: 'index',
@@ -4176,10 +4510,15 @@
           type: Boolean,
           default: false,
         },
+        title: {
+          type: String,
+          default: '',
+        },
       },
       emits: ['close', 'update:visible'],
       setup(__props, { emit: __emit }) {
         const props = __props;
+        const modalTitle = (0, vue.computed)(() => props.title || 'bilibili-playlist-enhancer');
         const emit = __emit;
         const { settings, updateSettings } = useSettings();
         const formData = (0, vue.ref)({ ...settings });
@@ -4237,7 +4576,6 @@
                 {
                   visible: __props.visible,
                   centered: '',
-                  title: '设置',
                   width: '640px',
                   onCancel: handleCancel,
                   onClose: handleCancel,
@@ -4245,19 +4583,34 @@
                 },
                 [
                   (0, vue.createElementVNode)('div', _hoisted_2$1, [
-                    (0, vue.createElementVNode)('div', _hoisted_3$1, [
-                      (0, vue.createElementVNode)('div', _hoisted_4$1, [
+                    (0, vue.createElementVNode)(
+                      'span',
+                      _hoisted_3$1,
+                      (0, vue.toDisplayString)((0, vue.unref)(modalTitle)),
+                      1,
+                    ),
+                    (0, vue.createElementVNode)(
+                      'magic-version',
+                      { version: (0, vue.unref)(SCRIPT_VERSION) },
+                      null,
+                      8,
+                      _hoisted_4$1,
+                    ),
+                  ]),
+                  (0, vue.createElementVNode)('div', _hoisted_5$1, [
+                    (0, vue.createElementVNode)('div', _hoisted_6$1, [
+                      (0, vue.createElementVNode)('div', _hoisted_7$1, [
                         (0, vue.createVNode)((0, vue.unref)(_sfc_main$2), {
                           class: 'section-icon',
                           name: 'play',
                         }),
-                        _cache[10] ||
-                          (_cache[10] = (0, vue.createElementVNode)('span', null, '自动切集', -1)),
+                        _cache[11] ||
+                          (_cache[11] = (0, vue.createElementVNode)('span', null, '自动切集', -1)),
                       ]),
-                      (0, vue.createElementVNode)('div', _hoisted_5$1, [
-                        (0, vue.createElementVNode)('div', _hoisted_6$1, [
-                          _cache[11] ||
-                            (_cache[11] = (0, vue.createElementVNode)(
+                      (0, vue.createElementVNode)('div', _hoisted_8$1, [
+                        (0, vue.createElementVNode)('div', _hoisted_9$1, [
+                          _cache[12] ||
+                            (_cache[12] = (0, vue.createElementVNode)(
                               'div',
                               { class: 'settings-item__info' },
                               [
@@ -4274,7 +4627,7 @@
                               ],
                               -1,
                             )),
-                          (0, vue.createElementVNode)('div', _hoisted_7$1, [
+                          (0, vue.createElementVNode)('div', _hoisted_10$1, [
                             (0, vue.createElementVNode)(
                               'magic-switch',
                               {
@@ -4282,40 +4635,6 @@
                                 size: 'small',
                                 onChange:
                                   _cache[0] || (_cache[0] = (e) => handleChange('autoPlayNext', e)),
-                              },
-                              null,
-                              40,
-                              _hoisted_8$1,
-                            ),
-                          ]),
-                        ]),
-                        (0, vue.createElementVNode)('div', _hoisted_9$1, [
-                          _cache[12] ||
-                            (_cache[12] = (0, vue.createElementVNode)(
-                              'div',
-                              { class: 'settings-item__info' },
-                              [
-                                (0, vue.createElementVNode)(
-                                  'div',
-                                  { class: 'settings-item__title' },
-                                  '随机播放模式',
-                                ),
-                                (0, vue.createElementVNode)(
-                                  'div',
-                                  { class: 'settings-item__desc' },
-                                  ' 切集与自动连播时随机抽取未播放视频播放（音乐爱好者） ',
-                                ),
-                              ],
-                              -1,
-                            )),
-                          (0, vue.createElementVNode)('div', _hoisted_10$1, [
-                            (0, vue.createElementVNode)(
-                              'magic-switch',
-                              {
-                                checked: (0, vue.unref)(formData).shuffle,
-                                size: 'small',
-                                onChange:
-                                  _cache[1] || (_cache[1] = (e) => handleChange('shuffle', e)),
                               },
                               null,
                               40,
@@ -4332,6 +4651,40 @@
                                 (0, vue.createElementVNode)(
                                   'div',
                                   { class: 'settings-item__title' },
+                                  '随机播放模式',
+                                ),
+                                (0, vue.createElementVNode)(
+                                  'div',
+                                  { class: 'settings-item__desc' },
+                                  ' 切集与自动连播时随机抽取未播放视频播放（音乐爱好者） ',
+                                ),
+                              ],
+                              -1,
+                            )),
+                          (0, vue.createElementVNode)('div', _hoisted_13$1, [
+                            (0, vue.createElementVNode)(
+                              'magic-switch',
+                              {
+                                checked: (0, vue.unref)(formData).shuffle,
+                                size: 'small',
+                                onChange:
+                                  _cache[1] || (_cache[1] = (e) => handleChange('shuffle', e)),
+                              },
+                              null,
+                              40,
+                              _hoisted_14$1,
+                            ),
+                          ]),
+                        ]),
+                        (0, vue.createElementVNode)('div', _hoisted_15$1, [
+                          _cache[14] ||
+                            (_cache[14] = (0, vue.createElementVNode)(
+                              'div',
+                              { class: 'settings-item__info' },
+                              [
+                                (0, vue.createElementVNode)(
+                                  'div',
+                                  { class: 'settings-item__title' },
                                   '随机播放范围',
                                 ),
                                 (0, vue.createElementVNode)(
@@ -4342,7 +4695,7 @@
                               ],
                               -1,
                             )),
-                          (0, vue.createElementVNode)('div', _hoisted_13$1, [
+                          (0, vue.createElementVNode)('div', _hoisted_16$1, [
                             (0, vue.createElementVNode)(
                               'magic-radio-group',
                               {
@@ -4370,7 +4723,7 @@
                                           },
                                           null,
                                           8,
-                                          _hoisted_15$1,
+                                          _hoisted_18$1,
                                         )
                                       );
                                     },
@@ -4379,13 +4732,13 @@
                                 )),
                               ],
                               40,
-                              _hoisted_14$1,
+                              _hoisted_17$1,
                             ),
                           ]),
                         ]),
-                        (0, vue.createElementVNode)('div', _hoisted_16$1, [
-                          _cache[14] ||
-                            (_cache[14] = (0, vue.createElementVNode)(
+                        (0, vue.createElementVNode)('div', _hoisted_19$1, [
+                          _cache[15] ||
+                            (_cache[15] = (0, vue.createElementVNode)(
                               'div',
                               { class: 'settings-item__info' },
                               [
@@ -4402,7 +4755,7 @@
                               ],
                               -1,
                             )),
-                          (0, vue.createElementVNode)('div', _hoisted_17$1, [
+                          (0, vue.createElementVNode)('div', _hoisted_20$1, [
                             (0, vue.createElementVNode)(
                               'magic-switch',
                               {
@@ -4414,13 +4767,13 @@
                               },
                               null,
                               40,
-                              _hoisted_18$1,
+                              _hoisted_21$1,
                             ),
                           ]),
                         ]),
-                        (0, vue.createElementVNode)('div', _hoisted_19$1, [
-                          _cache[15] ||
-                            (_cache[15] = (0, vue.createElementVNode)(
+                        (0, vue.createElementVNode)('div', _hoisted_22$1, [
+                          _cache[16] ||
+                            (_cache[16] = (0, vue.createElementVNode)(
                               'div',
                               { class: 'settings-item__info' },
                               [
@@ -4437,7 +4790,7 @@
                               ],
                               -1,
                             )),
-                          (0, vue.createElementVNode)('div', _hoisted_20$1, [
+                          (0, vue.createElementVNode)('div', _hoisted_23$1, [
                             (0, vue.createElementVNode)(
                               'button',
                               {
@@ -4467,9 +4820,9 @@
                             ),
                           ]),
                         ]),
-                        (0, vue.createElementVNode)('div', _hoisted_21$1, [
-                          _cache[16] ||
-                            (_cache[16] = (0, vue.createElementVNode)(
+                        (0, vue.createElementVNode)('div', _hoisted_24$1, [
+                          _cache[17] ||
+                            (_cache[17] = (0, vue.createElementVNode)(
                               'div',
                               { class: 'settings-item__info' },
                               [
@@ -4486,7 +4839,7 @@
                               ],
                               -1,
                             )),
-                          (0, vue.createElementVNode)('div', _hoisted_22$1, [
+                          (0, vue.createElementVNode)('div', _hoisted_25$1, [
                             (0, vue.createElementVNode)(
                               'button',
                               {
@@ -4518,19 +4871,19 @@
                         ]),
                       ]),
                     ]),
-                    (0, vue.createElementVNode)('div', _hoisted_23$1, [
-                      (0, vue.createElementVNode)('div', _hoisted_24$1, [
+                    (0, vue.createElementVNode)('div', _hoisted_26$1, [
+                      (0, vue.createElementVNode)('div', _hoisted_27$1, [
                         (0, vue.createVNode)((0, vue.unref)(_sfc_main$2), {
                           class: 'section-icon',
                           name: 'list',
                         }),
-                        _cache[17] ||
-                          (_cache[17] = (0, vue.createElementVNode)('span', null, '界面交互', -1)),
+                        _cache[18] ||
+                          (_cache[18] = (0, vue.createElementVNode)('span', null, '界面交互', -1)),
                       ]),
-                      (0, vue.createElementVNode)('div', _hoisted_25$1, [
-                        (0, vue.createElementVNode)('div', _hoisted_26$1, [
-                          _cache[18] ||
-                            (_cache[18] = (0, vue.createElementVNode)(
+                      (0, vue.createElementVNode)('div', _hoisted_28$1, [
+                        (0, vue.createElementVNode)('div', _hoisted_29$1, [
+                          _cache[19] ||
+                            (_cache[19] = (0, vue.createElementVNode)(
                               'div',
                               { class: 'settings-item__info' },
                               [
@@ -4547,7 +4900,7 @@
                               ],
                               -1,
                             )),
-                          (0, vue.createElementVNode)('div', _hoisted_27$1, [
+                          (0, vue.createElementVNode)('div', _hoisted_30$1, [
                             (0, vue.createElementVNode)(
                               'magic-switch',
                               {
@@ -4559,13 +4912,13 @@
                               },
                               null,
                               40,
-                              _hoisted_28$1,
+                              _hoisted_31$1,
                             ),
                           ]),
                         ]),
-                        (0, vue.createElementVNode)('div', _hoisted_29$1, [
-                          _cache[19] ||
-                            (_cache[19] = (0, vue.createElementVNode)(
+                        (0, vue.createElementVNode)('div', _hoisted_32$1, [
+                          _cache[20] ||
+                            (_cache[20] = (0, vue.createElementVNode)(
                               'div',
                               { class: 'settings-item__info' },
                               [
@@ -4582,7 +4935,7 @@
                               ],
                               -1,
                             )),
-                          (0, vue.createElementVNode)('div', _hoisted_30$1, [
+                          (0, vue.createElementVNode)('div', _hoisted_33$1, [
                             (0, vue.createElementVNode)(
                               'magic-switch',
                               {
@@ -4594,7 +4947,42 @@
                               },
                               null,
                               40,
-                              _hoisted_31$1,
+                              _hoisted_34$1,
+                            ),
+                          ]),
+                        ]),
+                        (0, vue.createElementVNode)('div', _hoisted_35$1, [
+                          _cache[21] ||
+                            (_cache[21] = (0, vue.createElementVNode)(
+                              'div',
+                              { class: 'settings-item__info' },
+                              [
+                                (0, vue.createElementVNode)(
+                                  'div',
+                                  { class: 'settings-item__title' },
+                                  '已播视频颜色区分',
+                                ),
+                                (0, vue.createElementVNode)(
+                                  'div',
+                                  { class: 'settings-item__desc' },
+                                  ' 切集后将已播放过的视频项弱化显示，清晰标记播放轨迹 ',
+                                ),
+                              ],
+                              -1,
+                            )),
+                          (0, vue.createElementVNode)('div', _hoisted_36$1, [
+                            (0, vue.createElementVNode)(
+                              'magic-switch',
+                              {
+                                checked: (0, vue.unref)(formData).markPlayedVideos,
+                                size: 'small',
+                                onChange:
+                                  _cache[10] ||
+                                  (_cache[10] = (e) => handleChange('markPlayedVideos', e)),
+                              },
+                              null,
+                              40,
+                              _hoisted_37$1,
                             ),
                           ]),
                         ]),
@@ -4648,7 +5036,7 @@
         };
       },
     },
-    [['__scopeId', 'data-v-e52d7f12']],
+    [['__scopeId', 'data-v-77da4900']],
   );
   var _hoisted_1 = { class: 'tk-reaction-header' };
   var _hoisted_2 = { class: 'header-left' };
@@ -4716,6 +5104,7 @@
     {
       __name: 'App',
       setup(__props, { expose: __expose }) {
+        const settingsTooltip = `${PROJECT_TITLE} (v${SCRIPT_VERSION})`;
         const {
           isAnimating,
           isLoading,
@@ -4736,6 +5125,8 @@
           toggleShuffle,
           loadPod,
           switchSection,
+          isGroupPlayed,
+          isEpisodePlayed,
         } = useVideoPod();
         const {
           keyword,
@@ -4747,6 +5138,7 @@
           closeSearch,
           clearKeyword,
           toggleSearch,
+          getHighlightSegments,
         } = usePodSearch(groups);
         const { settings } = useSettings();
         const isSettingsOpen = (0, vue.ref)(false);
@@ -4937,7 +5329,7 @@
                         'div',
                         {
                           class: 'settings-btn',
-                          title: '设置',
+                          title: settingsTooltip,
                           onClick: (0, vue.withModifiers)(handleOpenSettings, ['stop']),
                         },
                         [(0, vue.createVNode)((0, vue.unref)(_sfc_main$2), { name: 'settings' })],
@@ -5189,7 +5581,13 @@
                                             'div',
                                             {
                                               class: (0, vue.normalizeClass)([
-                                                { 'is-active': group.isActive },
+                                                {
+                                                  'is-active': group.isActive,
+                                                  'is-played':
+                                                    (0, vue.unref)(settings).markPlayedVideos &&
+                                                    !group.isActive &&
+                                                    (0, vue.unref)(isGroupPlayed)(group),
+                                                },
                                                 'header',
                                               ]),
                                               'data-bvid': group.bvid,
@@ -5213,8 +5611,56 @@
                                                       title: group.title,
                                                       class: 'title-text',
                                                     },
-                                                    (0, vue.toDisplayString)(group.title),
-                                                    9,
+                                                    [
+                                                      (0, vue.unref)(hasSearchQuery)
+                                                        ? ((0, vue.openBlock)(true),
+                                                          (0, vue.createElementBlock)(
+                                                            vue.Fragment,
+                                                            { key: 0 },
+                                                            (0, vue.renderList)(
+                                                              (0, vue.unref)(getHighlightSegments)(
+                                                                group.title,
+                                                                (0, vue.unref)(keyword),
+                                                              ),
+                                                              (seg, sIdx) => {
+                                                                return (
+                                                                  (0, vue.openBlock)(),
+                                                                  (0, vue.createElementBlock)(
+                                                                    'span',
+                                                                    {
+                                                                      key: sIdx,
+                                                                      class: (0,
+                                                                      vue.normalizeClass)({
+                                                                        'tk-search-highlight':
+                                                                          seg.isMatch,
+                                                                      }),
+                                                                    },
+                                                                    (0, vue.toDisplayString)(
+                                                                      seg.text,
+                                                                    ),
+                                                                    3,
+                                                                  )
+                                                                );
+                                                              },
+                                                            ),
+                                                            128,
+                                                          ))
+                                                        : ((0, vue.openBlock)(),
+                                                          (0, vue.createElementBlock)(
+                                                            vue.Fragment,
+                                                            { key: 1 },
+                                                            [
+                                                              (0, vue.createTextVNode)(
+                                                                (0, vue.toDisplayString)(
+                                                                  group.title,
+                                                                ),
+                                                                1,
+                                                              ),
+                                                            ],
+                                                            64,
+                                                          )),
+                                                    ],
+                                                    8,
                                                     _hoisted_20,
                                                   ),
                                                 ]),
@@ -5296,8 +5742,58 @@
                                                         title: group.title,
                                                         class: 'title-text',
                                                       },
-                                                      (0, vue.toDisplayString)(group.title),
-                                                      9,
+                                                      [
+                                                        (0, vue.unref)(hasSearchQuery)
+                                                          ? ((0, vue.openBlock)(true),
+                                                            (0, vue.createElementBlock)(
+                                                              vue.Fragment,
+                                                              { key: 0 },
+                                                              (0, vue.renderList)(
+                                                                (0, vue.unref)(
+                                                                  getHighlightSegments,
+                                                                )(
+                                                                  group.title,
+                                                                  (0, vue.unref)(keyword),
+                                                                ),
+                                                                (seg, sIdx) => {
+                                                                  return (
+                                                                    (0, vue.openBlock)(),
+                                                                    (0, vue.createElementBlock)(
+                                                                      'span',
+                                                                      {
+                                                                        key: sIdx,
+                                                                        class: (0,
+                                                                        vue.normalizeClass)({
+                                                                          'tk-search-highlight':
+                                                                            seg.isMatch,
+                                                                        }),
+                                                                      },
+                                                                      (0, vue.toDisplayString)(
+                                                                        seg.text,
+                                                                      ),
+                                                                      3,
+                                                                    )
+                                                                  );
+                                                                },
+                                                              ),
+                                                              128,
+                                                            ))
+                                                          : ((0, vue.openBlock)(),
+                                                            (0, vue.createElementBlock)(
+                                                              vue.Fragment,
+                                                              { key: 1 },
+                                                              [
+                                                                (0, vue.createTextVNode)(
+                                                                  (0, vue.toDisplayString)(
+                                                                    group.title,
+                                                                  ),
+                                                                  1,
+                                                                ),
+                                                              ],
+                                                              64,
+                                                            )),
+                                                      ],
+                                                      8,
                                                       _hoisted_29,
                                                     ),
                                                   ]),
@@ -5419,7 +5915,16 @@
                                                                   ep.cid ||
                                                                   `${group.bvid}_${ep.page || index}`,
                                                                 class: (0, vue.normalizeClass)([
-                                                                  { 'is-active': ep.isActive },
+                                                                  {
+                                                                    'is-active': ep.isActive,
+                                                                    'is-played':
+                                                                      (0, vue.unref)(settings)
+                                                                        .markPlayedVideos &&
+                                                                      !ep.isActive &&
+                                                                      (0, vue.unref)(
+                                                                        isEpisodePlayed,
+                                                                      )(group.bvid, ep),
+                                                                  },
                                                                   'episode',
                                                                 ]),
                                                                 onClick: (0, vue.withModifiers)(
@@ -5453,10 +5958,73 @@
                                                                         title: ep.title,
                                                                         class: 'title-txt',
                                                                       },
-                                                                      (0, vue.toDisplayString)(
-                                                                        ep.title,
-                                                                      ),
-                                                                      9,
+                                                                      [
+                                                                        (0, vue.unref)(
+                                                                          hasSearchQuery,
+                                                                        )
+                                                                          ? ((0, vue.openBlock)(
+                                                                              true,
+                                                                            ),
+                                                                            (0,
+                                                                            vue.createElementBlock)(
+                                                                              vue.Fragment,
+                                                                              { key: 0 },
+                                                                              (0, vue.renderList)(
+                                                                                (0, vue.unref)(
+                                                                                  getHighlightSegments,
+                                                                                )(
+                                                                                  ep.title,
+                                                                                  (0, vue.unref)(
+                                                                                    keyword,
+                                                                                  ),
+                                                                                ),
+                                                                                (seg, sIdx) => {
+                                                                                  return (
+                                                                                    (0,
+                                                                                    vue.openBlock)(),
+                                                                                    (0,
+                                                                                    vue.createElementBlock)(
+                                                                                      'span',
+                                                                                      {
+                                                                                        key: sIdx,
+                                                                                        class: (0,
+                                                                                        vue.normalizeClass)(
+                                                                                          {
+                                                                                            'tk-search-highlight':
+                                                                                              seg.isMatch,
+                                                                                          },
+                                                                                        ),
+                                                                                      },
+                                                                                      (0,
+                                                                                      vue.toDisplayString)(
+                                                                                        seg.text,
+                                                                                      ),
+                                                                                      3,
+                                                                                    )
+                                                                                  );
+                                                                                },
+                                                                              ),
+                                                                              128,
+                                                                            ))
+                                                                          : ((0, vue.openBlock)(),
+                                                                            (0,
+                                                                            vue.createElementBlock)(
+                                                                              vue.Fragment,
+                                                                              { key: 1 },
+                                                                              [
+                                                                                (0,
+                                                                                vue.createTextVNode)(
+                                                                                  (0,
+                                                                                  vue.toDisplayString)(
+                                                                                    ep.title,
+                                                                                  ),
+                                                                                  1,
+                                                                                ),
+                                                                              ],
+                                                                              64,
+                                                                            )),
+                                                                      ],
+                                                                      8,
                                                                       _hoisted_41,
                                                                     ),
                                                                   ],
@@ -5528,7 +6096,7 @@
         };
       },
     },
-    [['__scopeId', 'data-v-58ef3700']],
+    [['__scopeId', 'data-v-e7b9fa61']],
   );
   function isWatchLaterRoute() {
     return window.location.pathname.startsWith('/list/watchlater');
