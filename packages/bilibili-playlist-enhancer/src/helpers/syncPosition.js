@@ -113,7 +113,7 @@ function calculateCollectionToggleTargetLayout(
 ) {
   if (podType === POD_TYPE.COLLECTION) {
     const toolbar = document.querySelector('#arc_toolbar_report');
-    const card = document.querySelector('.video-page-card-small');
+    const card = document.querySelector('.rec-list')?.firstElementChild;
     const aboveModule = document.querySelector('.video-pod-above-modules');
     const podBody = document.querySelector(getPodTargetSelectors(podType).listBody);
 
@@ -130,6 +130,7 @@ function calculateCollectionToggleTargetLayout(
     const diff = s && c ? s - c : 0;
     const baseHeight = isExpanded ? Math.max(250, Math.floor(n + diff + l)) : 250;
     const targetTop = isExpanded ? currentTop - l : currentTop + l;
+
     return {
       targetHeight: baseHeight + totalOffset,
       targetTop,
