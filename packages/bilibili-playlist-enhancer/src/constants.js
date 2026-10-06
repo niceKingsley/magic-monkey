@@ -14,9 +14,15 @@ export const POD_TYPE = {
 };
 
 export const SORT_MODE = {
-  DEFAULT: 'DEFAULT',
+  DEFAULT: 'DEFAULT_ASC',
+  DEFAULT_ASC: 'DEFAULT_ASC',
+  DEFAULT_DESC: 'DEFAULT_DESC',
   TIME_DESC: 'TIME_DESC',
   TIME_ASC: 'TIME_ASC',
+  VIEWS_DESC: 'VIEWS_DESC',
+  VIEWS_ASC: 'VIEWS_ASC',
+  DANMAKUS_DESC: 'DANMAKUS_DESC',
+  DANMAKUS_ASC: 'DANMAKUS_ASC',
 };
 
 export const CTRL_ACTION = {
@@ -51,9 +57,38 @@ export const DEFAULT_SETTINGS = {
 };
 
 export const SORT_OPTIONS = [
-  { label: '官方排序', value: SORT_MODE.DEFAULT },
-  { label: '最新发布', value: SORT_MODE.TIME_DESC },
-  { label: '最早发布', value: SORT_MODE.TIME_ASC },
+  {
+    label: '官方排序',
+    value: 'GROUP_DEFAULT',
+    children: [
+      { label: '升序', value: SORT_MODE.DEFAULT_ASC },
+      { label: '降序', value: SORT_MODE.DEFAULT_DESC },
+    ],
+  },
+  {
+    label: '发布时间',
+    value: 'GROUP_TIME',
+    children: [
+      { label: '最新发布', value: SORT_MODE.TIME_DESC },
+      { label: '最早发布', value: SORT_MODE.TIME_ASC },
+    ],
+  },
+  {
+    label: '播放热度',
+    value: 'GROUP_VIEWS',
+    children: [
+      { label: '最多播放', value: SORT_MODE.VIEWS_DESC },
+      { label: '最少播放', value: SORT_MODE.VIEWS_ASC },
+    ],
+  },
+  {
+    label: '弹幕互动',
+    value: 'GROUP_DANMAKUS',
+    children: [
+      { label: '最多弹幕', value: SORT_MODE.DANMAKUS_DESC },
+      { label: '最少弹幕', value: SORT_MODE.DANMAKUS_ASC },
+    ],
+  },
 ];
 
 export const SHUFFLE_SCOPE_OPTIONS = [

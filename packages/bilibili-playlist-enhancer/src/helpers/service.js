@@ -222,6 +222,10 @@ function extractRawItem(item, currentBvid, index) {
     danmakus: formatCount(
       item.arc?.stat?.danmaku ?? item.stat?.danmaku ?? item.cnt_info?.danmaku ?? 0,
     ),
+    rawViews: Number(item.arc?.stat?.view ?? item.stat?.view ?? item.cnt_info?.play ?? 0),
+    rawDanmakus: Number(
+      item.arc?.stat?.danmaku ?? item.stat?.danmaku ?? item.cnt_info?.danmaku ?? 0,
+    ),
     pubTimestamp: item.pubdate || item.arc?.pubdate || item.pubtime || 0,
     page: item.page,
     rawIndex: index,

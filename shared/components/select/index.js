@@ -9,6 +9,11 @@ const SELECT_ICONS = {
       <polyline points="6 9 12 15 18 9" />
     </svg>
   `,
+  chevronRight: html`
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
+  `,
   clear: html`
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <circle cx="12" cy="12" r="10" />
@@ -80,8 +85,12 @@ export class MagicSelect extends LitElement {
     block: Boolean,
     /* 下拉菜单是否展开 */
     open: { type: Boolean, reflect: true },
-    /* 传入的选项列表数据 [{ label, value, disabled }] */
+    /* 传入的选项列表数据 [{ label, value, disabled, children }] */
     options: Array,
+    /* 当前激活的二级子菜单父项值 */
+    activeSubmenuValue: { state: true },
+    /* 二级子菜单垂直定位偏移 */
+    submenuTop: { state: true },
   };
 
   static styles = unsafeCSS(styles);
@@ -98,6 +107,8 @@ export class MagicSelect extends LitElement {
     this.block = false;
     this.open = false;
     this.options = [];
+    this.activeSubmenuValue = '';
+    this.submenuTop = 0;
   }
 
   connectedCallback() {
@@ -115,6 +126,7 @@ export class MagicSelect extends LitElement {
   handleOutsideClick(event) {
     if (this.open && !event.composedPath().includes(this)) {
       this.open = false;
+      this.activeSubmenuValue = '';
     }
   }
 
@@ -122,12 +134,16 @@ export class MagicSelect extends LitElement {
     event.stopPropagation();
     if (this.disabled) return;
     this.open = !this.open;
+    if (!this.open) {
+      this.activeSubmenuValue = '';
+    }
   }
 
   handleClear(event) {
     event.stopPropagation();
     this.value = '';
     this.open = false;
+    this.activeSubmenuValue = '';
     this.dispatchEvent(new CustomEvent('clear', { bubbles: true, composed: true }));
     this.dispatchChangeEvent('');
   }
@@ -138,6 +154,7 @@ export class MagicSelect extends LitElement {
 
     this.value = option.value;
     this.open = false;
+    this.activeSubmenuValue = '';
     this.dispatchChangeEvent(option.value, option.label);
   }
 
@@ -149,8 +166,22 @@ export class MagicSelect extends LitElement {
 
   get currentLabel() {
     if (isArray(this.options) && this.options.length > 0) {
-      const match = this.options.find((item) => String(item.value) === String(this.value));
-      if (match) return match.label ?? match.value;
+      const findInList = (list, parent = null) => {
+        for (const item of list) {
+          if (String(item.value) === String(this.value)) {
+            return parent
+              ? `${parent.label} · ${item.label ?? item.value}`
+              : (item.label ?? item.value);
+          }
+          if (isArray(item.children)) {
+            const match = findInList(item.children, item);
+            if (match) return match;
+          }
+        }
+        return null;
+      };
+      const match = findInList(this.options);
+      if (match) return match;
     }
 
     const slot = this.shadowRoot?.querySelector('slot');
@@ -165,6 +196,13 @@ export class MagicSelect extends LitElement {
     return this.value || '';
   }
 
+  get activeSubmenuItem() {
+    if (!this.activeSubmenuValue || !isArray(this.options)) return null;
+    return (
+      this.options.find((item) => String(item.value) === String(this.activeSubmenuValue)) || null
+    );
+  }
+
   handleSlotClick(event) {
     const target = event.target.closest('magic-option');
     if (target && !target.disabled) {
@@ -173,6 +211,41 @@ export class MagicSelect extends LitElement {
         label: target.label || target.textContent?.trim(),
       });
     }
+  }
+
+  handleOptionMouseEnter(item, event) {
+    if (isArray(item.children) && item.children.length > 0) {
+      this.activeSubmenuValue = item.value;
+      const target = event.currentTarget;
+      this.submenuTop = target?.offsetTop || 0;
+    } else {
+      this.activeSubmenuValue = '';
+    }
+  }
+
+  handleDropdownMouseLeave() {
+    this.activeSubmenuValue = '';
+  }
+
+  renderSubOptionList(children) {
+    if (!isArray(children) || children.length === 0) return html``;
+
+    return children.map((item) => {
+      const isSelected = String(item.value) === String(this.value);
+      const classes = [
+        'magic-option',
+        isSelected ? 'is-selected' : '',
+        item.disabled ? 'is-disabled' : '',
+      ]
+        .filter(Boolean)
+        .join(' ');
+
+      return html`
+        <div class="${classes}" @click=${(e) => this.handleSelectOption(item, e)}>
+          <span>${item.label ?? item.value}</span>
+        </div>
+      `;
+    });
   }
 
   renderOptionList() {
@@ -185,18 +258,39 @@ export class MagicSelect extends LitElement {
     }
 
     return this.options.map((item) => {
+      const hasChildren = isArray(item.children) && item.children.length > 0;
       const isSelected = String(item.value) === String(this.value);
+      const hasSelectedChild =
+        hasChildren && item.children.some((c) => String(c.value) === String(this.value));
+      const isActiveParent = String(item.value) === String(this.activeSubmenuValue);
+
       const classes = [
         'magic-option',
         isSelected ? 'is-selected' : '',
+        hasSelectedChild ? 'has-selected-child' : '',
+        isActiveParent ? 'is-active-parent' : '',
         item.disabled ? 'is-disabled' : '',
+        hasChildren ? 'has-children' : '',
       ]
         .filter(Boolean)
         .join(' ');
 
       return html`
-        <div class="${classes}" @click=${(e) => this.handleSelectOption(item, e)}>
-          ${item.label ?? item.value}
+        <div
+          class="${classes}"
+          @mouseenter=${(e) => this.handleOptionMouseEnter(item, e)}
+          @click=${(e) => {
+            if (!hasChildren) {
+              this.handleSelectOption(item, e);
+            }
+          }}
+        >
+          <span>${item.label ?? item.value}</span>
+          ${
+            hasChildren
+              ? html`<span class="magic-option__arrow">${SELECT_ICONS.chevronRight}</span>`
+              : html``
+          }
         </div>
       `;
     });
@@ -205,6 +299,7 @@ export class MagicSelect extends LitElement {
   render() {
     const hasValue = this.value !== undefined && this.value !== null && this.value !== '';
     const displayLabel = this.currentLabel;
+    const subItem = this.activeSubmenuItem;
 
     const selectClasses = [
       'magic-select',
@@ -245,7 +340,27 @@ export class MagicSelect extends LitElement {
         ${
           this.open
             ? html`
-                <div class="magic-select__dropdown" role="listbox">${this.renderOptionList()}</div>
+                <div
+                  class="magic-select__dropdown-container"
+                  @mouseleave=${this.handleDropdownMouseLeave}
+                >
+                  <div class="magic-select__dropdown" role="listbox">
+                    ${this.renderOptionList()}
+                  </div>
+                  ${
+                    subItem && isArray(subItem.children)
+                      ? html`
+                          <div
+                            class="magic-select__sub-dropdown"
+                            style="top: ${this.submenuTop}px"
+                            role="listbox"
+                          >
+                            ${this.renderSubOptionList(subItem.children)}
+                          </div>
+                        `
+                      : html``
+                  }
+                </div>
               `
             : html``
         }

@@ -6,11 +6,38 @@ import { fetchSeasonInfo, processSeasonData } from './service.js';
  * 排序策略映射表
  */
 export const SORT_STRATEGIES = {
-  [SORT_MODE.TIME_ASC]: (list) =>
-    [...list].sort((a, b) => (a.pubTimestamp || 0) - (b.pubTimestamp || 0)),
+  [SORT_MODE.DEFAULT_ASC]: (list) =>
+    [...list].sort((a, b) => (a.rawIndex || 0) - (b.rawIndex || 0)),
+  [SORT_MODE.DEFAULT_DESC]: (list) =>
+    [...list].sort((a, b) => (b.rawIndex || 0) - (a.rawIndex || 0)),
   [SORT_MODE.TIME_DESC]: (list) =>
-    [...list].sort((a, b) => (b.pubTimestamp || 0) - (a.pubTimestamp || 0)),
-  [SORT_MODE.DEFAULT]: (list) => [...list].sort((a, b) => (a.rawIndex || 0) - (b.rawIndex || 0)),
+    [...list].sort(
+      (a, b) =>
+        (b.pubTimestamp || 0) - (a.pubTimestamp || 0) || (b.rawIndex || 0) - (a.rawIndex || 0),
+    ),
+  [SORT_MODE.TIME_ASC]: (list) =>
+    [...list].sort(
+      (a, b) =>
+        (a.pubTimestamp || 0) - (b.pubTimestamp || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+    ),
+  [SORT_MODE.VIEWS_DESC]: (list) =>
+    [...list].sort(
+      (a, b) => (b.rawViews || 0) - (a.rawViews || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+    ),
+  [SORT_MODE.VIEWS_ASC]: (list) =>
+    [...list].sort(
+      (a, b) => (a.rawViews || 0) - (b.rawViews || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+    ),
+  [SORT_MODE.DANMAKUS_DESC]: (list) =>
+    [...list].sort(
+      (a, b) =>
+        (b.rawDanmakus || 0) - (a.rawDanmakus || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+    ),
+  [SORT_MODE.DANMAKUS_ASC]: (list) =>
+    [...list].sort(
+      (a, b) =>
+        (a.rawDanmakus || 0) - (b.rawDanmakus || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+    ),
 };
 
 /**

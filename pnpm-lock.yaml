@@ -13,6 +13,9 @@ catalogs:
       specifier: ^3.5.13
       version: 3.5.43
 
+overrides:
+  vite: ^8.3.1
+
 importers:
 
   .:
@@ -706,7 +709,7 @@ packages:
     resolution: {integrity: sha512-7Yx/SXSOcQq5HiiV3orevHUFn+pmMB4cgbEkDYgnkUWb0WfeQ/wa2yFv6D5ICiCQOVpjA7vYDXrC7AGO8yjDHA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
-      vite: ^5.0.0 || ^6.0.0
+      vite: ^8.3.1
       vue: ^3.2.25
 
   '@vue/compiler-core@3.5.43':
@@ -1494,7 +1497,7 @@ packages:
       rolldown: '*'
       rollup: '*'
       unloader: '*'
-      vite: '*'
+      vite: ^8.3.1
       webpack: '*'
     peerDependenciesMeta:
       '@farmfe/core':
@@ -1527,7 +1530,7 @@ packages:
   vite-plugin-monkey@8.1.1:
     resolution: {integrity: sha512-9mX7eTHzkCnVV5+TTW4/Xt5gKol/3g5ilJXUJd6iiCwJz4tmWUB+Qfk3YUL+b5ZGDfult2ScbxFuPkrm/NUXIg==}
     peerDependencies:
-      vite: ^8.0.0
+      vite: ^8.3.1
     peerDependenciesMeta:
       vite:
         optional: true

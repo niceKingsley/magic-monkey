@@ -153,16 +153,20 @@
     }
   }
 
-  &__dropdown {
+  &__dropdown-container {
     position: absolute;
     top: calc(100% + 4px);
     left: 0;
+    min-width: 100%;
+    z-index: var(--magic-select-z-index, 10000);
+  }
+
+  &__dropdown {
     width: 100%;
     min-width: 100%;
-    max-height: 220px;
+    max-height: 240px;
     box-sizing: border-box;
     padding: 4px;
-    z-index: var(--magic-select-z-index, 10000);
     background: var(--magic-select-dropdown-bg, rgba(28, 30, 36, 0.96));
     border: 1px solid var(--magic-select-dropdown-border, rgba(255, 255, 255, 0.12));
     border-radius: 6px;
@@ -179,6 +183,32 @@
     &::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.2);
       border-radius: 4px;
+    }
+  }
+
+  &__sub-dropdown {
+    position: absolute;
+    left: calc(100% + 4px);
+    min-width: 130px;
+    width: max-content;
+    box-sizing: border-box;
+    padding: 4px;
+    background: var(--magic-select-dropdown-bg, rgba(28, 30, 36, 0.96));
+    border: 1px solid var(--magic-select-dropdown-border, rgba(255, 255, 255, 0.12));
+    border-radius: 6px;
+    box-shadow: var(--magic-select-dropdown-shadow, 0 10px 30px rgba(0, 0, 0, 0.5));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform-origin: top left;
+    animation: magic-select-dropdown-in 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -8px;
+      width: 8px;
+      height: 100%;
     }
   }
 
@@ -203,19 +233,39 @@
   cursor: pointer;
   transition: all 0.15s ease;
   user-select: none;
+  white-space: nowrap;
 
-  &:hover:not(.is-disabled) {
+  &:hover:not(.is-disabled),
+  &.is-active-parent {
     background-color: var(--magic-select-option-hover-bg, rgba(255, 255, 255, 0.08));
   }
 
-  &.is-selected {
+  &.is-selected,
+  &.has-selected-child {
     color: var(--magic-select-active-color, var(--magic-primary-color));
     font-weight: 500;
+  }
+
+  &.is-selected {
     background-color: var(--magic-select-option-active-bg, var(--magic-primary-light-bg));
   }
 
   &.is-disabled {
     cursor: not-allowed;
     opacity: 0.4;
+  }
+
+  &__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    color: var(--magic-select-suffix-color, #9499a0);
+
+    svg {
+      width: 12px;
+      height: 12px;
+      display: block;
+    }
   }
 }
