@@ -136,7 +136,17 @@
             <div class="mode-list">
               <div class="title">
                 <div class="playing-gif" />
-                <div :title="group.title" class="title-text">{{ group.title }}</div>
+                <div :title="group.title" class="title-text">
+                  <template v-if="hasSearchQuery">
+                    <span
+                      v-for="(seg, sIdx) in getHighlightSegments(group.title, keyword)"
+                      :key="sIdx"
+                      :class="{ 'tk-search-highlight': seg.isMatch }"
+                      >{{ seg.text }}</span
+                    >
+                  </template>
+                  <template v-else>{{ group.title }}</template>
+                </div>
               </div>
               <div class="actions">
                 <div
@@ -163,7 +173,17 @@
               <div class="info">
                 <div class="title">
                   <div class="playing-gif" />
-                  <div :title="group.title" class="title-text">{{ group.title }}</div>
+                  <div :title="group.title" class="title-text">
+                    <template v-if="hasSearchQuery">
+                      <span
+                        v-for="(seg, sIdx) in getHighlightSegments(group.title, keyword)"
+                        :key="sIdx"
+                        :class="{ 'tk-search-highlight': seg.isMatch }"
+                        >{{ seg.text }}</span
+                      >
+                    </template>
+                    <template v-else>{{ group.title }}</template>
+                  </div>
                 </div>
                 <div class="stats">
                   <div class="stat-item views">
@@ -210,7 +230,17 @@
             >
               <div class="episode-title">
                 <div class="playing-gif" />
-                <div :title="ep.title" class="title-txt">{{ ep.title }}</div>
+                <div :title="ep.title" class="title-txt">
+                  <template v-if="hasSearchQuery">
+                    <span
+                      v-for="(seg, sIdx) in getHighlightSegments(ep.title, keyword)"
+                      :key="sIdx"
+                      :class="{ 'tk-search-highlight': seg.isMatch }"
+                      >{{ seg.text }}</span
+                    >
+                  </template>
+                  <template v-else>{{ ep.title }}</template>
+                </div>
               </div>
               <div class="episode-meta">
                 <span class="episode-duration">{{ ep.duration }}</span>
@@ -281,6 +311,7 @@ const {
   closeSearch,
   clearKeyword,
   toggleSearch,
+  getHighlightSegments,
 } = usePodSearch(groups);
 
 const { settings } = useSettings();

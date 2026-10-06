@@ -87,6 +87,17 @@
   box-sizing: border-box;
   overflow: hidden;
 
+  .tk-search-highlight {
+    color: var(--magic-primary-color, var(--brand_blue, #00aeec)) !important;
+    background-color: var(
+      --magic-primary-light-bg,
+      var(--brand_blue_thin, rgba(0, 174, 236, 0.15))
+    );
+    border-radius: 2px;
+    padding: 0 1px;
+    font-weight: 600;
+  }
+
   &.is-animating {
     overflow: hidden;
     transition:

@@ -44,6 +44,48 @@ export function countTotalMatches(filteredGroups) {
 }
 
 /**
+ * 根据关键词切分为高亮分词片段
+ */
+export function getHighlightSegments(text, keyword) {
+  if (!text) return [];
+  const query = (keyword || '').trim().toLowerCase();
+  if (!query) return [{ text, isMatch: false }];
+
+  const textLower = text.toLowerCase();
+  let currIndex = textLower.indexOf(query);
+  if (currIndex === -1) {
+    return [{ text, isMatch: false }];
+  }
+
+  const segments = [];
+  let startIndex = 0;
+
+  while (currIndex !== -1) {
+    if (currIndex > startIndex) {
+      segments.push({
+        text: text.slice(startIndex, currIndex),
+        isMatch: false,
+      });
+    }
+    segments.push({
+      text: text.slice(currIndex, currIndex + query.length),
+      isMatch: true,
+    });
+    startIndex = currIndex + query.length;
+    currIndex = textLower.indexOf(query, startIndex);
+  }
+
+  if (startIndex < text.length) {
+    segments.push({
+      text: text.slice(startIndex),
+      isMatch: false,
+    });
+  }
+
+  return segments;
+}
+
+/**
  * 列表内快速搜索与过滤
  */
 export function usePodSearch(groups) {
@@ -107,5 +149,6 @@ export function usePodSearch(groups) {
     closeSearch,
     clearKeyword,
     toggleSearch,
+    getHighlightSegments,
   };
 }
