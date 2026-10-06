@@ -57,7 +57,7 @@ export function updateGroupActive(group, podType, activeBvid, activePage) {
 
   const episodes = (group.episodes || []).map((ep) => ({
     ...ep,
-    isActive: isGroupActive && Number(ep.page || 1) === currentP,
+    isActive: isGroupActive && (Number(ep.page || 1) === currentP || !group.isMultiPage),
   }));
 
   return { ...group, isActive, episodes };
@@ -118,9 +118,10 @@ export const flattenEpisodes = (groups) =>
  */
 export function findCurrentPlaying(flatList, activeBvid, activePage) {
   const currentP = Number(activePage) || 1;
-  const flatIndex = flatList.findIndex(
-    (item) => item.bvid === activeBvid && item.page === currentP,
-  );
+  let flatIndex = flatList.findIndex((item) => item.bvid === activeBvid && item.page === currentP);
+  if (flatIndex === -1 && activeBvid) {
+    flatIndex = flatList.findIndex((item) => item.bvid === activeBvid);
+  }
   if (flatIndex === -1) return null;
 
   const currentItem = flatList[flatIndex];
@@ -156,6 +157,19 @@ export function findCurrentPlaying(flatList, activeBvid, activePage) {
  */
 export function getAdjacentVideo(flatList, currentFlatIndex, action) {
   if (currentFlatIndex === -1 || currentFlatIndex == null) return null;
-  const offset = action === CTRL_ACTION.PREV ? -1 : 1;
-  return flatList[currentFlatIndex + offset] || null;
+
+  if (action === CTRL_ACTION.PREV) {
+    const currentItem = flatList[currentFlatIndex];
+    // 若处于当前视频分组第 1 小节，切换至上一个分组的第 1 小节
+    if (currentItem?.epIndex === 0) {
+      const prevGroupIndex = currentItem.groupIndex - 1;
+      if (prevGroupIndex < 0) return null;
+      return (
+        flatList.find((item) => item.groupIndex === prevGroupIndex && item.epIndex === 0) || null
+      );
+    }
+    return flatList[currentFlatIndex - 1] || null;
+  }
+
+  return flatList[currentFlatIndex + 1] || null;
 }

@@ -49,6 +49,10 @@ function matchesHotkey(event, targetHotkey) {
  */
 export function usePodHotkeys({ settings, handlePlayerCtrl }) {
   const onKeyDown = (event) => {
+    if (event.repeat) {
+      return;
+    }
+
     if (isInputElement(event.target)) {
       return;
     }

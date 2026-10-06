@@ -46,7 +46,7 @@ export const DEFAULT_SETTINGS = {
   /* 随机播放开关 */
   shuffle: false,
   /* 随机播放范围 */
-  shuffleScope: SHUFFLE_SCOPE.ALL,
+  shuffleScope: SHUFFLE_SCOPE.GROUP,
   /* 当前视频分 P 播完即停止 */
   stopOnGroupEnd: true,
   /* 已播视频颜色区分 */

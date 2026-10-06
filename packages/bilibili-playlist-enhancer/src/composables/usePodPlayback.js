@@ -1,3 +1,5 @@
+import { throttle } from '@shared/utils';
+import { toast } from '@shared/components/toast';
 import { CTRL_ACTION } from '../constants.js';
 import { executeVideoSwitch } from '../helpers/playerBridge.js';
 import { scrollActiveItem } from '../helpers/syncPosition.js';
@@ -74,7 +76,7 @@ export function usePodPlayback({
   };
 
   /**
-   * 获取下一个播放目标（随机与顺序）
+   * 获取 上/下 个播放目标（随机与顺序）
    */
   const getNextTarget = (action) => {
     if (settings?.shuffle) {
@@ -92,12 +94,14 @@ export function usePodPlayback({
   /**
    * 执行播放器控制栏上一集/下一集动作
    */
-  const handlePlayerCtrl = (action) => {
+  const handlePlayerCtrl = throttle((action) => {
     const target = getNextTarget(action);
     if (target) {
       switchActiveVideo(podType.value, target.group, target.epIndex, false);
+      return;
     }
-  };
+    toast.info(action === CTRL_ACTION.PREV ? '已经是第一集了' : '已经是最后一集了');
+  }, 300);
 
   const setActiveTarget = (bvid, page) => {
     activeBvid.value = bvid;
