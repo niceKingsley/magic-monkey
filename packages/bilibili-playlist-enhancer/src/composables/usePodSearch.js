@@ -6,10 +6,7 @@ export const normalizeQuery = (str) => (str || '').trim().toLowerCase();
 /**
  * 判断文本是否匹配关键词
  */
-export const isTextMatched = (text, query) =>
-  String(text || '')
-    .toLowerCase()
-    .includes(query);
+export const isTextMatched = (text, query) => text.toLowerCase().includes(query);
 
 /**
  * 单组视频项过滤
@@ -17,15 +14,10 @@ export const isTextMatched = (text, query) =>
 export function filterGroupItem(group, query) {
   if (!query) return group;
 
-  // 视频组标题直接命中
   if (isTextMatched(group.title, query)) {
     return { ...group, isAutoExpanded: true };
   }
-
-  // 子分 P 标题或分 P 序号命中
-  const matchedEpisodes = (group.episodes || []).filter(
-    (ep) => isTextMatched(ep.title, query) || isTextMatched(`p${ep.page}`, query),
-  );
+  const matchedEpisodes = (group.episodes || []).filter((ep) => isTextMatched(ep.title, query));
 
   if (matchedEpisodes.length > 0) {
     return { ...group, episodes: matchedEpisodes, isAutoExpanded: true };

@@ -12,7 +12,7 @@ import { usePodPlayback } from './usePodPlayback.js';
 import { usePodLoader } from './usePodLoader.js';
 import { usePodHotkeys } from './usePodHotkeys.js';
 import { useShuffle } from './useShuffle.js';
-import { CTRL_ACTION } from '../constants.js';
+import { CTRL_ACTION, POD_TYPE } from '../constants.js';
 
 export function useVideoPod() {
   const rootRef = ref(null);
@@ -124,13 +124,15 @@ export function useVideoPod() {
 
   onMounted(() => {
     loadPod().then(() => {
-      setBilibiliVideoPodMinHeight();
+      if (toValue(podType) !== POD_TYPE.SERIES) setBilibiliVideoPodMinHeight();
     });
+
     const cleanups = [
       interceptPlayerControls(handlePlayerCtrl),
       interceptPlayerEnding(handleVideoEnded),
       usePodHotkeys({ settings, handlePlayerCtrl }),
     ];
+
     onUnmounted(() => cleanups.forEach((fn) => fn?.()));
   });
   return {

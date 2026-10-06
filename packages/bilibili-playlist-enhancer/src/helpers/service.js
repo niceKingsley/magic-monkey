@@ -239,7 +239,7 @@ export function processSeasonData(podType, rawList = [], currentBvid = '', curre
     const hasPages = isArray(item.pages) && item.pages.length > 1;
 
     const episodes = buildEpisodes({
-      pages: item.pages,
+      pages: hasPages ? item.pages : null,
       title: raw.title,
       duration: raw.duration,
       isGroupActive,
