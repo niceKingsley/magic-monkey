@@ -3,12 +3,15 @@
     <magic-modal
       :visible="visible"
       centered
-      title="设置"
       width="640px"
       @cancel="handleCancel"
       @close="handleCancel"
       @confirm="handleConfirm"
     >
+      <div slot="header" class="settings-modal-header">
+        <span class="settings-modal-title">{{ modalTitle }}</span>
+        <magic-version :version="SCRIPT_VERSION" />
+      </div>
       <div class="settings-container">
         <!-- 自动切集规则 -->
         <div class="settings-section">
@@ -192,7 +195,13 @@ import '@shared/components/modal';
 import '@shared/components/switch';
 import '@shared/components/radio';
 import '@shared/components/button';
-import { DEFAULT_SETTINGS, SHUFFLE_SCOPE_OPTIONS } from '@/constants.js';
+import '@shared/components/version';
+import {
+  DEFAULT_SETTINGS,
+  PROJECT_NAME,
+  SCRIPT_VERSION,
+  SHUFFLE_SCOPE_OPTIONS,
+} from '@/constants.js';
 import { useSettings } from '@/composables/useSettings.js';
 import { formatKeyboardKey } from '@/composables/usePodHotkeys.js';
 import SvgIcon from '../SvgIcon';
@@ -202,7 +211,13 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  title: {
+    type: String,
+    default: '',
+  },
 });
+
+const modalTitle = computed(() => props.title || PROJECT_NAME);
 
 const emit = defineEmits(['close', 'update:visible']);
 

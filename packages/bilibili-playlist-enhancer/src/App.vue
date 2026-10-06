@@ -43,7 +43,7 @@
         >
           <SvgIcon name="search" />
         </div>
-        <div class="settings-btn" title="设置" @click.stop="handleOpenSettings">
+        <div class="settings-btn" :title="settingsTooltip" @click.stop="handleOpenSettings">
           <SvgIcon name="settings" />
         </div>
       </div>
@@ -227,7 +227,14 @@
 
 <script setup>
 import { on } from '@shared/utils';
-import { POD_MODE, POD_TYPE, SHUFFLE_SCOPE, SORT_OPTIONS } from './constants.js';
+import {
+  POD_MODE,
+  POD_TYPE,
+  PROJECT_TITLE,
+  SCRIPT_VERSION,
+  SHUFFLE_SCOPE,
+  SORT_OPTIONS,
+} from './constants.js';
 import { useVideoPod } from './composables/useVideoPod.js';
 import { usePodSearch } from './composables/usePodSearch.js';
 import { initSettings, useSettings } from './composables/useSettings.js';
@@ -239,6 +246,8 @@ import '@shared/components/input';
 import SvgIcon from './components/SvgIcon';
 import SettingsModal from './components/SettingsModal';
 import { toast } from '@shared/components/toast/index.js';
+
+const settingsTooltip = `${PROJECT_TITLE} (v${SCRIPT_VERSION})`;
 
 const {
   isAnimating,

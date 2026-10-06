@@ -143,3 +143,17 @@
     gap: 10px;
   }
 }
+
+.settings-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .settings-modal-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--magic-modal-title-color, var(--magic-text-primary, #ffffff));
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+  }
+}
