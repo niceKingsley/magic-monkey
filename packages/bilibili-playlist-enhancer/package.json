@@ -1,8 +1,8 @@
 {
   "name": "bilibili-playlist-enhancer",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": true,
-  "description": "bilibili 全场景播放列表/选集/合集增强助手",
+  "description": "bilibili 播放列表/选集/合集增强助手",
   "main": "main.js",
   "author": "kingsley",
   "license": "GPL-3.0-or-later",

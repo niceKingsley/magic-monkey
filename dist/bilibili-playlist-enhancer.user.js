@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         bilibili-playlist-enhancer
 // @namespace    https://github.com/niceKingsley/magic-monkey
-// @version      1.1.1
+// @version      1.1.2
 // @author       kingsley
-// @description  bilibili 全场景播放列表/选集/合集增强助手
+// @description  bilibili 播放列表/选集/合集增强助手
 // @license      GPL-3.0-or-later
 // @icon         https://static.hdslb.com/images/favicon.ico
 // @homepageURL  https://github.com/niceKingsley/magic-monkey
@@ -570,7 +570,7 @@
   ) {
     if (podType === POD_TYPE.COLLECTION) {
       const toolbar = document.querySelector('#arc_toolbar_report');
-      const card = document.querySelector('.video-page-card-small');
+      const card = document.querySelector('.rec-list')?.firstElementChild;
       const aboveModule = document.querySelector('.video-pod-above-modules');
       const podBody = document.querySelector(getPodTargetSelectors(podType).listBody);
       const s = toolbar?.getBoundingClientRect().bottom ?? 0;
@@ -948,7 +948,7 @@
       const isGroupActive = raw.bvid === currentBvid;
       const hasPages = isArray(item.pages) && item.pages.length > 1;
       const episodes = buildEpisodes({
-        pages: item.pages,
+        pages: hasPages ? item.pages : null,
         title: raw.title,
         duration: raw.duration,
         isGroupActive,
@@ -2592,7 +2592,7 @@
     };
     (0, vue.onMounted)(() => {
       loadPod().then(() => {
-        setBilibiliVideoPodMinHeight();
+        if ((0, vue.toValue)(podType) !== POD_TYPE.SERIES) setBilibiliVideoPodMinHeight();
       });
       const cleanups = [
         interceptPlayerControls(handlePlayerCtrl),
@@ -2631,10 +2631,7 @@
     };
   }
   var normalizeQuery = (str) => (str || '').trim().toLowerCase();
-  var isTextMatched = (text, query) =>
-    String(text || '')
-      .toLowerCase()
-      .includes(query);
+  var isTextMatched = (text, query) => text.toLowerCase().includes(query);
   function filterGroupItem(group, query) {
     if (!query) return group;
     if (isTextMatched(group.title, query))
@@ -2642,9 +2639,7 @@
         ...group,
         isAutoExpanded: true,
       };
-    const matchedEpisodes = (group.episodes || []).filter(
-      (ep) => isTextMatched(ep.title, query) || isTextMatched(`p${ep.page}`, query),
-    );
+    const matchedEpisodes = (group.episodes || []).filter((ep) => isTextMatched(ep.title, query));
     if (matchedEpisodes.length > 0)
       return {
         ...group,
