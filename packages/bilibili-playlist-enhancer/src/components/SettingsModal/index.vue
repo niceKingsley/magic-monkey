@@ -172,6 +172,22 @@
                 />
               </div>
             </div>
+
+            <div class="settings-item">
+              <div class="settings-item__info">
+                <div class="settings-item__title">已播视频颜色区分</div>
+                <div class="settings-item__desc">
+                  切集后将已播放过的视频项弱化显示，清晰标记播放轨迹
+                </div>
+              </div>
+              <div class="settings-item__action">
+                <magic-switch
+                  :checked="formData.markPlayedVideos"
+                  size="small"
+                  @change="(e) => handleChange('markPlayedVideos', e)"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

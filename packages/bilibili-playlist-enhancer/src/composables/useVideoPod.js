@@ -12,6 +12,7 @@ import { usePodPlayback } from './usePodPlayback.js';
 import { usePodLoader } from './usePodLoader.js';
 import { usePodHotkeys } from './usePodHotkeys.js';
 import { useShuffle } from './useShuffle.js';
+import { usePlayedHistory } from './usePlayedHistory.js';
 import { CTRL_ACTION, POD_TYPE } from '../constants.js';
 
 export function useVideoPod() {
@@ -33,6 +34,11 @@ export function useVideoPod() {
 
   const { getNextShuffleTarget, getPrevShuffleTarget, recordManualPlay, toggleShuffle } =
     useShuffle({ settings, flatEpisodes, currentPlaying });
+
+  const { isEpisodePlayed, isGroupPlayed } = usePlayedHistory({
+    activeBvid,
+    activePage,
+  });
 
   const {
     refreshActiveStates,
@@ -87,9 +93,9 @@ export function useVideoPod() {
     () => {
       if (settings.scrollToActiveOnSort) {
         scrollActiveItem(scrollContainerRef.value, true);
-      } else {
-        scrollContainerRef.value?.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
       }
+      scrollContainerRef.value?.scrollTo({ top: 0, behavior: 'smooth' });
     },
     { flush: 'post' },
   );
@@ -106,19 +112,20 @@ export function useVideoPod() {
   );
 
   /**
+   * 判定非随机模式下是否已到达当前分 P 或列表播放终点
+   */
+  const isPlaybackEndReached = () => {
+    if (settings.shuffle) return false;
+    return (
+      currentPlaying.value?.isLast || (settings.stopOnGroupEnd && currentPlaying.value?.isGroupLast)
+    );
+  };
+
+  /**
    * 处理视频播放完毕
    */
   const handleVideoEnded = () => {
-    if (!settings.autoPlayNext) return;
-
-    // 非随机模式下的边界判定（到达合集末尾或当前分 P 播完即停止）
-    if (!settings.shuffle) {
-      const isEnding =
-        currentPlaying.value?.isLast ||
-        (settings.stopOnGroupEnd && currentPlaying.value?.isGroupLast);
-      if (isEnding) return;
-    }
-
+    if (!settings.autoPlayNext || isPlaybackEndReached()) return;
     handlePlayerCtrl(CTRL_ACTION.NEXT);
   };
 
@@ -159,5 +166,7 @@ export function useVideoPod() {
     switchActiveVideo,
     toggleShuffle,
     loadPod,
+    isGroupPlayed,
+    isEpisodePlayed,
   };
 }

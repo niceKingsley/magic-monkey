@@ -127,7 +127,10 @@
           class="item"
         >
           <div
-            :class="{ 'is-active': group.isActive }"
+            :class="{
+              'is-active': group.isActive,
+              'is-played': settings.markPlayedVideos && !group.isActive && isGroupPlayed(group),
+            }"
             :data-bvid="group.bvid"
             :data-page="group.page"
             class="header"
@@ -224,7 +227,11 @@
             <div
               v-for="(ep, index) in group.episodes"
               :key="ep.cid || `${group.bvid}_${ep.page || index}`"
-              :class="{ 'is-active': ep.isActive }"
+              :class="{
+                'is-active': ep.isActive,
+                'is-played':
+                  settings.markPlayedVideos && !ep.isActive && isEpisodePlayed(group.bvid, ep),
+              }"
               class="episode"
               @click.stop="switchActiveVideo(podType, group, index)"
             >
@@ -299,6 +306,8 @@ const {
   toggleShuffle,
   loadPod,
   switchSection,
+  isGroupPlayed,
+  isEpisodePlayed,
 } = useVideoPod();
 
 const {

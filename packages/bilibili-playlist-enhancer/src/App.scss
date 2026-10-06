@@ -472,6 +472,30 @@
             }
           }
 
+          &.is-played {
+            .mode-list .title,
+            .mode-card .info .title {
+              color: var(--text3) !important;
+              opacity: 0.75;
+            }
+
+            .mode-card .cover {
+              opacity: 0.75;
+            }
+
+            &:hover {
+              .mode-list .title,
+              .mode-card .info .title {
+                color: var(--text1) !important;
+                opacity: 1;
+              }
+
+              .mode-card .cover {
+                opacity: 1;
+              }
+            }
+          }
+
           .mode-list {
             display: flex;
             align-items: center;
@@ -664,6 +688,20 @@
 
                 .playing-gif {
                   display: block;
+                }
+              }
+            }
+
+            &.is-played {
+              .episode-title {
+                color: var(--text3) !important;
+                opacity: 0.75;
+              }
+
+              &:hover {
+                .episode-title {
+                  color: var(--text1) !important;
+                  opacity: 1;
                 }
               }
             }
