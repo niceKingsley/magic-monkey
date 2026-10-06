@@ -618,17 +618,26 @@
       if (isAnimating && !force) return;
       const host = getHost();
       if (!targetEl.isConnected || (host && !host.isConnected)) return;
-      const { top, left, width, height } = targetEl.getBoundingClientRect();
+      const {
+        top: targetTop,
+        left: targetLeft,
+        width,
+        height: targetHeight,
+      } = targetEl.getBoundingClientRect();
       const slideHeight =
         ((0, vue.toValue)(hasMultipleSections) ? document.querySelector('.video-pod__slide') : null)
           ?.clientHeight || 0;
-      let maxHeight = calculateMaxHeight(currentType, wrapEl, height) + slideHeight;
-      maxHeight = maxHeight ? maxHeight + correctionOffset : 0;
+      let height = calculateMaxHeight(currentType, wrapEl, targetHeight) + slideHeight;
+      height = height ? height + correctionOffset : 0;
       onPositionUpdate({
-        top: top + window.scrollY - slideHeight - correctionOffset,
-        left: left + window.scrollX,
+        top:
+          targetTop +
+          window.scrollY -
+          slideHeight -
+          (currentType === POD_TYPE.EPISODE ? 0 : correctionOffset),
+        left: targetLeft + window.scrollX,
         width,
-        height: maxHeight,
+        height,
       });
     };
     let isDestroyed = false;

@@ -169,20 +169,32 @@ export async function watchPositionSync(podType, hostEl, onPositionUpdate, hasMu
     const host = getHost();
     if (!targetEl.isConnected || (host && !host.isConnected)) return;
 
-    const { top, left, width, height } = targetEl.getBoundingClientRect();
+    const {
+      top: targetTop,
+      left: targetLeft,
+      width,
+      height: targetHeight,
+    } = targetEl.getBoundingClientRect();
     const slideEl = toValue(hasMultipleSections)
       ? document.querySelector('.video-pod__slide')
       : null;
 
     const slideHeight = slideEl?.clientHeight || 0;
-    let maxHeight = calculateMaxHeight(currentType, wrapEl, height) + slideHeight;
-    maxHeight = maxHeight ? maxHeight + correctionOffset : 0;
+    let height = calculateMaxHeight(currentType, wrapEl, targetHeight) + slideHeight;
+    height = height ? height + correctionOffset : 0;
+
+    const top =
+      targetTop +
+      window.scrollY -
+      slideHeight -
+      (currentType === POD_TYPE.EPISODE ? 0 : correctionOffset);
+    const left = targetLeft + window.scrollX;
 
     onPositionUpdate({
-      top: top + window.scrollY - slideHeight - correctionOffset,
-      left: left + window.scrollX,
+      top,
+      left,
       width,
-      height: maxHeight,
+      height,
     });
   };
 
