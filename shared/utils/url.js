@@ -1,4 +1,4 @@
-//  获取当前页面（或指定 URL）的所有参数对象
+//  获取当前页面的所有参数对象
 export function getUrlParams() {
   let queryString = window.location.search;
   if (!queryString && window.location.hash.includes('?')) {

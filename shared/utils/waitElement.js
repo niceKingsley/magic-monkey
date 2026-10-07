@@ -1,4 +1,4 @@
-import { isFunction } from './types.js';
+import { isFunction } from './types';
 
 function queryElement(container, selector) {
   if (!isFunction(container?.querySelector)) {

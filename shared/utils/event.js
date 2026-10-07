@@ -1,4 +1,4 @@
-import { isFunction, isObject, isString } from './types.js';
+import { isFunction, isObject, isString } from './types';
 
 export function on(target, type, listener, options) {
   if (!isFunction(listener)) return () => {};

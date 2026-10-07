@@ -1,4 +1,4 @@
-import { isNil, isString } from './types.js';
+import { isNil, isString } from './types';
 
 const getEnvPrefix = () => {
   try {

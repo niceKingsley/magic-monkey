@@ -1,4 +1,4 @@
-import { isNil, isObject, isString } from './types.js';
+import { isNil, isObject, isString } from './types';
 
 const serializeParams = (params) => {
   if (!params) return '';

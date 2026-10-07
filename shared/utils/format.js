@@ -1,4 +1,4 @@
-import { isDate, isNil, isNumber, isString } from './types.js';
+import { isDate, isNil, isNumber, isString } from './types';
 
 const pad2 = (n) => String(n).padStart(2, '0');
 const DATE_FORMAT_REGEX = /\[([^\]]+)]|YYYY|YY|MM|M|DD|D|HH|H|hh|h|mm|m|ss|s|SSS|A|a/g;
