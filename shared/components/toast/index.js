@@ -49,11 +49,11 @@ export class MagicToast extends LitElement {
     duration: Number,
     /* 垂直显示位置 (top, center, bottom) */
     position: String,
-    /* 是否处于可见状�?*/
+    /* 是否处于可见状态 */
     visible: { type: Boolean, reflect: true },
     /* 是否展示关闭按钮 */
     closable: Boolean,
-    /* 内部退出动画状�?*/
+    /* 内部退出动画状态 */
     _isLeaving: { state: true },
   };
 

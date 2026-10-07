@@ -4,17 +4,17 @@ import '../theme';
 
 export class MagicSwitch extends LitElement {
   static properties = {
-    /* 是否处于开启状�?*/
+    /* 是否处于开启状态 */
     checked: { type: Boolean, reflect: true },
-    /* 是否处于禁用状�?*/
+    /* 是否处于禁用状态 */
     disabled: { type: Boolean, reflect: true },
     /* 尺寸规格 (small, medium, large) */
     size: String,
-    /* 开启状态时的提示文�?*/
+    /* 开启状态时的提示文本 */
     activeText: { type: String, attribute: 'active-text' },
-    /* 关闭状态时的提示文�?*/
+    /* 关闭状态时的提示文本 */
     inactiveText: { type: String, attribute: 'inactive-text' },
-    /* 是否处于加载中状�?*/
+    /* 是否处于加载中状态 */
     loading: { type: Boolean, reflect: true },
   };
 

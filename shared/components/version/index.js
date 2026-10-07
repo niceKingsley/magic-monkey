@@ -21,6 +21,9 @@ export class MagicVersion extends LitElement {
     this.size = 'small';
   }
 
+  /**
+   * 获取解析格式化后的展示版本文本
+   */
   get displayVersion() {
     let ver = (this.version || '').trim();
     if (!ver && typeof GM_info !== 'undefined') {
@@ -35,7 +38,8 @@ export class MagicVersion extends LitElement {
       return ver;
     }
 
-    return `${p}${ver}`;
+    const cleanVer = ver.replace(new RegExp(`^${p}`, 'i'), '');
+    return `${p}${cleanVer}`;
   }
 
   render() {
