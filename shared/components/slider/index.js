@@ -71,31 +71,31 @@ function valueToPercent(val, min, max) {
 
 export class MagicSlider extends LitElement {
   static properties = {
-    /* 当前滑块数�?*/
+    /* 当前值 */
     value: { type: Number, reflect: true },
-    /* 最小�?*/
+    /* 最小值 */
     min: Number,
-    /* 最大�?*/
+    /* 最大值 */
     max: Number,
-    /* 步进间隔�?*/
+    /* 步长 */
     step: Number,
-    /* 是否处于禁用状�?*/
+    /* 是否处于禁用状态 */
     disabled: { type: Boolean, reflect: true },
-    /* 尺寸规格 (small, medium, large) */
+    /* 尺寸 (small, medium, large) */
     size: String,
-    /* 是否展示悬停/拖拽提示气泡 */
+    /* 是否在悬浮/拖拽时展示提示框 */
     showTooltip: { type: Boolean, attribute: 'show-tooltip' },
-    /* 是否始终展示提示气泡 */
+    /* 是否始终展示提示框 */
     alwaysShowTooltip: { type: Boolean, attribute: 'always-show-tooltip' },
-    /* 是否在右侧展示实时数值文�?*/
+    /* 是否同步展示实时数值文本 */
     showValue: { type: Boolean, attribute: 'show-value' },
-    /* 是否展示间断点刻度标�?*/
+    /* 是否展示刻度停止点 */
     showStops: { type: Boolean, attribute: 'show-stops' },
-    /* 提示气泡数值格式化函数 */
+    /* 提示框数值格式化函数 */
     formatTooltip: Function,
-    /* 内部私有是否处于拖拽中状�?*/
+    /* 内部私有：是否拖拽状态 */
     _isDragging: { state: true },
-    /* 内部私有是否处于悬停状�?*/
+    /* 内部私有：是否悬浮状态 */
     _isHovered: { state: true },
   };
 
