@@ -7,7 +7,7 @@ export default defineConfig(({ command }) => {
 
   return {
     resolve: {
-      extensions: ['.mjs', '.jsx', '.json', '.vue'],
+      extensions: ['.mjs', '.js', '.jsx', '.json', '.vue'],
     },
     server: {
       open: false,
