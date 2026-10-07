@@ -267,7 +267,7 @@ import { on } from '@shared/utils';
 import {
   POD_MODE,
   POD_TYPE,
-  PROJECT_TITLE,
+  STORAGE_NAMESPACE,
   SCRIPT_VERSION,
   SHUFFLE_SCOPE,
   SORT_OPTIONS,
@@ -284,7 +284,7 @@ import SvgIcon from './components/SvgIcon';
 import SettingsModal from './components/SettingsModal';
 import { toast } from '@shared/components/toast/index.js';
 
-const settingsTooltip = `${PROJECT_TITLE} (v${SCRIPT_VERSION})`;
+const settingsTooltip = `${STORAGE_NAMESPACE} (v${SCRIPT_VERSION})`;
 
 const {
   isAnimating,

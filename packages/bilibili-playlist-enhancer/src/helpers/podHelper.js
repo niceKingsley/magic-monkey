@@ -55,9 +55,12 @@ export function updateGroupActive(group, podType, activeBvid, activePage) {
   const isEpisodeMatch = Number(group.page || 1) === currentP;
   const isActive = podType === POD_TYPE.EPISODE ? isGroupActive && isEpisodeMatch : isGroupActive;
 
+  const isEpisodeType = podType === POD_TYPE.EPISODE;
   const episodes = (group.episodes || []).map((ep) => ({
     ...ep,
-    isActive: isGroupActive && (Number(ep.page || 1) === currentP || !group.isMultiPage),
+    isActive:
+      isGroupActive &&
+      (Number(ep.page || 1) === currentP || (!isEpisodeType && !group.isMultiPage)),
   }));
 
   return { ...group, isActive, episodes };

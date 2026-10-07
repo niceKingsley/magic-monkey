@@ -1,11 +1,4 @@
-import { description, name, version } from '../package.json';
-
-export const STORAGE_NAMESPACE = name;
-export const SCRIPT_NAME = name;
-export const SCRIPT_VERSION = version;
-export const SCRIPT_DESCRIPTION = description;
-export const PROJECT_NAME = 'bilibili-playlist-enhancer';
-export const PROJECT_TITLE = PROJECT_NAME;
+export { name as STORAGE_NAMESPACE, version as SCRIPT_VERSION } from '../package.json';
 
 export const POD_MODE = {
   LIST: 'LIST',

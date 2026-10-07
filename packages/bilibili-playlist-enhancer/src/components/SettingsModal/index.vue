@@ -214,7 +214,7 @@ import '@shared/components/button';
 import '@shared/components/version';
 import {
   DEFAULT_SETTINGS,
-  PROJECT_NAME,
+  STORAGE_NAMESPACE,
   SCRIPT_VERSION,
   SHUFFLE_SCOPE_OPTIONS,
 } from '@/constants.js';
@@ -233,7 +233,7 @@ const props = defineProps({
   },
 });
 
-const modalTitle = computed(() => props.title || PROJECT_NAME);
+const modalTitle = computed(() => props.title || STORAGE_NAMESPACE);
 
 const emit = defineEmits(['close', 'update:visible']);
 

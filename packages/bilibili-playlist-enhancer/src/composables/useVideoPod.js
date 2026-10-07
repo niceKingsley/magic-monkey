@@ -25,7 +25,7 @@ export function useVideoPod() {
 
   const { settings } = useSettings();
   const { isExpanded, toggleAccordion, setExpanded } = useAccordion();
-  const { sortMode, groups, setSortMode } = usePodSort(rawGroups, settings);
+  const { sortMode, groups, setSortMode } = usePodSort(rawGroups, settings, podType);
 
   const flatEpisodes = computed(() => flattenEpisodes(groups.value));
   const currentPlaying = computed(() =>

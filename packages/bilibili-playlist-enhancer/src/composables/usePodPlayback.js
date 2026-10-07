@@ -72,6 +72,7 @@ export function usePodPlayback({
       toggleAccordion(group.bvid);
       return;
     }
+
     switchActiveVideo(podType.value, group, 0, true);
   };
 
