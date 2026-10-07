@@ -1,6 +1,6 @@
 {
   "name": "bilibili-playlist-enhancer",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "description": "bilibili 播放列表/选集/合集增强助手",
   "main": "main.js",
