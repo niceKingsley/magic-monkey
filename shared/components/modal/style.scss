@@ -164,8 +164,8 @@
     transition: all 0.2s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
+      background: var(--magic-bg-hover, rgba(255, 255, 255, 0.1));
+      color: var(--magic-modal-title-color, var(--magic-text-primary, #fff));
     }
 
     svg {
@@ -185,13 +185,13 @@
     overscroll-behavior: contain;
     box-sizing: border-box;
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    scrollbar-color: var(--magic-bg-hover, rgba(255, 255, 255, 0.2)) transparent;
 
     &::-webkit-scrollbar {
       width: 5px;
     }
     &::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--magic-bg-hover, rgba(255, 255, 255, 0.2));
       border-radius: 4px;
     }
   }

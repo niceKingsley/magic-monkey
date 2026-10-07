@@ -1,6 +1,6 @@
 import { html, LitElement, nothing, unsafeCSS } from 'lit';
 import styles from './style.scss?inline';
-import '../theme.js';
+import '../theme';
 
 const INPUT_ICONS = {
   clear: html`
@@ -196,7 +196,6 @@ export class MagicInput extends LitElement {
           .placeholder=${this.placeholder || ''}
           .disabled=${this.disabled}
           .readOnly=${this.readonly}
-          .maxLength=${this.maxlength ?? -1}
           maxlength=${this.maxlength > 0 ? this.maxlength : nothing}
           @input=${this.handleInput}
           @change=${this.handleChange}

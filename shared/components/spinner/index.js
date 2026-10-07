@@ -1,7 +1,7 @@
 import { html, LitElement, unsafeCSS } from 'lit';
 import { isNumber } from '@shared/utils';
 import styles from './style.scss?inline';
-import '../theme.js';
+import '../theme';
 
 export class MagicSpinner extends LitElement {
   static properties = {

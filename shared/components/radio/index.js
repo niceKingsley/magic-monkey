@@ -1,19 +1,19 @@
 import { html, LitElement, unsafeCSS } from 'lit';
 import { isNil, on } from '@shared/utils';
 import styles from './style.scss?inline';
-import '../theme.js';
+import '../theme';
 
 export class MagicRadio extends LitElement {
   static properties = {
-    /* 选项绑定的实际值 */
+    /* 选项绑定的实际�?*/
     value: String,
     /* 原生单选组表单名称 */
     name: String,
     /* 选项文案内容 */
     label: String,
-    /* 是否处于选中状态 */
+    /* 是否处于选中状�?*/
     checked: { type: Boolean, reflect: true },
-    /* 是否处于禁用状态 */
+    /* 是否处于禁用状�?*/
     disabled: { type: Boolean, reflect: true },
     /* 尺寸规格 (small, medium, large) */
     size: String,
@@ -80,7 +80,7 @@ export class MagicRadio extends LitElement {
 
 export class MagicRadioGroup extends LitElement {
   static properties = {
-    /* 单选组当前选中的值 */
+    /* 单选组当前选中的�?*/
     value: String,
     /* 是否全局禁用单选组 */
     disabled: { type: Boolean, reflect: true },

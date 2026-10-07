@@ -153,4 +153,19 @@
   --magic-version-bg: var(--magic-bg-subtle);
   --magic-version-color: var(--magic-text-secondary);
   --magic-version-border: var(--magic-border-color);
+
+  --magic-slider-track-bg: var(--magic-bg-subtle);
+  --magic-slider-track-hover-bg: var(--magic-bg-hover);
+  --magic-slider-bar-bg: var(--magic-primary-color);
+  --magic-slider-thumb-bg: #ffffff;
+  --magic-slider-thumb-border: var(--magic-primary-color);
+  --magic-slider-thumb-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  --magic-slider-thumb-hover-shadow: 0 0 0 4px var(--magic-primary-focus-shadow);
+  --magic-slider-thumb-active-shadow: 0 0 0 6px var(--magic-primary-shadow);
+  --magic-slider-stop-bg: rgba(255, 255, 255, 0.4);
+  --magic-slider-tooltip-bg: var(--magic-bg-overlay);
+  --magic-slider-tooltip-color: var(--magic-text-primary);
+  --magic-slider-tooltip-border: var(--magic-border-color);
+  --magic-slider-tooltip-shadow: var(--magic-shadow-dropdown);
+  --magic-slider-disabled-opacity: 0.45;
 }

@@ -1,8 +1,8 @@
 import { html, LitElement, unsafeCSS } from 'lit';
 import { isFunction, isNumber, isString, on, once, sleep } from '@shared/utils';
 import styles from './style.scss?inline';
-import '../button/index.js';
-import '../theme.js';
+import '../button/index';
+import '../theme';
 
 const MODAL_ICONS = {
   close: html`

@@ -1,7 +1,7 @@
 import { html, LitElement, unsafeCSS } from 'lit';
 import { isArray, on } from '@shared/utils';
 import styles from './style.scss?inline';
-import '../theme.js';
+import '../theme';
 
 const SELECT_ICONS = {
   arrowDown: html`
@@ -25,13 +25,13 @@ const SELECT_ICONS = {
 
 export class MagicOption extends LitElement {
   static properties = {
-    /* 选项绑定的真实值 */
+    /* 选项绑定的真实�?*/
     value: String,
     /* 选项展示文本 */
     label: String,
     /* 是否禁用该选项 */
     disabled: { type: Boolean, reflect: true },
-    /* 是否处于选中态 */
+    /* 是否处于选中�?*/
     selected: { type: Boolean, reflect: true },
   };
 
@@ -71,25 +71,25 @@ export class MagicOption extends LitElement {
 
 export class MagicSelect extends LitElement {
   static properties = {
-    /* 当前选中的选项值 */
+    /* 当前选中的选项�?*/
     value: String,
     /* 未选中时的占位文本 */
     placeholder: String,
-    /* 是否处于禁用状态 */
+    /* 是否处于禁用状�?*/
     disabled: { type: Boolean, reflect: true },
-    /* 是否支持一键清空选中值 */
+    /* 是否支持一键清空选中�?*/
     clearable: Boolean,
     /* 尺寸规格 (small, medium, large) */
     size: String,
-    /* 是否撑满父容器宽度 */
+    /* 是否撑满父容器宽�?*/
     block: Boolean,
     /* 下拉菜单是否展开 */
     open: { type: Boolean, reflect: true },
     /* 传入的选项列表数据 [{ label, value, disabled, children }] */
     options: Array,
-    /* 当前激活的二级子菜单父项值 */
+    /* 当前激活的二级子菜单父项�?*/
     activeSubmenuValue: { state: true },
-    /* 二级子菜单垂直定位偏移 */
+    /* 二级子菜单垂直定位偏�?*/
     submenuTop: { state: true },
   };
 

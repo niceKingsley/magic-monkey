@@ -1,20 +1,20 @@
 import { html, LitElement, unsafeCSS } from 'lit';
 import styles from './style.scss?inline';
-import '../theme.js';
+import '../theme';
 
 export class MagicSwitch extends LitElement {
   static properties = {
-    /* 是否处于开启状态 */
+    /* 是否处于开启状�?*/
     checked: { type: Boolean, reflect: true },
-    /* 是否处于禁用状态 */
+    /* 是否处于禁用状�?*/
     disabled: { type: Boolean, reflect: true },
     /* 尺寸规格 (small, medium, large) */
     size: String,
-    /* 开启状态时的提示文本 */
+    /* 开启状态时的提示文�?*/
     activeText: { type: String, attribute: 'active-text' },
-    /* 关闭状态时的提示文本 */
+    /* 关闭状态时的提示文�?*/
     inactiveText: { type: String, attribute: 'inactive-text' },
-    /* 是否处于加载中状态 */
+    /* 是否处于加载中状�?*/
     loading: { type: Boolean, reflect: true },
   };
 

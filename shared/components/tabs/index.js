@@ -1,25 +1,25 @@
 import { html, LitElement, unsafeCSS } from 'lit';
 import { isArray, isObject, on } from '@shared/utils';
 import styles from './style.scss?inline';
-import '../theme.js';
+import '../theme';
 
 export class MagicTabs extends LitElement {
   static properties = {
-    /* 选项卡列表数据 [{ label, value, disabled }] */
+    /* 选项卡列表数�?[{ label, value, disabled }] */
     items: Array,
-    /* 当前选中的选项卡值 */
+    /* 当前选中的选项卡�?*/
     value: { type: String, reflect: true },
-    /* 选项卡尺寸规格 (small, medium, large) */
+    /* 选项卡尺寸规�?(small, medium, large) */
     size: String,
-    /* 选项卡展示类型 (capsule 胶囊模式, line 下划线模式) */
+    /* 选项卡展示类�?(capsule 胶囊模式, line 下划线模�? */
     type: String,
-    /* 是否开启横向平滑滚动 */
+    /* 是否开启横向平滑滚�?*/
     scrollable: { type: Boolean, reflect: true },
     /* 是否撑满父级容器宽度 */
     block: { type: Boolean, reflect: true },
-    /* 内部状态：是否可向左滚动 */
+    /* 内部状态：是否可向左滚�?*/
     _canScrollLeft: { state: true },
-    /* 内部状态：是否可向右滚动 */
+    /* 内部状态：是否可向右滚�?*/
     _canScrollRight: { state: true },
   };
 

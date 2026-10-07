@@ -1,6 +1,6 @@
 import { html, LitElement, unsafeCSS } from 'lit';
 import styles from './style.scss?inline';
-import '../theme.js';
+import '../theme';
 
 export class MagicVersion extends LitElement {
   static properties = {
@@ -21,9 +21,6 @@ export class MagicVersion extends LitElement {
     this.size = 'small';
   }
 
-  /**
-   * 获取解析格式化后的展示版本文本
-   */
   get displayVersion() {
     let ver = (this.version || '').trim();
     if (!ver && typeof GM_info !== 'undefined') {
@@ -38,9 +35,7 @@ export class MagicVersion extends LitElement {
       return ver;
     }
 
-    // 若版本号已包含此前缀（不区分大小写），则标准化去重
-    const cleanVer = ver.replace(new RegExp(`^${p}`, 'i'), '');
-    return `${p}${cleanVer}`;
+    return `${p}${ver}`;
   }
 
   render() {

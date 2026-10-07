@@ -1,7 +1,7 @@
 import { html, LitElement, unsafeCSS } from 'lit';
 import styles from './style.scss?inline';
-import '../spinner/index.js';
-import '../theme.js';
+import '../spinner/index';
+import '../theme';
 
 export class MagicButton extends LitElement {
   static properties = {

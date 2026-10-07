@@ -1,7 +1,7 @@
 import { html, LitElement, unsafeCSS } from 'lit';
 import { isString, once, sleep } from '@shared/utils';
 import styles from './style.scss?inline';
-import '../theme.js';
+import '../theme';
 
 const TOAST_ICONS = {
   info: html`
@@ -49,11 +49,11 @@ export class MagicToast extends LitElement {
     duration: Number,
     /* 垂直显示位置 (top, center, bottom) */
     position: String,
-    /* 是否处于可见状态 */
+    /* 是否处于可见状�?*/
     visible: { type: Boolean, reflect: true },
     /* 是否展示关闭按钮 */
     closable: Boolean,
-    /* 内部退出动画状态 */
+    /* 内部退出动画状�?*/
     _isLeaving: { state: true },
   };
 
