@@ -23,6 +23,22 @@ const SELECT_ICONS = {
   `,
 };
 
+/**
+ * 在选项树中递归查找目标 value 对应的展示文本
+ */
+function findLabelInOptions(list, value, parent = null) {
+  for (const item of list) {
+    if (String(item.value) === String(value)) {
+      return parent ? `${parent.label} · ${item.label ?? item.value}` : (item.label ?? item.value);
+    }
+    if (isArray(item.children)) {
+      const match = findLabelInOptions(item.children, value, item);
+      if (match) return match;
+    }
+  }
+  return null;
+}
+
 export class MagicOption extends LitElement {
   static properties = {
     /* 选项绑定的真实值 */
@@ -111,6 +127,31 @@ export class MagicSelect extends LitElement {
     this.submenuTop = 0;
   }
 
+  get currentLabel() {
+    if (isArray(this.options) && this.options.length > 0) {
+      const match = findLabelInOptions(this.options, this.value);
+      if (match) return match;
+    }
+
+    const slot = this.shadowRoot?.querySelector('slot');
+    if (slot) {
+      const assigned = slot.assignedElements({ flatten: true });
+      const matchedEl = assigned.find((el) => el.value === this.value);
+      if (matchedEl) {
+        return matchedEl.label || matchedEl.textContent?.trim() || matchedEl.value;
+      }
+    }
+
+    return this.value || '';
+  }
+
+  get activeSubmenuItem() {
+    if (!this.activeSubmenuValue || !isArray(this.options)) return null;
+    return (
+      this.options.find((item) => String(item.value) === String(this.activeSubmenuValue)) || null
+    );
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this.#cleanupOutsideClick = on(document, 'pointerdown', (event) =>
@@ -162,45 +203,6 @@ export class MagicSelect extends LitElement {
     const detail = { value, label };
     this.dispatchEvent(new CustomEvent('change', { detail, bubbles: true, composed: true }));
     this.dispatchEvent(new CustomEvent('input', { detail, bubbles: true, composed: true }));
-  }
-
-  get currentLabel() {
-    if (isArray(this.options) && this.options.length > 0) {
-      const findInList = (list, parent = null) => {
-        for (const item of list) {
-          if (String(item.value) === String(this.value)) {
-            return parent
-              ? `${parent.label} · ${item.label ?? item.value}`
-              : (item.label ?? item.value);
-          }
-          if (isArray(item.children)) {
-            const match = findInList(item.children, item);
-            if (match) return match;
-          }
-        }
-        return null;
-      };
-      const match = findInList(this.options);
-      if (match) return match;
-    }
-
-    const slot = this.shadowRoot?.querySelector('slot');
-    if (slot) {
-      const assigned = slot.assignedElements({ flatten: true });
-      const matchedEl = assigned.find((el) => el.value === this.value);
-      if (matchedEl) {
-        return matchedEl.label || matchedEl.textContent?.trim() || matchedEl.value;
-      }
-    }
-
-    return this.value || '';
-  }
-
-  get activeSubmenuItem() {
-    if (!this.activeSubmenuValue || !isArray(this.options)) return null;
-    return (
-      this.options.find((item) => String(item.value) === String(this.activeSubmenuValue)) || null
-    );
   }
 
   handleSlotClick(event) {
