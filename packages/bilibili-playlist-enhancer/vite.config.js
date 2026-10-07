@@ -6,6 +6,9 @@ export default defineConfig(({ command }) => {
   const isDev = command === 'serve';
 
   return {
+    resolve: {
+      extensions: ['.mjs', '.jsx', '.json', '.vue'],
+    },
     server: {
       open: false,
     },
