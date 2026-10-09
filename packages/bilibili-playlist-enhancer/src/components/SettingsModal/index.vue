@@ -217,9 +217,9 @@ import {
   STORAGE_NAMESPACE,
   SCRIPT_VERSION,
   SHUFFLE_SCOPE_OPTIONS,
-} from '@/constants.js';
-import { useSettings } from '@/composables/useSettings.js';
-import { formatKeyboardKey } from '@/composables/usePodHotkeys.js';
+} from '@/constants';
+import { useSettings } from '@/composables/useSettings';
+import { formatKeyboardKey } from '@/composables/usePodHotkeys';
 import SvgIcon from '../SvgIcon';
 
 const props = defineProps({

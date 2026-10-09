@@ -1,6 +1,6 @@
+import { playerState } from '@/helpers/playerBridge';
 import { assign, createStorage } from '@shared/utils';
-import { DEFAULT_SETTINGS, STORAGE_NAMESPACE } from '../constants.js';
-import { playerState } from '../helpers/playerBridge.js';
+import { DEFAULT_SETTINGS, STORAGE_NAMESPACE } from '../constants';
 
 const storage = createStorage(STORAGE_NAMESPACE);
 

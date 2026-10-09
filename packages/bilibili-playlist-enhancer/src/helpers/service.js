@@ -6,7 +6,7 @@ import {
   http,
   isArray,
 } from '@shared/utils';
-import { POD_MODE, POD_TYPE } from '../constants.js';
+import { POD_MODE, POD_TYPE } from '../constants';
 
 /**
  * 从当前 URL 中提取视频的 BV 号

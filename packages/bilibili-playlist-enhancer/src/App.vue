@@ -271,10 +271,10 @@ import {
   SCRIPT_VERSION,
   SHUFFLE_SCOPE,
   SORT_OPTIONS,
-} from './constants.js';
-import { useVideoPod } from './composables/useVideoPod.js';
-import { usePodSearch } from './composables/usePodSearch.js';
-import { initSettings, useSettings } from './composables/useSettings.js';
+} from './constants';
+import { useVideoPod } from './composables/useVideoPod';
+import { usePodSearch } from './composables/usePodSearch';
+import { initSettings, useSettings } from './composables/useSettings';
 import '@shared/components/tabs';
 import '@shared/components/spinner';
 import '@shared/components/switch';
@@ -282,7 +282,7 @@ import '@shared/components/select';
 import '@shared/components/input';
 import SvgIcon from './components/SvgIcon';
 import SettingsModal from './components/SettingsModal';
-import { toast } from '@shared/components/toast/index.js';
+import { toast } from '@shared/components/toast/index';
 
 const settingsTooltip = `${STORAGE_NAMESPACE} (v${SCRIPT_VERSION})`;
 

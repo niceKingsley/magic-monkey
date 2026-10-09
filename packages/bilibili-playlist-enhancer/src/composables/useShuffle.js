@@ -1,5 +1,5 @@
+import { SHUFFLE_SCOPE } from '@/constants';
 import { toast } from '@shared/components/toast';
-import { SHUFFLE_SCOPE } from '../constants.js';
 
 /**
  * 最大历史回溯深度

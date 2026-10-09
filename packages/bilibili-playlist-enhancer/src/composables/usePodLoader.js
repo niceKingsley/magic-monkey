@@ -1,13 +1,13 @@
-import { POD_MODE } from '../constants.js';
-import { getCurrentBvid, getCurrentPage } from '../helpers/service.js';
-import { scrollActiveItem, usePositionSync } from '../helpers/syncPosition.js';
+import { POD_MODE } from '@/constants';
 import {
   fetchPodPayload,
   findActiveAccordionBvid,
   hasSeasonBvid,
   isSameVideoTarget,
-} from '../helpers/podHelper.js';
-import { usePodSections } from './usePodSections.js';
+} from '@/helpers/podHelper';
+import { getCurrentBvid, getCurrentPage } from '@/helpers/service';
+import { scrollActiveItem, usePositionSync } from '@/helpers/syncPosition';
+import { usePodSections } from './usePodSections';
 
 /**
  * 合集数据加载与位置同步调度管理

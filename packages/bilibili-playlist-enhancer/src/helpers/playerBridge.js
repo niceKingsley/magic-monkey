@@ -1,5 +1,5 @@
 import { isFunction, on } from '@shared/utils';
-import { CTRL_ACTION, POD_TYPE } from '../constants.js';
+import { CTRL_ACTION, POD_TYPE } from '../constants';
 
 /**
  * 向上遍历获取原生播放列表挂载的 Vue 实例

@@ -1,19 +1,19 @@
-import { scrollActiveItem, setBilibiliVideoPodMinHeight } from '../helpers/syncPosition.js';
+import { CTRL_ACTION, POD_TYPE } from '@/constants';
 import {
   interceptPlayerControls,
   interceptPlayerEnding,
   playerState,
-} from '../helpers/playerBridge.js';
-import { useSettings } from './useSettings.js';
-import { findCurrentPlaying, flattenEpisodes } from '../helpers/podHelper.js';
-import { useAccordion } from './useAccordion.js';
-import { usePodSort } from './usePodSort.js';
-import { usePodPlayback } from './usePodPlayback.js';
-import { usePodLoader } from './usePodLoader.js';
-import { usePodHotkeys } from './usePodHotkeys.js';
-import { useShuffle } from './useShuffle.js';
-import { usePlayedHistory } from './usePlayedHistory.js';
-import { CTRL_ACTION, POD_TYPE } from '../constants.js';
+} from '@/helpers/playerBridge';
+import { findCurrentPlaying, flattenEpisodes } from '@/helpers/podHelper';
+import { scrollActiveItem, setBilibiliVideoPodMinHeight } from '@/helpers/syncPosition';
+import { useAccordion } from './useAccordion';
+import { usePlayedHistory } from './usePlayedHistory';
+import { usePodHotkeys } from './usePodHotkeys';
+import { usePodLoader } from './usePodLoader';
+import { usePodPlayback } from './usePodPlayback';
+import { usePodSort } from './usePodSort';
+import { useSettings } from './useSettings';
+import { useShuffle } from './useShuffle';
 
 export function useVideoPod() {
   const rootRef = ref(null);

@@ -1,5 +1,5 @@
+import { CTRL_ACTION } from '@/constants';
 import { on } from '@shared/utils';
-import { CTRL_ACTION } from '../constants.js';
 
 /**
  * 判断当前焦点是否处于输入框、文本域或弹幕/评论区中

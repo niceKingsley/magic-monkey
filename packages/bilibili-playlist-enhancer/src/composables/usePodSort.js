@@ -1,5 +1,5 @@
-import { POD_TYPE, SORT_MODE } from '../constants.js';
-import { SORT_STRATEGIES } from '../helpers/podHelper.js';
+import { POD_TYPE, SORT_MODE } from '@/constants';
+import { SORT_STRATEGIES } from '@/helpers/podHelper';
 
 /**
  * 列表排序管理组

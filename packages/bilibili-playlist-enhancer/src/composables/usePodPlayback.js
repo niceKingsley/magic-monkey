@@ -1,13 +1,9 @@
-import { throttle } from '@shared/utils';
+import { CTRL_ACTION } from '@/constants';
+import { executeVideoSwitch } from '@/helpers/playerBridge';
+import { findActiveAccordionBvid, getAdjacentVideo, updateGroupActive } from '@/helpers/podHelper';
+import { scrollActiveItem } from '@/helpers/syncPosition';
 import { toast } from '@shared/components/toast';
-import { CTRL_ACTION } from '../constants.js';
-import { executeVideoSwitch } from '../helpers/playerBridge.js';
-import { scrollActiveItem } from '../helpers/syncPosition.js';
-import {
-  findActiveAccordionBvid,
-  getAdjacentVideo,
-  updateGroupActive,
-} from '../helpers/podHelper.js';
+import { throttle } from '@shared/utils';
 
 /**
  * 选集切换与高亮联动管理

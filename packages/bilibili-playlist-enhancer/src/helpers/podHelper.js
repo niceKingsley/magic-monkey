@@ -1,6 +1,6 @@
 import { getUrlParams } from '@shared/utils';
-import { CTRL_ACTION, POD_TYPE, SORT_MODE } from '../constants.js';
-import { fetchSeasonInfo, processSeasonData } from './service.js';
+import { CTRL_ACTION, POD_TYPE, SORT_MODE } from '../constants';
+import { fetchSeasonInfo, processSeasonData } from './service';
 
 /**
  * 排序策略映射表

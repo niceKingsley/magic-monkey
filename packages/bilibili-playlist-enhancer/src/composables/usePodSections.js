@@ -1,5 +1,5 @@
-import { processSeasonData } from '../helpers/service.js';
-import { findSectionByBvid } from '../helpers/podHelper.js';
+import { findSectionByBvid } from '@/helpers/podHelper';
+import { processSeasonData } from '@/helpers/service';
 
 /**
  * 合集多分卷状态与切换调度管理

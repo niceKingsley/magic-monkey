@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { ICONS } from './icons.js';
+import { ICONS } from './icons';
 
 const props = defineProps({
   name: {

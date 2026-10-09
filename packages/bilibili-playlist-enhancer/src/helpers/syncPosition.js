@@ -1,6 +1,6 @@
-import { POD_TYPE } from '../constants.js';
+import { POD_TYPE } from '@/constants';
+import { playerState } from '@/helpers/playerBridge';
 import { isFunction, on, waitElement } from '@shared/utils';
-import { playerState } from '@/helpers/playerBridge.js';
 
 const correctionOffset = 17;
 
