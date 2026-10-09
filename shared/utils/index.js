@@ -8,3 +8,4 @@ export * from './request';
 export * from './url';
 export * from './event';
 export * from './interceptor';
+export * from './regex';
