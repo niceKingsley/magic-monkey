@@ -1,5 +1,5 @@
-import { cdn, defineConfig, monkey } from 'magic-monkey-cli';
 import vue from '@vitejs/plugin-vue';
+import { cdn, defineConfig, monkey } from 'magic-monkey-cli';
 import AutoImport from 'unplugin-auto-import/vite';
 
 export default defineConfig(({ command }) => {
@@ -11,9 +11,6 @@ export default defineConfig(({ command }) => {
     },
     server: {
       open: false,
-    },
-    esbuild: {
-      pure: isDev ? [] : ['console.log'],
     },
     plugins: [
       AutoImport({
