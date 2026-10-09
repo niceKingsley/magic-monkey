@@ -1,0 +1,34 @@
+:global(:root) {
+  --magic-primary-color: var(--brand_blue);
+  --magic-primary-hover-color: var(
+    --brand_blue_hover,
+    color-mix(in srgb, var(--magic-primary-color) 85%, #fff)
+  );
+  --magic-primary-active-color: var(
+    --brand_blue_active,
+    color-mix(in srgb, var(--magic-primary-color) 85%, #000)
+  );
+  --magic-primary-light-bg: var(
+    --brand_blue_thin,
+    color-mix(in srgb, var(--magic-primary-color) 12%, transparent)
+  );
+  --magic-text-primary: var(--text1);
+  --magic-text-secondary: var(--text2);
+  --magic-text-tertiary: var(--text3);
+  --magic-text-muted: var(--text3);
+  --magic-bg-container: var(--bg1);
+  --magic-bg-component: var(--bg2);
+  --magic-bg-subtle: var(--graph_bg_thin, var(--bg2));
+  --magic-bg-hover: var(--line_regular, var(--bg3));
+  --magic-border-color: var(--line_regular);
+  --magic-border-color-hover: var(--line_bold, var(--line_regular));
+  --magic-bg-overlay: var(--bg1_float, var(--graph_bg_regular));
+  --magic-modal-bg: var(--bg1_float, var(--graph_bg_regular));
+  --magic-modal-border: var(--line_regular);
+  --magic-modal-divider: var(--line_regular);
+  --magic-modal-title-color: var(--text1);
+  --magic-modal-color: var(--text1);
+  --magic-modal-close-color: var(--text3);
+  --magic-font-size-base: 13px;
+  --magic-font-size-sm: 12px;
+}

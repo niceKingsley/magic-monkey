@@ -4,7 +4,7 @@ import { waitElement } from './waitElement';
 let currentAppInstance = null;
 
 export async function bootstrapApp(options = {}) {
-  const { createApp, rootComponent, waitBody = false, mountId, beforeMount, onMounted } = options;
+  const { createApp, rootComponent, waitBody = true, mountId, beforeMount, onMounted } = options;
 
   if (isFunction(beforeMount)) {
     const shouldContinue = await beforeMount();
