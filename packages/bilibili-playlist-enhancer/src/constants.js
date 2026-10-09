@@ -82,7 +82,7 @@ export const SORT_OPTIONS = [
     ],
   },
   {
-    label: '弹幕互动',
+    label: '弹幕数量',
     value: 'GROUP_DANMAKUS',
     children: [
       { label: '最多弹幕', value: SORT_MODE.DANMAKUS_DESC },
