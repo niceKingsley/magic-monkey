@@ -206,3 +206,49 @@ export function formatDate(dateInput, template = 'YYYY-MM-DD') {
   const tokens = createTokenMap(date);
   return template.replace(DATE_FORMAT_REGEX, (match, escaped) => escaped || tokens[match] || match);
 }
+
+const RELATIVE_TIME_UNIT_MS = {
+  秒: 1000,
+  分: 60 * 1000,
+  小时: 3600 * 1000,
+  天: 86400 * 1000,
+  周: 7 * 86400 * 1000,
+  月: 30 * 86400 * 1000,
+  年: 365 * 86400 * 1000,
+};
+
+/**
+ * 支持相对时间（刚刚、昨天、前天、X分钟前、X小时前、X天前等）与绝对时间（年-月-日、月-日、X月X日等）
+ */
+export function parseDateToTimestamp(rawStr) {
+  if (!rawStr) return 0;
+  const str = String(rawStr)
+    .replace(/^[·\s\n\r\t]+/, '')
+    .trim();
+  if (!str) return 0;
+
+  const now = Date.now();
+  if (str.includes('刚刚')) return now;
+  if (str.includes('昨天')) return now - 86400 * 1000;
+  if (str.includes('前天')) return now - 172800 * 1000;
+
+  const relMatch = str.match(/(\d+)\s*(秒|分|小时|天|周|月|年)/);
+  if (relMatch) {
+    return now - Number(relMatch[1]) * RELATIVE_TIME_UNIT_MS[relMatch[2]];
+  }
+
+  const parts = str.match(/^(?:(\d{4})[年\-/.]\s*)?(\d{1,2})[月\-/.]\s*(\d{1,2})/);
+  if (parts) {
+    const year = parts[1] ? Number(parts[1]) : new Date().getFullYear();
+    const month = Number(parts[2]) - 1;
+    const day = Number(parts[3]);
+    const date = new Date(year, month, day);
+
+    if (!parts[1] && date.getTime() > now + 86400 * 1000) {
+      date.setFullYear(year - 1);
+    }
+    return date.getTime();
+  }
+
+  return 0;
+}
