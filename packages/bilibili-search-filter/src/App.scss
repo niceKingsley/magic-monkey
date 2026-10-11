@@ -1,0 +1,53 @@
+:root {
+  --magic-primary-color: var(--brand_blue, #00aeec);
+  --magic-primary-hover-color: var(
+    --brand_blue_hover,
+    color-mix(in srgb, var(--magic-primary-color) 85%, #fff)
+  );
+  --magic-primary-active-color: var(
+    --brand_blue_active,
+    color-mix(in srgb, var(--magic-primary-color) 85%, #000)
+  );
+  --magic-primary-light-bg: var(
+    --brand_blue_thin,
+    color-mix(in srgb, var(--magic-primary-color) 12%, transparent)
+  );
+  --magic-text-primary: var(--text1, #18191c);
+  --magic-text-secondary: var(--text2, #61666d);
+  --magic-text-tertiary: var(--text3, #9499a0);
+  --magic-text-muted: var(--text3, #9499a0);
+  --magic-bg-base: var(--bg1, #ffffff);
+  --magic-bg-container: var(--bg1, #ffffff);
+  --magic-bg-component: var(--bg2, #f6f7f8);
+  --magic-bg-subtle: var(--graph_bg_thin, var(--bg2, #f6f7f8));
+  --magic-bg-hover: var(--line_regular, var(--bg3, #f1f2f3));
+  --magic-bg-active: var(--line_bold, var(--bg3, #e5e6e8));
+  --magic-border-color: var(--line_regular, #e3e5e7);
+  --magic-border-color-hover: var(--line_bold, var(--line_regular, #c9ccd0));
+  --magic-bg-overlay: var(--bg1_float, var(--graph_bg_regular, var(--bg1, #ffffff)));
+  --magic-filter-bar-bg: var(--bg1_float, var(--graph_bg_regular, var(--bg2, #f6f7f8)));
+  --magic-filter-bar-hover-bg: var(--bg3, #f1f2f3);
+  --magic-modal-bg: var(--bg1_float, var(--graph_bg_regular, var(--bg1, #ffffff)));
+  --magic-modal-border: var(--line_regular, #e3e5e7);
+  --magic-modal-divider: var(--line_regular, #e3e5e7);
+  --magic-modal-title-color: var(--text1, #18191c);
+  --magic-modal-color: var(--text1, #18191c);
+  --magic-modal-close-color: var(--text3, #9499a0);
+}
+
+.bili-magic-restored-card {
+  position: relative !important;
+  opacity: 0.5 !important;
+  transition: opacity 0.2s ease !important;
+
+  &:hover {
+    opacity: 1 !important;
+  }
+}
+
+.more-conditions {
+  display: block !important;
+  overflow: hidden;
+  height: 0;
+  transition: height 0.2s ease;
+}

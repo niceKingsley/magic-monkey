@@ -1,0 +1,22 @@
+{
+  "name": "bilibili-search-filter",
+  "version": "0.0.1",
+  "private": true,
+  "description": "B站搜索结果过滤增强脚本",
+  "main": "main.js",
+  "author": "kingsley",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@shared/components": "workspace:*",
+    "@shared/utils": "workspace:*",
+    "vue": "catalog:vue"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "catalog:vue",
+    "unplugin-auto-import": "^21.1.0"
+  }
+}
