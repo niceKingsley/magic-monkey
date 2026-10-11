@@ -98,8 +98,8 @@ export function scrollActiveItem(container, smooth = true) {
 }
 
 export function setBilibiliVideoPodMinHeight() {
-  document.querySelector(getPodTargetSelectors(POD_TYPE.COLLECTION).listBody).style.minHeight =
-    '250px';
+  const el = document.querySelector(getPodTargetSelectors(POD_TYPE.COLLECTION).listBody);
+  if (el) el.style.minHeight = '250px';
 }
 
 /**

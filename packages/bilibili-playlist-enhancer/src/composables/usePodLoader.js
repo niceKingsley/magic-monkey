@@ -1,4 +1,4 @@
-import { POD_MODE } from '@/constants';
+import { POD_MODE, POD_TYPE } from '@/constants';
 import {
   fetchPodPayload,
   findActiveAccordionBvid,
@@ -6,7 +6,11 @@ import {
   isSameVideoTarget,
 } from '@/helpers/podHelper';
 import { getCurrentBvid, getCurrentPage } from '@/helpers/service';
-import { scrollActiveItem, usePositionSync } from '@/helpers/syncPosition';
+import {
+  scrollActiveItem,
+  setBilibiliVideoPodMinHeight,
+  usePositionSync,
+} from '@/helpers/syncPosition';
 import { usePodSections } from './usePodSections';
 
 /**
@@ -136,6 +140,8 @@ export function usePodLoader({
     if (trySwitchSectionByBvid(nextBvid, nextPage)) return;
 
     await fetchFullPod(nextBvid, nextPage);
+
+    if (toValue(podType) !== POD_TYPE.SERIES) setBilibiliVideoPodMinHeight();
   };
 
   return {

@@ -1,5 +1,5 @@
+import { CTRL_ACTION, POD_TYPE, SORT_MODE } from '@/constants';
 import { getUrlParams } from '@shared/utils';
-import { CTRL_ACTION, POD_TYPE, SORT_MODE } from '../constants';
 import { fetchSeasonInfo, processSeasonData } from './service';
 
 /**

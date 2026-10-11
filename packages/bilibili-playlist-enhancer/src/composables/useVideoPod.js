@@ -1,11 +1,11 @@
-import { CTRL_ACTION, POD_TYPE } from '@/constants';
+import { CTRL_ACTION } from '@/constants';
 import {
   interceptPlayerControls,
   interceptPlayerEnding,
   playerState,
 } from '@/helpers/playerBridge';
 import { findCurrentPlaying, flattenEpisodes } from '@/helpers/podHelper';
-import { scrollActiveItem, setBilibiliVideoPodMinHeight } from '@/helpers/syncPosition';
+import { scrollActiveItem } from '@/helpers/syncPosition';
 import { useAccordion } from './useAccordion';
 import { usePlayedHistory } from './usePlayedHistory';
 import { usePodHotkeys } from './usePodHotkeys';
@@ -130,10 +130,7 @@ export function useVideoPod() {
   };
 
   onMounted(() => {
-    loadPod().then(() => {
-      if (toValue(podType) !== POD_TYPE.SERIES) setBilibiliVideoPodMinHeight();
-    });
-
+    void loadPod();
     const cleanups = [
       interceptPlayerControls(handlePlayerCtrl),
       interceptPlayerEnding(handleVideoEnded),
