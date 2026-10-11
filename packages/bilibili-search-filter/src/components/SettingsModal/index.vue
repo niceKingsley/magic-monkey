@@ -34,21 +34,26 @@
 
             <div class="field-switches">
               <span class="field-label">匹配范围：</span>
-              <label class="field-switch-item">
+              <label class="field-switch-item" :class="{ 'is-disabled': isFieldDisabled('title') }">
                 <magic-switch
                   :checked="isFieldActive('title')"
+                  :disabled="isFieldDisabled('title')"
                   size="small"
                   @change="(e) => toggleField('title', e.detail.value)"
                 />
-                <span>标题</span>
+                <span @click="handleLabelClick('title')">标题</span>
               </label>
-              <label class="field-switch-item">
+              <label
+                class="field-switch-item"
+                :class="{ 'is-disabled': isFieldDisabled('author') }"
+              >
                 <magic-switch
                   :checked="isFieldActive('author')"
+                  :disabled="isFieldDisabled('author')"
                   size="small"
                   @change="(e) => toggleField('author', e.detail.value)"
                 />
-                <span>UP主</span>
+                <span @click="handleLabelClick('author')">UP主</span>
               </label>
             </div>
           </div>
@@ -204,18 +209,28 @@ function isFieldActive(field) {
   return formData.value.filterFields.includes(field);
 }
 
+function isFieldDisabled(field) {
+  return isFieldActive(field) && formData.value.filterFields.length <= 1;
+}
+
+function handleLabelClick(field) {
+  if (isFieldDisabled(field)) return;
+  toggleField(field, !isFieldActive(field));
+}
+
 function toggleField(field, enabled) {
+  if (!enabled && isFieldDisabled(field)) {
+    return;
+  }
   const set = new Set(formData.value.filterFields);
   if (enabled) {
     set.add(field);
   } else {
     set.delete(field);
   }
-  if (set.size === 0) {
-    toast.warning('至少需要选择一个匹配范围');
-    return;
+  if (set.size > 0) {
+    formData.value.filterFields = Array.from(set);
   }
-  formData.value.filterFields = Array.from(set);
 }
 
 function parseBulkKeywords(text) {
@@ -292,6 +307,11 @@ function handleCancel() {
 }
 
 function handleSave() {
+  if (!formData.value.filterFields || formData.value.filterFields.length === 0) {
+    toast.warning('至少需要选择一个匹配范围');
+    return;
+  }
+
   if (isBulkMode.value) {
     formData.value.whitelistKeywords = parseBulkKeywords(bulkText.value);
     isBulkMode.value = false;

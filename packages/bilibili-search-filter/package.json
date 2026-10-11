@@ -2,7 +2,7 @@
   "name": "bilibili-search-filter",
   "version": "0.0.1",
   "private": true,
-  "description": "B站搜索结果过滤增强脚本",
+  "description": "B站 视频搜索结果过滤",
   "main": "main.js",
   "author": "kingsley",
   "type": "module",
