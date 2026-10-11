@@ -19,6 +19,7 @@
 | :------------------------------------------------------------------------------ | :-------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
 | [`bilibili-playlist-enhancer`](./packages/bilibili-playlist-enhancer/README.md) | B站播放列表增强助手，支持视频排序、智能随机、搜索与快捷键 | [安装](https://raw.githubusercontent.com/niceKingsley/magic-monkey/main/dist/bilibili-playlist-enhancer.user.js) |
 | [`bilibili-danmaku-filter`](./packages/bilibili-danmaku-filter/README.md)       | B站弹幕过滤助手，支持视频和直播相似弹幕合并与防刷屏       | [安装](https://raw.githubusercontent.com/niceKingsley/magic-monkey/main/dist/bilibili-danmaku-filter.user.js)    |
+| [`bilibili-search-filter`](./packages/bilibili-search-filter/README.md)         | B站过滤搜索结果中的无关视频                               | [安装](https://raw.githubusercontent.com/niceKingsley/magic-monkey/main/dist/bilibili-search-filter.user.js)     |
 
 ---
 
