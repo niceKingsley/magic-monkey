@@ -1,0 +1,111 @@
+:host {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  font-family: inherit;
+  width: 100%;
+}
+
+:host([block]) {
+  display: block;
+  width: 100%;
+}
+
+.magic-textarea {
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: bottom;
+  font-size: 14px;
+
+  &--small {
+    font-size: 12px;
+
+    .magic-textarea__inner {
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+  }
+
+  &--medium {
+    font-size: 14px;
+
+    .magic-textarea__inner {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  }
+
+  &--large {
+    font-size: 16px;
+
+    .magic-textarea__inner {
+      padding: 10px 16px;
+      font-size: 16px;
+    }
+  }
+
+  &__inner {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    line-height: 1.5;
+    border-radius: var(--magic-textarea-radius, 6px);
+    background: var(--magic-textarea-bg, rgba(255, 255, 255, 0.08));
+    border: 1px solid var(--magic-textarea-border, rgba(255, 255, 255, 0.15));
+    color: var(--magic-textarea-color, #e5e9ef);
+    outline: none;
+    transition:
+      border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      background 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &::placeholder {
+      color: var(--magic-textarea-placeholder-color, #9499a0);
+    }
+
+    &:hover:not(:disabled):not([readonly]) {
+      border-color: var(--magic-textarea-hover-border, rgba(255, 255, 255, 0.25));
+      background: var(--magic-textarea-hover-bg, rgba(255, 255, 255, 0.12));
+    }
+
+    &:focus {
+      border-color: var(--magic-textarea-focus-border, var(--magic-primary-color));
+      background: var(--magic-textarea-focus-bg, rgba(255, 255, 255, 0.1));
+      box-shadow: var(--magic-textarea-focus-shadow, var(--magic-primary-focus-shadow));
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.35);
+      }
+    }
+  }
+
+  &__count {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-top: 4px;
+    color: var(--magic-textarea-count-color, #9499a0);
+    user-select: none;
+  }
+}

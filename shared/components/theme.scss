@@ -85,6 +85,18 @@
   --magic-input-clear-color: var(--magic-text-tertiary);
   --magic-input-clear-hover-color: var(--magic-text-primary);
 
+  --magic-textarea-radius: var(--magic-radius-base);
+  --magic-textarea-bg: var(--magic-bg-subtle);
+  --magic-textarea-border: var(--magic-border-color);
+  --magic-textarea-color: var(--magic-text-primary);
+  --magic-textarea-hover-border: var(--magic-border-color-hover);
+  --magic-textarea-hover-bg: var(--magic-bg-hover);
+  --magic-textarea-focus-border: var(--magic-primary-color);
+  --magic-textarea-focus-bg: var(--magic-bg-subtle);
+  --magic-textarea-focus-shadow: var(--magic-primary-focus-shadow);
+  --magic-textarea-placeholder-color: var(--magic-text-tertiary);
+  --magic-textarea-count-color: var(--magic-text-tertiary);
+
   --magic-select-bg: var(--magic-bg-subtle);
   --magic-select-color: var(--magic-text-primary);
   --magic-select-border: var(--magic-border-color);

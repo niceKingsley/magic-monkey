@@ -15,6 +15,7 @@
     "./input": "./input/index.js",
     "./tabs": "./tabs/index.js",
     "./slider": "./slider/index.js",
+    "./textarea": "./textarea/index.js",
     "./version": "./version/index.js",
     "./theme": "./theme.js",
     "./theme.css": "./theme.scss"
