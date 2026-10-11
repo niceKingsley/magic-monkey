@@ -1,4 +1,4 @@
-import { isFunction } from './types';
+import { isFunction, isString } from './types';
 
 //  获取当前页面的所有参数对象
 export function getUrlParams() {
@@ -8,6 +8,26 @@ export function getUrlParams() {
   }
 
   return Object.fromEntries(new URLSearchParams(queryString));
+}
+
+/**
+ * 获取指定 URL 或当前页面的路径分段列表
+ */
+export function getPathSegments(url) {
+  let pathname = '';
+
+  if (isString(url)) {
+    try {
+      const base = typeof window !== 'undefined' ? window.location.origin : undefined;
+      pathname = new URL(url, base).pathname;
+    } catch {
+      pathname = '';
+    }
+  } else if (typeof window !== 'undefined') {
+    pathname = window.location.pathname;
+  }
+
+  return pathname.split('/').filter(Boolean);
 }
 
 const urlChangeListeners = new Set();
