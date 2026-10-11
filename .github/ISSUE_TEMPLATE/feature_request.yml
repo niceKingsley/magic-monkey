@@ -13,7 +13,9 @@ body:
     attributes:
       label: 建议涉及的脚本
       options:
-        - bilibili-playlist-enhancer (B站播放列表增强)
+        - bilibili-playlist-enhancer（播放列表增强）
+        - bilibili-danmaku-filter（视频/直播弹幕过滤）
+        - bilibili-search-filter（视频搜索过滤）
         - 其他
     validations:
       required: true
