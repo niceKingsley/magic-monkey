@@ -1,0 +1,40 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: -0.15em;
+  color: inherit;
+  width: var(--magic-icon-size, 1em);
+  height: var(--magic-icon-size, 1em);
+}
+
+.magic-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--magic-icon-color, currentColor);
+  transition: transform 0.2s ease;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+  }
+
+  &.is-spin svg {
+    animation: magic-icon-spin 1s linear infinite;
+  }
+}
+
+@keyframes magic-icon-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

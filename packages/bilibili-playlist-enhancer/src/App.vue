@@ -33,7 +33,7 @@
           class="shuffle-btn"
           @click.stop="handleShuffleClick"
         >
-          <SvgIcon name="shuffle" />
+          <magic-icon class="icon" name="shuffle" />
         </div>
         <div
           :class="{ 'is-active': isSearchOpen }"
@@ -41,10 +41,10 @@
           title="搜索视频"
           @click.stop="toggleSearch"
         >
-          <SvgIcon name="search" />
+          <magic-icon class="icon" name="search" />
         </div>
         <div class="settings-btn" :title="settingsTooltip" @click.stop="handleOpenSettings">
-          <SvgIcon name="settings" />
+          <magic-icon class="icon" name="settings" />
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
           @mouseenter="openSectionDropdown"
           @mouseleave="handleBtnMouseLeave"
         >
-          <SvgIcon name="expand" />
+          <magic-icon class="icon" name="expand" />
         </div>
       </magic-tabs>
 
@@ -98,7 +98,7 @@
         @input="handleKeywordInput"
         @keydown.esc.stop="closeSearch"
       >
-        <SvgIcon slot="prefix" class="search-prefix-icon" name="search" />
+        <magic-icon slot="prefix" class="search-prefix-icon icon" name="search" />
         <span v-if="hasSearchQuery" slot="suffix" class="match-badge">
           {{ matchCount > 0 ? `${matchCount} 个结果` : '无结果' }}
         </span>
@@ -161,7 +161,7 @@
                   class="expand"
                   @click.stop="toggleAccordion(group.bvid)"
                 >
-                  <SvgIcon name="expand" />
+                  <magic-icon class="icon" name="expand" />
                 </div>
                 <div v-else-if="group.episodes?.[0]?.duration" class="expand-duration">
                   {{ group.episodes[0].duration }}
@@ -190,15 +190,15 @@
                 </div>
                 <div class="stats">
                   <div class="stat-item views">
-                    <SvgIcon name="views" />
+                    <magic-icon class="icon" name="views" />
                     <span class="count-text views-text">{{ group.views }}</span>
                   </div>
                   <div class="stat-item danmaku">
-                    <SvgIcon name="danmaku" />
+                    <magic-icon class="icon" name="danmaku" />
                     <span class="count-text danmaku-text">{{ group.danmakus }}</span>
                   </div>
                   <div class="stat-item pubdate">
-                    <SvgIcon name="pubdate" />
+                    <magic-icon class="icon" name="pubdate" />
                     <span :title="group.pubdate" class="count-text pubdate-text">{{
                       group.pubdate
                     }}</span>
@@ -212,7 +212,7 @@
                     class="stat-item expand-btn expand"
                     @click.stop="toggleAccordion(group.bvid)"
                   >
-                    <SvgIcon name="expand" />
+                    <magic-icon class="icon" name="expand" />
                   </div>
                 </div>
               </div>
@@ -280,7 +280,7 @@ import '@shared/components/spinner';
 import '@shared/components/switch';
 import '@shared/components/select';
 import '@shared/components/input';
-import SvgIcon from './components/SvgIcon';
+import '@shared/components/icon';
 import SettingsModal from './components/SettingsModal';
 import { toast } from '@shared/components/toast/index';
 

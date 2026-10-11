@@ -16,7 +16,7 @@
         <!-- 自动切集规则 -->
         <div class="settings-section">
           <div class="settings-section__title">
-            <SvgIcon class="section-icon" name="play" />
+            <magic-icon class="section-icon" name="play" />
             <span>自动切集</span>
           </div>
 
@@ -136,7 +136,7 @@
 
         <div class="settings-section">
           <div class="settings-section__title">
-            <SvgIcon class="section-icon" name="list" />
+            <magic-icon class="section-icon" name="list" />
             <span>界面交互</span>
           </div>
 
@@ -220,7 +220,7 @@ import {
 } from '@/constants';
 import { useSettings } from '@/composables/useSettings';
 import { formatKeyboardKey } from '@/composables/usePodHotkeys';
-import SvgIcon from '../SvgIcon';
+import '@shared/components/icon';
 
 const props = defineProps({
   visible: {

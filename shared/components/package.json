@@ -17,6 +17,7 @@
     "./slider": "./slider/index.js",
     "./textarea": "./textarea/index.js",
     "./version": "./version/index.js",
+    "./icon": "./icon/index.js",
     "./theme": "./theme.js",
     "./theme.css": "./theme.scss"
   },
