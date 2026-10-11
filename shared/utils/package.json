@@ -2,5 +2,6 @@
   "name": "@shared/utils",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module"
+  "type": "module",
+  "sideEffects": false
 }
