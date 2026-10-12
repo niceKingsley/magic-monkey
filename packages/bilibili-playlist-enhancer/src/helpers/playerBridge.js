@@ -5,7 +5,9 @@ import { isFunction, on } from '@shared/utils';
  * 向上遍历获取原生播放列表挂载的 Vue 实例
  */
 function getNativeInnerVm() {
-  let vm = document.querySelector('.multip-list-item-inner')?.__vue__;
+  let vm =
+    document.querySelector('.multip-list-item-inner')?.__vue__ ??
+    document.querySelector('.singlep-list-item-inner')?.__vue__;
 
   let switchVideoVm = null;
   let playlistRouteVm = null;
