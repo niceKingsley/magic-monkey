@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili-playlist-enhancer
 // @namespace    https://github.com/niceKingsley/magic-monkey
-// @version      1.2.2
+// @version      1.2.3
 // @author       kingsley
 // @description  bilibili 播放列表/选集/合集增强助手
 // @license      GPL-3.0-or-later
@@ -15,7 +15,6 @@
 // @grant        GM_addStyle
 // @grant        GM_deleteValue
 // @grant        GM_getValue
-// @grant        GM_info
 // @grant        GM_listValues
 // @grant        GM_setValue
 // @grant        GM_xmlhttpRequest
@@ -462,9 +461,8 @@
         : { once: true },
     );
   }
-  globalThis.unsafeWindow || globalThis.window;
   var name = 'bilibili-playlist-enhancer';
-  var version = '1.2.2';
+  var version = '1.2.3';
   var POD_MODE = {
     LIST: 'LIST',
     CARD: 'CARD',
@@ -574,7 +572,9 @@
     },
   ];
   function getNativeInnerVm() {
-    let vm = document.querySelector('.multip-list-item-inner')?.__vue__;
+    let vm =
+      document.querySelector('.multip-list-item-inner')?.__vue__ ??
+      document.querySelector('.singlep-list-item-inner')?.__vue__;
     let switchVideoVm = null;
     let playlistRouteVm = null;
     while (vm) {
@@ -4578,8 +4578,7 @@
       this.size = 'small';
     }
     get displayVersion() {
-      let ver = (this.version || '').trim();
-      if (!ver && typeof GM_info !== 'undefined') ver = (GM_info?.script?.version || '').trim();
+      const ver = (this.version || '').trim();
       if (!ver) return '';
       const p = this.prefix != null ? this.prefix : 'v';
       if (!p) return ver;
