@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili-search-filter
 // @namespace    https://github.com/niceKingsley/magic-monkey
-// @version      1.0.0
+// @version      1.0.1
 // @author       kingsley
 // @description  B站 视频搜索结果过滤
 // @license      GPL-3.0-or-later
@@ -2529,7 +2529,7 @@
   };
   if (!customElements.get('magic-version')) customElements.define('magic-version', MagicVersion);
   var name = 'bilibili-search-filter';
-  var version = '1.0.0';
+  var version = '1.0.1';
   var DEFAULT_CONFIG = {
     enableListFilter: true,
     enableRestoredCardOpacity: true,
