@@ -4,6 +4,7 @@
 // @version      1.0.0
 // @author       kingsley
 // @description  B站 视频搜索结果过滤
+// @license      GPL-3.0-or-later
 // @icon         https://static.hdslb.com/images/favicon.ico
 // @homepageURL  https://github.com/niceKingsley/magic-monkey
 // @supportURL   https://github.com/niceKingsley/magic-monkey/issues
