@@ -1,83 +1,59 @@
-import { getPathSegments, observeUrlChange, on, once, waitElement } from '@shared/utils';
+import { getPathSegments, observeUrlChange, on, waitElement } from '@shared/utils';
+
+const ATTR = 'data-magic-auto-expand';
+const isMatchPath = (type) => ['all', 'video'].some((key) => type.includes(key));
 
 let unbindClick = null;
 
-const isMatchPath = (type) => ['all', 'video'].some((key) => type.includes(key));
-const reflow = (el) => el?.offsetHeight;
-
-function animateHeight(el, expanded) {
-  el.style.height = `${el.scrollHeight}px`;
-  if (expanded) {
-    once(el, 'transitionend', () => {
-      el.classList.add('is-expanded');
-      el.style.height = '';
-    });
+function setAutoExpand(enable) {
+  if (enable) {
+    document.documentElement.setAttribute(ATTR, 'true');
   } else {
-    el.classList.remove('is-expanded');
-    reflow(el);
-    el.style.height = '0';
+    document.documentElement.removeAttribute(ATTR);
   }
 }
 
 function useAutoExpandFilter(config) {
   const currentType = ref('');
-  const currentExpand = ref(false);
 
-  const cleanup = () => {
-    currentType.value = '';
-    unbindClick?.();
-    unbindClick = null;
+  const onExpandClick = (e) => {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    const isExpanded = document.documentElement.getAttribute(ATTR) === 'true';
+    document.documentElement.setAttribute(ATTR, isExpanded ? 'false' : 'true');
   };
 
-  const setExpanded = (expanded, animated = false) => {
-    const conditions = document.querySelector('.more-conditions');
-    if (!conditions) return;
-
-    currentExpand.value = expanded;
-    document.querySelector('.search-conditions svg')?.classList.toggle('rotate_n90', expanded);
-
-    if (animated) {
-      animateHeight(conditions, expanded);
-      return;
-    }
-
-    conditions.classList.toggle('is-expanded', expanded);
-    conditions.style.height = expanded ? '' : '0';
-  };
-
-  const onExpandClick = (event) => {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    setExpanded(!currentExpand.value, true);
-  };
-
-  const autoExpand = async () => {
+  const bindButton = async () => {
     const expandEl = await waitElement('.i_button_more');
     if (!unbindClick) unbindClick = on(expandEl, 'click', onExpandClick, true);
-    setExpanded(true, false);
   };
 
   const checkedExpand = () => {
     if (!config.value?.autoExpandMoreFilter) {
-      cleanup();
-      if (currentExpand.value) setExpanded(false, true);
+      currentType.value = '';
+      setAutoExpand(false);
+      unbindClick?.();
+      unbindClick = null;
       return;
     }
 
     const [type] = getPathSegments();
     if (!isMatchPath(type)) {
-      cleanup();
+      currentType.value = '';
+      setAutoExpand(false);
+      unbindClick?.();
+      unbindClick = null;
       return;
     }
 
-    if (currentType.value === type && currentExpand.value) return;
+    if (currentType.value === type) return;
 
     currentType.value = type;
-    void autoExpand();
+    setAutoExpand(true);
+    void bindButton();
   };
 
   onMounted(() => observeUrlChange(checkedExpand));
-  onUnmounted(cleanup);
   watch(() => config.value?.autoExpandMoreFilter, checkedExpand, { immediate: true });
 }
 

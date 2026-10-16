@@ -45,13 +45,18 @@
   }
 }
 
-.more-conditions {
-  display: block !important;
-  overflow: hidden;
-  height: 0;
-  transition: height 0.2s ease;
+html[data-magic-auto-expand='false'] .more-conditions {
+  display: none !important;
+}
 
-  &.is-expanded {
+html[data-magic-auto-expand='true'] {
+  .more-conditions {
+    display: block !important;
     height: auto !important;
+    overflow: visible !important;
+  }
+
+  .search-conditions svg {
+    transform: rotate(90deg) !important;
   }
 }
