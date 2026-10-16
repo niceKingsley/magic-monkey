@@ -1,4 +1,4 @@
-import { CTRL_ACTION } from '@/constants';
+import { CTRL_ACTION, POD_TYPE } from '@/constants';
 import {
   interceptPlayerControls,
   interceptPlayerEnding,
@@ -116,9 +116,13 @@ export function useVideoPod() {
    */
   const isPlaybackEndReached = () => {
     if (settings.shuffle) return false;
-    return (
-      currentPlaying.value?.isLast || (settings.stopOnGroupEnd && currentPlaying.value?.isGroupLast)
-    );
+    const shouldStopOnGroup =
+      podType.value === POD_TYPE.COLLECTION &&
+      settings.stopOnGroupEnd &&
+      currentPlaying.value?.group?.isMultiPage &&
+      currentPlaying.value?.isGroupLast;
+
+    return currentPlaying.value?.isLast || shouldStopOnGroup;
   };
 
   /**
