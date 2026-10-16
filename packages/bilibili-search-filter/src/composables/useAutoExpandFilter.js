@@ -2,86 +2,83 @@ import { getPathSegments, observeUrlChange, on, once, waitElement } from '@share
 
 let unbindClick = null;
 
-function reflow(element) {
-  return element?.offsetHeight;
+const isMatchPath = (type) => ['all', 'video'].some((key) => type.includes(key));
+const reflow = (el) => el?.offsetHeight;
+
+function animateHeight(el, expanded) {
+  el.style.height = `${el.scrollHeight}px`;
+  if (expanded) {
+    once(el, 'transitionend', () => {
+      el.classList.add('is-expanded');
+      el.style.height = '';
+    });
+  } else {
+    el.classList.remove('is-expanded');
+    reflow(el);
+    el.style.height = '0';
+  }
 }
 
 function useAutoExpandFilter(config) {
   const currentType = ref('');
   const currentExpand = ref(false);
 
-  const toggleActive = () => {
-    const svgEL = document.querySelector('.search-conditions svg');
+  const cleanup = () => {
+    currentType.value = '';
+    unbindClick?.();
+    unbindClick = null;
+  };
+
+  const setExpanded = (expanded, animated = false) => {
     const conditions = document.querySelector('.more-conditions');
     if (!conditions) return;
 
-    if (currentExpand.value) {
-      svgEL?.classList.remove('rotate_n90');
-      conditions.style.height = `${conditions.scrollHeight}px`;
-      reflow(conditions);
-      conditions.style.height = '0';
-      currentExpand.value = false;
-    } else {
-      svgEL?.classList.add('rotate_n90');
-      conditions.style.height = `${conditions.scrollHeight}px`;
-      currentExpand.value = true;
+    currentExpand.value = expanded;
+    document.querySelector('.search-conditions svg')?.classList.toggle('rotate_n90', expanded);
 
-      once(conditions, 'transitionend', () => {
-        if (currentExpand.value) {
-          conditions.style.height = 'auto';
-        }
-      });
+    if (animated) {
+      animateHeight(conditions, expanded);
+      return;
     }
+
+    conditions.classList.toggle('is-expanded', expanded);
+    conditions.style.height = expanded ? '' : '0';
   };
 
   const onExpandClick = (event) => {
     event.preventDefault();
     event.stopImmediatePropagation();
-    toggleActive();
-  };
-
-  const checkedExpand = () => {
-    if (!config.value?.autoExpandMoreFilter) {
-      currentType.value = '';
-      unbindClick?.();
-      unbindClick = null;
-      return;
-    }
-
-    const [type] = getPathSegments();
-    const flag = ['all', 'video'].some((item) => type.includes(item));
-    if (!flag) {
-      unbindClick?.();
-      unbindClick = null;
-      currentType.value = '';
-      return;
-    }
-
-    if (currentType.value === type) {
-      return;
-    } else {
-      currentType.value = type;
-    }
-    currentExpand.value = false;
-    void autoExpand();
+    setExpanded(!currentExpand.value, true);
   };
 
   const autoExpand = async () => {
     const expandEl = await waitElement('.i_button_more');
     if (!unbindClick) unbindClick = on(expandEl, 'click', onExpandClick, true);
-    toggleActive();
+    setExpanded(true, false);
+  };
+
+  const checkedExpand = () => {
+    if (!config.value?.autoExpandMoreFilter) {
+      cleanup();
+      if (currentExpand.value) setExpanded(false, true);
+      return;
+    }
+
+    const [type] = getPathSegments();
+    if (!isMatchPath(type)) {
+      cleanup();
+      return;
+    }
+
+    if (currentType.value === type && currentExpand.value) return;
+
+    currentType.value = type;
+    void autoExpand();
   };
 
   onMounted(() => observeUrlChange(checkedExpand));
-  watch(
-    () => config.value?.autoExpandMoreFilter,
-    () => {
-      checkedExpand();
-    },
-    {
-      immediate: true,
-    },
-  );
+  onUnmounted(cleanup);
+  watch(() => config.value?.autoExpandMoreFilter, checkedExpand, { immediate: true });
 }
 
 export default useAutoExpandFilter;

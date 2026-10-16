@@ -50,4 +50,8 @@
   overflow: hidden;
   height: 0;
   transition: height 0.2s ease;
+
+  &.is-expanded {
+    height: auto !important;
+  }
 }

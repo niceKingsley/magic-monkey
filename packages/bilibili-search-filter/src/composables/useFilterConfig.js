@@ -65,7 +65,7 @@ export function useFilterConfig() {
     try {
       storage.set(SCRIPT_VERSION, merged);
     } catch (err) {
-      console.warn('[bilibili-search-filter] 保存配置失败:', err);
+      console.error('[bilibili-search-filter] 保存配置失败:', err);
     }
 
     configState.value = merged;
@@ -77,7 +77,7 @@ export function useFilterConfig() {
     try {
       storage.set(SCRIPT_VERSION, defaults);
     } catch (err) {
-      console.warn('[bilibili-search-filter] 重置配置失败:', err);
+      console.error('[bilibili-search-filter] 重置配置失败:', err);
     }
     configState.value = defaults;
     return defaults;
