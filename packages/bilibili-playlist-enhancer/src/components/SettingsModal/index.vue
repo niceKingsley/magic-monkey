@@ -94,19 +94,11 @@
                 <div class="settings-item__desc">点击按键录制自定义键位</div>
               </div>
               <div class="settings-item__action">
-                <button
-                  :class="{ 'is-recording': recordingField === 'hotkeyPrev' }"
-                  class="hotkey-badge"
-                  type="button"
-                  @click="startRecording('hotkeyPrev')"
-                  @keydown.stop.prevent="(e) => handleRecordKey('hotkeyPrev', e)"
-                >
-                  {{
-                    recordingField === 'hotkeyPrev'
-                      ? '请按按键...'
-                      : formData.hotkeyPrev || '未设置'
-                  }}
-                </button>
+                <magic-hotkey
+                  :value="formData.hotkeyPrev"
+                  size="small"
+                  @change="(e) => handleHotkeyChange('hotkeyPrev', e)"
+                />
               </div>
             </div>
 
@@ -116,19 +108,11 @@
                 <div class="settings-item__desc">点击按键录制自定义键位</div>
               </div>
               <div class="settings-item__action">
-                <button
-                  :class="{ 'is-recording': recordingField === 'hotkeyNext' }"
-                  class="hotkey-badge"
-                  type="button"
-                  @click="startRecording('hotkeyNext')"
-                  @keydown.stop.prevent="(e) => handleRecordKey('hotkeyNext', e)"
-                >
-                  {{
-                    recordingField === 'hotkeyNext'
-                      ? '请按按键...'
-                      : formData.hotkeyNext || '未设置'
-                  }}
-                </button>
+                <magic-hotkey
+                  :value="formData.hotkeyNext"
+                  size="small"
+                  @change="(e) => handleHotkeyChange('hotkeyNext', e)"
+                />
               </div>
             </div>
           </div>
@@ -212,6 +196,7 @@ import '@shared/components/switch';
 import '@shared/components/radio';
 import '@shared/components/button';
 import '@shared/components/version';
+import '@shared/components/hotkey';
 import {
   DEFAULT_SETTINGS,
   STORAGE_NAMESPACE,
@@ -219,7 +204,6 @@ import {
   SHUFFLE_SCOPE_OPTIONS,
 } from '@/constants';
 import { useSettings } from '@/composables/useSettings';
-import { formatKeyboardKey } from '@/composables/usePodHotkeys';
 import '@shared/components/icon';
 
 const props = defineProps({
@@ -239,35 +223,25 @@ const emit = defineEmits(['close', 'update:visible']);
 
 const { settings, updateSettings } = useSettings();
 const formData = ref({ ...settings });
-const recordingField = ref('');
 
 watch(
   () => props.visible,
   (val) => {
     if (val) {
       formData.value = { ...settings };
-      recordingField.value = '';
     }
   },
   { immediate: true },
 );
 
-const startRecording = (field) => {
-  recordingField.value = field;
-};
-
-const handleRecordKey = (field, event) => {
-  if (event.key === 'Escape') {
-    recordingField.value = '';
-    return;
-  }
-
-  const keyString = formatKeyboardKey(event);
-  if (!keyString) return;
-
+const handleHotkeyChange = (field, event) => {
+  const keyString = event.detail.value;
   formData.value[field] = keyString;
-  recordingField.value = '';
-  toast.success(`已设置快捷键为: ${keyString}`);
+  if (keyString) {
+    toast.success(`已设置快捷键为: ${keyString}`);
+  } else {
+    toast.info('已清除快捷键');
+  }
 };
 
 const handleChange = (key, event) => {
@@ -276,13 +250,11 @@ const handleChange = (key, event) => {
 
 const handleResetDefaults = () => {
   formData.value = { ...DEFAULT_SETTINGS };
-  recordingField.value = '';
   toast.info('已恢复为默认设置');
 };
 
 const handleCancel = () => {
   formData.value = { ...settings };
-  recordingField.value = '';
   emit('update:visible', false);
   emit('close');
 };
