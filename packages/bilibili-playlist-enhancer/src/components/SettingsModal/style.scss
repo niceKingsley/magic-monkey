@@ -85,49 +85,6 @@
     display: flex;
     align-items: center;
     flex-shrink: 0;
-
-    .hotkey-badge {
-      min-width: 80px;
-      height: 28px;
-      padding: 0 10px;
-      border-radius: 6px;
-      border: 1px solid var(--magic-border-color, var(--line_regular));
-      background: var(--magic-bg-subtle, var(--graph_bg_thin));
-      color: var(--magic-primary-color, var(--brand_blue));
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      outline: none;
-      user-select: none;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-
-      &:hover {
-        background: var(--magic-primary-light-bg, var(--brand_blue_thin));
-        border-color: var(--magic-primary-color, var(--brand_blue));
-      }
-
-      &.is-recording {
-        background: var(--magic-primary-color, var(--brand_blue));
-        border-color: var(--magic-primary-color, var(--brand_blue));
-        color: #fff;
-        box-shadow: 0 0 0 3px var(--magic-primary-focus-shadow, rgba(0, 174, 236, 0.25));
-        animation: tk-hotkey-pulse 1.2s infinite ease-in-out;
-      }
-    }
-  }
-}
-
-@keyframes tk-hotkey-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
   }
 }
 

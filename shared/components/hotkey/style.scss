@@ -1,0 +1,110 @@
+:host {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+:host([block]) {
+  display: flex;
+  width: 100%;
+}
+
+.magic-hotkey {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 6px;
+  border: 1px solid var(--magic-border-color, var(--line_regular, #e3e5e7));
+  background: var(--magic-bg-subtle, var(--graph_bg_thin, #f6f7f8));
+  color: var(--magic-primary-color, var(--brand_blue, #00aeec));
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &--small {
+    min-width: 72px;
+    height: 26px;
+    padding: 0 8px;
+    font-size: 11.5px;
+  }
+
+  &--medium {
+    min-width: 80px;
+    height: 30px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  &--large {
+    min-width: 90px;
+    height: 36px;
+    padding: 0 14px;
+    font-size: 13.5px;
+  }
+
+  &:hover:not(.is-disabled):not(.is-recording) {
+    background: var(--magic-primary-light-bg, var(--brand_blue_thin, rgba(0, 174, 236, 0.1)));
+    border-color: var(--magic-primary-color, var(--brand_blue, #00aeec));
+  }
+
+  &.is-recording {
+    background: var(--magic-primary-color, var(--brand_blue, #00aeec));
+    border-color: var(--magic-primary-color, var(--brand_blue, #00aeec));
+    color: #fff;
+    box-shadow: 0 0 0 3px var(--magic-primary-focus-shadow, rgba(0, 174, 236, 0.25));
+    animation: magic-hotkey-pulse 1.2s infinite ease-in-out;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background: var(--magic-bg-subtle, #f6f7f8);
+    border-color: var(--magic-border-color, #e3e5e7);
+    color: var(--magic-text-tertiary, #9499a0);
+    box-shadow: none !important;
+  }
+
+  &__content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  &__clear {
+    margin-left: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: currentColor;
+    opacity: 0.6;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes magic-hotkey-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}

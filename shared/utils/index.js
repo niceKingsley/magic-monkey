@@ -9,3 +9,4 @@ export * from './url';
 export * from './event';
 export * from './interceptor';
 export * from './regex';
+export * from './hotkey';

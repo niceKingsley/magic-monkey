@@ -19,7 +19,8 @@
     "./version": "./version/index.js",
     "./icon": "./icon/index.js",
     "./theme": "./theme.js",
-    "./theme.css": "./theme.scss"
+    "./theme.css": "./theme.scss",
+    "./hotkey": "./hotkey/index.js"
   },
   "dependencies": {
     "@shared/utils": "workspace:*",
