@@ -105,6 +105,40 @@
 
         <div class="settings-section">
           <div class="settings-section__title">
+            <span>翻页快捷键</span>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-item">
+              <div class="settings-item__info">
+                <div class="settings-item__title">上一页快捷键</div>
+                <div class="settings-item__desc">按快捷键切换到搜索结果上一页</div>
+              </div>
+              <magic-hotkey
+                :value="formData.hotkeyPrevPage"
+                clearable
+                size="small"
+                @change="(e) => (formData.hotkeyPrevPage = e.detail.value)"
+              />
+            </div>
+
+            <div class="settings-item">
+              <div class="settings-item__info">
+                <div class="settings-item__title">下一页快捷键</div>
+                <div class="settings-item__desc">按快捷键切换到搜索结果下一页</div>
+              </div>
+              <magic-hotkey
+                :value="formData.hotkeyNextPage"
+                clearable
+                size="small"
+                @change="(e) => (formData.hotkeyNextPage = e.detail.value)"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-section__title">
             <span>关键词白名单</span>
           </div>
 
@@ -179,6 +213,7 @@
 
 <script setup>
 import '@shared/components/button';
+import '@shared/components/hotkey';
 import '@shared/components/input';
 import { modal } from '@shared/components/modal';
 import '@shared/components/switch';

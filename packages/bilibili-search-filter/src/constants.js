@@ -7,6 +7,8 @@ export const DEFAULT_CONFIG = {
   autoExpandMoreFilter: false,
   filterFields: ['title', 'author'],
   whitelistKeywords: [],
+  hotkeyPrevPage: 'ArrowLeft',
+  hotkeyNextPage: 'ArrowRight',
 };
 
 export const FILTER_FIELD_SELECTORS = {

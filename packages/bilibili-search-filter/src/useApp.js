@@ -2,6 +2,7 @@ import { isFunction } from '@shared/utils';
 import useAutoExpandFilter from './composables/useAutoExpandFilter';
 import { useCardFilter } from './composables/useCardFilter';
 import { useFilterConfig } from './composables/useFilterConfig';
+import { usePaginationHotkeys } from './composables/usePaginationHotkeys';
 
 export function useApp() {
   const isSettingsOpen = ref(false);
@@ -9,6 +10,7 @@ export function useApp() {
   const { teleportTarget, isShowingAll, filteredCards, matchedCards, toggleRestore } =
     useCardFilter(config);
   useAutoExpandFilter(config);
+  usePaginationHotkeys(config);
 
   function openSettings() {
     isSettingsOpen.value = true;

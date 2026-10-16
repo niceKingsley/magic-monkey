@@ -36,6 +36,14 @@ function readStoredConfig() {
       ...raw,
       filterFields: normalizeFilterFields(raw.filterFields),
       whitelistKeywords: normalizeWhitelist(raw.whitelistKeywords),
+      hotkeyPrevPage:
+        isString(raw.hotkeyPrevPage) && raw.hotkeyPrevPage !== '['
+          ? raw.hotkeyPrevPage
+          : DEFAULT_CONFIG.hotkeyPrevPage,
+      hotkeyNextPage:
+        isString(raw.hotkeyNextPage) && raw.hotkeyNextPage !== ']'
+          ? raw.hotkeyNextPage
+          : DEFAULT_CONFIG.hotkeyNextPage,
     };
   } catch (err) {
     console.warn('[bilibili-search-filter] 读取配置失败，采用默认值:', err);
