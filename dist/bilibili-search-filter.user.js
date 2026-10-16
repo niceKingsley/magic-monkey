@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili-search-filter
 // @namespace    https://github.com/niceKingsley/magic-monkey
-// @version      1.0.1
+// @version      1.1.0
 // @author       kingsley
 // @description  B站 视频搜索结果过滤
 // @license      GPL-3.0-or-later
@@ -35,7 +35,7 @@
     })(t);
   };
   _css(
-    ' .bili-search-filter-bar[data-v-68c495a2]{box-sizing:border-box;background:var(--magic-filter-bar-bg,var(--magic-bg-subtle,#0000000a));-webkit-backdrop-filter:blur(14px);border:1px solid var(--magic-border-color,#00000014);width:100%;min-height:38px;color:var(--magic-text-primary,#18191c);-webkit-user-select:none;user-select:none;border-radius:8px;justify-content:space-between;align-items:center;margin:8px 0 12px;padding:6px 14px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;font-size:12px;transition:background .2s,border-color .2s,box-shadow .2s;animation:.24s cubic-bezier(.16,1,.3,1) forwards filterBarSlideDown-68c495a2;display:flex;box-shadow:0 2px 10px #0000000a}.bili-search-filter-bar[data-v-68c495a2]:hover{background:var(--magic-filter-bar-hover-bg,var(--magic-bg-hover,#0000000f));border-color:var(--magic-primary-light-bg,#00aeec4d);box-shadow:0 4px 14px #00000014}.bili-search-filter-bar.no-filtered .btn-toggle-restore[data-v-68c495a2]{opacity:.45;pointer-events:none}.bili-search-filter-bar .filter-bar-left[data-v-68c495a2]{align-items:center;gap:8px;display:flex}.bili-search-filter-bar .filter-bar-left .filter-bar-stats[data-v-68c495a2]{align-items:center;gap:6px;font-size:12px;line-height:1;display:flex}.bili-search-filter-bar .filter-bar-left .filter-bar-stats .stats-item[data-v-68c495a2]{color:var(--magic-text-secondary,#9ca3af);align-items:center;gap:4px;display:inline-flex}.bili-search-filter-bar .filter-bar-left .filter-bar-stats .stats-item.filtered .stats-num[data-v-68c495a2]{color:#f69;background:#ff66991f;border:1px solid #ff669947}.bili-search-filter-bar .filter-bar-left .filter-bar-stats .stats-item.matched .stats-num[data-v-68c495a2]{color:var(--magic-primary-color,#00aeec);background:var(--magic-primary-light-bg,#00aeec1f);border:1px solid #00aeec47}.bili-search-filter-bar .filter-bar-left .filter-bar-stats .stats-item .stats-num[data-v-68c495a2]{border-radius:8px;justify-content:center;align-items:center;min-width:16px;height:16px;padding:0 5px;font-size:11px;font-weight:600;display:inline-flex}.bili-search-filter-bar .filter-bar-left .filter-bar-stats .stats-divider[data-v-68c495a2]{color:var(--magic-border-color,#00000026);font-size:11px}.bili-search-filter-bar .filter-bar-right[data-v-68c495a2]{align-items:center;gap:8px;display:flex}.bili-search-filter-bar .filter-bar-right .btn-toggle-restore[data-v-68c495a2]{background:var(--magic-bg-subtle,#0000000a);border:1px solid var(--magic-border-color,#00000014);color:var(--magic-text-primary,#18191c);cursor:pointer;border-radius:6px;outline:none;align-items:center;gap:5px;padding:4px 10px;font-size:12px;font-weight:500;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex}.bili-search-filter-bar .filter-bar-right .btn-toggle-restore[data-v-68c495a2]:hover{background:var(--magic-primary-light-bg,#00aeec1f);border-color:var(--magic-primary-color,#00aeec);color:var(--magic-primary-color,#00aeec)}.bili-search-filter-bar .filter-bar-right .btn-toggle-restore[data-v-68c495a2]:active{transform:scale(.97)}.bili-search-filter-bar .filter-bar-right .btn-toggle-restore.is-restored[data-v-68c495a2]{color:#f69;background:#ff66991f;border-color:#ff669959}.bili-search-filter-bar .filter-bar-right .btn-toggle-restore.is-restored[data-v-68c495a2]:hover{background:#f693;border-color:#f69}.bili-search-filter-bar .filter-bar-right .btn-open-settings[data-v-68c495a2]{color:var(--magic-text-secondary,#9ca3af);cursor:pointer;background:0 0;border:1px solid #0000;border-radius:6px;outline:none;align-items:center;gap:4px;padding:4px 8px;font-size:12px;transition:all .2s;display:inline-flex}.bili-search-filter-bar .filter-bar-right .btn-open-settings[data-v-68c495a2]:hover{background:var(--magic-bg-hover,#0000000d);border-color:var(--magic-border-color,#00000014);color:var(--magic-text-primary,#18191c)}.bili-search-filter-bar .filter-bar-right .btn-open-settings[data-v-68c495a2]:active{transform:scale(.96)}@keyframes filterBarSlideDown-68c495a2{0%{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}.settings-modal-header[data-v-557d6017]{align-items:center;gap:10px;display:flex}.settings-modal-header .settings-modal-title[data-v-557d6017]{color:var(--magic-text-primary,#f3f4f6);font-size:15px;font-weight:600}.settings-container[data-v-557d6017]{box-sizing:border-box;flex-direction:column;gap:16px;max-height:560px;padding:4px 6px;display:flex;overflow-y:auto}.settings-container[data-v-557d6017]::-webkit-scrollbar{width:6px}.settings-container[data-v-557d6017]::-webkit-scrollbar-thumb{background:var(--magic-border-color,#00000026);border-radius:3px}.settings-section[data-v-557d6017]{flex-direction:column;gap:8px;display:flex}.settings-section__title[data-v-557d6017]{color:var(--magic-text-primary,#e5e7eb);justify-content:space-between;align-items:center;padding-left:2px;font-size:13px;font-weight:600;transition:color .25s;display:flex}.settings-section:hover .settings-section__title[data-v-557d6017]{color:var(--magic-primary-color,#00aeec)}.settings-card[data-v-557d6017]{background:var(--magic-bg-subtle,#00000008);border:1px solid var(--magic-border-color,#00000014);border-radius:8px;flex-direction:column;gap:10px;padding:10px 14px;transition:all .25s cubic-bezier(.16,1,.3,1);display:flex}.settings-card[data-v-557d6017]:hover{background:var(--magic-bg-hover,#0000000d);border-color:var(--magic-border-color-hover,#00aeec59);box-shadow:0 4px 14px #0000000f}.settings-item[data-v-557d6017]{justify-content:space-between;align-items:center;gap:12px;display:flex}.settings-item__info[data-v-557d6017]{flex-direction:column;gap:3px;display:flex}.settings-item__title[data-v-557d6017]{color:var(--magic-text-primary,#e5e7eb);font-size:13px;font-weight:500}.settings-item__desc[data-v-557d6017]{color:var(--magic-text-secondary,#9ca3af);font-size:12px;line-height:1.4}.field-switches[data-v-557d6017]{border-top:1px solid var(--magic-border-color,#00000014);align-items:center;gap:16px;padding-top:4px;display:flex}.field-switches .field-switch-item[data-v-557d6017]{color:var(--magic-text-primary,#d1d5db);align-items:center;gap:8px;font-size:12px;display:flex}.field-switches .field-switch-item.is-disabled[data-v-557d6017]{cursor:not-allowed;opacity:.6}.whitelist-header[data-v-557d6017]{justify-content:space-between;align-items:center;display:flex}.whitelist-title-wrap[data-v-557d6017]{color:var(--magic-text-primary,#e5e7eb);align-items:center;gap:6px;font-size:13px;font-weight:500;display:flex}.whitelist-title-wrap .whitelist-count[data-v-557d6017]{background:var(--magic-primary-light-bg,#00aeec26);min-width:18px;height:18px;color:var(--magic-primary-color,#00aeec);border-radius:9px;justify-content:center;align-items:center;padding:0 5px;font-size:11px;font-weight:600;display:inline-flex}.btn-link[data-v-557d6017]{color:var(--magic-primary-color,#00aeec);cursor:pointer;background:0 0;border:none;padding:2px 4px;font-size:12px;transition:opacity .2s}.btn-link[data-v-557d6017]:hover{opacity:.8}.whitelist-tags-wrap[data-v-557d6017]{background:var(--magic-bg-subtle,#0000000a);border:1px dashed var(--magic-border-color,#0000001f);border-radius:6px;flex-wrap:wrap;gap:6px;min-height:38px;max-height:140px;padding:6px;display:flex;overflow-y:auto}.whitelist-tags-wrap .empty-tip[data-v-557d6017]{color:var(--magic-text-secondary,#6b7280);padding:4px;font-size:12px}.whitelist-tag[data-v-557d6017]{background:var(--magic-primary-light-bg,#00aeec26);color:var(--magic-text-primary,#e5e7eb);border:1px solid #00aeec4d;border-radius:4px;align-items:center;gap:5px;padding:2px 8px;font-size:12px;display:inline-flex}.whitelist-tag .tag-remove[data-v-557d6017]{cursor:pointer;color:var(--magic-text-secondary,#9ca3af);font-size:11px;transition:color .2s}.whitelist-tag .tag-remove[data-v-557d6017]:hover{color:#f69}.whitelist-input-row[data-v-557d6017]{align-items:center;gap:8px;display:flex}.whitelist-input-row magic-input[data-v-557d6017]{flex:1}.whitelist-bulk-wrap[data-v-557d6017]{flex-direction:column;gap:8px;display:flex}.whitelist-bulk-actions[data-v-557d6017]{justify-content:space-between;align-items:center;display:flex}.whitelist-bulk-actions .whitelist-bulk-tip[data-v-557d6017]{color:var(--magic-text-secondary,#9ca3af);font-size:12px}.settings-modal-footer[data-v-557d6017]{justify-content:space-between;align-items:center;width:100%;display:flex}.settings-modal-footer .footer-right[data-v-557d6017]{align-items:center;gap:8px;display:flex}:root{--magic-primary-color:var(--brand_blue,#00aeec);--magic-primary-hover-color:var(--brand_blue_hover,color-mix(in srgb, var(--magic-primary-color) 85%, #fff));--magic-primary-active-color:var(--brand_blue_active,color-mix(in srgb, var(--magic-primary-color) 85%, #000));--magic-primary-light-bg:var(--brand_blue_thin,color-mix(in srgb, var(--magic-primary-color) 12%, transparent));--magic-text-primary:var(--text1,#18191c);--magic-text-secondary:var(--text2,#61666d);--magic-text-tertiary:var(--text3,#9499a0);--magic-text-muted:var(--text3,#9499a0);--magic-bg-base:var(--bg1,#fff);--magic-bg-container:var(--bg1,#fff);--magic-bg-component:var(--bg2,#f6f7f8);--magic-bg-subtle:var(--graph_bg_thin,var(--bg2,#f6f7f8));--magic-bg-hover:var(--line_regular,var(--bg3,#f1f2f3));--magic-bg-active:var(--line_bold,var(--bg3,#e5e6e8));--magic-border-color:var(--line_regular,#e3e5e7);--magic-border-color-hover:var(--line_bold,var(--line_regular,#c9ccd0));--magic-bg-overlay:var(--bg1_float,var(--graph_bg_regular,var(--bg1,#fff)));--magic-filter-bar-bg:var(--bg1_float,var(--graph_bg_regular,var(--bg2,#f6f7f8)));--magic-filter-bar-hover-bg:var(--bg3,#f1f2f3);--magic-modal-bg:var(--bg1_float,var(--graph_bg_regular,var(--bg1,#fff)));--magic-modal-border:var(--line_regular,#e3e5e7);--magic-modal-divider:var(--line_regular,#e3e5e7);--magic-modal-title-color:var(--text1,#18191c);--magic-modal-color:var(--text1,#18191c);--magic-modal-close-color:var(--text3,#9499a0)}.bili-magic-restored-card{opacity:.5!important;transition:opacity .2s!important;position:relative!important}.bili-magic-restored-card:hover{opacity:1!important}.more-conditions{height:0;transition:height .2s;overflow:hidden;display:block!important}\n/*$vite$:1*/ ',
+    ' .bili-search-filter-bar[data-v-68c495a2]{box-sizing:border-box;background:var(--magic-filter-bar-bg,var(--magic-bg-subtle,#0000000a));-webkit-backdrop-filter:blur(14px);border:1px solid var(--magic-border-color,#00000014);width:100%;min-height:38px;color:var(--magic-text-primary,#18191c);-webkit-user-select:none;user-select:none;border-radius:8px;justify-content:space-between;align-items:center;margin:8px 0 12px;padding:6px 14px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;font-size:12px;transition:background .2s,border-color .2s,box-shadow .2s;animation:.24s cubic-bezier(.16,1,.3,1) forwards filterBarSlideDown-68c495a2;display:flex;box-shadow:0 2px 10px #0000000a}.bili-search-filter-bar[data-v-68c495a2]:hover{background:var(--magic-filter-bar-hover-bg,var(--magic-bg-hover,#0000000f));border-color:var(--magic-primary-light-bg,#00aeec4d);box-shadow:0 4px 14px #00000014}.bili-search-filter-bar.no-filtered .btn-toggle-restore[data-v-68c495a2]{opacity:.45;pointer-events:none}.bili-search-filter-bar .filter-bar-left[data-v-68c495a2]{align-items:center;gap:8px;display:flex}.bili-search-filter-bar .filter-bar-left .filter-bar-stats[data-v-68c495a2]{align-items:center;gap:6px;font-size:12px;line-height:1;display:flex}.bili-search-filter-bar .filter-bar-left .filter-bar-stats .stats-item[data-v-68c495a2]{color:var(--magic-text-secondary,#9ca3af);align-items:center;gap:4px;display:inline-flex}.bili-search-filter-bar .filter-bar-left .filter-bar-stats .stats-item.filtered .stats-num[data-v-68c495a2]{color:#f69;background:#ff66991f;border:1px solid #ff669947}.bili-search-filter-bar .filter-bar-left .filter-bar-stats .stats-item.matched .stats-num[data-v-68c495a2]{color:var(--magic-primary-color,#00aeec);background:var(--magic-primary-light-bg,#00aeec1f);border:1px solid #00aeec47}.bili-search-filter-bar .filter-bar-left .filter-bar-stats .stats-item .stats-num[data-v-68c495a2]{border-radius:8px;justify-content:center;align-items:center;min-width:16px;height:16px;padding:0 5px;font-size:11px;font-weight:600;display:inline-flex}.bili-search-filter-bar .filter-bar-left .filter-bar-stats .stats-divider[data-v-68c495a2]{color:var(--magic-border-color,#00000026);font-size:11px}.bili-search-filter-bar .filter-bar-right[data-v-68c495a2]{align-items:center;gap:8px;display:flex}.bili-search-filter-bar .filter-bar-right .btn-toggle-restore[data-v-68c495a2]{background:var(--magic-bg-subtle,#0000000a);border:1px solid var(--magic-border-color,#00000014);color:var(--magic-text-primary,#18191c);cursor:pointer;border-radius:6px;outline:none;align-items:center;gap:5px;padding:4px 10px;font-size:12px;font-weight:500;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex}.bili-search-filter-bar .filter-bar-right .btn-toggle-restore[data-v-68c495a2]:hover{background:var(--magic-primary-light-bg,#00aeec1f);border-color:var(--magic-primary-color,#00aeec);color:var(--magic-primary-color,#00aeec)}.bili-search-filter-bar .filter-bar-right .btn-toggle-restore[data-v-68c495a2]:active{transform:scale(.97)}.bili-search-filter-bar .filter-bar-right .btn-toggle-restore.is-restored[data-v-68c495a2]{color:#f69;background:#ff66991f;border-color:#ff669959}.bili-search-filter-bar .filter-bar-right .btn-toggle-restore.is-restored[data-v-68c495a2]:hover{background:#f693;border-color:#f69}.bili-search-filter-bar .filter-bar-right .btn-open-settings[data-v-68c495a2]{color:var(--magic-text-secondary,#9ca3af);cursor:pointer;background:0 0;border:1px solid #0000;border-radius:6px;outline:none;align-items:center;gap:4px;padding:4px 8px;font-size:12px;transition:all .2s;display:inline-flex}.bili-search-filter-bar .filter-bar-right .btn-open-settings[data-v-68c495a2]:hover{background:var(--magic-bg-hover,#0000000d);border-color:var(--magic-border-color,#00000014);color:var(--magic-text-primary,#18191c)}.bili-search-filter-bar .filter-bar-right .btn-open-settings[data-v-68c495a2]:active{transform:scale(.96)}@keyframes filterBarSlideDown-68c495a2{0%{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}.settings-modal-header[data-v-df767381]{align-items:center;gap:10px;display:flex}.settings-modal-header .settings-modal-title[data-v-df767381]{color:var(--magic-text-primary,#f3f4f6);font-size:15px;font-weight:600}.settings-container[data-v-df767381]{box-sizing:border-box;flex-direction:column;gap:16px;max-height:560px;padding:4px 6px;display:flex;overflow-y:auto}.settings-container[data-v-df767381]::-webkit-scrollbar{width:6px}.settings-container[data-v-df767381]::-webkit-scrollbar-thumb{background:var(--magic-border-color,#00000026);border-radius:3px}.settings-section[data-v-df767381]{flex-direction:column;gap:8px;display:flex}.settings-section__title[data-v-df767381]{color:var(--magic-text-primary,#e5e7eb);justify-content:space-between;align-items:center;padding-left:2px;font-size:13px;font-weight:600;transition:color .25s;display:flex}.settings-section:hover .settings-section__title[data-v-df767381]{color:var(--magic-primary-color,#00aeec)}.settings-card[data-v-df767381]{background:var(--magic-bg-subtle,#00000008);border:1px solid var(--magic-border-color,#00000014);border-radius:8px;flex-direction:column;gap:10px;padding:10px 14px;transition:all .25s cubic-bezier(.16,1,.3,1);display:flex}.settings-card[data-v-df767381]:hover{background:var(--magic-bg-hover,#0000000d);border-color:var(--magic-border-color-hover,#00aeec59);box-shadow:0 4px 14px #0000000f}.settings-item[data-v-df767381]{justify-content:space-between;align-items:center;gap:12px;display:flex}.settings-item__info[data-v-df767381]{flex-direction:column;gap:3px;display:flex}.settings-item__title[data-v-df767381]{color:var(--magic-text-primary,#e5e7eb);font-size:13px;font-weight:500}.settings-item__desc[data-v-df767381]{color:var(--magic-text-secondary,#9ca3af);font-size:12px;line-height:1.4}.field-switches[data-v-df767381]{border-top:1px solid var(--magic-border-color,#00000014);align-items:center;gap:16px;padding-top:4px;display:flex}.field-switches .field-switch-item[data-v-df767381]{color:var(--magic-text-primary,#d1d5db);align-items:center;gap:8px;font-size:12px;display:flex}.field-switches .field-switch-item.is-disabled[data-v-df767381]{cursor:not-allowed;opacity:.6}.whitelist-header[data-v-df767381]{justify-content:space-between;align-items:center;display:flex}.whitelist-title-wrap[data-v-df767381]{color:var(--magic-text-primary,#e5e7eb);align-items:center;gap:6px;font-size:13px;font-weight:500;display:flex}.whitelist-title-wrap .whitelist-count[data-v-df767381]{background:var(--magic-primary-light-bg,#00aeec26);min-width:18px;height:18px;color:var(--magic-primary-color,#00aeec);border-radius:9px;justify-content:center;align-items:center;padding:0 5px;font-size:11px;font-weight:600;display:inline-flex}.btn-link[data-v-df767381]{color:var(--magic-primary-color,#00aeec);cursor:pointer;background:0 0;border:none;padding:2px 4px;font-size:12px;transition:opacity .2s}.btn-link[data-v-df767381]:hover{opacity:.8}.whitelist-tags-wrap[data-v-df767381]{background:var(--magic-bg-subtle,#0000000a);border:1px dashed var(--magic-border-color,#0000001f);border-radius:6px;flex-wrap:wrap;gap:6px;min-height:38px;max-height:140px;padding:6px;display:flex;overflow-y:auto}.whitelist-tags-wrap .empty-tip[data-v-df767381]{color:var(--magic-text-secondary,#6b7280);padding:4px;font-size:12px}.whitelist-tag[data-v-df767381]{background:var(--magic-primary-light-bg,#00aeec26);color:var(--magic-text-primary,#e5e7eb);border:1px solid #00aeec4d;border-radius:4px;align-items:center;gap:5px;padding:2px 8px;font-size:12px;display:inline-flex}.whitelist-tag .tag-remove[data-v-df767381]{cursor:pointer;color:var(--magic-text-secondary,#9ca3af);font-size:11px;transition:color .2s}.whitelist-tag .tag-remove[data-v-df767381]:hover{color:#f69}.whitelist-input-row[data-v-df767381]{align-items:center;gap:8px;display:flex}.whitelist-input-row magic-input[data-v-df767381]{flex:1}.whitelist-bulk-wrap[data-v-df767381]{flex-direction:column;gap:8px;display:flex}.whitelist-bulk-actions[data-v-df767381]{justify-content:space-between;align-items:center;display:flex}.whitelist-bulk-actions .whitelist-bulk-tip[data-v-df767381]{color:var(--magic-text-secondary,#9ca3af);font-size:12px}.settings-modal-footer[data-v-df767381]{justify-content:space-between;align-items:center;width:100%;display:flex}.settings-modal-footer .footer-right[data-v-df767381]{align-items:center;gap:8px;display:flex}:root{--magic-primary-color:var(--brand_blue,#00aeec);--magic-primary-hover-color:var(--brand_blue_hover,color-mix(in srgb, var(--magic-primary-color) 85%, #fff));--magic-primary-active-color:var(--brand_blue_active,color-mix(in srgb, var(--magic-primary-color) 85%, #000));--magic-primary-light-bg:var(--brand_blue_thin,color-mix(in srgb, var(--magic-primary-color) 12%, transparent));--magic-text-primary:var(--text1,#18191c);--magic-text-secondary:var(--text2,#61666d);--magic-text-tertiary:var(--text3,#9499a0);--magic-text-muted:var(--text3,#9499a0);--magic-bg-base:var(--bg1,#fff);--magic-bg-container:var(--bg1,#fff);--magic-bg-component:var(--bg2,#f6f7f8);--magic-bg-subtle:var(--graph_bg_thin,var(--bg2,#f6f7f8));--magic-bg-hover:var(--line_regular,var(--bg3,#f1f2f3));--magic-bg-active:var(--line_bold,var(--bg3,#e5e6e8));--magic-border-color:var(--line_regular,#e3e5e7);--magic-border-color-hover:var(--line_bold,var(--line_regular,#c9ccd0));--magic-bg-overlay:var(--bg1_float,var(--graph_bg_regular,var(--bg1,#fff)));--magic-filter-bar-bg:var(--bg1_float,var(--graph_bg_regular,var(--bg2,#f6f7f8)));--magic-filter-bar-hover-bg:var(--bg3,#f1f2f3);--magic-modal-bg:var(--bg1_float,var(--graph_bg_regular,var(--bg1,#fff)));--magic-modal-border:var(--line_regular,#e3e5e7);--magic-modal-divider:var(--line_regular,#e3e5e7);--magic-modal-title-color:var(--text1,#18191c);--magic-modal-color:var(--text1,#18191c);--magic-modal-close-color:var(--text3,#9499a0)}.bili-magic-restored-card{opacity:.5!important;transition:opacity .2s!important;position:relative!important}.bili-magic-restored-card:hover{opacity:1!important}.more-conditions{height:0;transition:height .2s;overflow:hidden;display:block!important}\n/*$vite$:1*/ ',
   );
   var isArray = Array.isArray;
   var isFunction = (val) => typeof val === 'function';
@@ -233,6 +233,95 @@
             once: true,
           }
         : { once: true },
+    );
+  }
+  var MODIFIER_MAP = {
+    ctrl: 'ctrl',
+    control: 'ctrl',
+    alt: 'alt',
+    option: 'alt',
+    opt: 'alt',
+    shift: 'shift',
+    meta: 'meta',
+    cmd: 'meta',
+    command: 'meta',
+    win: 'meta',
+    super: 'meta',
+  };
+  var INPUT_TAGS = new Set([
+    'input',
+    'textarea',
+    'magic-input',
+    'magic-textarea',
+    'magic-hotkey',
+    'magic-modal',
+  ]);
+  var isMac =
+    navigator.userAgentData?.platform === 'macOS' ||
+    /Macintosh|Mac OS X/i.test(navigator.userAgent);
+  function isRecordingHotkey() {
+    if (customElements.get('magic-hotkey')?.activeRecorder) return true;
+    return !!document.querySelector('magic-hotkey[recording], [data-magic-recording]');
+  }
+  function isInputElement(target) {
+    if (!target) return false;
+    if (isRecordingHotkey() || document.querySelector('magic-modal[visible]')) return true;
+    return (target.composedPath ? target.composedPath() : [target.target || target]).some(
+      (el) => INPUT_TAGS.has(el?.tagName?.toLowerCase?.()) || el?.isContentEditable,
+    );
+  }
+  function normalizeHotkey(str) {
+    if (!isString(str)) return '';
+    const parts = str
+      .split('+')
+      .map((p) => p.trim().toLowerCase())
+      .filter(Boolean);
+    const modifiers = new Set();
+    let primaryKey = '';
+    for (const part of parts) {
+      const mod = MODIFIER_MAP[part];
+      if (mod) modifiers.add(mod);
+      else primaryKey = part;
+    }
+    const sorted = Array.from(modifiers).sort();
+    return sorted.length ? `${sorted.join('+')}+${primaryKey}` : primaryKey;
+  }
+  function formatKeyboardKey(event, options = {}) {
+    if (!event || ['Control', 'Shift', 'Alt', 'Meta'].includes(event.key)) return '';
+    const useMacLabels = options.isMac ?? isMac;
+    const parts = [];
+    if (event.ctrlKey) parts.push('Ctrl');
+    if (event.altKey) parts.push(useMacLabels ? 'Option' : 'Alt');
+    if (event.shiftKey) parts.push('Shift');
+    if (event.metaKey) parts.push(useMacLabels ? 'Cmd' : 'Win');
+    let key = event.key;
+    if (key === ' ') key = 'Space';
+    else if (key.length === 1) key = key.toUpperCase();
+    parts.push(key);
+    return parts.join('+');
+  }
+  function matchesHotkey(event, targetHotkey) {
+    if (!event || !targetHotkey) return false;
+    const currentKey = formatKeyboardKey(event);
+    return currentKey ? normalizeHotkey(currentKey) === normalizeHotkey(targetHotkey) : false;
+  }
+  function registerHotkeys(bindings) {
+    return on(
+      window,
+      'keydown',
+      (event) => {
+        if (event.repeat || isInputElement(event)) return;
+        for (const { key, handler } of bindings || []) {
+          const target = isFunction(key) ? key() : key;
+          if (target && matchesHotkey(event, target)) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            handler?.(event);
+            return;
+          }
+        }
+      },
+      { capture: true },
     );
   }
   var t$1 = globalThis;
@@ -1125,7 +1214,7 @@
       strokeLinejoin: 'round',
     },
   };
-  var style_default$8 =
+  var style_default$9 =
     ':host{vertical-align:-.15em;color:inherit;width:var(--magic-icon-size,1em);height:var(--magic-icon-size,1em);justify-content:center;align-items:center;line-height:1;display:inline-flex}.magic-icon{width:100%;height:100%;color:var(--magic-icon-color,currentColor);justify-content:center;align-items:center;transition:transform .2s;display:inline-flex}.magic-icon svg{pointer-events:none;width:100%;height:100%;display:block}.magic-icon.is-spin svg{animation:1s linear infinite magic-icon-spin}@keyframes magic-icon-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}';
   var theme_default =
     ':root{--magic-primary-color:#e11483;--magic-primary-hover-color:color-mix(in srgb, var(--magic-primary-color) 85%, #fff);--magic-primary-active-color:color-mix(in srgb, var(--magic-primary-color) 85%, #000);--magic-primary-light-bg:color-mix(in srgb, var(--magic-primary-color) 12%, transparent);--magic-primary-shadow:color-mix(in srgb, var(--magic-primary-color) 35%, transparent);--magic-primary-focus-shadow:color-mix(in srgb, var(--magic-primary-color) 20%, transparent);--magic-color-success:#2ac864;--magic-color-success-hover:#3ad473;--magic-color-success-active:#23b056;--magic-color-success-shadow:#2ac86459;--magic-color-warning:#fa9600;--magic-color-warning-hover:#ffaa1a;--magic-color-warning-active:#e08700;--magic-color-warning-shadow:#fa960059;--magic-color-danger:#ff5c7c;--magic-color-danger-hover:#ff7591;--magic-color-danger-active:#e64567;--magic-color-danger-shadow:#ff5c7c59;--magic-text-primary:#fff;--magic-text-secondary:#ffffffb3;--magic-text-tertiary:#9499a0;--magic-text-disabled:#ffffff59;--magic-bg-base:#ffffff0a;--magic-bg-subtle:#ffffff14;--magic-bg-hover:#ffffff24;--magic-bg-active:#fff3;--magic-bg-overlay:#1c1e24f0;--magic-mask-bg:#000000a6;--magic-border-color:#ffffff1f;--magic-border-color-hover:#ffffff40;--magic-radius-sm:4px;--magic-radius-base:6px;--magic-radius-lg:8px;--magic-shadow-dropdown:0 4px 16px #0003;--magic-shadow-modal:0 16px 40px #00000073;--magic-shadow-toast:0 10px 30px #00000073;--magic-z-index-dropdown:1000;--magic-z-index-modal:99999;--magic-z-index-toast:999999;--magic-btn-default-bg:var(--magic-bg-subtle);--magic-btn-default-color:var(--magic-text-primary);--magic-btn-default-border:var(--magic-border-color);--magic-btn-default-hover-bg:var(--magic-bg-hover);--magic-btn-default-hover-border:var(--magic-border-color-hover);--magic-btn-default-active-bg:var(--magic-bg-active);--magic-btn-primary-bg:var(--magic-primary-color);--magic-btn-primary-hover-bg:var(--magic-primary-hover-color);--magic-btn-primary-active-bg:var(--magic-primary-active-color);--magic-btn-success-bg:var(--magic-color-success);--magic-btn-success-hover-bg:var(--magic-color-success-hover);--magic-btn-success-active-bg:var(--magic-color-success-active);--magic-btn-warning-bg:var(--magic-color-warning);--magic-btn-warning-hover-bg:var(--magic-color-warning-hover);--magic-btn-warning-active-bg:var(--magic-color-warning-active);--magic-btn-danger-bg:var(--magic-color-danger);--magic-btn-danger-hover-bg:var(--magic-color-danger-hover);--magic-btn-danger-active-bg:var(--magic-color-danger-active);--magic-btn-text-color:var(--magic-text-secondary);--magic-btn-text-hover-bg:var(--magic-bg-subtle);--magic-btn-text-active-bg:var(--magic-bg-hover);--magic-input-radius:var(--magic-radius-base);--magic-input-bg:var(--magic-bg-subtle);--magic-input-border:var(--magic-border-color);--magic-input-color:var(--magic-text-primary);--magic-input-hover-border:var(--magic-border-color-hover);--magic-input-hover-bg:var(--magic-bg-hover);--magic-input-focus-border:var(--magic-primary-color);--magic-input-focus-bg:var(--magic-bg-subtle);--magic-input-focus-shadow:var(--magic-primary-focus-shadow);--magic-input-prefix-color:var(--magic-text-tertiary);--magic-input-placeholder-color:var(--magic-text-tertiary);--magic-input-suffix-color:var(--magic-text-tertiary);--magic-input-clear-color:var(--magic-text-tertiary);--magic-input-clear-hover-color:var(--magic-text-primary);--magic-textarea-radius:var(--magic-radius-base);--magic-textarea-bg:var(--magic-bg-subtle);--magic-textarea-border:var(--magic-border-color);--magic-textarea-color:var(--magic-text-primary);--magic-textarea-hover-border:var(--magic-border-color-hover);--magic-textarea-hover-bg:var(--magic-bg-hover);--magic-textarea-focus-border:var(--magic-primary-color);--magic-textarea-focus-bg:var(--magic-bg-subtle);--magic-textarea-focus-shadow:var(--magic-primary-focus-shadow);--magic-textarea-placeholder-color:var(--magic-text-tertiary);--magic-textarea-count-color:var(--magic-text-tertiary);--magic-select-bg:var(--magic-bg-subtle);--magic-select-color:var(--magic-text-primary);--magic-select-border:var(--magic-border-color);--magic-select-placeholder-color:var(--magic-text-tertiary);--magic-select-suffix-color:var(--magic-text-tertiary);--magic-select-clear-color:var(--magic-text-tertiary);--magic-select-clear-hover-color:var(--magic-text-primary);--magic-select-hover-border:var(--magic-border-color-hover);--magic-select-hover-bg:var(--magic-bg-hover);--magic-select-active-color:var(--magic-primary-color);--magic-select-z-index:var(--magic-z-index-dropdown);--magic-select-dropdown-bg:var(--magic-bg-overlay);--magic-select-dropdown-border:var(--magic-border-color);--magic-select-dropdown-shadow:var(--magic-shadow-dropdown);--magic-select-option-hover-bg:var(--magic-bg-hover);--magic-select-option-active-bg:var(--magic-primary-light-bg);--magic-tabs-capsule-bg:var(--magic-bg-subtle);--magic-tabs-color:var(--magic-text-secondary);--magic-tabs-hover-color:var(--magic-text-primary);--magic-tabs-hover-bg:var(--magic-bg-hover);--magic-tabs-border:transparent;--magic-tabs-active-border:var(--magic-primary-light-bg);--magic-tabs-line-border:var(--magic-border-color);--magic-tabs-mask-bg:var(--magic-mask-bg);--magic-switch-color:var(--magic-text-secondary);--magic-switch-active-label-color:var(--magic-text-primary);--magic-switch-inactive-color:#8c8c8c59;--magic-switch-active-color:var(--magic-primary-color);--magic-spinner-size:24px;--magic-spinner-border-width:3px;--magic-spinner-track:var(--magic-bg-subtle);--magic-spinner-color:var(--magic-primary-color);--magic-spinner-text-color:var(--magic-text-tertiary);--magic-modal-z-index:var(--magic-z-index-modal);--magic-modal-mask-bg:var(--magic-mask-bg);--magic-modal-bg:var(--magic-bg-overlay);--magic-modal-border:var(--magic-border-color);--magic-modal-radius:var(--magic-radius-lg);--magic-modal-shadow:var(--magic-shadow-modal);--magic-modal-color:var(--magic-text-primary);--magic-modal-divider:var(--magic-border-color);--magic-modal-title-color:var(--magic-text-primary);--magic-modal-close-color:var(--magic-text-tertiary);--magic-radio-text-color:var(--magic-text-primary);--magic-radio-border-color:var(--magic-border-color);--magic-radio-bg:var(--magic-bg-subtle);--magic-radio-color:var(--magic-primary-color);--magic-radio-disabled-opacity:.45;--magic-toast-z-index:var(--magic-z-index-toast);--magic-toast-radius:var(--magic-radius-lg);--magic-toast-bg:var(--magic-bg-overlay);--magic-toast-color:var(--magic-text-primary);--magic-toast-border:var(--magic-border-color);--magic-toast-shadow:var(--magic-shadow-toast);--magic-toast-info-color:var(--magic-primary-color);--magic-toast-success-color:var(--magic-color-success);--magic-toast-warning-color:var(--magic-color-warning);--magic-toast-error-color:var(--magic-color-danger);--magic-version-bg:var(--magic-bg-subtle);--magic-version-color:var(--magic-text-secondary);--magic-version-border:var(--magic-border-color);--magic-slider-track-bg:var(--magic-bg-subtle);--magic-slider-track-hover-bg:var(--magic-bg-hover);--magic-slider-bar-bg:var(--magic-primary-color);--magic-slider-thumb-bg:#fff;--magic-slider-thumb-border:var(--magic-primary-color);--magic-slider-thumb-shadow:0 2px 6px #00000040;--magic-slider-thumb-hover-shadow:0 0 0 4px var(--magic-primary-focus-shadow);--magic-slider-thumb-active-shadow:0 0 0 6px var(--magic-primary-shadow);--magic-slider-stop-bg:#fff6;--magic-slider-tooltip-bg:var(--magic-bg-overlay);--magic-slider-tooltip-color:var(--magic-text-primary);--magic-slider-tooltip-border:var(--magic-border-color);--magic-slider-tooltip-shadow:var(--magic-shadow-dropdown);--magic-slider-disabled-opacity:.45;--magic-icon-color:currentColor}';
@@ -1147,7 +1236,7 @@
       rotate: Number,
       spin: Boolean,
     };
-    static styles = r$2(style_default$8);
+    static styles = r$2(style_default$9);
     constructor() {
       super();
       this.name = '';
@@ -1342,9 +1431,9 @@
     },
     [['__scopeId', 'data-v-68c495a2']],
   );
-  var style_default$7 =
+  var style_default$8 =
     ':host{vertical-align:middle;display:inline-flex}:host([block]){width:100%;display:flex}.magic-button{box-sizing:border-box;white-space:nowrap;text-align:center;cursor:pointer;-webkit-user-select:none;user-select:none;vertical-align:middle;border:1px solid #0000;border-radius:6px;outline:none;justify-content:center;align-items:center;width:100%;font-family:inherit;font-weight:500;line-height:1;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-button--small{gap:4px;height:28px;padding:0 10px;font-size:12px}.magic-button--medium{gap:6px;height:34px;padding:0 16px;font-size:14px}.magic-button--large{gap:8px;height:40px;padding:0 20px;font-size:16px}.magic-button.is-round{border-radius:9999px}.magic-button.is-circle{border-radius:50%;padding:0}.magic-button.is-circle.magic-button--small{width:28px}.magic-button.is-circle.magic-button--medium{width:34px}.magic-button.is-circle.magic-button--large{width:40px}.magic-button--default{background:var(--magic-btn-default-bg,#ffffff14);color:var(--magic-btn-default-color,#e5e9ef);border-color:var(--magic-btn-default-border,#ffffff26)}.magic-button--default:hover:not(.is-disabled){background:var(--magic-btn-default-hover-bg,#ffffff24);border-color:var(--magic-btn-default-hover-border,#ffffff40)}.magic-button--default:active:not(.is-disabled){background:var(--magic-btn-default-active-bg,#fff3)}.magic-button--primary{background:var(--magic-btn-primary-bg,var(--magic-primary-color));color:#fff;border-color:var(--magic-btn-primary-bg,var(--magic-primary-color))}.magic-button--primary:hover:not(.is-disabled){background:var(--magic-btn-primary-hover-bg,var(--magic-primary-hover-color));border-color:var(--magic-btn-primary-hover-bg,var(--magic-primary-hover-color));box-shadow:0 2px 8px var(--magic-primary-shadow)}.magic-button--primary:active:not(.is-disabled){background:var(--magic-btn-primary-active-bg,var(--magic-primary-active-color));border-color:var(--magic-btn-primary-active-bg,var(--magic-primary-active-color))}.magic-button--success{background:var(--magic-btn-success-bg,#2ac864);color:#fff;border-color:var(--magic-btn-success-bg,#2ac864)}.magic-button--success:hover:not(.is-disabled){background:var(--magic-btn-success-hover-bg,#3ad473);border-color:var(--magic-btn-success-hover-bg,#3ad473);box-shadow:0 2px 8px #2ac86459}.magic-button--success:active:not(.is-disabled){background:var(--magic-btn-success-active-bg,#23b056);border-color:var(--magic-btn-success-active-bg,#23b056)}.magic-button--warning{background:var(--magic-btn-warning-bg,#fa9600);color:#fff;border-color:var(--magic-btn-warning-bg,#fa9600)}.magic-button--warning:hover:not(.is-disabled){background:var(--magic-btn-warning-hover-bg,#ffa624);border-color:var(--magic-btn-warning-hover-bg,#ffa624);box-shadow:0 2px 8px #fa960059}.magic-button--warning:active:not(.is-disabled){background:var(--magic-btn-warning-active-bg,#e08700);border-color:var(--magic-btn-warning-active-bg,#e08700)}.magic-button--danger{background:var(--magic-btn-danger-bg,#ff5c7c);color:#fff;border-color:var(--magic-btn-danger-bg,#ff5c7c)}.magic-button--danger:hover:not(.is-disabled){background:var(--magic-btn-danger-hover-bg,#ff738e);border-color:var(--magic-btn-danger-hover-bg,#ff738e);box-shadow:0 2px 8px #ff5c7c59}.magic-button--danger:active:not(.is-disabled){background:var(--magic-btn-danger-active-bg,#e64b69);border-color:var(--magic-btn-danger-active-bg,#e64b69)}.magic-button--text{color:var(--magic-btn-text-color,var(--magic-primary-color));background:0 0;border-color:#0000;padding-left:4px;padding-right:4px}.magic-button--text:hover:not(.is-disabled){background:var(--magic-btn-text-hover-bg,var(--magic-primary-light-bg))}.magic-button--text:active:not(.is-disabled){background:var(--magic-btn-text-active-bg,var(--magic-primary-light-bg))}.magic-button.is-disabled{cursor:not-allowed;opacity:.5;box-shadow:none!important}.magic-button.is-loading{cursor:default;pointer-events:none}.magic-button .magic-button__loading-icon,.magic-button .magic-button__icon{justify-content:center;align-items:center;display:inline-flex}.magic-button .magic-button__content{align-items:center;display:inline-flex}';
-  var style_default$6 =
+  var style_default$7 =
     ':host{vertical-align:middle;display:inline-flex}@keyframes magic-spinner-rotate{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.magic-spinner{justify-content:center;align-items:center;gap:10px;display:inline-flex}.magic-spinner.is-vertical{flex-direction:column;gap:12px}.magic-spinner__circle{box-sizing:border-box;width:var(--magic-spinner-size,24px);height:var(--magic-spinner-size,24px);border-style:solid;border-width:var(--magic-spinner-border-width,3px);border-color:var(--magic-spinner-track,#ffffff1a);border-top-color:var(--magic-spinner-color,var(--magic-primary-color));border-radius:50%;flex-shrink:0;animation:.8s linear infinite magic-spinner-rotate}.magic-spinner__text{color:var(--magic-spinner-text-color,#9499a0);-webkit-user-select:none;user-select:none;font-size:13px;line-height:1.4}';
   var MagicSpinner = class extends i {
     static properties = {
@@ -1357,7 +1446,7 @@
         attribute: 'stroke-width',
       },
     };
-    static styles = r$2(style_default$6);
+    static styles = r$2(style_default$7);
     constructor() {
       super();
       this.size = '24';
@@ -1401,7 +1490,7 @@
       circle: Boolean,
       block: Boolean,
     };
-    static styles = r$2(style_default$7);
+    static styles = r$2(style_default$8);
     constructor() {
       super();
       this.type = 'default';
@@ -1472,6 +1561,179 @@
     }
   };
   if (!customElements.get('magic-button')) customElements.define('magic-button', MagicButton);
+  var style_default$6 =
+    ':host{vertical-align:middle;display:inline-flex}:host([block]){width:100%;display:flex}.magic-hotkey{box-sizing:border-box;cursor:pointer;-webkit-user-select:none;user-select:none;text-align:center;white-space:nowrap;border:1px solid var(--magic-border-color,var(--line_regular,#e3e5e7));background:var(--magic-bg-subtle,var(--graph_bg_thin,#f6f7f8));width:100%;color:var(--magic-primary-color,var(--brand_blue,#00aeec));border-radius:6px;outline:none;justify-content:center;align-items:center;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-weight:600;line-height:1;transition:all .2s cubic-bezier(.16,1,.3,1);display:inline-flex;position:relative}.magic-hotkey--small{min-width:72px;height:26px;padding:0 8px;font-size:11.5px}.magic-hotkey--medium{min-width:80px;height:30px;padding:0 10px;font-size:12px}.magic-hotkey--large{min-width:90px;height:36px;padding:0 14px;font-size:13.5px}.magic-hotkey:hover:not(.is-disabled):not(.is-recording){background:var(--magic-primary-light-bg,var(--brand_blue_thin,#00aeec1a));border-color:var(--magic-primary-color,var(--brand_blue,#00aeec))}.magic-hotkey.is-recording{background:var(--magic-primary-color,var(--brand_blue,#00aeec));border-color:var(--magic-primary-color,var(--brand_blue,#00aeec));color:#fff;box-shadow:0 0 0 3px var(--magic-primary-focus-shadow,#00aeec40);animation:1.2s ease-in-out infinite magic-hotkey-pulse}.magic-hotkey.is-disabled{cursor:not-allowed;opacity:.5;background:var(--magic-bg-subtle,#f6f7f8);border-color:var(--magic-border-color,#e3e5e7);color:var(--magic-text-tertiary,#9499a0);box-shadow:none!important}.magic-hotkey__content{text-overflow:ellipsis;justify-content:center;align-items:center;max-width:100%;display:inline-flex;overflow:hidden}.magic-hotkey__clear{color:currentColor;opacity:.6;cursor:pointer;justify-content:center;align-items:center;margin-left:6px;font-size:12px;line-height:1;transition:opacity .2s;display:inline-flex}.magic-hotkey__clear:hover{opacity:1}@keyframes magic-hotkey-pulse{0%,to{opacity:1}50%{opacity:.6}}';
+  var MagicHotkey = class MagicHotkey extends i {
+    static activeRecorder = null;
+    static properties = {
+      value: {
+        type: String,
+        reflect: true,
+      },
+      placeholder: String,
+      recordingText: {
+        type: String,
+        attribute: 'recording-text',
+      },
+      size: String,
+      disabled: {
+        type: Boolean,
+        reflect: true,
+      },
+      block: {
+        type: Boolean,
+        reflect: true,
+      },
+      clearable: Boolean,
+      recording: {
+        type: Boolean,
+        reflect: true,
+      },
+    };
+    static styles = r$2(style_default$6);
+    #cleanupOutsideClick = null;
+    #cleanupKeydown = null;
+    constructor() {
+      super();
+      this.value = '';
+      this.placeholder = '未设置';
+      this.recordingText = '请按按键...';
+      this.size = 'small';
+      this.disabled = false;
+      this.block = false;
+      this.clearable = false;
+      this.recording = false;
+    }
+    connectedCallback() {
+      super.connectedCallback();
+      this.#cleanupOutsideClick = on(document, 'pointerdown', (event) =>
+        this.handleOutsideClick(event),
+      );
+    }
+    disconnectedCallback() {
+      super.disconnectedCallback();
+      this.#cleanupOutsideClick?.();
+      this.#cleanupKeydown?.();
+      if (MagicHotkey.activeRecorder === this) MagicHotkey.activeRecorder = null;
+    }
+    handleOutsideClick(event) {
+      if (this.recording && !event.composedPath().includes(this)) this.cancelRecording();
+    }
+    startRecording(event) {
+      if (this.disabled) return;
+      event?.preventDefault();
+      event?.stopPropagation();
+      if (this.recording) return;
+      MagicHotkey.activeRecorder = this;
+      this.recording = true;
+      this.setAttribute('recording', '');
+      this.#cleanupKeydown?.();
+      this.#cleanupKeydown = on(window, 'keydown', (e) => this.handleKeyDown(e), { capture: true });
+    }
+    cancelRecording() {
+      if (!this.recording) return;
+      if (MagicHotkey.activeRecorder === this) MagicHotkey.activeRecorder = null;
+      this.recording = false;
+      this.removeAttribute('recording');
+      this.#cleanupKeydown?.();
+      this.#cleanupKeydown = null;
+      this.dispatchEvent(
+        new CustomEvent('cancel', {
+          bubbles: false,
+          composed: false,
+        }),
+      );
+    }
+    handleKeyDown(event) {
+      if (!this.recording || this.disabled) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      if (event.key === 'Escape') {
+        this.cancelRecording();
+        return;
+      }
+      const keyString = formatKeyboardKey(event);
+      if (!keyString) return;
+      this.value = keyString;
+      this.cancelRecording();
+      const detail = { value: keyString };
+      this.dispatchEvent(
+        new CustomEvent('change', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.dispatchEvent(
+        new CustomEvent('input', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+    handleClear(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      if (this.disabled) return;
+      this.value = '';
+      this.cancelRecording();
+      const detail = { value: '' };
+      this.dispatchEvent(
+        new CustomEvent('change', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.dispatchEvent(
+        new CustomEvent('input', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.dispatchEvent(
+        new CustomEvent('clear', {
+          bubbles: false,
+          composed: false,
+        }),
+      );
+    }
+    render() {
+      const displayText = this.recording
+        ? this.recordingText || '请按按键...'
+        : this.value || this.placeholder || '未设置';
+      return b`
+      <button
+        class="${[
+          'magic-hotkey',
+          `magic-hotkey--${this.size || 'small'}`,
+          this.disabled ? 'is-disabled' : '',
+          this.recording ? 'is-recording' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}"
+        type="button"
+        tabindex="${this.disabled ? '-1' : '0'}"
+        ?disabled=${this.disabled}
+        @click=${this.startRecording}
+      >
+        <span class="magic-hotkey__content">${displayText}</span>
+        ${
+          this.clearable && this.value && !this.disabled && !this.recording
+            ? b`
+                <span class="magic-hotkey__clear" @click=${this.handleClear} title="清空快捷键">
+                  ✕
+                </span>
+              `
+            : b``
+        }
+      </button>
+    `;
+    }
+  };
+  if (!customElements.get('magic-hotkey')) customElements.define('magic-hotkey', MagicHotkey);
   var style_default$5 =
     ':host{vertical-align:middle;box-sizing:border-box;font-family:inherit;display:inline-block}:host([block]){width:100%;display:block}.magic-input{box-sizing:border-box;border-radius:var(--magic-input-radius,6px);background:var(--magic-input-bg,#ffffff14);border:1px solid var(--magic-input-border,#ffffff26);width:100%;color:var(--magic-input-color,#e5e9ef);align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-input--small{height:28px;padding:0 8px;font-size:12px}.magic-input--medium{height:34px;padding:0 12px;font-size:14px}.magic-input--large{height:40px;padding:0 16px;font-size:16px}.magic-input:hover:not(.is-disabled):not(.is-focused){border-color:var(--magic-input-hover-border,#ffffff40);background:var(--magic-input-hover-bg,#ffffff1f)}.magic-input.is-focused{border-color:var(--magic-input-focus-border,var(--magic-primary-color));background:var(--magic-input-focus-bg,#ffffff1a);box-shadow:var(--magic-input-focus-shadow,var(--magic-primary-focus-shadow))}.magic-input.is-disabled{cursor:not-allowed;opacity:.5;background:#ffffff0a;border-color:#ffffff1a}.magic-input.is-disabled .magic-input__inner{cursor:not-allowed}.magic-input__prefix{color:var(--magic-input-prefix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-right:6px;line-height:1;display:inline-flex}.magic-input__prefix svg{width:14px;height:14px;display:block}.magic-input__inner{width:100%;min-width:0;height:100%;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;box-sizing:border-box;background:0 0;border:none;outline:none;flex:1;margin:0;padding:0}.magic-input__inner::placeholder{color:var(--magic-input-placeholder-color,#9499a0)}.magic-input__suffix{color:var(--magic-input-suffix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;line-height:1;display:inline-flex}.magic-input__suffix svg{width:14px;height:14px;display:block}.magic-input__clear{cursor:pointer;color:var(--magic-input-clear-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:color .15s;display:inline-flex}.magic-input__clear svg{width:14px;height:14px;display:block}.magic-input__clear:hover{color:var(--magic-input-clear-hover-color,#e5e9ef)}';
   var INPUT_ICONS = {
@@ -2529,7 +2791,7 @@
   };
   if (!customElements.get('magic-version')) customElements.define('magic-version', MagicVersion);
   var name = 'bilibili-search-filter';
-  var version = '1.0.1';
+  var version = '1.1.0';
   var DEFAULT_CONFIG = {
     enableListFilter: true,
     enableRestoredCardOpacity: true,
@@ -2537,6 +2799,8 @@
     autoExpandMoreFilter: false,
     filterFields: ['title', 'author'],
     whitelistKeywords: [],
+    hotkeyPrevPage: 'ArrowLeft',
+    hotkeyNextPage: 'ArrowRight',
   };
   var FILTER_FIELD_SELECTORS = {
     title: '.bili-video-card__info--tit',
@@ -2567,28 +2831,34 @@
   var _hoisted_20 = ['checked'];
   var _hoisted_21 = { class: 'settings-section' };
   var _hoisted_22 = { class: 'settings-card' };
-  var _hoisted_23 = { class: 'whitelist-header' };
-  var _hoisted_24 = { class: 'whitelist-title-wrap' };
-  var _hoisted_25 = { class: 'whitelist-count' };
-  var _hoisted_26 = {
+  var _hoisted_23 = { class: 'settings-item' };
+  var _hoisted_24 = ['value'];
+  var _hoisted_25 = { class: 'settings-item' };
+  var _hoisted_26 = ['value'];
+  var _hoisted_27 = { class: 'settings-section' };
+  var _hoisted_28 = { class: 'settings-card' };
+  var _hoisted_29 = { class: 'whitelist-header' };
+  var _hoisted_30 = { class: 'whitelist-title-wrap' };
+  var _hoisted_31 = { class: 'whitelist-count' };
+  var _hoisted_32 = {
     key: 0,
     class: 'whitelist-tags-wrap',
   };
-  var _hoisted_27 = {
+  var _hoisted_33 = {
     key: 0,
     class: 'empty-tip',
   };
-  var _hoisted_28 = ['onClick'];
-  var _hoisted_29 = {
+  var _hoisted_34 = ['onClick'];
+  var _hoisted_35 = {
     key: 1,
     class: 'whitelist-input-row',
   };
-  var _hoisted_30 = ['value'];
-  var _hoisted_31 = {
+  var _hoisted_36 = ['value'];
+  var _hoisted_37 = {
     key: 2,
     class: 'whitelist-bulk-wrap',
   };
-  var _hoisted_32 = ['value'];
+  var _hoisted_38 = ['value'];
   var SettingsModal_default = _plugin_vue_export_helper_default(
     {
       __name: 'index',
@@ -2730,8 +3000,8 @@
                 },
                 [
                   (0, vue.createElementVNode)('div', _hoisted_2, [
-                    _cache[10] ||
-                      (_cache[10] = (0, vue.createElementVNode)(
+                    _cache[12] ||
+                      (_cache[12] = (0, vue.createElementVNode)(
                         'span',
                         { class: 'settings-modal-title' },
                         'B站搜索结果过滤设置',
@@ -2747,8 +3017,8 @@
                   ]),
                   (0, vue.createElementVNode)('div', _hoisted_4, [
                     (0, vue.createElementVNode)('div', _hoisted_5, [
-                      _cache[16] ||
-                        (_cache[16] = (0, vue.createElementVNode)(
+                      _cache[18] ||
+                        (_cache[18] = (0, vue.createElementVNode)(
                           'div',
                           { class: 'settings-section__title' },
                           [(0, vue.createElementVNode)('span', null, '基础过滤设置')],
@@ -2756,8 +3026,8 @@
                         )),
                       (0, vue.createElementVNode)('div', _hoisted_6, [
                         (0, vue.createElementVNode)('div', _hoisted_7, [
-                          _cache[11] ||
-                            (_cache[11] = (0, vue.createElementVNode)(
+                          _cache[13] ||
+                            (_cache[13] = (0, vue.createElementVNode)(
                               'div',
                               { class: 'settings-item__info' },
                               [
@@ -2790,8 +3060,8 @@
                           ),
                         ]),
                         (0, vue.createElementVNode)('div', _hoisted_9, [
-                          _cache[12] ||
-                            (_cache[12] = (0, vue.createElementVNode)(
+                          _cache[14] ||
+                            (_cache[14] = (0, vue.createElementVNode)(
                               'span',
                               { class: 'field-label' },
                               '匹配范围：',
@@ -2871,8 +3141,8 @@
                       ]),
                       (0, vue.createElementVNode)('div', _hoisted_12, [
                         (0, vue.createElementVNode)('div', _hoisted_13, [
-                          _cache[13] ||
-                            (_cache[13] = (0, vue.createElementVNode)(
+                          _cache[15] ||
+                            (_cache[15] = (0, vue.createElementVNode)(
                               'div',
                               { class: 'settings-item__info' },
                               [
@@ -2908,8 +3178,8 @@
                       ]),
                       (0, vue.createElementVNode)('div', _hoisted_15, [
                         (0, vue.createElementVNode)('div', _hoisted_16, [
-                          _cache[14] ||
-                            (_cache[14] = (0, vue.createElementVNode)(
+                          _cache[16] ||
+                            (_cache[16] = (0, vue.createElementVNode)(
                               'div',
                               { class: 'settings-item__info' },
                               [
@@ -2944,8 +3214,8 @@
                       ]),
                       (0, vue.createElementVNode)('div', _hoisted_18, [
                         (0, vue.createElementVNode)('div', _hoisted_19, [
-                          _cache[15] ||
-                            (_cache[15] = (0, vue.createElementVNode)(
+                          _cache[17] ||
+                            (_cache[17] = (0, vue.createElementVNode)(
                               'div',
                               { class: 'settings-item__info' },
                               [
@@ -2980,18 +3250,99 @@
                       ]),
                     ]),
                     (0, vue.createElementVNode)('div', _hoisted_21, [
-                      _cache[19] ||
-                        (_cache[19] = (0, vue.createElementVNode)(
+                      _cache[21] ||
+                        (_cache[21] = (0, vue.createElementVNode)(
+                          'div',
+                          { class: 'settings-section__title' },
+                          [(0, vue.createElementVNode)('span', null, '翻页快捷键')],
+                          -1,
+                        )),
+                      (0, vue.createElementVNode)('div', _hoisted_22, [
+                        (0, vue.createElementVNode)('div', _hoisted_23, [
+                          _cache[19] ||
+                            (_cache[19] = (0, vue.createElementVNode)(
+                              'div',
+                              { class: 'settings-item__info' },
+                              [
+                                (0, vue.createElementVNode)(
+                                  'div',
+                                  { class: 'settings-item__title' },
+                                  '上一页快捷键',
+                                ),
+                                (0, vue.createElementVNode)(
+                                  'div',
+                                  { class: 'settings-item__desc' },
+                                  '按快捷键切换到搜索结果上一页',
+                                ),
+                              ],
+                              -1,
+                            )),
+                          (0, vue.createElementVNode)(
+                            'magic-hotkey',
+                            {
+                              value: (0, vue.unref)(formData).hotkeyPrevPage,
+                              clearable: '',
+                              size: 'small',
+                              onChange:
+                                _cache[8] ||
+                                (_cache[8] = (e) =>
+                                  ((0, vue.unref)(formData).hotkeyPrevPage = e.detail.value)),
+                            },
+                            null,
+                            40,
+                            _hoisted_24,
+                          ),
+                        ]),
+                        (0, vue.createElementVNode)('div', _hoisted_25, [
+                          _cache[20] ||
+                            (_cache[20] = (0, vue.createElementVNode)(
+                              'div',
+                              { class: 'settings-item__info' },
+                              [
+                                (0, vue.createElementVNode)(
+                                  'div',
+                                  { class: 'settings-item__title' },
+                                  '下一页快捷键',
+                                ),
+                                (0, vue.createElementVNode)(
+                                  'div',
+                                  { class: 'settings-item__desc' },
+                                  '按快捷键切换到搜索结果下一页',
+                                ),
+                              ],
+                              -1,
+                            )),
+                          (0, vue.createElementVNode)(
+                            'magic-hotkey',
+                            {
+                              value: (0, vue.unref)(formData).hotkeyNextPage,
+                              clearable: '',
+                              size: 'small',
+                              onChange:
+                                _cache[9] ||
+                                (_cache[9] = (e) =>
+                                  ((0, vue.unref)(formData).hotkeyNextPage = e.detail.value)),
+                            },
+                            null,
+                            40,
+                            _hoisted_26,
+                          ),
+                        ]),
+                      ]),
+                    ]),
+                    (0, vue.createElementVNode)('div', _hoisted_27, [
+                      _cache[24] ||
+                        (_cache[24] = (0, vue.createElementVNode)(
                           'div',
                           { class: 'settings-section__title' },
                           [(0, vue.createElementVNode)('span', null, '关键词白名单')],
                           -1,
                         )),
-                      (0, vue.createElementVNode)('div', _hoisted_22, [
-                        (0, vue.createElementVNode)('div', _hoisted_23, [
-                          (0, vue.createElementVNode)('div', _hoisted_24, [
-                            _cache[17] ||
-                              (_cache[17] = (0, vue.createElementVNode)(
+                      (0, vue.createElementVNode)('div', _hoisted_28, [
+                        (0, vue.createElementVNode)('div', _hoisted_29, [
+                          (0, vue.createElementVNode)('div', _hoisted_30, [
+                            _cache[22] ||
+                              (_cache[22] = (0, vue.createElementVNode)(
                                 'span',
                                 null,
                                 '放行白名单',
@@ -2999,7 +3350,7 @@
                               )),
                             (0, vue.createElementVNode)(
                               'span',
-                              _hoisted_25,
+                              _hoisted_31,
                               (0, vue.toDisplayString)(
                                 (0, vue.unref)(formData).whitelistKeywords.length,
                               ),
@@ -3021,12 +3372,12 @@
                         ]),
                         !(0, vue.unref)(isBulkMode)
                           ? ((0, vue.openBlock)(),
-                            (0, vue.createElementBlock)('div', _hoisted_26, [
+                            (0, vue.createElementBlock)('div', _hoisted_32, [
                               (0, vue.unref)(formData).whitelistKeywords.length === 0
                                 ? ((0, vue.openBlock)(),
                                   (0, vue.createElementBlock)(
                                     'div',
-                                    _hoisted_27,
+                                    _hoisted_33,
                                     ' 暂无白名单关键词，当搜索词命中白名单时将直接放行全部卡片 ',
                                   ))
                                 : (0, vue.createCommentVNode)('', true),
@@ -3061,7 +3412,7 @@
                                             },
                                             '✕',
                                             8,
-                                            _hoisted_28,
+                                            _hoisted_34,
                                           ),
                                         ],
                                       )
@@ -3074,7 +3425,7 @@
                           : (0, vue.createCommentVNode)('', true),
                         !(0, vue.unref)(isBulkMode)
                           ? ((0, vue.openBlock)(),
-                            (0, vue.createElementBlock)('div', _hoisted_29, [
+                            (0, vue.createElementBlock)('div', _hoisted_35, [
                               (0, vue.createElementVNode)(
                                 'magic-input',
                                 {
@@ -3084,13 +3435,13 @@
                                   placeholder: '输入白名单关键词，按回车添加...',
                                   size: 'small',
                                   onInput:
-                                    _cache[8] ||
-                                    (_cache[8] = (e) => (newKeyword.value = e.detail.value)),
+                                    _cache[10] ||
+                                    (_cache[10] = (e) => (newKeyword.value = e.detail.value)),
                                   onKeydown: (0, vue.withKeys)(addKeyword, ['enter']),
                                 },
                                 null,
                                 40,
-                                _hoisted_30,
+                                _hoisted_36,
                               ),
                               (0, vue.createElementVNode)(
                                 'magic-button',
@@ -3103,7 +3454,7 @@
                               ),
                             ]))
                           : ((0, vue.openBlock)(),
-                            (0, vue.createElementBlock)('div', _hoisted_31, [
+                            (0, vue.createElementBlock)('div', _hoisted_37, [
                               (0, vue.createElementVNode)(
                                 'magic-textarea',
                                 {
@@ -3113,19 +3464,19 @@
                                   rows: '4',
                                   size: 'small',
                                   onInput:
-                                    _cache[9] ||
-                                    (_cache[9] = (e) => (bulkText.value = e.detail.value)),
+                                    _cache[11] ||
+                                    (_cache[11] = (e) => (bulkText.value = e.detail.value)),
                                 },
                                 null,
                                 40,
-                                _hoisted_32,
+                                _hoisted_38,
                               ),
                               (0, vue.createElementVNode)(
                                 'div',
                                 { class: 'whitelist-bulk-actions' },
                                 [
-                                  _cache[18] ||
-                                    (_cache[18] = (0, vue.createElementVNode)(
+                                  _cache[23] ||
+                                    (_cache[23] = (0, vue.createElementVNode)(
                                       'span',
                                       { class: 'whitelist-bulk-tip' },
                                       '使用分号 (;) 分隔关键词',
@@ -3193,7 +3544,7 @@
         };
       },
     },
-    [['__scopeId', 'data-v-557d6017']],
+    [['__scopeId', 'data-v-df767381']],
   );
   var unbindClick = null;
   function reflow(element) {
@@ -3440,6 +3791,14 @@
         ...raw,
         filterFields: normalizeFilterFields(raw.filterFields),
         whitelistKeywords: normalizeWhitelist(raw.whitelistKeywords),
+        hotkeyPrevPage:
+          isString(raw.hotkeyPrevPage) && raw.hotkeyPrevPage !== '['
+            ? raw.hotkeyPrevPage
+            : DEFAULT_CONFIG.hotkeyPrevPage,
+        hotkeyNextPage:
+          isString(raw.hotkeyNextPage) && raw.hotkeyNextPage !== ']'
+            ? raw.hotkeyNextPage
+            : DEFAULT_CONFIG.hotkeyNextPage,
       };
     } catch (err) {
       console.warn('[bilibili-search-filter] 读取配置失败，采用默认值:', err);
@@ -3479,12 +3838,39 @@
       resetConfig,
     };
   }
+  function switchPage(direction) {
+    const label = direction === 'prev' ? '上一页' : '下一页';
+    const target = document.querySelector(`.vui_pagenation--btn-side[aria-label*="${label}"]`);
+    if (!target) return false;
+    if (target.disabled) {
+      toast.info(`已经是${label}了`);
+      return false;
+    }
+    target.click();
+    return true;
+  }
+  function usePaginationHotkeys(config) {
+    (0, vue.onMounted)(() => {
+      const cleanup = registerHotkeys([
+        {
+          key: () => config.value?.hotkeyPrevPage,
+          handler: () => switchPage('prev'),
+        },
+        {
+          key: () => config.value?.hotkeyNextPage,
+          handler: () => switchPage('next'),
+        },
+      ]);
+      (0, vue.onUnmounted)(() => cleanup?.());
+    });
+  }
   function useApp() {
     const isSettingsOpen = (0, vue.ref)(false);
     const { config, saveConfig } = useFilterConfig();
     const { teleportTarget, isShowingAll, filteredCards, matchedCards, toggleRestore } =
       useCardFilter(config);
     useAutoExpandFilter(config);
+    usePaginationHotkeys(config);
     function openSettings() {
       isSettingsOpen.value = true;
     }
