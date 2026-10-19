@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili-playlist-enhancer
 // @namespace    https://github.com/niceKingsley/magic-monkey
-// @version      1.2.4
+// @version      1.2.5
 // @author       kingsley
 // @description  bilibili 播放列表/选集/合集增强助手
 // @license      GPL-3.0-or-later
@@ -551,7 +551,7 @@
     );
   }
   var name = 'bilibili-playlist-enhancer';
-  var version = '1.2.4';
+  var version = '1.2.5';
   var POD_MODE = {
     LIST: 'LIST',
     CARD: 'CARD',
@@ -1196,7 +1196,7 @@
     let isDestroyed = false;
     const ro = new ResizeObserver(() => updatePosition(false));
     ro.observe(wrapEl);
-    waitElement('#bilibili-player, .player-wrap, .left-container', { timeout: 5e3 })
+    waitElement('.player-wrap', { timeout: 5e3 })
       .then((playerEl) => {
         if (!isDestroyed && playerEl) ro.observe(playerEl);
       })
