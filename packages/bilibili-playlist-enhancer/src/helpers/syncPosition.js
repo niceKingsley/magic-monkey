@@ -203,7 +203,7 @@ export async function watchPositionSync(podType, hostEl, onPositionUpdate, hasMu
   const ro = new ResizeObserver(() => updatePosition(false));
   ro.observe(wrapEl);
 
-  waitElement('#bilibili-player, .player-wrap, .left-container', { timeout: 5000 })
+  waitElement('.player-wrap', { timeout: 5000 })
     .then((playerEl) => {
       if (!isDestroyed && playerEl) {
         ro.observe(playerEl);
