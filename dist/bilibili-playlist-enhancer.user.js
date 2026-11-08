@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili-playlist-enhancer
 // @namespace    https://github.com/niceKingsley/magic-monkey
-// @version      1.2.5
+// @version      1.2.6
 // @author       kingsley
 // @description  bilibili 播放列表/选集/合集增强助手
 // @license      GPL-3.0-or-later
@@ -15,7 +15,6 @@
 // @grant        GM_addStyle
 // @grant        GM_deleteValue
 // @grant        GM_getValue
-// @grant        GM_listValues
 // @grant        GM_setValue
 // @grant        GM_xmlhttpRequest
 // @grant        unsafeWindow
@@ -37,7 +36,7 @@
     })(t);
   };
   _css(
-    ' .settings-container[data-v-e628917f]{-webkit-user-select:none;user-select:none;overscroll-behavior:contain;flex-direction:column;gap:18px;display:flex}.settings-section[data-v-e628917f]{flex-direction:column;gap:8px;display:flex}.settings-section__title[data-v-e628917f]{color:var(--magic-primary-color,#00aeec);letter-spacing:.3px;align-items:center;gap:6px;font-size:13px;font-weight:600;display:flex}.settings-section__title .section-icon[data-v-e628917f]{opacity:.9;width:14px;height:14px}.settings-card[data-v-e628917f]{background:var(--magic-bg-subtle,var(--graph_bg_thin,var(--bg2)));border:1px solid var(--magic-border-color,var(--line_regular));border-radius:10px;flex-direction:column;padding:4px 16px;transition:all .25s cubic-bezier(.16,1,.3,1);display:flex}.settings-card[data-v-e628917f]:hover{border-color:var(--magic-border-color-hover,var(--line_regular));background:var(--magic-bg-hover,var(--line_regular))}.settings-item[data-v-e628917f]{justify-content:space-between;align-items:center;gap:16px;padding:12px 0;transition:opacity .2s;display:flex}.settings-item[data-v-e628917f]:not(:last-child){border-bottom:1px solid var(--magic-border-color,var(--line_regular))}.settings-item.is-disabled[data-v-e628917f]{opacity:.38;pointer-events:none}.settings-item__info[data-v-e628917f]{flex-direction:column;flex:1;gap:3px;min-width:0;display:flex}.settings-item__title[data-v-e628917f]{color:var(--text1);font-size:13.5px;font-weight:500;line-height:1.4}.settings-item__desc[data-v-e628917f]{color:var(--text3);font-size:12px;line-height:1.45}.settings-item__action[data-v-e628917f]{flex-shrink:0;align-items:center;display:flex}.settings-modal-footer[data-v-e628917f]{justify-content:space-between;align-items:center;width:100%;display:flex}.settings-modal-footer .footer-buttons[data-v-e628917f],.settings-modal-header[data-v-e628917f]{align-items:center;gap:10px;display:flex}.settings-modal-header .settings-modal-title[data-v-e628917f]{color:var(--magic-modal-title-color,var(--magic-text-primary,#fff));letter-spacing:.2px;font-size:15px;font-weight:600;line-height:1.4}@keyframes tk-spin-7669f4cb{0%{transform:rotate(0)}to{transform:rotate(360deg)}}:root{--magic-primary-color:var(--brand_blue);--magic-primary-hover-color:var(--brand_blue_hover,color-mix(in srgb, var(--magic-primary-color) 85%, #fff));--magic-primary-active-color:var(--brand_blue_active,color-mix(in srgb, var(--magic-primary-color) 85%, #000));--magic-primary-light-bg:var(--brand_blue_thin,color-mix(in srgb, var(--magic-primary-color) 12%, transparent));--magic-text-primary:var(--text1);--magic-text-secondary:var(--text2);--magic-text-tertiary:var(--text3);--magic-bg-subtle:var(--graph_bg_thin,var(--bg2));--magic-bg-hover:var(--line_regular,var(--bg3));--magic-border-color:var(--line_regular);--magic-tabs-mask-bg:var(--graph_bg_regular);--magic-tabs-hover-color:var(--brand_blue);--magic-bg-overlay:var(--bg1_float,var(--graph_bg_regular));--magic-modal-bg:var(--bg1_float,var(--graph_bg_regular));--magic-modal-border:var(--line_regular);--magic-modal-divider:var(--line_regular);--magic-modal-title-color:var(--text1);--magic-modal-color:var(--text1);--magic-modal-close-color:var(--text3)}.tk-reaction[data-v-7669f4cb]{z-index:10;background-color:var(--graph_bg_regular);box-sizing:border-box;flex-direction:column;display:flex;position:absolute;left:4321px;overflow:hidden}.tk-reaction .tk-search-highlight[data-v-7669f4cb]{background-color:var(--magic-primary-light-bg,var(--brand_blue_thin,#00aeec26));border-radius:2px;padding:0 1px;font-weight:600;color:var(--magic-primary-color,var(--brand_blue,#00aeec))!important}.tk-reaction.is-animating[data-v-7669f4cb]{transition:height .3s ease-in-out,top .29s ease-in-out;overflow:hidden}.tk-reaction .tk-reaction-pod-slide[data-v-7669f4cb]{z-index:15;border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;align-items:center;min-width:0;padding:4px 0;display:flex;position:relative}.tk-reaction .tk-reaction-pod-slide magic-tabs[data-v-7669f4cb]{flex:1;min-width:0}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-7669f4cb]{cursor:pointer;width:26px;height:26px;color:var(--text3);border-radius:4px;justify-content:center;align-items:center;margin-left:6px;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-7669f4cb]:hover{color:var(--text1)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn:hover .icon[data-v-7669f4cb],.tk-reaction .tk-reaction-pod-slide .more-sections-btn:hover svg[data-v-7669f4cb]{transform:rotate(180deg)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-7669f4cb]:active{transform:scale(.92)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active[data-v-7669f4cb],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded[data-v-7669f4cb]{color:var(--text1)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active .icon[data-v-7669f4cb],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active svg[data-v-7669f4cb],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded .icon[data-v-7669f4cb],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded svg[data-v-7669f4cb]{transform:rotate(180deg)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn .icon[data-v-7669f4cb],.tk-reaction .tk-reaction-pod-slide .more-sections-btn svg[data-v-7669f4cb]{width:14px;height:14px;transition:transform .2s cubic-bezier(.4,0,.2,1);display:block}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu[data-v-7669f4cb]{z-index:50;overscroll-behavior:contain;background:var(--graph_bg_thick,var(--bg1));border:1px solid var(--line_regular);box-sizing:border-box;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);scrollbar-width:none;-ms-overflow-style:none;border-radius:6px;max-height:200px;padding:4px;position:absolute;top:calc(100% + 2px);left:0;right:0;overflow-y:auto;box-shadow:0 6px 20px #00000059}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu[data-v-7669f4cb]::-webkit-scrollbar{width:0;height:0;display:none}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item[data-v-7669f4cb]{cursor:pointer;height:32px;color:var(--text2);-webkit-user-select:none;user-select:none;border-radius:4px;justify-content:space-between;align-items:center;gap:8px;padding:0 10px;font-size:13px;transition:all .15s;display:flex}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item[data-v-7669f4cb]:hover{color:var(--text1);background-color:var(--bg2)}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item.is-active[data-v-7669f4cb]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin));font-weight:500}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item .item-label[data-v-7669f4cb]{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.tk-reaction .dropdown-fade-enter-active[data-v-7669f4cb],.tk-reaction .dropdown-fade-leave-active[data-v-7669f4cb]{transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1)}.tk-reaction .dropdown-fade-enter-from[data-v-7669f4cb],.tk-reaction .dropdown-fade-leave-to[data-v-7669f4cb]{opacity:0;transform:translateY(-4px)}.tk-reaction .tk-reaction-header[data-v-7669f4cb]{border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;justify-content:space-between;align-items:center;margin-bottom:6px;padding:6px 12px;display:flex}.tk-reaction .tk-reaction-header .header-left[data-v-7669f4cb]{align-items:center;gap:12px;display:flex}.tk-reaction .tk-reaction-header .header-left .sort-select[data-v-7669f4cb]{--magic-select-bg:var(--bg2);--magic-select-border:var(--line_regular);--magic-select-color:var(--text1);--magic-select-placeholder-color:var(--text3);--magic-select-suffix-color:var(--text3);--magic-select-hover-bg:var(--bg2_hover);--magic-select-hover-border:var(--magic-primary-color);--magic-select-active-color:var(--magic-primary-color);--magic-select-dropdown-bg:var(--graph_bg_thick);--magic-select-dropdown-border:var(--line_regular);--magic-select-dropdown-shadow:0 4px 16px #0003;--magic-select-option-hover-bg:var(--bg2);--magic-select-option-active-bg:var(--magic-primary-light-bg);width:104px}.tk-reaction .tk-reaction-header .header-left magic-switch[data-v-7669f4cb]{--magic-switch-active-color:var(--magic-primary-color,var(--brand_blue));--magic-switch-inactive-color:var(--text4)}.tk-reaction .tk-reaction-header .header-right[data-v-7669f4cb]{align-items:center;gap:6px;display:flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-7669f4cb],.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-7669f4cb]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border-radius:4px;justify-content:center;align-items:center;padding:0;transition:color .2s,background-color .2s,transform .15s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn .icon[data-v-7669f4cb],.tk-reaction .tk-reaction-header .header-right .search-btn .icon[data-v-7669f4cb]{fill:currentColor;width:15px;height:15px}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-7669f4cb]:hover,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-7669f4cb]:hover{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--bg2)}.tk-reaction .tk-reaction-header .header-right .shuffle-btn.is-active[data-v-7669f4cb],.tk-reaction .tk-reaction-header .header-right .search-btn.is-active[data-v-7669f4cb]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin))}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-7669f4cb]:active,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-7669f4cb]:active{transform:scale(.92)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-7669f4cb]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border:none;outline:none;justify-content:center;align-items:center;padding:0;transition:color .2s,transform .2s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .settings-btn .icon[data-v-7669f4cb]{width:16px;height:16px;color:inherit;fill:currentColor;transition:transform .3s}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-7669f4cb]:hover{color:var(--magic-primary-color,var(--brand_blue));background:0 0}.tk-reaction .tk-reaction-header .header-right .settings-btn:hover .icon[data-v-7669f4cb]{transform:rotate(60deg)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-7669f4cb]:active{transform:scale(.92)}.tk-reaction .tk-reaction-search[data-v-7669f4cb]{flex-shrink:0;padding:0 12px 6px}.tk-reaction .tk-reaction-search .search-input[data-v-7669f4cb]{--magic-input-bg:var(--bg2);--magic-input-border:var(--line_regular);--magic-input-color:var(--text1);--magic-input-placeholder-color:var(--text3);--magic-input-hover-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-bg:var(--graph_bg_regular);--magic-input-prefix-color:var(--text3);--magic-input-suffix-color:var(--text3);--magic-input-clear-color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .search-prefix-icon[data-v-7669f4cb]{width:14px;height:14px;color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .match-badge[data-v-7669f4cb]{color:var(--text3);white-space:nowrap;font-size:11px}.tk-reaction .tk-reaction-video[data-v-7669f4cb]{overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#78787880 transparent;flex:1;position:relative;overflow:auto}.tk-reaction .tk-reaction-video.is-loading[data-v-7669f4cb]{overflow:hidden!important}.tk-reaction .tk-reaction-video[data-v-7669f4cb]::-webkit-scrollbar{width:8px;height:8px}.tk-reaction .tk-reaction-video[data-v-7669f4cb]::-webkit-scrollbar-thumb{background:#78787880;border-radius:8px}.tk-reaction .tk-reaction-video[data-v-7669f4cb]::-webkit-scrollbar-thumb:hover{background:#787878}.tk-reaction .tk-reaction-video .empty-state[data-v-7669f4cb]{min-height:160px;color:var(--text3);text-align:center;justify-content:center;align-items:center;padding:48px 16px;font-size:13px;display:flex}.tk-reaction .tk-reaction-video .loading-state[data-v-7669f4cb]{justify-content:center;align-items:center;min-height:160px;padding:48px 0;display:flex}.tk-reaction .tk-reaction-video .list[data-v-7669f4cb]{box-sizing:border-box;width:calc(100% - 12px);margin:0 auto;position:relative}.tk-reaction .tk-reaction-video .list .item[data-v-7669f4cb]{content-visibility:auto;contain-intrinsic-size:auto 36px;margin-bottom:4px}.tk-reaction .tk-reaction-video .list .item .header[data-v-7669f4cb]{cursor:pointer;border-radius:2px;align-items:center;padding:0 10px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header[data-v-7669f4cb]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .header.is-active[data-v-7669f4cb]{background-color:var(--bg2,#ffffff14)}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title[data-v-7669f4cb],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title[data-v-7669f4cb]{color:var(--magic-primary-color,var(--brand_blue))!important}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title .playing-gif[data-v-7669f4cb],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title .playing-gif[data-v-7669f4cb]{display:block!important}.tk-reaction .tk-reaction-video .list .item .header.is-played .mode-list .title[data-v-7669f4cb],.tk-reaction .tk-reaction-video .list .item .header.is-played .mode-card .info .title[data-v-7669f4cb]{opacity:.75;color:var(--text3)!important}.tk-reaction .tk-reaction-video .list .item .header.is-played .mode-card .cover[data-v-7669f4cb]{opacity:.75}.tk-reaction .tk-reaction-video .list .item .header.is-played:hover .mode-list .title[data-v-7669f4cb],.tk-reaction .tk-reaction-video .list .item .header.is-played:hover .mode-card .info .title[data-v-7669f4cb]{opacity:1;color:var(--text1)!important}.tk-reaction .tk-reaction-video .list .item .header.is-played:hover .mode-card .cover[data-v-7669f4cb]{opacity:1}.tk-reaction .tk-reaction-video .list .item .header .mode-list[data-v-7669f4cb]{justify-content:space-between;align-items:center;width:100%;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-7669f4cb]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-7669f4cb]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .playing-gif[data-v-7669f4cb]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .title-text[data-v-7669f4cb]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions[data-v-7669f4cb]{color:var(--text3);flex-shrink:0;align-items:center;gap:8px;margin-left:10px;font-size:14px;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand[data-v-7669f4cb]{cursor:pointer;align-items:center;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand .icon[data-v-7669f4cb]{color:var(--text3);width:14px;height:14px;transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand.is-expanded .icon[data-v-7669f4cb]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .header .mode-card[data-v-7669f4cb]{align-items:stretch;gap:10px;width:100%;padding:6px 0;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover[data-v-7669f4cb]{background-color:var(--bg2,#0000001a);border-radius:4px;flex-shrink:0;width:114px;height:64px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover .cover-img[data-v-7669f4cb]{object-fit:cover;width:100%;height:100%;display:block}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info[data-v-7669f4cb]{flex-direction:column;flex:1;justify-content:space-between;min-width:0;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-7669f4cb]{color:var(--text1);align-items:flex-start;max-height:36px;font-size:13px;line-height:18px;transition:color .2s;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-7669f4cb]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .playing-gif[data-v-7669f4cb]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-top:3px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .title-text[data-v-7669f4cb]{-webkit-line-clamp:2;text-overflow:ellipsis;word-break:break-all;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats[data-v-7669f4cb]{color:var(--text3);align-items:center;gap:8px;min-width:0;font-size:12px;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item[data-v-7669f4cb]{flex-shrink:1;align-items:center;gap:3px;min-width:0;display:inline-flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .icon[data-v-7669f4cb]{fill:currentColor;flex-shrink:0;width:14px;height:14px}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .count-text[data-v-7669f4cb]{white-space:nowrap;text-overflow:ellipsis;line-height:14px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.views[data-v-7669f4cb],.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.danmaku[data-v-7669f4cb]{flex-shrink:0}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn[data-v-7669f4cb]{cursor:pointer;flex-shrink:0;margin-left:auto}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn .icon[data-v-7669f4cb]{width:14px;height:14px;color:var(--text3);transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn.is-expanded .icon[data-v-7669f4cb]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .episodes[data-v-7669f4cb]{margin-top:4px}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-7669f4cb]{content-visibility:auto;contain-intrinsic-size:auto 31px;background:var(--bg1);cursor:pointer;border-radius:2px;justify-content:space-between;align-items:center;padding:0 10px 0 24px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-7669f4cb]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title[data-v-7669f4cb]{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title .playing-gif[data-v-7669f4cb]{display:block}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-played .episode-title[data-v-7669f4cb]{opacity:.75;color:var(--text3)!important}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-played:hover .episode-title[data-v-7669f4cb]{opacity:1;color:var(--text1)!important}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-7669f4cb]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-7669f4cb]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .playing-gif[data-v-7669f4cb]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .title-txt[data-v-7669f4cb]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-meta[data-v-7669f4cb]{color:var(--text3);flex-shrink:0;margin-left:10px;font-size:14px}.tk-reaction.is-card-mode .item[data-v-7669f4cb]{contain-intrinsic-size:auto 80px!important}.tk-reaction.is-card-mode .header .mode-list[data-v-7669f4cb]{display:none!important}.tk-reaction.is-card-mode .header .mode-card[data-v-7669f4cb]{display:flex!important}\n/*$vite$:1*/ ',
+    ' .settings-container[data-v-e628917f]{-webkit-user-select:none;user-select:none;overscroll-behavior:contain;flex-direction:column;gap:18px;display:flex}.settings-section[data-v-e628917f]{flex-direction:column;gap:8px;display:flex}.settings-section__title[data-v-e628917f]{color:var(--magic-primary-color,#00aeec);letter-spacing:.3px;align-items:center;gap:6px;font-size:13px;font-weight:600;display:flex}.settings-section__title .section-icon[data-v-e628917f]{opacity:.9;width:14px;height:14px}.settings-card[data-v-e628917f]{background:var(--magic-bg-subtle,var(--graph_bg_thin,var(--bg2)));border:1px solid var(--magic-border-color,var(--line_regular));border-radius:10px;flex-direction:column;padding:4px 16px;transition:all .25s cubic-bezier(.16,1,.3,1);display:flex}.settings-card[data-v-e628917f]:hover{border-color:var(--magic-border-color-hover,var(--line_regular));background:var(--magic-bg-hover,var(--line_regular))}.settings-item[data-v-e628917f]{justify-content:space-between;align-items:center;gap:16px;padding:12px 0;transition:opacity .2s;display:flex}.settings-item[data-v-e628917f]:not(:last-child){border-bottom:1px solid var(--magic-border-color,var(--line_regular))}.settings-item.is-disabled[data-v-e628917f]{opacity:.38;pointer-events:none}.settings-item__info[data-v-e628917f]{flex-direction:column;flex:1;gap:3px;min-width:0;display:flex}.settings-item__title[data-v-e628917f]{color:var(--text1);font-size:13.5px;font-weight:500;line-height:1.4}.settings-item__desc[data-v-e628917f]{color:var(--text3);font-size:12px;line-height:1.45}.settings-item__action[data-v-e628917f]{flex-shrink:0;align-items:center;display:flex}.settings-modal-footer[data-v-e628917f]{justify-content:space-between;align-items:center;width:100%;display:flex}.settings-modal-footer .footer-buttons[data-v-e628917f],.settings-modal-header[data-v-e628917f]{align-items:center;gap:10px;display:flex}.settings-modal-header .settings-modal-title[data-v-e628917f]{color:var(--magic-modal-title-color,var(--magic-text-primary,#fff));letter-spacing:.2px;font-size:15px;font-weight:600;line-height:1.4}@keyframes tk-spin-9d995b77{0%{transform:rotate(0)}to{transform:rotate(360deg)}}:root{--magic-primary-color:var(--brand_blue);--magic-primary-hover-color:var(--brand_blue_hover,color-mix(in srgb, var(--magic-primary-color) 85%, #fff));--magic-primary-active-color:var(--brand_blue_active,color-mix(in srgb, var(--magic-primary-color) 85%, #000));--magic-primary-light-bg:var(--brand_blue_thin,color-mix(in srgb, var(--magic-primary-color) 12%, transparent));--magic-text-primary:var(--text1);--magic-text-secondary:var(--text2);--magic-text-tertiary:var(--text3);--magic-bg-subtle:var(--graph_bg_thin,var(--bg2));--magic-bg-hover:var(--line_regular,var(--bg3));--magic-border-color:var(--line_regular);--magic-tabs-mask-bg:var(--graph_bg_regular);--magic-tabs-hover-color:var(--brand_blue);--magic-bg-overlay:var(--bg1_float,var(--graph_bg_regular));--magic-modal-bg:var(--bg1_float,var(--graph_bg_regular));--magic-modal-border:var(--line_regular);--magic-modal-divider:var(--line_regular);--magic-modal-title-color:var(--text1);--magic-modal-color:var(--text1);--magic-modal-close-color:var(--text3)}.tk-reaction[data-v-9d995b77]{z-index:10;background-color:var(--graph_bg_regular);box-sizing:border-box;flex-direction:column;display:flex;position:absolute;left:4321px;overflow:hidden}.tk-reaction .tk-search-highlight[data-v-9d995b77]{background-color:var(--magic-primary-light-bg,var(--brand_blue_thin,#00aeec26));border-radius:2px;padding:0 1px;font-weight:600;color:var(--magic-primary-color,var(--brand_blue,#00aeec))!important}.tk-reaction.is-animating[data-v-9d995b77]{transition:height .3s ease-in-out,top .29s ease-in-out;overflow:hidden}.tk-reaction .tk-reaction-pod-slide[data-v-9d995b77]{z-index:15;border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;align-items:center;min-width:0;padding:4px 0;display:flex;position:relative}.tk-reaction .tk-reaction-pod-slide magic-tabs[data-v-9d995b77]{flex:1;min-width:0}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-9d995b77]{cursor:pointer;width:26px;height:26px;color:var(--text3);border-radius:4px;justify-content:center;align-items:center;margin-left:6px;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-9d995b77]:hover{color:var(--text1)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn:hover .icon[data-v-9d995b77],.tk-reaction .tk-reaction-pod-slide .more-sections-btn:hover svg[data-v-9d995b77]{transform:rotate(180deg)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn[data-v-9d995b77]:active{transform:scale(.92)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active[data-v-9d995b77],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded[data-v-9d995b77]{color:var(--text1)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active .icon[data-v-9d995b77],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-active svg[data-v-9d995b77],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded .icon[data-v-9d995b77],.tk-reaction .tk-reaction-pod-slide .more-sections-btn.is-expanded svg[data-v-9d995b77]{transform:rotate(180deg)}.tk-reaction .tk-reaction-pod-slide .more-sections-btn .icon[data-v-9d995b77],.tk-reaction .tk-reaction-pod-slide .more-sections-btn svg[data-v-9d995b77]{width:14px;height:14px;transition:transform .2s cubic-bezier(.4,0,.2,1);display:block}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu[data-v-9d995b77]{z-index:50;overscroll-behavior:contain;background:var(--graph_bg_thick,var(--bg1));border:1px solid var(--line_regular);box-sizing:border-box;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);scrollbar-width:none;-ms-overflow-style:none;border-radius:6px;max-height:200px;padding:4px;position:absolute;top:calc(100% + 2px);left:0;right:0;overflow-y:auto;box-shadow:0 6px 20px #00000059}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu[data-v-9d995b77]::-webkit-scrollbar{width:0;height:0;display:none}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item[data-v-9d995b77]{cursor:pointer;height:32px;color:var(--text2);-webkit-user-select:none;user-select:none;border-radius:4px;justify-content:space-between;align-items:center;gap:8px;padding:0 10px;font-size:13px;transition:all .15s;display:flex}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item[data-v-9d995b77]:hover{color:var(--text1);background-color:var(--bg2)}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item.is-active[data-v-9d995b77]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin));font-weight:500}.tk-reaction .tk-reaction-pod-slide .sections-dropdown-menu .dropdown-item .item-label[data-v-9d995b77]{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.tk-reaction .dropdown-fade-enter-active[data-v-9d995b77],.tk-reaction .dropdown-fade-leave-active[data-v-9d995b77]{transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1)}.tk-reaction .dropdown-fade-enter-from[data-v-9d995b77],.tk-reaction .dropdown-fade-leave-to[data-v-9d995b77]{opacity:0;transform:translateY(-4px)}.tk-reaction .tk-reaction-header[data-v-9d995b77]{border-bottom:1px solid var(--line_regular);box-sizing:border-box;flex-shrink:0;justify-content:space-between;align-items:center;margin-bottom:6px;padding:6px 12px;display:flex}.tk-reaction .tk-reaction-header .header-left[data-v-9d995b77]{align-items:center;gap:12px;display:flex}.tk-reaction .tk-reaction-header .header-left .sort-select[data-v-9d995b77]{--magic-select-bg:var(--bg2);--magic-select-border:var(--line_regular);--magic-select-color:var(--text1);--magic-select-placeholder-color:var(--text3);--magic-select-suffix-color:var(--text3);--magic-select-hover-bg:var(--bg2_hover);--magic-select-hover-border:var(--magic-primary-color);--magic-select-active-color:var(--magic-primary-color);--magic-select-dropdown-bg:var(--graph_bg_thick);--magic-select-dropdown-border:var(--line_regular);--magic-select-dropdown-shadow:0 4px 16px #0003;--magic-select-option-hover-bg:var(--bg2);--magic-select-option-active-bg:var(--magic-primary-light-bg);width:104px}.tk-reaction .tk-reaction-header .header-left magic-switch[data-v-9d995b77]{--magic-switch-active-color:var(--magic-primary-color,var(--brand_blue));--magic-switch-inactive-color:var(--text4)}.tk-reaction .tk-reaction-header .header-right[data-v-9d995b77]{align-items:center;gap:6px;display:flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-9d995b77],.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-9d995b77]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border-radius:4px;justify-content:center;align-items:center;padding:0;transition:color .2s,background-color .2s,transform .15s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .shuffle-btn .icon[data-v-9d995b77],.tk-reaction .tk-reaction-header .header-right .search-btn .icon[data-v-9d995b77]{fill:currentColor;width:15px;height:15px}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-9d995b77]:hover,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-9d995b77]:hover{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--bg2)}.tk-reaction .tk-reaction-header .header-right .shuffle-btn.is-active[data-v-9d995b77],.tk-reaction .tk-reaction-header .header-right .search-btn.is-active[data-v-9d995b77]{color:var(--magic-primary-color,var(--brand_blue));background-color:var(--magic-primary-light-bg,var(--brand_blue_thin))}.tk-reaction .tk-reaction-header .header-right .shuffle-btn[data-v-9d995b77]:active,.tk-reaction .tk-reaction-header .header-right .search-btn[data-v-9d995b77]:active{transform:scale(.92)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-9d995b77]{cursor:pointer;width:24px;height:24px;color:var(--text3);background:0 0;border:none;outline:none;justify-content:center;align-items:center;padding:0;transition:color .2s,transform .2s;display:inline-flex}.tk-reaction .tk-reaction-header .header-right .settings-btn .icon[data-v-9d995b77]{width:16px;height:16px;color:inherit;fill:currentColor;transition:transform .3s}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-9d995b77]:hover{color:var(--magic-primary-color,var(--brand_blue));background:0 0}.tk-reaction .tk-reaction-header .header-right .settings-btn:hover .icon[data-v-9d995b77]{transform:rotate(60deg)}.tk-reaction .tk-reaction-header .header-right .settings-btn[data-v-9d995b77]:active{transform:scale(.92)}.tk-reaction .tk-reaction-search[data-v-9d995b77]{flex-shrink:0;padding:0 12px 6px}.tk-reaction .tk-reaction-search .search-input[data-v-9d995b77]{--magic-input-bg:var(--bg2);--magic-input-border:var(--line_regular);--magic-input-color:var(--text1);--magic-input-placeholder-color:var(--text3);--magic-input-hover-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-border:var(--magic-primary-color,var(--brand_blue));--magic-input-focus-bg:var(--graph_bg_regular);--magic-input-prefix-color:var(--text3);--magic-input-suffix-color:var(--text3);--magic-input-clear-color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .search-prefix-icon[data-v-9d995b77]{width:14px;height:14px;color:var(--text3)}.tk-reaction .tk-reaction-search .search-input .match-badge[data-v-9d995b77]{color:var(--text3);white-space:nowrap;font-size:11px}.tk-reaction .tk-reaction-video[data-v-9d995b77]{overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#78787880 transparent;flex:1;position:relative;overflow:auto}.tk-reaction .tk-reaction-video.is-loading[data-v-9d995b77]{overflow:hidden!important}.tk-reaction .tk-reaction-video[data-v-9d995b77]::-webkit-scrollbar{width:8px;height:8px}.tk-reaction .tk-reaction-video[data-v-9d995b77]::-webkit-scrollbar-thumb{background:#78787880;border-radius:8px}.tk-reaction .tk-reaction-video[data-v-9d995b77]::-webkit-scrollbar-thumb:hover{background:#787878}.tk-reaction .tk-reaction-video .empty-state[data-v-9d995b77]{min-height:160px;color:var(--text3);text-align:center;justify-content:center;align-items:center;padding:48px 16px;font-size:13px;display:flex}.tk-reaction .tk-reaction-video .loading-state[data-v-9d995b77]{justify-content:center;align-items:center;min-height:160px;display:flex}.tk-reaction .tk-reaction-video .list[data-v-9d995b77]{box-sizing:border-box;width:calc(100% - 12px);margin:0 auto;position:relative}.tk-reaction .tk-reaction-video .list .item[data-v-9d995b77]{content-visibility:auto;contain-intrinsic-size:auto 36px;margin-bottom:4px}.tk-reaction .tk-reaction-video .list .item .header[data-v-9d995b77]{cursor:pointer;border-radius:2px;align-items:center;padding:0 10px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header[data-v-9d995b77]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .header.is-active[data-v-9d995b77]{background-color:var(--bg2,#ffffff14)}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title[data-v-9d995b77],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title[data-v-9d995b77]{color:var(--magic-primary-color,var(--brand_blue))!important}.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-list .title .playing-gif[data-v-9d995b77],.tk-reaction .tk-reaction-video .list .item .header.is-active .mode-card .info .title .playing-gif[data-v-9d995b77]{display:block!important}.tk-reaction .tk-reaction-video .list .item .header.is-played .mode-list .title[data-v-9d995b77],.tk-reaction .tk-reaction-video .list .item .header.is-played .mode-card .info .title[data-v-9d995b77]{opacity:.75;color:var(--text3)!important}.tk-reaction .tk-reaction-video .list .item .header.is-played .mode-card .cover[data-v-9d995b77]{opacity:.75}.tk-reaction .tk-reaction-video .list .item .header.is-played:hover .mode-list .title[data-v-9d995b77],.tk-reaction .tk-reaction-video .list .item .header.is-played:hover .mode-card .info .title[data-v-9d995b77]{opacity:1;color:var(--text1)!important}.tk-reaction .tk-reaction-video .list .item .header.is-played:hover .mode-card .cover[data-v-9d995b77]{opacity:1}.tk-reaction .tk-reaction-video .list .item .header .mode-list[data-v-9d995b77]{justify-content:space-between;align-items:center;width:100%;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-9d995b77]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title[data-v-9d995b77]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .playing-gif[data-v-9d995b77]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-list .title .title-text[data-v-9d995b77]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions[data-v-9d995b77]{color:var(--text3);flex-shrink:0;align-items:center;gap:8px;margin-left:10px;font-size:14px;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand[data-v-9d995b77]{cursor:pointer;align-items:center;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand .icon[data-v-9d995b77]{color:var(--text3);width:14px;height:14px;transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-list .actions .expand.is-expanded .icon[data-v-9d995b77]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .header .mode-card[data-v-9d995b77]{align-items:stretch;gap:10px;width:100%;padding:6px 0;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover[data-v-9d995b77]{background-color:var(--bg2,#0000001a);border-radius:4px;flex-shrink:0;width:114px;height:64px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .cover .cover-img[data-v-9d995b77]{object-fit:cover;width:100%;height:100%;display:block}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info[data-v-9d995b77]{flex-direction:column;flex:1;justify-content:space-between;min-width:0;display:flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-9d995b77]{color:var(--text1);align-items:flex-start;max-height:36px;font-size:13px;line-height:18px;transition:color .2s;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title[data-v-9d995b77]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .playing-gif[data-v-9d995b77]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-top:3px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .title .title-text[data-v-9d995b77]{-webkit-line-clamp:2;text-overflow:ellipsis;word-break:break-all;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats[data-v-9d995b77]{color:var(--text3);align-items:center;gap:8px;min-width:0;font-size:12px;display:flex;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item[data-v-9d995b77]{flex-shrink:1;align-items:center;gap:3px;min-width:0;display:inline-flex}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .icon[data-v-9d995b77]{fill:currentColor;flex-shrink:0;width:14px;height:14px}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item .count-text[data-v-9d995b77]{white-space:nowrap;text-overflow:ellipsis;line-height:14px;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.views[data-v-9d995b77],.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .stat-item.danmaku[data-v-9d995b77]{flex-shrink:0}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn[data-v-9d995b77]{cursor:pointer;flex-shrink:0;margin-left:auto}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn .icon[data-v-9d995b77]{width:14px;height:14px;color:var(--text3);transition:transform .3s;transform:rotate(180deg)}.tk-reaction .tk-reaction-video .list .item .header .mode-card .info .stats .expand-btn.is-expanded .icon[data-v-9d995b77]{transform:rotate(0)}.tk-reaction .tk-reaction-video .list .item .episodes[data-v-9d995b77]{margin-top:4px}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-9d995b77]{content-visibility:auto;contain-intrinsic-size:auto 31px;background:var(--bg1);cursor:pointer;border-radius:2px;justify-content:space-between;align-items:center;padding:0 10px 0 24px;transition:background-color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode[data-v-9d995b77]:hover{background-color:var(--bg2,#ffffff0d)}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title[data-v-9d995b77]{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-active .episode-title .playing-gif[data-v-9d995b77]{display:block}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-played .episode-title[data-v-9d995b77]{opacity:.75;color:var(--text3)!important}.tk-reaction .tk-reaction-video .list .item .episodes .episode.is-played:hover .episode-title[data-v-9d995b77]{opacity:1;color:var(--text1)!important}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-9d995b77]{color:var(--text1);flex:1;align-items:center;height:31px;font-size:15px;transition:color .2s;display:flex}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title[data-v-9d995b77]:hover{color:var(--magic-primary-color,var(--brand_blue))}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .playing-gif[data-v-9d995b77]{background-image:url(https://i0.hdslb.com/bfs/static/jinkela/playlist-video/asserts/playing.gif);background-position:50%;background-repeat:no-repeat;background-size:12px 12px;flex-shrink:0;width:12px;height:12px;margin-right:5px;display:none}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-title .title-txt[data-v-9d995b77]{-webkit-line-clamp:1;text-overflow:ellipsis;word-break:break-all;line-break:anywhere;-webkit-box-orient:vertical;line-height:31px;display:-webkit-box;overflow:hidden}.tk-reaction .tk-reaction-video .list .item .episodes .episode .episode-meta[data-v-9d995b77]{color:var(--text3);flex-shrink:0;margin-left:10px;font-size:14px}.tk-reaction.is-card-mode .item[data-v-9d995b77]{contain-intrinsic-size:auto 80px!important}.tk-reaction.is-card-mode .header .mode-list[data-v-9d995b77]{display:none!important}.tk-reaction.is-card-mode .header .mode-card[data-v-9d995b77]{display:flex!important}\n/*$vite$:1*/ ',
   );
   function isWatchLaterRoute() {
     return window.location.pathname.startsWith('/list/watchlater');
@@ -274,43 +273,6 @@
       }
     };
   }
-  var getEnvPrefix = () => {
-    try {
-      return '';
-    } catch {
-      return '';
-    }
-  };
-  var formatKey = (key, namespace = '') => {
-    return `${getEnvPrefix()}${namespace ? `${namespace}:` : ''}${key}`;
-  };
-  var getStorage = (key, defaultValue = null, namespace = '') => {
-    if (!isString(key) || !key) return defaultValue;
-    const finalKey = formatKey(key, namespace);
-    const val = GM_getValue(finalKey, defaultValue);
-    return isNil(val) ? defaultValue : val;
-  };
-  var setStorage = (key, value, namespace = '') => {
-    if (!isString(key) || !key) return;
-    const finalKey = formatKey(key, namespace);
-    GM_setValue(finalKey, value);
-  };
-  var removeStorage = (key, namespace = '') => {
-    if (!isString(key) || !key) return;
-    const finalKey = formatKey(key, namespace);
-    GM_deleteValue(finalKey);
-  };
-  var clearStorage = (namespace = '') => {
-    const prefix = formatKey('', namespace);
-    const allKeys = GM_listValues();
-    for (const k of allKeys) if (k.startsWith(prefix)) GM_deleteValue(k);
-  };
-  var createStorage = (namespace = '') => ({
-    get: (key, defaultValue) => getStorage(key, defaultValue, namespace),
-    set: (key, value) => setStorage(key, value, namespace),
-    remove: (key) => removeStorage(key, namespace),
-    clear: () => clearStorage(namespace),
-  });
   var serializeParams = (params) => {
     if (!params) return '';
     return Object.entries(params)
@@ -549,972 +511,6 @@
       },
       { capture: true },
     );
-  }
-  var name = 'bilibili-playlist-enhancer';
-  var version = '1.2.5';
-  var POD_MODE = {
-    LIST: 'LIST',
-    CARD: 'CARD',
-  };
-  var POD_TYPE = {
-    EPISODE: 'EPISODE',
-    COLLECTION: 'COLLECTION',
-    SERIES: 'SERIES',
-  };
-  var SORT_MODE = {
-    DEFAULT: 'DEFAULT_ASC',
-    DEFAULT_ASC: 'DEFAULT_ASC',
-    DEFAULT_DESC: 'DEFAULT_DESC',
-    TIME_DESC: 'TIME_DESC',
-    TIME_ASC: 'TIME_ASC',
-    VIEWS_DESC: 'VIEWS_DESC',
-    VIEWS_ASC: 'VIEWS_ASC',
-    DANMAKUS_DESC: 'DANMAKUS_DESC',
-    DANMAKUS_ASC: 'DANMAKUS_ASC',
-  };
-  var CTRL_ACTION = {
-    PREV: 'PREV',
-    NEXT: 'NEXT',
-  };
-  var SHUFFLE_SCOPE = {
-    ALL: 'ALL',
-    GROUP: 'GROUP',
-  };
-  var DEFAULT_SETTINGS = {
-    autoPlayNext: true,
-    shuffle: false,
-    shuffleScope: SHUFFLE_SCOPE.GROUP,
-    stopOnGroupEnd: true,
-    markPlayedVideos: true,
-    scrollActiveOnClick: true,
-    scrollToActiveOnSort: true,
-    hotkeyPrev: '[',
-    hotkeyNext: ']',
-    sortMode: SORT_MODE.TIME_DESC,
-  };
-  var SORT_OPTIONS = [
-    {
-      label: '官方排序',
-      value: 'GROUP_DEFAULT',
-      children: [
-        {
-          label: '升序',
-          value: SORT_MODE.DEFAULT_ASC,
-        },
-        {
-          label: '降序',
-          value: SORT_MODE.DEFAULT_DESC,
-        },
-      ],
-    },
-    {
-      label: '发布时间',
-      value: 'GROUP_TIME',
-      children: [
-        {
-          label: '最新发布',
-          value: SORT_MODE.TIME_DESC,
-        },
-        {
-          label: '最早发布',
-          value: SORT_MODE.TIME_ASC,
-        },
-      ],
-    },
-    {
-      label: '播放热度',
-      value: 'GROUP_VIEWS',
-      children: [
-        {
-          label: '最多播放',
-          value: SORT_MODE.VIEWS_DESC,
-        },
-        {
-          label: '最少播放',
-          value: SORT_MODE.VIEWS_ASC,
-        },
-      ],
-    },
-    {
-      label: '弹幕数量',
-      value: 'GROUP_DANMAKUS',
-      children: [
-        {
-          label: '最多弹幕',
-          value: SORT_MODE.DANMAKUS_DESC,
-        },
-        {
-          label: '最少弹幕',
-          value: SORT_MODE.DANMAKUS_ASC,
-        },
-      ],
-    },
-  ];
-  var SHUFFLE_SCOPE_OPTIONS = [
-    {
-      label: '全合集随机',
-      value: SHUFFLE_SCOPE.ALL,
-    },
-    {
-      label: '仅当前分组',
-      value: SHUFFLE_SCOPE.GROUP,
-    },
-  ];
-  function getNativeInnerVm() {
-    let vm =
-      document.querySelector('.multip-list-item-inner')?.__vue__ ??
-      document.querySelector('.singlep-list-item-inner')?.__vue__;
-    let switchVideoVm = null;
-    let playlistRouteVm = null;
-    while (vm) {
-      if (!switchVideoVm && isFunction(vm.switchVideo)) switchVideoVm = vm;
-      if (!playlistRouteVm && isFunction(vm.handlePlaylistRoute)) playlistRouteVm = vm;
-      if (switchVideoVm && playlistRouteVm) break;
-      vm = vm.$parent;
-    }
-    return {
-      switchVideoVm,
-      playlistRouteVm,
-    };
-  }
-  var playerState = () => {
-    const player = unsafeWindow?.player;
-    if (!player) return {};
-    return {
-      pause: () => player.pause?.(),
-      reload: (payload) => player.reload(payload),
-      autoPlayNext: (flag = true) => player.setHandoff(flag ? 0 : 2),
-      isAutoPlayNext: () => player.getHandoff() === 0,
-      isWide: unsafeWindow?.isWide,
-    };
-  };
-  function executeVideoSwitch(podType, payload) {
-    if (podType === POD_TYPE.SERIES) {
-      const { switchVideoVm, playlistRouteVm } = getNativeInnerVm();
-      if (switchVideoVm) {
-        switchVideoVm.switchVideo({
-          ...payload,
-          type: 2,
-        });
-        if (!playlistRouteVm.curResourceListItem)
-          playlistRouteVm.$router.push({
-            query: {
-              ...playlistRouteVm.$route.query,
-              oid: payload.aid,
-              bvid: payload.bvid,
-              p: payload.p,
-            },
-          });
-        return;
-      }
-    }
-    playerState().reload(payload);
-  }
-  function interceptPlayerControls(callback) {
-    return on(
-      document,
-      'click',
-      (event) => {
-        if (!event.target?.closest?.('.bpx-player-control-bottom-left')) return;
-        const btn = event.target?.closest?.('.bpx-player-ctrl-prev, .bpx-player-ctrl-next');
-        if (!btn) return;
-        event.stopImmediatePropagation();
-        event.preventDefault();
-        const action = btn.classList.contains('bpx-player-ctrl-prev')
-          ? CTRL_ACTION.PREV
-          : CTRL_ACTION.NEXT;
-        callback?.(action, event);
-      },
-      { capture: true },
-    );
-  }
-  function interceptPlayerEnding(onEndedHandler) {
-    return on(
-      document,
-      'ended',
-      (event) => {
-        if (event.target?.tagName !== 'VIDEO') return;
-        onEndedHandler?.(event);
-      },
-      { capture: true },
-    );
-  }
-  function getCurrentBvid() {
-    const { pathname, search } = window.location;
-    const pathMatch = pathname.match(/\/video\/(BV[a-zA-Z0-9]+)/i);
-    if (pathMatch) return pathMatch[1];
-    const paramBvid = new URLSearchParams(search).get('bvid');
-    if (paramBvid && /^BV[a-zA-Z0-9]+$/i.test(paramBvid)) return paramBvid;
-    return null;
-  }
-  function getCurrentPage() {
-    const { p } = getUrlParams();
-    return parseInt(p || '1', 10);
-  }
-  async function fetchMedialistEpisodes(type, bizId) {
-    const rawList = [];
-    const seenIds = new Set();
-    let hasMore = true;
-    let lastOid;
-    let safetyCounter = 30;
-    while (hasMore && safetyCounter > 0) {
-      safetyCounter -= 1;
-      const res = await http({
-        url: 'https://api.bilibili.com/x/v2/medialist/resource/list',
-        params: {
-          type,
-          biz_id: bizId,
-          ps: 100,
-          otype: 2,
-          mobi_app: 'web',
-          ...(lastOid ? { oid: lastOid } : {}),
-        },
-      });
-      const mediaList = res?.data?.media_list;
-      if (!mediaList || res?.code !== 0) break;
-      for (const item of mediaList)
-        if (!seenIds.has(item.id)) {
-          seenIds.add(item.id);
-          rawList.push(item);
-        }
-      hasMore = !!(res.data.has_more && mediaList.length > 0);
-      lastOid = mediaList[mediaList.length - 1]?.id;
-    }
-    if (!rawList.length) return null;
-    return {
-      sections: rawList,
-      seasonSections: [],
-      hasMultipleSections: false,
-      currentSectionId: '',
-      mode: POD_MODE.CARD,
-      type: POD_TYPE.SERIES,
-    };
-  }
-  async function fetchVideoEpisodes(bvid) {
-    const res = await http({
-      url: 'https://api.bilibili.com/x/web-interface/view',
-      params: { bvid },
-    });
-    if (res?.code !== 0 || !res?.data) return null;
-    const { data } = res;
-    const rawSections = data.ugc_season?.sections || [];
-    if (rawSections.length > 0) {
-      const seasonSections = rawSections.map((s) => {
-        const sectionId = String(s.id || s.season_id || '');
-        const title = s.title || '';
-        return {
-          id: sectionId,
-          title,
-          label: title,
-          value: sectionId,
-          episodes: s.episodes || [],
-        };
-      });
-      const currentSection =
-        seasonSections.find((s) => s.episodes.some((ep) => ep.bvid === bvid)) || seasonSections[0];
-      return {
-        sections: currentSection?.episodes || [],
-        seasonSections,
-        hasMultipleSections: seasonSections.length > 1,
-        currentSectionId: currentSection?.value || '',
-        mode: POD_MODE.LIST,
-        type: POD_TYPE.COLLECTION,
-      };
-    }
-    const pages = data.pages || [];
-    if (pages.length <= 1) return null;
-    return {
-      sections: pages,
-      seasonSections: [],
-      hasMultipleSections: false,
-      currentSectionId: '',
-      mode: POD_MODE.LIST,
-      type: POD_TYPE.EPISODE,
-    };
-  }
-  function getMediaListMid() {
-    const { pathname } = window.location;
-    const match = pathname.match(/\/list\/(?:ml)?(\d+)/i);
-    return match ? match[1] : null;
-  }
-  async function fetchSeasonInfo(bvid, sid) {
-    try {
-      if (sid) return await fetchMedialistEpisodes(5, sid);
-      const upMid = getMediaListMid();
-      if (upMid) return await fetchMedialistEpisodes(1, upMid);
-      return await fetchVideoEpisodes(bvid);
-    } catch (err) {
-      console.error('[bilibili-playlist-enhancer] 获取合集信息失败:', err);
-      return null;
-    }
-  }
-  function buildEpisodes({
-    pages,
-    title,
-    duration,
-    isGroupActive,
-    currentPage,
-    fallbackCid,
-    fallbackPage = 1,
-  }) {
-    const defaultPage = fallbackPage || 1;
-    return (
-      isArray(pages) && pages.length > 0
-        ? pages
-        : [
-            {
-              cid: fallbackCid,
-              page: defaultPage,
-              part: title,
-              duration,
-            },
-          ]
-    ).map((pageItem, pIdx) => {
-      const pageNum = pageItem.page || defaultPage || pIdx + 1;
-      return {
-        cid: pageItem.cid || pageItem.id,
-        page: pageNum,
-        rawEpIndex: pIdx,
-        title: pageItem.part || pageItem.title || title,
-        duration: formatDuration(pageItem.duration || duration),
-        isActive: isGroupActive && Number(pageNum) === Number(currentPage || 1),
-      };
-    });
-  }
-  function extractRawItem(item, currentBvid, index) {
-    return {
-      aid: item.aid || item.id,
-      type: item.type,
-      bvid: item.bvid || item.bv_id || currentBvid,
-      title: item.title || item.part,
-      cover: item.cover || item.pic || item.arc?.pic || '',
-      pubdate: formatDate(item.arc?.pubdate || item.pubtime || item.pubdate || 0),
-      duration: item.arc?.duration || item.duration || 0,
-      views: formatCount(item.arc?.stat?.view ?? item.stat?.view ?? item.cnt_info?.play ?? 0),
-      danmakus: formatCount(
-        item.arc?.stat?.danmaku ?? item.stat?.danmaku ?? item.cnt_info?.danmaku ?? 0,
-      ),
-      rawViews: Number(item.arc?.stat?.view ?? item.stat?.view ?? item.cnt_info?.play ?? 0),
-      rawDanmakus: Number(
-        item.arc?.stat?.danmaku ?? item.stat?.danmaku ?? item.cnt_info?.danmaku ?? 0,
-      ),
-      pubTimestamp: item.pubdate || item.arc?.pubdate || item.pubtime || 0,
-      page: item.page,
-      rawIndex: index,
-    };
-  }
-  function processSeasonData(podType, rawList = [], currentBvid = '', currentPage = 1) {
-    const isEpisode = podType === POD_TYPE.EPISODE;
-    return rawList.map((item, idx) => {
-      const raw = extractRawItem(item, currentBvid, idx);
-      const isGroupActive = raw.bvid === currentBvid;
-      const hasPages = isArray(item.pages) && item.pages.length > 1;
-      const episodes = buildEpisodes({
-        pages: hasPages ? item.pages : null,
-        title: raw.title,
-        duration: raw.duration,
-        isGroupActive,
-        currentPage,
-        fallbackCid: raw.cid || item.cid,
-        fallbackPage: raw.page,
-      });
-      const isActive = isEpisode
-        ? isGroupActive && Number(raw.page) === Number(currentPage)
-        : isGroupActive;
-      return {
-        ...raw,
-        isActive,
-        isMultiPage: hasPages,
-        episodes,
-      };
-    });
-  }
-  var SORT_STRATEGIES = {
-    [SORT_MODE.DEFAULT_ASC]: (list) =>
-      [...list].sort((a, b) => (a.rawIndex || 0) - (b.rawIndex || 0)),
-    [SORT_MODE.DEFAULT_DESC]: (list) =>
-      [...list].sort((a, b) => (b.rawIndex || 0) - (a.rawIndex || 0)),
-    [SORT_MODE.TIME_DESC]: (list) =>
-      [...list].sort(
-        (a, b) =>
-          (b.pubTimestamp || 0) - (a.pubTimestamp || 0) || (b.rawIndex || 0) - (a.rawIndex || 0),
-      ),
-    [SORT_MODE.TIME_ASC]: (list) =>
-      [...list].sort(
-        (a, b) =>
-          (a.pubTimestamp || 0) - (b.pubTimestamp || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
-      ),
-    [SORT_MODE.VIEWS_DESC]: (list) =>
-      [...list].sort(
-        (a, b) => (b.rawViews || 0) - (a.rawViews || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
-      ),
-    [SORT_MODE.VIEWS_ASC]: (list) =>
-      [...list].sort(
-        (a, b) => (a.rawViews || 0) - (b.rawViews || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
-      ),
-    [SORT_MODE.DANMAKUS_DESC]: (list) =>
-      [...list].sort(
-        (a, b) =>
-          (b.rawDanmakus || 0) - (a.rawDanmakus || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
-      ),
-    [SORT_MODE.DANMAKUS_ASC]: (list) =>
-      [...list].sort(
-        (a, b) =>
-          (a.rawDanmakus || 0) - (b.rawDanmakus || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
-      ),
-  };
-  var findActiveAccordionBvid = (current) =>
-    current?.group?.isMultiPage ? current.group.bvid : '';
-  function updateGroupActive(group, podType, activeBvid, activePage) {
-    const currentP = Number(activePage) || 1;
-    const isGroupActive = group.bvid === activeBvid;
-    const isEpisodeMatch = Number(group.page || 1) === currentP;
-    const isActive = podType === POD_TYPE.EPISODE ? isGroupActive && isEpisodeMatch : isGroupActive;
-    const isEpisodeType = podType === POD_TYPE.EPISODE;
-    const episodes = (group.episodes || []).map((ep) => ({
-      ...ep,
-      isActive:
-        isGroupActive &&
-        (Number(ep.page || 1) === currentP || (!isEpisodeType && !group.isMultiPage)),
-    }));
-    return {
-      ...group,
-      isActive,
-      episodes,
-    };
-  }
-  async function fetchPodPayload(bvid, page) {
-    const { sid } = getUrlParams();
-    const podData = await fetchSeasonInfo(bvid, sid);
-    if (!podData) return null;
-    return {
-      type: podData.type,
-      mode: podData.mode,
-      seasonSections: podData.seasonSections || [],
-      hasMultipleSections: !!podData.hasMultipleSections,
-      currentSectionId: podData.currentSectionId || '',
-      groups: processSeasonData(podData.type, podData.sections, bvid, page),
-    };
-  }
-  var isSameVideoTarget = (currentBvid, currentPage, nextBvid, nextPage) =>
-    currentBvid === nextBvid && Number(currentPage || 1) === Number(nextPage || 1);
-  var hasSeasonBvid = (groups, bvid) => groups.some((g) => g.bvid === bvid);
-  var findSectionByBvid = (seasonSections = [], bvid = '') =>
-    seasonSections.find((s) => (s.episodes || []).some((ep) => ep.bvid === bvid));
-  var flattenEpisodes = (groups) =>
-    groups.flatMap((group, groupIndex) =>
-      (group.episodes || []).map((ep, epIndex) => ({
-        group,
-        groupIndex,
-        epIndex,
-        episode: ep,
-        bvid: group.bvid,
-        page: Number(ep.page || 1),
-      })),
-    );
-  function findCurrentPlaying(flatList, activeBvid, activePage) {
-    const currentP = Number(activePage) || 1;
-    let flatIndex = flatList.findIndex(
-      (item) => item.bvid === activeBvid && item.page === currentP,
-    );
-    if (flatIndex === -1 && activeBvid)
-      flatIndex = flatList.findIndex((item) => item.bvid === activeBvid);
-    if (flatIndex === -1) return null;
-    const currentItem = flatList[flatIndex];
-    const totalEpisodes = flatList.length;
-    const groupEpisodes = currentItem.group?.episodes || [];
-    return {
-      groupIndex: currentItem.groupIndex,
-      group: currentItem.group,
-      epIndex: currentItem.epIndex,
-      episode: currentItem.episode,
-      flatIndex,
-      totalEpisodes,
-      isFirst: flatIndex === 0,
-      isLast: flatIndex === totalEpisodes - 1,
-      isGroupFirst: currentItem.epIndex === 0,
-      isGroupLast: currentItem.epIndex === groupEpisodes.length - 1,
-    };
-  }
-  function getAdjacentVideo(flatList, currentFlatIndex, action) {
-    if (currentFlatIndex === -1 || currentFlatIndex == null) return null;
-    if (action === CTRL_ACTION.PREV) {
-      const currentItem = flatList[currentFlatIndex];
-      if (currentItem?.epIndex === 0) {
-        const prevGroupIndex = currentItem.groupIndex - 1;
-        if (prevGroupIndex < 0) return null;
-        return (
-          flatList.find((item) => item.groupIndex === prevGroupIndex && item.epIndex === 0) || null
-        );
-      }
-      return flatList[currentFlatIndex - 1] || null;
-    }
-    return flatList[currentFlatIndex + 1] || null;
-  }
-  var correctionOffset = 17;
-  function getPodTargetSelectors(podType) {
-    const isSeries = (0, vue.toValue)(podType) === POD_TYPE.SERIES;
-    return {
-      playlistContainerRight: isSeries ? '.playlist-container--right' : '.right-container-inner',
-      listBody: isSeries ? '#playlist-video-action-list' : '.video-pod__body',
-      actionHeader: isSeries ? '.action-list-header' : '.video-pod__header .right',
-      activeActionHeader: isSeries
-        ? '.action-list-header.action-list-header-folded'
-        : '.video-pod.expanded',
-    };
-  }
-  function calculateMaxHeight(podType, wrapEl, defaultHeight) {
-    if ((0, vue.toValue)(podType) !== POD_TYPE.SERIES) return defaultHeight;
-    const bodyHeight = wrapEl.querySelector('#playlist-video-action-list-body')?.clientHeight || 0;
-    const topHeight = wrapEl.querySelector('.action-list-body-top')?.clientHeight || 0;
-    return Math.max(bodyHeight - (topHeight + 24), 0);
-  }
-  function observeSeriesContainers(ro, wrapEl) {
-    const danmakuBox = wrapEl.querySelector('.danmaku-box');
-    const actionListContainer = wrapEl.querySelector('.action-list-container');
-    if (danmakuBox) ro.observe(danmakuBox);
-    if (actionListContainer) ro.observe(actionListContainer);
-  }
-  function calculateRelativeOffset(targetEl, containerEl) {
-    let offset = 0;
-    let node = targetEl;
-    while (node && node !== containerEl) {
-      offset += node.offsetTop;
-      node = node.offsetParent;
-    }
-    return offset;
-  }
-  function alignActiveItem(container, smooth) {
-    const activeEl =
-      container.querySelector('.episode.is-active') || container.querySelector('.header.is-active');
-    if (!activeEl?.clientHeight || !container.clientHeight) return false;
-    const targetTop =
-      calculateRelativeOffset(activeEl, container) -
-      (container.clientHeight - activeEl.clientHeight) / 2;
-    container.scrollTo({
-      top: Math.max(0, targetTop),
-      behavior: smooth ? 'smooth' : 'auto',
-    });
-    return true;
-  }
-  function observeContainerSettling(container, onSettle) {
-    const ro = new ResizeObserver(() => {
-      if (onSettle()) ro.disconnect();
-    });
-    ro.observe(container);
-  }
-  function scrollActiveItem(container, smooth = true) {
-    if (!container) return;
-    if (smooth) {
-      (0, vue.nextTick)(() => alignActiveItem(container, true));
-      return;
-    }
-    observeContainerSettling(container, () => alignActiveItem(container, false));
-  }
-  function setBilibiliVideoPodMinHeight() {
-    const el = document.querySelector(getPodTargetSelectors(POD_TYPE.COLLECTION).listBody);
-    if (el) el.style.minHeight = '250px';
-  }
-  function calculateCollectionToggleTargetLayout(
-    podType,
-    isExpanded,
-    currentTop,
-    hasMultipleSections,
-  ) {
-    if (podType === POD_TYPE.COLLECTION) {
-      const toolbar = document.querySelector('#arc_toolbar_report');
-      const card = document.querySelector('.rec-list')?.firstElementChild;
-      const aboveModule = document.querySelector('.video-pod-above-modules');
-      const podBody = document.querySelector(getPodTargetSelectors(podType).listBody);
-      const s = toolbar?.getBoundingClientRect().bottom ?? 0;
-      const c = card?.getBoundingClientRect().top ?? 0;
-      const l = aboveModule?.getBoundingClientRect().height || aboveModule?.scrollHeight || 0;
-      const n = podBody?.clientHeight ?? 0;
-      const totalOffset =
-        correctionOffset +
-        ((0, vue.toValue)(hasMultipleSections)
-          ? document.querySelector('.video-pod__slide')?.clientHeight || 0
-          : 0);
-      const diff = s && c ? s - c : 0;
-      const baseHeight = isExpanded ? Math.max(250, Math.floor(n + diff + l)) : 250;
-      const targetTop = isExpanded ? currentTop - l : currentTop + l;
-      return {
-        targetHeight: baseHeight + totalOffset,
-        targetTop,
-      };
-    }
-    if (podType === POD_TYPE.SERIES) {
-      const listEl = document.querySelector('#playlist-video-action-list');
-      let targetTop = listEl
-        ? listEl.getBoundingClientRect().top + window.scrollY - correctionOffset
-        : currentTop;
-      const bodyBottomHeight =
-        document.querySelector('.action-list-body-bottom')?.clientHeight ?? 0;
-      return {
-        targetHeight: isExpanded ? 0 : bodyBottomHeight + correctionOffset,
-        targetTop,
-      };
-    }
-    return {
-      targetHeight: 250,
-      targetTop: currentTop,
-    };
-  }
-  async function watchPositionSync(podType, hostEl, onPositionUpdate, hasMultipleSections) {
-    const currentType = (0, vue.toValue)(podType);
-    const selectors = getPodTargetSelectors(currentType);
-    const wrapEl = await waitElement(selectors.playlistContainerRight);
-    const targetEl = await waitElement(selectors.listBody, { el: wrapEl });
-    let isAnimating = false;
-    const getHost = () => (isFunction(hostEl) ? hostEl() : (0, vue.toValue)(hostEl));
-    const updatePosition = (force = false) => {
-      if (isAnimating && !force) return;
-      const host = getHost();
-      if (!targetEl.isConnected || (host && !host.isConnected)) return;
-      const {
-        top: targetTop,
-        left: targetLeft,
-        width,
-        height: targetHeight,
-      } = targetEl.getBoundingClientRect();
-      const slideHeight =
-        ((0, vue.toValue)(hasMultipleSections) ? document.querySelector('.video-pod__slide') : null)
-          ?.clientHeight || 0;
-      let height = calculateMaxHeight(currentType, wrapEl, targetHeight) + slideHeight;
-      height = height ? height + correctionOffset : 0;
-      onPositionUpdate({
-        top:
-          targetTop +
-          window.scrollY -
-          slideHeight -
-          (currentType === POD_TYPE.EPISODE ? 0 : correctionOffset),
-        left: targetLeft + window.scrollX,
-        width,
-        height,
-      });
-    };
-    let isDestroyed = false;
-    const ro = new ResizeObserver(() => updatePosition(false));
-    ro.observe(wrapEl);
-    waitElement('.player-wrap', { timeout: 5e3 })
-      .then((playerEl) => {
-        if (!isDestroyed && playerEl) ro.observe(playerEl);
-      })
-      .catch(() => {});
-    if (currentType === POD_TYPE.SERIES) observeSeriesContainers(ro, wrapEl);
-    const offResize = on(window, 'resize', () => updatePosition(false));
-    const cleanup = () => {
-      isDestroyed = true;
-      ro.disconnect();
-      offResize();
-    };
-    cleanup.setAnimating = (val) => {
-      isAnimating = val;
-    };
-    cleanup.updatePosition = updatePosition;
-    cleanup.destroy = cleanup;
-    cleanup.wrapEl = wrapEl;
-    cleanup.targetEl = targetEl;
-    return cleanup;
-  }
-  async function listenNativeToggle(podType, onToggle) {
-    const currentType = (0, vue.toValue)(podType);
-    if (currentType === POD_TYPE.EPISODE) return;
-    const actionHeader = getPodTargetSelectors(currentType).actionHeader;
-    const nativeToggleBtn = await waitElement(actionHeader);
-    if (!nativeToggleBtn) return;
-    const handler = () => {
-      const { isWide } = playerState();
-      if (isWide && currentType === POD_TYPE.COLLECTION) return;
-      requestAnimationFrame(() => {
-        const expanded = document.querySelector(
-          getPodTargetSelectors(currentType).activeActionHeader,
-        );
-        onToggle?.(!!expanded);
-      });
-    };
-    return on(nativeToggleBtn, 'click', handler, { capture: true });
-  }
-  function usePositionSync(podType, rootRef, onModeChange, hasMultipleSections) {
-    const position = (0, vue.ref)({
-      top: 0,
-      left: 0,
-      width: 0,
-      height: 0,
-    });
-    const isAnimating = (0, vue.ref)(false);
-    let cleanupTracker = null;
-    let cleanupResize = null;
-    const containerStyle = (0, vue.computed)(() => ({
-      top: `${position.value.top}px`,
-      left: `${position.value.left}px`,
-      width: `${position.value.width}px`,
-      height: `${position.value.height}px`,
-    }));
-    const videoBodyStyle = (0, vue.computed)(() => ({ width: `${position.value.width}px` }));
-    const stopSync = () => {
-      cleanupTracker?.destroy?.();
-      cleanupResize?.();
-      cleanupTracker = null;
-      cleanupResize = null;
-      isAnimating.value = false;
-    };
-    const startSync = async (type) => {
-      stopSync();
-      const resolvedType = (0, vue.toValue)(type);
-      if (!resolvedType) return;
-      cleanupTracker = await watchPositionSync(
-        resolvedType,
-        rootRef,
-        (newPos) => {
-          position.value = newPos;
-        },
-        hasMultipleSections,
-      );
-      cleanupResize = await listenNativeToggle(resolvedType, (isExpanded) => {
-        isAnimating.value = true;
-        cleanupTracker.setAnimating(true);
-        if (podType.value === POD_TYPE.COLLECTION && !isExpanded) setBilibiliVideoPodMinHeight();
-        const { targetHeight, targetTop } = calculateCollectionToggleTargetLayout(
-          resolvedType,
-          isExpanded,
-          position.value.top,
-          hasMultipleSections,
-        );
-        position.value = {
-          ...position.value,
-          top: targetTop,
-          height: targetHeight,
-        };
-        onModeChange?.(isExpanded);
-        setTimeout(() => {
-          cleanupTracker?.setAnimating(false);
-          isAnimating.value = false;
-        }, 300);
-      });
-    };
-    return {
-      isAnimating,
-      containerStyle,
-      videoBodyStyle,
-      startSync,
-    };
-  }
-  function useAccordion() {
-    const expandedBvid = (0, vue.ref)('');
-    const isExpanded = (bvid) => expandedBvid.value === bvid;
-    const toggleAccordion = (bvid) => {
-      expandedBvid.value = expandedBvid.value === bvid ? '' : bvid;
-    };
-    const setExpanded = (bvid) => {
-      expandedBvid.value = bvid;
-    };
-    return {
-      expandedBvid,
-      isExpanded,
-      toggleAccordion,
-      setExpanded,
-    };
-  }
-  function usePlayedHistory({ activeBvid, activePage }) {
-    const playedKeys = (0, vue.ref)(new Set());
-    const recordPlayedVideo = (bvid, page) => {
-      if (!bvid) return;
-      const key = `${bvid}_${page || 1}`;
-      if (!playedKeys.value.has(key)) playedKeys.value = new Set(playedKeys.value.add(key));
-    };
-    const isEpisodePlayed = (bvid, ep) => {
-      if (!bvid || !ep) return false;
-      const page = ep.page ?? ep.cid ?? 1;
-      return playedKeys.value.has(`${bvid}_${page}`);
-    };
-    const isGroupPlayed = (group) => {
-      if (!group || !group.episodes?.length) return false;
-      return group.episodes.every((ep) => isEpisodePlayed(group.bvid, ep));
-    };
-    (0, vue.watch)(
-      [activeBvid, activePage],
-      ([bvid, page]) => {
-        if (bvid) recordPlayedVideo(bvid, page);
-      },
-      { immediate: true },
-    );
-    return {
-      isEpisodePlayed,
-      isGroupPlayed,
-    };
-  }
-  function usePodHotkeys({ settings, handlePlayerCtrl }) {
-    return registerHotkeys([
-      {
-        key: () => settings.hotkeyPrev,
-        handler: () => handlePlayerCtrl?.(CTRL_ACTION.PREV),
-      },
-      {
-        key: () => settings.hotkeyNext,
-        handler: () => handlePlayerCtrl?.(CTRL_ACTION.NEXT),
-      },
-    ]);
-  }
-  function usePodSections({
-    rawGroups,
-    podType,
-    activeBvid,
-    activePage,
-    setExpanded,
-    setActiveTarget,
-    refreshActiveStates,
-  }) {
-    const seasonSections = (0, vue.ref)([]);
-    const hasMultipleSections = (0, vue.ref)(false);
-    const currentSectionId = (0, vue.ref)('');
-    const initSections = (payload) => {
-      seasonSections.value = payload?.seasonSections || [];
-      hasMultipleSections.value = !!payload?.hasMultipleSections;
-      currentSectionId.value = payload?.currentSectionId || '';
-    };
-    const resetSections = () => {
-      seasonSections.value = [];
-      hasMultipleSections.value = false;
-      currentSectionId.value = '';
-    };
-    const applySectionEpisodes = (section, targetBvid, targetPage) => {
-      currentSectionId.value = String(section.value);
-      setExpanded('');
-      rawGroups.value = processSeasonData(podType.value, section.episodes, targetBvid, targetPage);
-    };
-    const switchSection = (sectionId) => {
-      const targetId = String(sectionId);
-      if (targetId === String(currentSectionId.value)) return;
-      const targetSection = seasonSections.value.find((s) => String(s.value) === targetId);
-      if (!targetSection) return;
-      applySectionEpisodes(targetSection, activeBvid.value, activePage.value);
-      refreshActiveStates();
-    };
-    const trySwitchSectionByBvid = (nextBvid, nextPage) => {
-      if (!(0, vue.toValue)(hasMultipleSections)) return false;
-      const targetSection = findSectionByBvid(seasonSections.value, nextBvid);
-      if (!targetSection) return false;
-      applySectionEpisodes(targetSection, nextBvid, nextPage);
-      setActiveTarget(nextBvid, nextPage);
-      refreshActiveStates();
-      return true;
-    };
-    return {
-      seasonSections,
-      hasMultipleSections,
-      currentSectionId,
-      initSections,
-      resetSections,
-      switchSection,
-      trySwitchSectionByBvid,
-    };
-  }
-  function usePodLoader({
-    rawGroups,
-    podType,
-    activeBvid,
-    activePage,
-    rootRef,
-    scrollContainerRef,
-    setExpanded,
-    currentPlaying,
-    setActiveTarget,
-    refreshActiveStates,
-  }) {
-    const isLoading = (0, vue.ref)(false);
-    const podMode = (0, vue.ref)(POD_MODE.LIST);
-    const {
-      seasonSections,
-      hasMultipleSections,
-      currentSectionId,
-      initSections,
-      resetSections,
-      switchSection,
-      trySwitchSectionByBvid,
-    } = usePodSections({
-      rawGroups,
-      podType,
-      activeBvid,
-      activePage,
-      setExpanded,
-      setActiveTarget,
-      refreshActiveStates,
-    });
-    const onModeChange = (isExpandedMode) => {
-      podMode.value = isExpandedMode ? POD_MODE.CARD : POD_MODE.LIST;
-      setTimeout(() => {
-        scrollActiveItem(scrollContainerRef.value, true);
-      }, 300);
-    };
-    const { isAnimating, containerStyle, videoBodyStyle, startSync } = usePositionSync(
-      podType,
-      rootRef,
-      onModeChange,
-      hasMultipleSections,
-    );
-    const resetPodState = () => {
-      rawGroups.value = [];
-      podType.value = null;
-      resetSections();
-    };
-    const trySwitchSameSeason = (nextBvid, nextPage) => {
-      if (!hasSeasonBvid(rawGroups.value, nextBvid)) return false;
-      if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return true;
-      setActiveTarget(nextBvid, nextPage);
-      refreshActiveStates();
-      return true;
-    };
-    const initPodState = async (payload, bvid, page) => {
-      if (!payload) {
-        resetPodState();
-        setExpanded('');
-        return;
-      }
-      podType.value = payload.type;
-      podMode.value = payload.mode;
-      rawGroups.value = payload.groups;
-      setActiveTarget(bvid, page);
-      initSections(payload);
-      setExpanded(findActiveAccordionBvid(currentPlaying.value));
-      await startSync(podType.value);
-      scrollActiveItem(scrollContainerRef.value, false);
-    };
-    const fetchFullPod = async (nextBvid, nextPage) => {
-      setActiveTarget(nextBvid, nextPage);
-      resetPodState();
-      isLoading.value = true;
-      try {
-        const payload = await fetchPodPayload(nextBvid, nextPage);
-        await initPodState(payload, nextBvid, nextPage);
-      } finally {
-        isLoading.value = false;
-      }
-    };
-    const loadPod = async () => {
-      const nextBvid = getCurrentBvid();
-      const nextPage = getCurrentPage();
-      if (!nextBvid) return;
-      if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return;
-      if (trySwitchSameSeason(nextBvid, nextPage)) return;
-      if (trySwitchSectionByBvid(nextBvid, nextPage)) return;
-      await fetchFullPod(nextBvid, nextPage);
-      if ((0, vue.toValue)(podType) !== POD_TYPE.SERIES) setBilibiliVideoPodMinHeight();
-    };
-    return {
-      isAnimating,
-      isLoading,
-      podMode,
-      seasonSections,
-      hasMultipleSections,
-      currentSectionId,
-      containerStyle,
-      videoBodyStyle,
-      initPodState,
-      loadPod,
-      switchSection,
-      trySwitchSameSeason,
-    };
   }
   var t$1 = globalThis;
   var e$2 =
@@ -2540,712 +1536,11 @@
     error: (msg, dur) => MagicToast.error(msg, dur),
   };
   if (!customElements.get('magic-toast')) customElements.define('magic-toast', MagicToast);
-  function usePodPlayback({
-    rawGroups,
-    podType,
-    activeBvid,
-    activePage,
-    flatEpisodes,
-    currentPlaying,
-    scrollContainerRef,
-    setExpanded,
-    toggleAccordion,
-    settings,
-    shuffleActions,
-  }) {
-    const refreshActiveStates = (isManualClick = false) => {
-      rawGroups.value = rawGroups.value.map((g) =>
-        updateGroupActive(g, podType.value, activeBvid.value, activePage.value),
-      );
-      setExpanded(findActiveAccordionBvid(currentPlaying.value));
-      if (isManualClick && settings && !settings.scrollActiveOnClick) return;
-      scrollActiveItem(scrollContainerRef.value, true);
-    };
-    const switchActiveVideo = (type, data, index, isManual = true) => {
-      const { bvid, aid, episodes } = data;
-      const { page, cid, isActive } = episodes[index];
-      if (isActive) return;
-      if (isManual)
-        shuffleActions?.recordManualPlay?.({
-          bvid,
-          page,
-        });
-      activeBvid.value = bvid;
-      activePage.value = page;
-      executeVideoSwitch(podType.value, {
-        aid,
-        bvid,
-        cid,
-        p: page,
-      });
-      refreshActiveStates(isManual);
-    };
-    const handleHeaderClick = (group) => {
-      if (group.isActive && group.isMultiPage) {
-        toggleAccordion(group.bvid);
-        return;
-      }
-      switchActiveVideo(podType.value, group, 0, true);
-    };
-    const getNextTarget = (action) => {
-      if (settings?.shuffle) {
-        const shuffleTarget =
-          action === CTRL_ACTION.PREV
-            ? shuffleActions?.getPrevShuffleTarget?.()
-            : shuffleActions?.getNextShuffleTarget?.();
-        if (shuffleTarget) return shuffleTarget;
-      }
-      const currentIndex = currentPlaying.value?.flatIndex;
-      return getAdjacentVideo(flatEpisodes.value, currentIndex, action);
-    };
-    const handlePlayerCtrl = throttle((action) => {
-      const target = getNextTarget(action);
-      if (target) {
-        switchActiveVideo(podType.value, target.group, target.epIndex, false);
-        return;
-      }
-      toast.info(action === CTRL_ACTION.PREV ? '已经是第一集了' : '已经是最后一集了');
-    }, 300);
-    const setActiveTarget = (bvid, page) => {
-      activeBvid.value = bvid;
-      activePage.value = page;
-    };
-    return {
-      refreshActiveStates,
-      switchActiveVideo,
-      handleHeaderClick,
-      handlePlayerCtrl,
-      setActiveTarget,
-    };
-  }
-  function usePodSort(rawGroups, settings, podType) {
-    const sortMode = (0, vue.computed)({
-      get: () => settings.sortMode,
-      set: (val) => {
-        settings.sortMode = val;
-      },
-    });
-    return {
-      sortMode,
-      groups: (0, vue.computed)(() => {
-        if (podType?.value === POD_TYPE.EPISODE) return rawGroups.value;
-        return (SORT_STRATEGIES[sortMode.value] || SORT_STRATEGIES[SORT_MODE.DEFAULT])(
-          rawGroups.value,
-        );
-      }),
-      setSortMode: (mode) => (settings.sortMode = mode),
-    };
-  }
-  var storage = createStorage(name);
-  var settingsState = (0, vue.reactive)({ ...DEFAULT_SETTINGS });
-  var isInitialized = false;
-  function setupSettingsWatchers() {
-    (0, vue.watch)(
-      settingsState,
-      (newVal) => {
-        storage.set('user_settings', { ...newVal });
-      },
-      { deep: true },
-    );
-  }
-  function initSettings() {
-    if (isInitialized) return settingsState;
-    isInitialized = true;
-    const savedSettings = storage.get('user_settings', null);
-    if (savedSettings) assign(settingsState, savedSettings);
-    playerState().autoPlayNext?.(false);
-    setupSettingsWatchers();
-    return settingsState;
-  }
-  function useSettings() {
-    const updateSettings = (patch) => {
-      assign(settingsState, patch);
-    };
-    const resetSettings = () => {
-      assign(settingsState, DEFAULT_SETTINGS);
-    };
-    return {
-      settings: settingsState,
-      updateSettings,
-      resetSettings,
-    };
-  }
-  var MAX_HISTORY_LENGTH = 50;
-  var getEpisodeKey = (bvid, page) => `${bvid}_${Number(page || 1)}`;
-  var extractCurrentKey = (current) => {
-    if (!current?.group?.bvid) return '';
-    const page = current.episode?.page || current.page || 1;
-    return getEpisodeKey(current.group.bvid, page);
-  };
-  function filterCandidatesByScope(flatList, scope, activeBvid) {
-    if (scope === SHUFFLE_SCOPE.GROUP && activeBvid)
-      return flatList.filter((item) => item.bvid === activeBvid);
-    return [...flatList];
-  }
-  function buildCandidateKeys(flatList, scope, curBvid, curKey) {
-    return filterCandidatesByScope(flatList, scope, curBvid)
-      .map((item) => getEpisodeKey(item.bvid, item.page))
-      .filter((k) => k !== curKey);
-  }
-  function pickRandomKey(keys) {
-    if (keys.length === 0)
-      return {
-        selectedKey: null,
-        remainingKeys: [],
-      };
-    const selectedKey = keys[Math.floor(Math.random() * keys.length)];
-    return {
-      selectedKey,
-      remainingKeys: keys.filter((k) => k !== selectedKey),
-    };
-  }
-  function pushHistoryStack(stack, key, max = MAX_HISTORY_LENGTH) {
-    if (!key) return;
-    stack.push(key);
-    if (stack.length > max) stack.shift();
-  }
-  var findEpisodeByKey = (flatList, key) =>
-    key ? flatList.find((ep) => getEpisodeKey(ep.bvid, ep.page) === key) || null : null;
-  function resolveCandidateKeys(unplayedPool, flatEpisodes, settings, curBvid, curKey) {
-    const remainingKeys = unplayedPool.filter((k) => k !== curKey);
-    if (remainingKeys.length > 0) return remainingKeys;
-    const refreshedKeys = buildCandidateKeys(flatEpisodes, settings.shuffleScope, curBvid, curKey);
-    if (refreshedKeys.length === 0 && settings.shuffleScope === SHUFFLE_SCOPE.GROUP)
-      toast.info('当前分 P 仅有 1 集，无法在分组内随机播放');
-    return refreshedKeys;
-  }
-  function useShuffle({ settings, flatEpisodes, currentPlaying }) {
-    const unplayedPool = (0, vue.ref)([]);
-    const historyStack = (0, vue.ref)([]);
-    const getCurrentBvid = () => currentPlaying.value?.group?.bvid || '';
-    const getCurrentKey = () => extractCurrentKey(currentPlaying.value);
-    const rebuildPool = () => {
-      unplayedPool.value = buildCandidateKeys(
-        flatEpisodes.value,
-        settings.shuffleScope,
-        getCurrentBvid(),
-        getCurrentKey(),
-      );
-    };
-    const getNextShuffleTarget = () => {
-      const curKey = getCurrentKey();
-      const { selectedKey, remainingKeys } = pickRandomKey(
-        resolveCandidateKeys(
-          unplayedPool.value,
-          flatEpisodes.value,
-          settings,
-          getCurrentBvid(),
-          curKey,
-        ),
-      );
-      if (!selectedKey) return null;
-      unplayedPool.value = remainingKeys;
-      pushHistoryStack(historyStack.value, curKey);
-      return findEpisodeByKey(flatEpisodes.value, selectedKey);
-    };
-    const getPrevShuffleTarget = () => {
-      const prevKey = historyStack.value.pop();
-      return findEpisodeByKey(flatEpisodes.value, prevKey);
-    };
-    const recordManualPlay = (target) => {
-      if (!target) return;
-      const curKey = getCurrentKey();
-      const targetKey = getEpisodeKey(target.bvid, target.page || target.episode?.page);
-      if (curKey && curKey !== targetKey) pushHistoryStack(historyStack.value, curKey);
-      unplayedPool.value = unplayedPool.value.filter((k) => k !== targetKey);
-    };
-    const toggleShuffle = () => {
-      settings.shuffle = !settings.shuffle;
-      return settings.shuffle;
-    };
-    (0, vue.watch)(
-      () => [settings.shuffle, settings.shuffleScope, flatEpisodes.value.length],
-      () => {
-        if (settings.shuffle) rebuildPool();
-      },
-      { immediate: true },
-    );
-    (0, vue.watch)(
-      () => currentPlaying.value?.group?.bvid,
-      (newBvid, oldBvid) => {
-        const isGroupScope = settings.shuffleScope === SHUFFLE_SCOPE.GROUP;
-        if (settings.shuffle && isGroupScope && newBvid !== oldBvid) rebuildPool();
-      },
-    );
-    return {
-      unplayedPool,
-      historyStack,
-      rebuildPool,
-      getNextShuffleTarget,
-      getPrevShuffleTarget,
-      recordManualPlay,
-      toggleShuffle,
-    };
-  }
-  function useVideoPod() {
-    const rootRef = (0, vue.ref)(null);
-    const scrollContainerRef = (0, vue.ref)(null);
-    const podType = (0, vue.ref)(null);
-    const rawGroups = (0, vue.ref)([]);
-    const activeBvid = (0, vue.ref)('');
-    const activePage = (0, vue.ref)(1);
-    const { settings } = useSettings();
-    const { isExpanded, toggleAccordion, setExpanded } = useAccordion();
-    const { sortMode, groups, setSortMode } = usePodSort(rawGroups, settings, podType);
-    const flatEpisodes = (0, vue.computed)(() => flattenEpisodes(groups.value));
-    const currentPlaying = (0, vue.computed)(() =>
-      findCurrentPlaying(flatEpisodes.value, activeBvid.value, activePage.value),
-    );
-    const { getNextShuffleTarget, getPrevShuffleTarget, recordManualPlay, toggleShuffle } =
-      useShuffle({
-        settings,
-        flatEpisodes,
-        currentPlaying,
-      });
-    const { isEpisodePlayed, isGroupPlayed } = usePlayedHistory({
-      activeBvid,
-      activePage,
-    });
-    const {
-      refreshActiveStates,
-      switchActiveVideo,
-      handleHeaderClick,
-      handlePlayerCtrl,
-      setActiveTarget,
-    } = usePodPlayback({
-      rawGroups,
-      podType,
-      activeBvid,
-      activePage,
-      flatEpisodes,
-      currentPlaying,
-      scrollContainerRef,
-      setExpanded,
-      toggleAccordion,
-      settings,
-      shuffleActions: {
-        getNextShuffleTarget,
-        getPrevShuffleTarget,
-        recordManualPlay,
-      },
-    });
-    const {
-      isAnimating,
-      isLoading,
-      podMode,
-      seasonSections,
-      hasMultipleSections,
-      currentSectionId,
-      containerStyle,
-      videoBodyStyle,
-      loadPod,
-      switchSection,
-    } = usePodLoader({
-      rawGroups,
-      podType,
-      activeBvid,
-      activePage,
-      rootRef,
-      scrollContainerRef,
-      setExpanded,
-      currentPlaying,
-      setActiveTarget,
-      refreshActiveStates,
-    });
-    (0, vue.watch)(
-      () => settings.sortMode,
-      () => {
-        if (settings.scrollToActiveOnSort) {
-          scrollActiveItem(scrollContainerRef.value, true);
-          return;
-        }
-        scrollContainerRef.value?.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
-      },
-      { flush: 'post' },
-    );
-    (0, vue.watch)(
-      () => settings.autoPlayNext,
-      () => {
-        playerState().autoPlayNext?.(false);
-      },
-      { immediate: true },
-    );
-    const isPlaybackEndReached = () => {
-      if (settings.shuffle) return false;
-      const shouldStopOnGroup =
-        podType.value === POD_TYPE.COLLECTION &&
-        settings.stopOnGroupEnd &&
-        currentPlaying.value?.group?.isMultiPage &&
-        currentPlaying.value?.isGroupLast;
-      return currentPlaying.value?.isLast || shouldStopOnGroup;
-    };
-    const handleVideoEnded = () => {
-      if (!settings.autoPlayNext || isPlaybackEndReached()) return;
-      handlePlayerCtrl(CTRL_ACTION.NEXT);
-    };
-    (0, vue.onMounted)(() => {
-      loadPod();
-      const cleanups = [
-        interceptPlayerControls(handlePlayerCtrl),
-        interceptPlayerEnding(handleVideoEnded),
-        usePodHotkeys({
-          settings,
-          handlePlayerCtrl,
-        }),
-      ];
-      (0, vue.onUnmounted)(() => cleanups.forEach((fn) => fn?.()));
-    });
-    return {
-      isAnimating,
-      isLoading,
-      podType,
-      rootRef,
-      scrollContainerRef,
-      podMode,
-      sortMode,
-      setSortMode,
-      groups,
-      seasonSections,
-      hasMultipleSections,
-      currentSectionId,
-      switchSection,
-      flatEpisodes,
-      currentPlaying,
-      containerStyle,
-      videoBodyStyle,
-      isExpanded,
-      toggleAccordion,
-      handleHeaderClick,
-      switchActiveVideo,
-      toggleShuffle,
-      loadPod,
-      isGroupPlayed,
-      isEpisodePlayed,
-    };
-  }
-  var normalizeQuery = (str) => (str || '').trim().toLowerCase();
-  var isTextMatched = (text, query) => text.toLowerCase().includes(query);
-  function filterGroupItem(group, query) {
-    if (!query) return group;
-    if (isTextMatched(group.title, query))
-      return {
-        ...group,
-        isAutoExpanded: true,
-      };
-    const matchedEpisodes = (group.episodes || []).filter((ep) => isTextMatched(ep.title, query));
-    if (matchedEpisodes.length > 0)
-      return {
-        ...group,
-        episodes: matchedEpisodes,
-        isAutoExpanded: true,
-      };
-    return null;
-  }
-  function filterGroupList(groups, keyword) {
-    const query = normalizeQuery(keyword);
-    if (!query) return groups || [];
-    return (groups || []).map((g) => filterGroupItem(g, query)).filter(Boolean);
-  }
-  function countTotalMatches(filteredGroups) {
-    return (filteredGroups || []).reduce((acc, g) => acc + (g.episodes?.length || 1), 0);
-  }
-  function getHighlightSegments(text, keyword) {
-    if (!text) return [];
-    const query = (keyword || '').trim().toLowerCase();
-    if (!query)
-      return [
-        {
-          text,
-          isMatch: false,
-        },
-      ];
-    const textLower = text.toLowerCase();
-    let currIndex = textLower.indexOf(query);
-    if (currIndex === -1)
-      return [
-        {
-          text,
-          isMatch: false,
-        },
-      ];
-    const segments = [];
-    let startIndex = 0;
-    while (currIndex !== -1) {
-      if (currIndex > startIndex)
-        segments.push({
-          text: text.slice(startIndex, currIndex),
-          isMatch: false,
-        });
-      segments.push({
-        text: text.slice(currIndex, currIndex + query.length),
-        isMatch: true,
-      });
-      startIndex = currIndex + query.length;
-      currIndex = textLower.indexOf(query, startIndex);
-    }
-    if (startIndex < text.length)
-      segments.push({
-        text: text.slice(startIndex),
-        isMatch: false,
-      });
-    return segments;
-  }
-  function usePodSearch(groups) {
-    const keyword = (0, vue.ref)('');
-    const isSearchOpen = (0, vue.ref)(false);
-    const searchInputRef = (0, vue.ref)(null);
-    const filteredGroups = (0, vue.computed)(() => filterGroupList(groups.value, keyword.value));
-    const matchCount = (0, vue.computed)(() => countTotalMatches(filteredGroups.value));
-    const hasSearchQuery = (0, vue.computed)(() => !!(keyword.value || '').trim());
-    const openSearch = () => {
-      isSearchOpen.value = true;
-      (0, vue.nextTick)(() => searchInputRef.value?.focus());
-    };
-    const closeSearch = () => {
-      keyword.value = '';
-      isSearchOpen.value = false;
-    };
-    const clearKeyword = () => {
-      keyword.value = '';
-      searchInputRef.value?.focus();
-    };
-    const toggleSearch = () => {
-      if (isSearchOpen.value) {
-        closeSearch();
-        return;
-      }
-      openSearch();
-    };
-    return {
-      keyword,
-      isSearchOpen,
-      searchInputRef,
-      filteredGroups,
-      matchCount,
-      hasSearchQuery,
-      openSearch,
-      closeSearch,
-      clearKeyword,
-      toggleSearch,
-      getHighlightSegments,
-    };
-  }
   var style_default$10 =
-    ':host{box-sizing:border-box;flex:1;width:100%;min-width:0;font-family:inherit;display:block}:host([inline]){width:auto;display:inline-block}.magic-tabs{box-sizing:border-box;align-items:center;width:100%;display:flex;position:relative}.magic-tabs__wrap{flex:1;align-items:center;min-width:0;display:flex;position:relative;overflow:hidden}.magic-tabs__shadow{z-index:2;pointer-events:none;opacity:0;width:24px;transition:opacity .2s;position:absolute;top:0;bottom:0}.magic-tabs__shadow--left{background:linear-gradient(to right, var(--magic-tabs-mask-bg,#000000d9), transparent);left:0}.magic-tabs__shadow--right{background:linear-gradient(to left, var(--magic-tabs-mask-bg,#000000d9), transparent);right:0}.magic-tabs__shadow.is-show{opacity:1}.magic-tabs__nav{white-space:nowrap;scroll-behavior:smooth;box-sizing:border-box;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;align-items:center;gap:8px;width:100%;padding:4px 2px;display:flex;overflow:auto hidden}.magic-tabs__nav::-webkit-scrollbar{width:0;height:0;display:none}.magic-tabs__item{-webkit-user-select:none;user-select:none;cursor:pointer;white-space:nowrap;box-sizing:border-box;outline:none;flex-shrink:0;justify-content:center;align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-tabs__item.is-disabled{cursor:not-allowed;opacity:.45;pointer-events:none}.magic-tabs--capsule .magic-tabs__item{color:var(--magic-tabs-color,#ffffffb3);background:var(--magic-tabs-capsule-bg,#ffffff14);border:1px solid var(--magic-tabs-border,transparent);border-radius:999px}.magic-tabs--capsule .magic-tabs__item:hover:not(.is-disabled):not(.is-active){color:var(--magic-tabs-hover-color,#fff);background:var(--magic-tabs-hover-bg,#ffffff24)}.magic-tabs--capsule .magic-tabs__item.is-active{color:var(--magic-primary-color);background:var(--magic-primary-light-bg);border-color:var(--magic-tabs-active-border,var(--magic-primary-light-bg));font-weight:500}.magic-tabs--line{border-bottom:1px solid var(--magic-tabs-line-border,#ffffff1f)}.magic-tabs--line .magic-tabs__item{color:var(--magic-tabs-color,#ffffffb3);background:0 0;border-radius:4px}.magic-tabs--line .magic-tabs__item:hover:not(.is-disabled):not(.is-active){color:var(--magic-tabs-hover-color,#fff)}.magic-tabs--line .magic-tabs__item.is-active{color:var(--magic-primary-color);font-weight:500}.magic-tabs--line .magic-tabs__item.is-active:after{content:"";background:var(--magic-primary-color);border-radius:2px;width:80%;height:2px;position:absolute;bottom:-4px;left:10%}.magic-tabs--small .magic-tabs__item{height:24px;padding:0 10px;font-size:12px}.magic-tabs--medium .magic-tabs__item{height:30px;padding:0 14px;font-size:13px}.magic-tabs--large .magic-tabs__item{height:36px;padding:0 18px;font-size:14px}.magic-tabs .magic-tabs__label{font-weight:600}';
-  var MagicTabs = class extends i {
-    static properties = {
-      items: Array,
-      value: {
-        type: String,
-        reflect: true,
-      },
-      size: String,
-      type: String,
-      scrollable: {
-        type: Boolean,
-        reflect: true,
-      },
-      block: {
-        type: Boolean,
-        reflect: true,
-      },
-      _canScrollLeft: { state: true },
-      _canScrollRight: { state: true },
-    };
-    static styles = r$2(style_default$10);
-    #cleanups = [];
-    constructor() {
-      super();
-      this.items = [];
-      this.value = '';
-      this.size = 'medium';
-      this.type = 'capsule';
-      this.scrollable = true;
-      this.block = true;
-      this._canScrollLeft = false;
-      this._canScrollRight = false;
-      this._isDragging = false;
-      this._startX = 0;
-      this._scrollLeftStart = 0;
-      this._hasDragged = false;
-      this._onScroll = this._onScroll.bind(this);
-      this._onWheel = this._onWheel.bind(this);
-      this._onMouseDown = this._onMouseDown.bind(this);
-      this._onMouseMove = this._onMouseMove.bind(this);
-      this._onMouseUp = this._onMouseUp.bind(this);
-    }
-    get navElement() {
-      return this.renderRoot?.querySelector('.magic-tabs__nav');
-    }
-    firstUpdated() {
-      const nav = this.navElement;
-      if (nav)
-        this.#cleanups.push(
-          on(nav, 'scroll', this._onScroll, { passive: true }),
-          on(nav, 'wheel', this._onWheel, { passive: false }),
-          on(nav, 'mousedown', this._onMouseDown),
-          on(window, 'mousemove', this._onMouseMove),
-          on(window, 'mouseup', this._onMouseUp),
-        );
-      this.updateScrollState();
-    }
-    disconnectedCallback() {
-      super.disconnectedCallback();
-      this.#cleanups.forEach((fn) => fn?.());
-      this.#cleanups = [];
-    }
-    updated(changedProperties) {
-      if (changedProperties.has('items') || changedProperties.has('value')) {
-        this.updateScrollState();
-        const shouldSmooth = !changedProperties.has('items');
-        setTimeout(() => {
-          this.scrollToActiveItem(shouldSmooth);
-        }, 0);
-      }
-    }
-    updateScrollState() {
-      const nav = this.navElement;
-      if (!nav) return;
-      const { scrollLeft, scrollWidth, clientWidth } = nav;
-      const maxScrollLeft = Math.max(0, scrollWidth - clientWidth);
-      this._canScrollLeft = scrollLeft > 2;
-      this._canScrollRight = maxScrollLeft - scrollLeft > 2;
-    }
-    _onScroll() {
-      this.updateScrollState();
-    }
-    _onWheel(event) {
-      if (!this.scrollable) return;
-      const nav = this.navElement;
-      if (!nav) return;
-      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
-        event.preventDefault();
-        nav.scrollLeft += event.deltaY;
-      }
-    }
-    _onMouseDown(event) {
-      if (!this.scrollable || event.button !== 0) return;
-      const nav = this.navElement;
-      if (!nav) return;
-      this._isDragging = true;
-      this._hasDragged = false;
-      this._startX = event.pageX;
-      this._scrollLeftStart = nav.scrollLeft;
-      nav.style.scrollBehavior = 'auto';
-    }
-    _onMouseMove(event) {
-      if (!this._isDragging) return;
-      const nav = this.navElement;
-      if (!nav) return;
-      const deltaX = event.pageX - this._startX;
-      if (Math.abs(deltaX) > 4) this._hasDragged = true;
-      nav.scrollLeft = this._scrollLeftStart - deltaX;
-    }
-    _onMouseUp() {
-      if (!this._isDragging) return;
-      this._isDragging = false;
-      const nav = this.navElement;
-      if (nav) nav.style.scrollBehavior = 'smooth';
-    }
-    scrollToActiveItem(smooth = true) {
-      const nav = this.navElement;
-      if (!nav) return;
-      const activeItem = nav.querySelector('.magic-tabs__item.is-active');
-      if (!activeItem) return;
-      const targetLeft = activeItem.offsetLeft - (nav.clientWidth - activeItem.clientWidth) / 2;
-      nav.scrollTo({
-        left: Math.max(0, targetLeft),
-        behavior: smooth ? 'smooth' : 'auto',
-      });
-      this.updateScrollState();
-    }
-    handleItemClick(item, index, event) {
-      if (this._hasDragged) {
-        event.preventDefault();
-        event.stopPropagation();
-        return;
-      }
-      const itemObj = isObject(item) ? item : null;
-      if (itemObj ? Boolean(itemObj.disabled) : false) {
-        event.preventDefault();
-        return;
-      }
-      const val = itemObj ? (itemObj.value ?? itemObj.label) : item;
-      this.value = String(val);
-      const detail = {
-        value: this.value,
-        item,
-        index,
-      };
-      this.dispatchEvent(
-        new CustomEvent('change', {
-          detail,
-          bubbles: true,
-          composed: true,
-        }),
-      );
-      this.dispatchEvent(
-        new CustomEvent('tab-click', {
-          detail,
-          bubbles: true,
-          composed: true,
-        }),
-      );
-    }
-    renderTabItem(item, index) {
-      const itemObj = isObject(item) ? item : null;
-      const label = itemObj ? (itemObj.label ?? itemObj.value) : item;
-      const val = itemObj ? (itemObj.value ?? itemObj.label) : item;
-      const isDisabled = itemObj ? Boolean(itemObj.disabled) : false;
-      const isActive = String(this.value) === String(val);
-      return b`
-      <div
-        class="${['magic-tabs__item', isActive ? 'is-active' : '', isDisabled ? 'is-disabled' : '']
-          .filter(Boolean)
-          .join(' ')}"
-        role="tab"
-        tabindex="${isDisabled ? '-1' : '0'}"
-        aria-selected="${isActive ? 'true' : 'false'}"
-        @click=${(e) => this.handleItemClick(item, index, e)}
-      >
-        <span class="magic-tabs__label">${label}</span>
-      </div>
-    `;
-    }
-    render() {
-      const navClasses = [
-        'magic-tabs',
-        `magic-tabs--${this.size || 'medium'}`,
-        `magic-tabs--${this.type || 'capsule'}`,
-        this.block ? 'is-block' : '',
-      ]
-        .filter(Boolean)
-        .join(' ');
-      const safeItems = isArray(this.items) ? this.items : [];
-      return b`
-      <div class="${navClasses}">
-        <slot name="prefix"></slot>
-        <div class="magic-tabs__wrap">
-          <div
-            class="magic-tabs__shadow magic-tabs__shadow--left ${this._canScrollLeft ? 'is-show' : ''}"
-          ></div>
-          <div class="magic-tabs__nav" role="tablist">
-            ${safeItems.map((item, index) => this.renderTabItem(item, index))}
-          </div>
-          <div
-            class="magic-tabs__shadow magic-tabs__shadow--right ${this._canScrollRight ? 'is-show' : ''}"
-          ></div>
-        </div>
-        <slot name="suffix"></slot>
-      </div>
-    `;
-    }
-  };
-  if (!customElements.get('magic-tabs')) customElements.define('magic-tabs', MagicTabs);
+    ':host{font-family:inherit;display:block}:host(:not([visible])){display:none!important}@keyframes magic-modal-mask-fade-in{0%{opacity:0}to{opacity:1}}@keyframes magic-modal-mask-fade-out{0%{opacity:1}to{opacity:0}}@keyframes magic-modal-zoom-in{0%{opacity:0;transform:scale(.92)translateY(-20px)}to{opacity:1;transform:scale(1)translateY(0)}}@keyframes magic-modal-zoom-out{0%{opacity:1;transform:scale(1)translateY(0)}to{opacity:0;transform:scale(.92)translateY(-20px)}}.magic-modal-wrapper{z-index:var(--magic-modal-z-index,99999);overscroll-behavior:contain;box-sizing:border-box;text-align:center;pointer-events:auto;position:fixed;inset:0;overflow:hidden auto}.magic-modal-wrapper.is-leaving{pointer-events:none!important}.magic-modal-wrapper:after{content:"";vertical-align:middle;width:0;height:100%;display:inline-block}.magic-modal-wrapper.is-centered{justify-content:center;align-items:center;padding-bottom:16vh;display:flex}.magic-modal-wrapper.is-centered:after{display:none}.magic-modal-wrapper.is-centered .magic-modal{margin:24px auto;top:0!important}.magic-modal-mask{z-index:var(--magic-modal-z-index,99999);background:var(--magic-modal-mask-bg,#000000a6);-webkit-backdrop-filter:blur(4px);animation:.25s forwards magic-modal-mask-fade-in;position:fixed;inset:0}.magic-modal-mask.is-leaving{animation:.2s forwards magic-modal-mask-fade-out;pointer-events:none!important}.magic-modal{vertical-align:middle;text-align:left;box-sizing:border-box;background:var(--magic-modal-bg,#1c1e24f5);border:1px solid var(--magic-modal-border,#ffffff1f);border-radius:var(--magic-modal-radius,12px);width:100%;box-shadow:var(--magic-modal-shadow,0 16px 48px #0009);-webkit-backdrop-filter:blur(16px);color:var(--magic-modal-color,#e5e9ef);pointer-events:auto;flex-direction:column;margin:0 auto;animation:.25s cubic-bezier(.16,1,.3,1) forwards magic-modal-zoom-in;display:inline-flex;position:relative}.magic-modal.is-leaving{animation:.2s cubic-bezier(.4,0,1,1) forwards magic-modal-zoom-out;pointer-events:none!important}.magic-modal__header{border-bottom:1px solid var(--magic-modal-divider,#ffffff14);box-sizing:border-box;justify-content:space-between;align-items:center;padding:16px 20px;display:flex}.magic-modal__title{color:var(--magic-modal-title-color,#fff);font-size:16px;font-weight:600;line-height:1.4}.magic-modal__close{width:28px;height:28px;color:var(--magic-modal-close-color,#9499a0);cursor:pointer;background:0 0;border:none;border-radius:6px;justify-content:center;align-items:center;margin:-4px -6px -4px auto;padding:0;transition:all .2s;display:inline-flex}.magic-modal__close:hover{background:var(--magic-bg-hover,#ffffff1a);color:var(--magic-modal-title-color,var(--magic-text-primary,#fff))}.magic-modal__close svg{width:16px;height:16px;display:block}.magic-modal__body{word-break:break-word;overscroll-behavior:contain;box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--magic-bg-hover,#fff3) transparent;max-height:calc(80vh - 140px);padding:20px;font-size:14px;line-height:1.6;overflow-y:auto}.magic-modal__body::-webkit-scrollbar{width:5px}.magic-modal__body::-webkit-scrollbar-thumb{background:var(--magic-bg-hover,#fff3);border-radius:4px}.magic-modal__footer{border-top:1px solid var(--magic-modal-divider,#ffffff14);box-sizing:border-box;justify-content:flex-end;align-items:center;gap:12px;padding:14px 20px;display:flex}';
   var style_default$9 =
+    ':host{vertical-align:middle;display:inline-flex}:host([block]){width:100%;display:flex}.magic-button{box-sizing:border-box;white-space:nowrap;text-align:center;cursor:pointer;-webkit-user-select:none;user-select:none;vertical-align:middle;border:1px solid #0000;border-radius:6px;outline:none;justify-content:center;align-items:center;width:100%;font-family:inherit;font-weight:500;line-height:1;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-button--small{gap:4px;height:28px;padding:0 10px;font-size:12px}.magic-button--medium{gap:6px;height:34px;padding:0 16px;font-size:14px}.magic-button--large{gap:8px;height:40px;padding:0 20px;font-size:16px}.magic-button.is-round{border-radius:9999px}.magic-button.is-circle{border-radius:50%;padding:0}.magic-button.is-circle.magic-button--small{width:28px}.magic-button.is-circle.magic-button--medium{width:34px}.magic-button.is-circle.magic-button--large{width:40px}.magic-button--default{background:var(--magic-btn-default-bg,#ffffff14);color:var(--magic-btn-default-color,#e5e9ef);border-color:var(--magic-btn-default-border,#ffffff26)}.magic-button--default:hover:not(.is-disabled){background:var(--magic-btn-default-hover-bg,#ffffff24);border-color:var(--magic-btn-default-hover-border,#ffffff40)}.magic-button--default:active:not(.is-disabled){background:var(--magic-btn-default-active-bg,#fff3)}.magic-button--primary{background:var(--magic-btn-primary-bg,var(--magic-primary-color));color:#fff;border-color:var(--magic-btn-primary-bg,var(--magic-primary-color))}.magic-button--primary:hover:not(.is-disabled){background:var(--magic-btn-primary-hover-bg,var(--magic-primary-hover-color));border-color:var(--magic-btn-primary-hover-bg,var(--magic-primary-hover-color));box-shadow:0 2px 8px var(--magic-primary-shadow)}.magic-button--primary:active:not(.is-disabled){background:var(--magic-btn-primary-active-bg,var(--magic-primary-active-color));border-color:var(--magic-btn-primary-active-bg,var(--magic-primary-active-color))}.magic-button--success{background:var(--magic-btn-success-bg,#2ac864);color:#fff;border-color:var(--magic-btn-success-bg,#2ac864)}.magic-button--success:hover:not(.is-disabled){background:var(--magic-btn-success-hover-bg,#3ad473);border-color:var(--magic-btn-success-hover-bg,#3ad473);box-shadow:0 2px 8px #2ac86459}.magic-button--success:active:not(.is-disabled){background:var(--magic-btn-success-active-bg,#23b056);border-color:var(--magic-btn-success-active-bg,#23b056)}.magic-button--warning{background:var(--magic-btn-warning-bg,#fa9600);color:#fff;border-color:var(--magic-btn-warning-bg,#fa9600)}.magic-button--warning:hover:not(.is-disabled){background:var(--magic-btn-warning-hover-bg,#ffa624);border-color:var(--magic-btn-warning-hover-bg,#ffa624);box-shadow:0 2px 8px #fa960059}.magic-button--warning:active:not(.is-disabled){background:var(--magic-btn-warning-active-bg,#e08700);border-color:var(--magic-btn-warning-active-bg,#e08700)}.magic-button--danger{background:var(--magic-btn-danger-bg,#ff5c7c);color:#fff;border-color:var(--magic-btn-danger-bg,#ff5c7c)}.magic-button--danger:hover:not(.is-disabled){background:var(--magic-btn-danger-hover-bg,#ff738e);border-color:var(--magic-btn-danger-hover-bg,#ff738e);box-shadow:0 2px 8px #ff5c7c59}.magic-button--danger:active:not(.is-disabled){background:var(--magic-btn-danger-active-bg,#e64b69);border-color:var(--magic-btn-danger-active-bg,#e64b69)}.magic-button--text{color:var(--magic-btn-text-color,var(--magic-primary-color));background:0 0;border-color:#0000;padding-left:4px;padding-right:4px}.magic-button--text:hover:not(.is-disabled){background:var(--magic-btn-text-hover-bg,var(--magic-primary-light-bg))}.magic-button--text:active:not(.is-disabled){background:var(--magic-btn-text-active-bg,var(--magic-primary-light-bg))}.magic-button.is-disabled{cursor:not-allowed;opacity:.5;box-shadow:none!important}.magic-button.is-loading{cursor:default;pointer-events:none}.magic-button .magic-button__loading-icon,.magic-button .magic-button__icon{justify-content:center;align-items:center;display:inline-flex}.magic-button .magic-button__content{align-items:center;display:inline-flex}';
+  var style_default$8 =
     ':host{vertical-align:middle;display:inline-flex}@keyframes magic-spinner-rotate{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.magic-spinner{justify-content:center;align-items:center;gap:10px;display:inline-flex}.magic-spinner.is-vertical{flex-direction:column;gap:12px}.magic-spinner__circle{box-sizing:border-box;width:var(--magic-spinner-size,24px);height:var(--magic-spinner-size,24px);border-style:solid;border-width:var(--magic-spinner-border-width,3px);border-color:var(--magic-spinner-track,#ffffff1a);border-top-color:var(--magic-spinner-color,var(--magic-primary-color));border-radius:50%;flex-shrink:0;animation:.8s linear infinite magic-spinner-rotate}.magic-spinner__text{color:var(--magic-spinner-text-color,#9499a0);-webkit-user-select:none;user-select:none;font-size:13px;line-height:1.4}';
   var MagicSpinner = class extends i {
     static properties = {
@@ -3258,7 +1553,7 @@
         attribute: 'stroke-width',
       },
     };
-    static styles = r$2(style_default$9);
+    static styles = r$2(style_default$8);
     constructor() {
       super();
       this.size = '24';
@@ -3286,818 +1581,6 @@
     }
   };
   if (!customElements.get('magic-spinner')) customElements.define('magic-spinner', MagicSpinner);
-  var style_default$8 =
-    ':host{vertical-align:middle;-webkit-user-select:none;user-select:none;align-items:center;display:inline-flex}.magic-switch{cursor:pointer;background:0 0;border:none;outline:none;align-items:center;gap:6px;margin:0;padding:0;font-family:inherit;display:inline-flex}.magic-switch--small{--switch-width:30px;--switch-height:16px;--switch-knob:12px;--switch-offset:14px;--switch-font-size:12px}.magic-switch--medium{--switch-width:38px;--switch-height:20px;--switch-knob:16px;--switch-offset:18px;--switch-font-size:13px}.magic-switch--large{--switch-width:46px;--switch-height:24px;--switch-knob:20px;--switch-offset:22px;--switch-font-size:14px}.magic-switch__core{width:var(--switch-width,38px);height:var(--switch-height,20px);background-color:var(--magic-switch-inactive-color,#8c8c8c59);box-sizing:border-box;border-radius:999px;transition:background-color .25s,border-color .25s;display:inline-block;position:relative}.magic-switch__action{width:var(--switch-knob,16px);height:var(--switch-knob,16px);background-color:#fff;border-radius:50%;justify-content:center;align-items:center;transition:transform .25s cubic-bezier(.4,0,.2,1);display:flex;position:absolute;top:2px;left:2px;box-shadow:0 1px 3px #00000040}.magic-switch__label{color:var(--magic-switch-color,#9499a0);font-size:13px;line-height:1;transition:color .2s}.magic-switch.is-checked .magic-switch__core{background-color:var(--magic-switch-active-color,var(--magic-primary-color))}.magic-switch.is-checked .magic-switch__action{transform:translateX(var(--switch-offset,18px))}.magic-switch.is-checked .magic-switch__label{color:var(--magic-switch-active-label-color,#fff)}.magic-switch.is-disabled{cursor:not-allowed;opacity:.55}.magic-switch.is-disabled .magic-switch__core{cursor:not-allowed}.magic-switch.is-loading{cursor:wait;opacity:.8}';
-  var MagicSwitch = class extends i {
-    static properties = {
-      checked: {
-        type: Boolean,
-        reflect: true,
-      },
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      size: String,
-      activeText: {
-        type: String,
-        attribute: 'active-text',
-      },
-      inactiveText: {
-        type: String,
-        attribute: 'inactive-text',
-      },
-      loading: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
-    static styles = r$2(style_default$8);
-    constructor() {
-      super();
-      this.checked = false;
-      this.disabled = false;
-      this.size = 'medium';
-      this.activeText = '';
-      this.inactiveText = '';
-      this.loading = false;
-    }
-    handleClick(event) {
-      if (this.disabled || this.loading) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        return;
-      }
-      this.checked = !this.checked;
-      const detail = { value: this.checked };
-      this.dispatchEvent(
-        new CustomEvent('change', {
-          detail,
-          bubbles: true,
-          composed: true,
-        }),
-      );
-      this.dispatchEvent(
-        new CustomEvent('input', {
-          detail,
-          bubbles: true,
-          composed: true,
-        }),
-      );
-    }
-    renderLabel() {
-      const labelText = this.checked ? this.activeText : this.inactiveText || this.activeText;
-      if (!labelText) return b`<slot></slot>`;
-      return b`
-      <span class="magic-switch__label">
-        <slot>${labelText}</slot>
-      </span>
-    `;
-    }
-    render() {
-      return b`
-      <div
-        class="${[
-          'magic-switch',
-          `magic-switch--${this.size || 'medium'}`,
-          this.checked ? 'is-checked' : '',
-          this.disabled ? 'is-disabled' : '',
-          this.loading ? 'is-loading' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}"
-        role="switch"
-        aria-checked="${this.checked}"
-        aria-disabled="${this.disabled}"
-        tabindex="${this.disabled ? -1 : 0}"
-        @click=${this.handleClick}
-      >
-        <span class="magic-switch__core">
-          <span class="magic-switch__action"></span>
-        </span>
-        ${this.renderLabel()}
-      </div>
-    `;
-    }
-  };
-  if (!customElements.get('magic-switch')) customElements.define('magic-switch', MagicSwitch);
-  var style_default$7 =
-    ':host{vertical-align:middle;box-sizing:border-box;font-family:inherit;display:inline-block;position:relative}:host([block]){width:100%;display:block}@keyframes magic-select-dropdown-in{0%{opacity:0;transform:translateY(-8px)scaleY(.95)}to{opacity:1;transform:translateY(0)scaleY(1)}}.magic-select{box-sizing:border-box;-webkit-user-select:none;user-select:none;width:100%;position:relative}.magic-select__trigger{box-sizing:border-box;border:1px solid var(--magic-select-border,#ffffff26);background:var(--magic-select-bg,#ffffff14);width:100%;color:var(--magic-select-color,#e5e9ef);cursor:pointer;border-radius:6px;outline:none;justify-content:space-between;align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:flex}.magic-select__label{text-overflow:ellipsis;white-space:nowrap;text-align:left;flex:1;overflow:hidden}.magic-select__label.is-placeholder{color:var(--magic-select-placeholder-color,#9499a0)}.magic-select__suffix{color:var(--magic-select-suffix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:transform .2s;display:inline-flex}.magic-select__suffix svg{width:14px;height:14px;transition:transform .2s;display:block}.magic-select__suffix.is-reverse svg{transform:rotate(180deg)}.magic-select__clear{color:var(--magic-select-clear-color,#9499a0);cursor:pointer;flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:color .2s;display:none}.magic-select__clear:hover{color:var(--magic-select-clear-hover-color,#e5e9ef)}.magic-select__clear svg{width:14px;height:14px;display:block}.magic-select--small .magic-select__trigger{height:28px;padding:0 8px;font-size:12px}.magic-select--medium .magic-select__trigger{height:34px;padding:0 12px;font-size:14px}.magic-select--large .magic-select__trigger{height:40px;padding:0 16px;font-size:16px}.magic-select:hover:not(.is-disabled) .magic-select__trigger{border-color:var(--magic-select-hover-border,#ffffff40);background:var(--magic-select-hover-bg,#ffffff1f)}.magic-select:hover:not(.is-disabled).has-value.is-clearable .magic-select__suffix{display:none}.magic-select:hover:not(.is-disabled).has-value.is-clearable .magic-select__clear{display:inline-flex}.magic-select.is-open .magic-select__trigger{border-color:var(--magic-select-active-color,var(--magic-primary-color));box-shadow:0 0 0 2px var(--magic-primary-focus-shadow)}.magic-select.is-disabled .magic-select__trigger{cursor:not-allowed;opacity:.5;background:#ffffff0a;border-color:#ffffff1a}.magic-select__dropdown-container{min-width:100%;z-index:var(--magic-select-z-index,10000);position:absolute;top:calc(100% + 4px);left:0}.magic-select__dropdown{box-sizing:border-box;background:var(--magic-select-dropdown-bg,#1c1e24f5);border:1px solid var(--magic-select-dropdown-border,#ffffff1f);width:100%;min-width:100%;max-height:240px;box-shadow:var(--magic-select-dropdown-shadow,0 10px 30px #00000080);-webkit-backdrop-filter:blur(12px);transform-origin:top;border-radius:6px;padding:4px;animation:.2s cubic-bezier(.16,1,.3,1) forwards magic-select-dropdown-in;overflow-y:auto}.magic-select__dropdown::-webkit-scrollbar{width:5px}.magic-select__dropdown::-webkit-scrollbar-thumb{background:#fff3;border-radius:4px}.magic-select__sub-dropdown{box-sizing:border-box;background:var(--magic-select-dropdown-bg,#1c1e24f5);border:1px solid var(--magic-select-dropdown-border,#ffffff1f);width:max-content;min-width:130px;box-shadow:var(--magic-select-dropdown-shadow,0 10px 30px #00000080);-webkit-backdrop-filter:blur(12px);transform-origin:0 0;border-radius:6px;padding:4px;animation:.18s cubic-bezier(.16,1,.3,1) forwards magic-select-dropdown-in;position:absolute;left:calc(100% + 4px)}.magic-select__sub-dropdown:before{content:"";width:8px;height:100%;position:absolute;top:0;left:-8px}.magic-select__empty{text-align:center;color:var(--magic-select-placeholder-color,#9499a0);padding:12px;font-size:13px}.magic-option{box-sizing:border-box;color:var(--magic-select-color,#e5e9ef);cursor:pointer;-webkit-user-select:none;user-select:none;white-space:nowrap;border-radius:4px;justify-content:space-between;align-items:center;padding:8px 10px;font-size:14px;line-height:1.2;transition:all .15s;display:flex}.magic-option:hover:not(.is-disabled),.magic-option.is-active-parent{background-color:var(--magic-select-option-hover-bg,#ffffff14)}.magic-option.is-selected,.magic-option.has-selected-child{color:var(--magic-select-active-color,var(--magic-primary-color));font-weight:500}.magic-option.is-selected{background-color:var(--magic-select-option-active-bg,var(--magic-primary-light-bg))}.magic-option.is-disabled{cursor:not-allowed;opacity:.4}.magic-option__arrow{color:var(--magic-select-suffix-color,#9499a0);justify-content:center;align-items:center;margin-left:8px;display:inline-flex}.magic-option__arrow svg{width:12px;height:12px;display:block}';
-  var SELECT_ICONS = {
-    arrowDown: b`
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  `,
-    chevronRight: b`
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="9 18 15 12 9 6" />
-    </svg>
-  `,
-    clear: b`
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="12" cy="12" r="10" />
-      <line x1="15" y1="9" x2="9" y2="15" />
-      <line x1="9" y1="9" x2="15" y2="15" />
-    </svg>
-  `,
-  };
-  function findLabelInOptions(list, value, parent = null) {
-    for (const item of list) {
-      if (String(item.value) === String(value))
-        return parent
-          ? `${parent.label} · ${item.label ?? item.value}`
-          : (item.label ?? item.value);
-      if (isArray(item.children)) {
-        const match = findLabelInOptions(item.children, value, item);
-        if (match) return match;
-      }
-    }
-    return null;
-  }
-  var MagicOption = class extends i {
-    static properties = {
-      value: String,
-      label: String,
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      selected: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
-    static styles = r$2(style_default$7);
-    constructor() {
-      super();
-      this.value = '';
-      this.label = '';
-      this.disabled = false;
-      this.selected = false;
-    }
-    handleClick(event) {
-      if (this.disabled) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-      }
-    }
-    render() {
-      return b`
-      <div class="${[
-        'magic-option',
-        this.selected ? 'is-selected' : '',
-        this.disabled ? 'is-disabled' : '',
-      ]
-        .filter(Boolean)
-        .join(' ')}" @click=${this.handleClick}>
-        <slot>${this.label || this.value}</slot>
-      </div>
-    `;
-    }
-  };
-  var MagicSelect = class extends i {
-    static properties = {
-      value: String,
-      placeholder: String,
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      clearable: Boolean,
-      size: String,
-      block: Boolean,
-      open: {
-        type: Boolean,
-        reflect: true,
-      },
-      options: Array,
-      activeSubmenuValue: { state: true },
-      submenuTop: { state: true },
-    };
-    static styles = r$2(style_default$7);
-    #cleanupOutsideClick = null;
-    constructor() {
-      super();
-      this.value = '';
-      this.placeholder = '请选择';
-      this.disabled = false;
-      this.clearable = false;
-      this.size = 'medium';
-      this.block = false;
-      this.open = false;
-      this.options = [];
-      this.activeSubmenuValue = '';
-      this.submenuTop = 0;
-    }
-    get currentLabel() {
-      if (isArray(this.options) && this.options.length > 0) {
-        const match = findLabelInOptions(this.options, this.value);
-        if (match) return match;
-      }
-      const slot = this.shadowRoot?.querySelector('slot');
-      if (slot) {
-        const matchedEl = slot
-          .assignedElements({ flatten: true })
-          .find((el) => el.value === this.value);
-        if (matchedEl) return matchedEl.label || matchedEl.textContent?.trim() || matchedEl.value;
-      }
-      return this.value || '';
-    }
-    get activeSubmenuItem() {
-      if (!this.activeSubmenuValue || !isArray(this.options)) return null;
-      return (
-        this.options.find((item) => String(item.value) === String(this.activeSubmenuValue)) || null
-      );
-    }
-    connectedCallback() {
-      super.connectedCallback();
-      this.#cleanupOutsideClick = on(document, 'pointerdown', (event) =>
-        this.handleOutsideClick(event),
-      );
-    }
-    disconnectedCallback() {
-      super.disconnectedCallback();
-      this.#cleanupOutsideClick?.();
-    }
-    handleOutsideClick(event) {
-      if (this.open && !event.composedPath().includes(this)) {
-        this.open = false;
-        this.activeSubmenuValue = '';
-      }
-    }
-    toggleDropdown(event) {
-      event.stopPropagation();
-      if (this.disabled) return;
-      this.open = !this.open;
-      if (!this.open) this.activeSubmenuValue = '';
-    }
-    handleClear(event) {
-      event.stopPropagation();
-      this.value = '';
-      this.open = false;
-      this.activeSubmenuValue = '';
-      this.dispatchEvent(
-        new CustomEvent('clear', {
-          bubbles: true,
-          composed: true,
-        }),
-      );
-      this.dispatchChangeEvent('');
-    }
-    handleSelectOption(option, event) {
-      event?.stopPropagation();
-      if (option.disabled) return;
-      this.value = option.value;
-      this.open = false;
-      this.activeSubmenuValue = '';
-      this.dispatchChangeEvent(option.value, option.label);
-    }
-    dispatchChangeEvent(value, label = '') {
-      const detail = {
-        value,
-        label,
-      };
-      this.dispatchEvent(
-        new CustomEvent('change', {
-          detail,
-          bubbles: true,
-          composed: true,
-        }),
-      );
-      this.dispatchEvent(
-        new CustomEvent('input', {
-          detail,
-          bubbles: true,
-          composed: true,
-        }),
-      );
-    }
-    handleSlotClick(event) {
-      const target = event.target.closest('magic-option');
-      if (target && !target.disabled)
-        this.handleSelectOption({
-          value: target.value,
-          label: target.label || target.textContent?.trim(),
-        });
-    }
-    handleOptionMouseEnter(item, event) {
-      if (isArray(item.children) && item.children.length > 0) {
-        this.activeSubmenuValue = item.value;
-        const target = event.currentTarget;
-        this.submenuTop = target?.offsetTop || 0;
-      } else this.activeSubmenuValue = '';
-    }
-    handleDropdownMouseLeave() {
-      this.activeSubmenuValue = '';
-    }
-    renderSubOptionList(children) {
-      if (!isArray(children) || children.length === 0) return b``;
-      return children.map((item) => {
-        return b`
-        <div class="${[
-          'magic-option',
-          String(item.value) === String(this.value) ? 'is-selected' : '',
-          item.disabled ? 'is-disabled' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}" @click=${(e) => this.handleSelectOption(item, e)}>
-          <span>${item.label ?? item.value}</span>
-        </div>
-      `;
-      });
-    }
-    renderOptionList() {
-      if (!this.options || this.options.length === 0)
-        return b`
-        <div @click=${this.handleSlotClick}>
-          <slot></slot>
-        </div>
-      `;
-      return this.options.map((item) => {
-        const hasChildren = isArray(item.children) && item.children.length > 0;
-        const isSelected = String(item.value) === String(this.value);
-        const hasSelectedChild =
-          hasChildren && item.children.some((c) => String(c.value) === String(this.value));
-        const isActiveParent = String(item.value) === String(this.activeSubmenuValue);
-        return b`
-        <div
-          class="${[
-            'magic-option',
-            isSelected ? 'is-selected' : '',
-            hasSelectedChild ? 'has-selected-child' : '',
-            isActiveParent ? 'is-active-parent' : '',
-            item.disabled ? 'is-disabled' : '',
-            hasChildren ? 'has-children' : '',
-          ]
-            .filter(Boolean)
-            .join(' ')}"
-          @mouseenter=${(e) => this.handleOptionMouseEnter(item, e)}
-          @click=${(e) => {
-            if (!hasChildren) this.handleSelectOption(item, e);
-          }}
-        >
-          <span>${item.label ?? item.value}</span>
-          ${hasChildren ? b`<span class="magic-option__arrow">${SELECT_ICONS.chevronRight}</span>` : b``}
-        </div>
-      `;
-      });
-    }
-    render() {
-      const hasValue = this.value !== void 0 && this.value !== null && this.value !== '';
-      const displayLabel = this.currentLabel;
-      const subItem = this.activeSubmenuItem;
-      return b`
-      <div class="${[
-        'magic-select',
-        `magic-select--${this.size || 'medium'}`,
-        this.open ? 'is-open' : '',
-        this.disabled ? 'is-disabled' : '',
-        hasValue ? 'has-value' : '',
-        this.clearable ? 'is-clearable' : '',
-      ]
-        .filter(Boolean)
-        .join(' ')}">
-        <div class="magic-select__trigger" @click=${this.toggleDropdown} role="button" tabindex="0">
-          <span class="magic-select__label ${hasValue ? '' : 'is-placeholder'}">
-            ${hasValue ? displayLabel : this.placeholder}
-          </span>
-          <span class="magic-select__suffix ${this.open ? 'is-reverse' : ''}">
-            ${SELECT_ICONS.arrowDown}
-          </span>
-          ${
-            this.clearable && hasValue && !this.disabled
-              ? b`
-                  <span
-                    class="magic-select__clear"
-                    @click=${this.handleClear}
-                    title="清空"
-                    role="button"
-                  >
-                    ${SELECT_ICONS.clear}
-                  </span>
-                `
-              : b``
-          }
-        </div>
-
-        ${
-          this.open
-            ? b`
-                <div
-                  class="magic-select__dropdown-container"
-                  @mouseleave=${this.handleDropdownMouseLeave}
-                >
-                  <div class="magic-select__dropdown" role="listbox">
-                    ${this.renderOptionList()}
-                  </div>
-                  ${
-                    subItem && isArray(subItem.children)
-                      ? b`
-                          <div
-                            class="magic-select__sub-dropdown"
-                            style="top: ${this.submenuTop}px"
-                            role="listbox"
-                          >
-                            ${this.renderSubOptionList(subItem.children)}
-                          </div>
-                        `
-                      : b``
-                  }
-                </div>
-              `
-            : b``
-        }
-      </div>
-    `;
-    }
-  };
-  if (!customElements.get('magic-option')) customElements.define('magic-option', MagicOption);
-  if (!customElements.get('magic-select')) customElements.define('magic-select', MagicSelect);
-  var style_default$6 =
-    ':host{vertical-align:middle;box-sizing:border-box;font-family:inherit;display:inline-block}:host([block]){width:100%;display:block}.magic-input{box-sizing:border-box;border-radius:var(--magic-input-radius,6px);background:var(--magic-input-bg,#ffffff14);border:1px solid var(--magic-input-border,#ffffff26);width:100%;color:var(--magic-input-color,#e5e9ef);align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-input--small{height:28px;padding:0 8px;font-size:12px}.magic-input--medium{height:34px;padding:0 12px;font-size:14px}.magic-input--large{height:40px;padding:0 16px;font-size:16px}.magic-input:hover:not(.is-disabled):not(.is-focused){border-color:var(--magic-input-hover-border,#ffffff40);background:var(--magic-input-hover-bg,#ffffff1f)}.magic-input.is-focused{border-color:var(--magic-input-focus-border,var(--magic-primary-color));background:var(--magic-input-focus-bg,#ffffff1a);box-shadow:var(--magic-input-focus-shadow,var(--magic-primary-focus-shadow))}.magic-input.is-disabled{cursor:not-allowed;opacity:.5;background:#ffffff0a;border-color:#ffffff1a}.magic-input.is-disabled .magic-input__inner{cursor:not-allowed}.magic-input__prefix{color:var(--magic-input-prefix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-right:6px;line-height:1;display:inline-flex}.magic-input__prefix svg{width:14px;height:14px;display:block}.magic-input__inner{width:100%;min-width:0;height:100%;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;box-sizing:border-box;background:0 0;border:none;outline:none;flex:1;margin:0;padding:0}.magic-input__inner::placeholder{color:var(--magic-input-placeholder-color,#9499a0)}.magic-input__suffix{color:var(--magic-input-suffix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;line-height:1;display:inline-flex}.magic-input__suffix svg{width:14px;height:14px;display:block}.magic-input__clear{cursor:pointer;color:var(--magic-input-clear-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:color .15s;display:inline-flex}.magic-input__clear svg{width:14px;height:14px;display:block}.magic-input__clear:hover{color:var(--magic-input-clear-hover-color,#e5e9ef)}';
-  var INPUT_ICONS = {
-    clear: b`
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="12" cy="12" r="10" />
-      <line x1="15" y1="9" x2="9" y2="15" />
-      <line x1="9" y1="9" x2="15" y2="15" />
-    </svg>
-  `,
-  };
-  var MagicInput = class extends i {
-    static properties = {
-      value: {
-        type: String,
-        reflect: true,
-      },
-      placeholder: String,
-      type: String,
-      size: String,
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      readonly: {
-        type: Boolean,
-        reflect: true,
-      },
-      clearable: Boolean,
-      block: {
-        type: Boolean,
-        reflect: true,
-      },
-      maxlength: {
-        type: Number,
-        attribute: 'maxlength',
-      },
-      autofocus: Boolean,
-      focused: { state: true },
-    };
-    static styles = r$2(style_default$6);
-    constructor() {
-      super();
-      this.value = '';
-      this.placeholder = '';
-      this.type = 'text';
-      this.size = 'medium';
-      this.disabled = false;
-      this.readonly = false;
-      this.clearable = false;
-      this.block = false;
-      this.maxlength = void 0;
-      this.autofocus = false;
-      this.focused = false;
-    }
-    firstUpdated() {
-      if (this.autofocus && !this.disabled && !this.readonly) this.focus();
-    }
-    get inputElement() {
-      return this.shadowRoot?.querySelector('.magic-input__inner') || null;
-    }
-    focus() {
-      this.inputElement?.focus();
-    }
-    blur() {
-      this.inputElement?.blur();
-    }
-    select() {
-      this.inputElement?.select();
-    }
-    handleInput(event) {
-      event.stopPropagation();
-      this.value = event.target.value;
-      const detail = { value: this.value };
-      this.dispatchEvent(
-        new CustomEvent('input', {
-          detail,
-          bubbles: true,
-          composed: true,
-        }),
-      );
-    }
-    handleChange(event) {
-      event.stopPropagation();
-      this.value = event.target.value;
-      const detail = { value: this.value };
-      this.dispatchEvent(
-        new CustomEvent('change', {
-          detail,
-          bubbles: true,
-          composed: true,
-        }),
-      );
-    }
-    handleFocus(event) {
-      this.focused = true;
-      this.dispatchEvent(
-        new CustomEvent('focus', {
-          detail: { event },
-          bubbles: true,
-          composed: true,
-        }),
-      );
-    }
-    handleBlur(event) {
-      this.focused = false;
-      this.dispatchEvent(
-        new CustomEvent('blur', {
-          detail: { event },
-          bubbles: true,
-          composed: true,
-        }),
-      );
-    }
-    handleKeyDown(event) {
-      event.stopPropagation();
-      this.dispatchEvent(
-        new KeyboardEvent('keydown', {
-          key: event.key,
-          code: event.code,
-          keyCode: event.keyCode,
-          which: event.which,
-          shiftKey: event.shiftKey,
-          ctrlKey: event.ctrlKey,
-          altKey: event.altKey,
-          metaKey: event.metaKey,
-          repeat: event.repeat,
-          isComposing: event.isComposing,
-          bubbles: false,
-          composed: false,
-        }),
-      );
-    }
-    handleKeyUp(event) {
-      event.stopPropagation();
-      this.dispatchEvent(
-        new KeyboardEvent('keyup', {
-          key: event.key,
-          code: event.code,
-          keyCode: event.keyCode,
-          which: event.which,
-          shiftKey: event.shiftKey,
-          ctrlKey: event.ctrlKey,
-          altKey: event.altKey,
-          metaKey: event.metaKey,
-          repeat: event.repeat,
-          isComposing: event.isComposing,
-          bubbles: false,
-          composed: false,
-        }),
-      );
-    }
-    handleClear(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      this.value = '';
-      this.dispatchEvent(
-        new CustomEvent('clear', {
-          detail: { value: '' },
-          bubbles: true,
-          composed: true,
-        }),
-      );
-      this.dispatchEvent(
-        new CustomEvent('input', {
-          detail: { value: '' },
-          bubbles: true,
-          composed: true,
-        }),
-      );
-      this.dispatchEvent(
-        new CustomEvent('change', {
-          detail: { value: '' },
-          bubbles: true,
-          composed: true,
-        }),
-      );
-      this.focus();
-    }
-    renderClearBtn() {
-      if (!this.clearable || !this.value || this.disabled || this.readonly) return null;
-      return b`
-      <span class="magic-input__clear" title="清空" @click=${this.handleClear}>
-        ${INPUT_ICONS.clear}
-      </span>
-    `;
-    }
-    render() {
-      return b`
-      <div class="${[
-        'magic-input',
-        `magic-input--${this.size || 'medium'}`,
-        this.focused ? 'is-focused' : '',
-        this.disabled ? 'is-disabled' : '',
-        this.readonly ? 'is-readonly' : '',
-      ]
-        .filter(Boolean)
-        .join(' ')}">
-        <span class="magic-input__prefix">
-          <slot name="prefix"></slot>
-        </span>
-
-        <input
-          class="magic-input__inner"
-          .type=${this.type || 'text'}
-          .value=${this.value || ''}
-          .placeholder=${this.placeholder || ''}
-          .disabled=${this.disabled}
-          .readOnly=${this.readonly}
-          maxlength=${this.maxlength > 0 ? this.maxlength : A}
-          @input=${this.handleInput}
-          @change=${this.handleChange}
-          @focus=${this.handleFocus}
-          @blur=${this.handleBlur}
-          @keydown=${this.handleKeyDown}
-          @keyup=${this.handleKeyUp}
-        />
-
-        ${this.renderClearBtn()}
-
-        <span class="magic-input__suffix">
-          <slot name="suffix"></slot>
-        </span>
-      </div>
-    `;
-    }
-  };
-  if (!customElements.get('magic-input')) customElements.define('magic-input', MagicInput);
-  var ICONS = {
-    expand: {
-      viewBox: '0 0 24 24',
-      d: 'M2.68934 7.68934C3.27513 7.10356 4.22487 7.10356 4.81066 7.68934L12 14.8787L19.18935 7.68934C19.7751 7.10356 20.7249 7.10356 21.31065 7.68934C21.89645 8.27512 21.89645 9.22488 21.31065 9.81066L13.41425 17.70715C12.6332 18.48815 11.3668 18.48815 10.58575 17.70715L2.68934 9.81066C2.10356 9.22488 2.10356 8.27513 2.68934 7.68934z',
-    },
-    collapse: {
-      viewBox: '0 0 24 24',
-      d: 'M21.3107 16.3107C20.7249 16.8964 19.7751 16.8964 19.1893 16.3107L12 9.12132L4.81066 16.3107C4.22487 16.8964 3.27513 16.8964 2.68934 16.3107C2.10355 15.7249 2.10355 14.7751 2.68934 14.1893L10.5858 6.29289C11.3668 5.51185 12.6332 5.51185 13.4142 6.29289L21.3107 14.1893C21.8964 14.7751 21.8964 15.7249 21.3107 16.3107Z',
-    },
-    views: {
-      viewBox: '0 0 18 18',
-      d: 'M2.728 5.419C2.803 4.586 3.454 3.945 4.293 3.877 5.458 3.782 7.11 3.686 9 3.686s3.542.096 4.707.191c.839.068 1.49.709 1.565 1.542.086.951.166 2.207.166 3.58s-.08 2.628-.166 3.58c-.075.832-.726 1.473-1.565 1.541-1.165.095-2.817.191-4.707.191s-3.542-.096-4.707-.191c-.839-.068-1.49-.709-1.565-1.541C2.642 11.627 2.563 10.371 2.563 8.999s.08-2.629.165-3.58zm5.616 1.458c-.574-.331-1.292.083-1.292.746v2.755c0 .663.718 1.077 1.292.746l2.385-1.378c.574-.331.574-1.16 0-1.491L8.344 6.877z',
-      fillRule: 'evenodd',
-      clipRule: 'evenodd',
-    },
-    danmaku: {
-      viewBox: '0 0 18 18',
-      d: 'M2.728 5.419C2.803 4.586 3.454 3.945 4.293 3.877 5.458 3.782 7.11 3.686 9 3.686s3.542.096 4.707.191c.839.068 1.49.709 1.565 1.542.086.951.166 2.207.166 3.58s-.08 2.628-.166 3.58c-.075.832-.726 1.473-1.565 1.541-1.165.095-2.817.191-4.707.191s-3.542-.096-4.707-.191c-.839-.068-1.49-.709-1.565-1.541C2.642 11.627 2.563 10.371 2.563 8.999s.08-2.629.165-3.58zm4.647 1.581a.5.5 0 0 0 0 1h4.563a.5.5 0 0 0 0-1H7.375zm1.125 3a.5.5 0 0 0 0 1h4.563a.5.5 0 0 0 0-1H8.5z',
-      fillRule: 'evenodd',
-      clipRule: 'evenodd',
-    },
-    pubdate: {
-      viewBox: '0 0 18 18',
-      d: 'M9 2C5.134 2 2 5.134 2 9s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 1.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm.75 2.25a.75.75 0 0 0-1.5 0v3.5c0 .204.083.4.23.543l2.25 2.186a.75.75 0 1 0 1.04-1.078l-2.02-1.963V5.75z',
-      fillRule: 'evenodd',
-      clipRule: 'evenodd',
-    },
-    settings: {
-      viewBox: '0 0 24 24',
-      d: 'M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z',
-    },
-    play: {
-      viewBox: '0 0 24 24',
-      d: 'M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86a1 1 0 0 0-1.5.86z',
-    },
-    block: {
-      viewBox: '0 0 24 24',
-      d: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9C4.63 15.55 4 13.85 4 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1C19.37 8.45 20 10.15 20 12c0 4.42-3.58 8-8 8z',
-    },
-    list: {
-      viewBox: '0 0 24 24',
-      d: 'M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z',
-    },
-    shuffle: {
-      viewBox: '0 0 24 24',
-      d: 'M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z',
-    },
-    search: {
-      viewBox: '0 0 24 24',
-      d: 'M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z',
-    },
-    close: {
-      viewBox: '0 0 24 24',
-      d: 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z',
-    },
-    eye: {
-      viewBox: '0 0 24 24',
-      d: 'M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z',
-    },
-    'eye-off': {
-      viewBox: '0 0 24 24',
-      d: 'M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z',
-    },
-    export: {
-      viewBox: '0 0 24 24',
-      stroke: 2,
-      d: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4 M7 10l5 5 5-5 M12 15V3',
-      strokeLinecap: 'round',
-      strokeLinejoin: 'round',
-    },
-    import: {
-      viewBox: '0 0 24 24',
-      stroke: 2,
-      d: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4 M17 8l-5-5-5 5 M12 3v12',
-      strokeLinecap: 'round',
-      strokeLinejoin: 'round',
-    },
-    sync: {
-      viewBox: '0 0 24 24',
-      stroke: 2,
-      d: 'M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8 M3 3v5h5 M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16 M16 16h5v5',
-      strokeLinecap: 'round',
-      strokeLinejoin: 'round',
-    },
-    check: {
-      viewBox: '0 0 24 24',
-      stroke: 2,
-      d: 'M20 6L9 17l-5-5',
-      strokeLinecap: 'round',
-      strokeLinejoin: 'round',
-    },
-  };
-  var style_default$5 =
-    ':host{vertical-align:-.15em;color:inherit;width:var(--magic-icon-size,1em);height:var(--magic-icon-size,1em);justify-content:center;align-items:center;line-height:1;display:inline-flex}.magic-icon{width:100%;height:100%;color:var(--magic-icon-color,currentColor);justify-content:center;align-items:center;transition:transform .2s;display:inline-flex}.magic-icon svg{pointer-events:none;width:100%;height:100%;display:block}.magic-icon.is-spin svg{animation:1s linear infinite magic-icon-spin}@keyframes magic-icon-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}';
-  var MagicIcon = class extends i {
-    static properties = {
-      name: String,
-      size: String,
-      color: String,
-      rotate: Number,
-      spin: Boolean,
-    };
-    static styles = r$2(style_default$5);
-    constructor() {
-      super();
-      this.name = '';
-      this.size = '';
-      this.color = '';
-      this.rotate = 0;
-      this.spin = false;
-    }
-    render() {
-      const icon = ICONS[this.name];
-      const sizeVal =
-        isNumber(this.size) || /^\d+$/.test(String(this.size)) ? `${this.size}px` : this.size;
-      const dynamicStyle = [
-        sizeVal ? `--magic-icon-size: ${sizeVal}` : '',
-        this.color ? `--magic-icon-color: ${this.color}` : '',
-        this.rotate ? `transform: rotate(${this.rotate}deg)` : '',
-      ]
-        .filter(Boolean)
-        .join('; ');
-      if (!icon)
-        return b`
-        <span class="magic-icon ${this.spin ? 'is-spin' : ''}" style="${dynamicStyle}">
-          <slot></slot>
-        </span>
-      `;
-      const isStroke = Boolean(icon.stroke);
-      const strokeWidth = icon.stroke === true ? 2 : icon.stroke || 2;
-      return b`
-      <span class="magic-icon ${this.spin ? 'is-spin' : ''}" style="${dynamicStyle}">
-        <svg
-          viewBox="${icon.viewBox || '0 0 24 24'}"
-          fill="${isStroke ? 'none' : 'currentColor'}"
-          stroke="${isStroke ? 'currentColor' : 'none'}"
-          stroke-width="${isStroke ? strokeWidth : '0'}"
-          stroke-linecap="${icon.strokeLinecap || 'round'}"
-          stroke-linejoin="${icon.strokeLinejoin || 'round'}"
-          aria-hidden="true"
-        >
-          <path
-            d="${icon.d}"
-            clip-rule="${icon.clipRule || ''}"
-            fill-rule="${icon.fillRule || ''}"
-          />
-        </svg>
-      </span>
-    `;
-    }
-  };
-  if (!customElements.get('magic-icon')) customElements.define('magic-icon', MagicIcon);
-  var style_default$4 =
-    ':host{font-family:inherit;display:block}:host(:not([visible])){display:none!important}@keyframes magic-modal-mask-fade-in{0%{opacity:0}to{opacity:1}}@keyframes magic-modal-mask-fade-out{0%{opacity:1}to{opacity:0}}@keyframes magic-modal-zoom-in{0%{opacity:0;transform:scale(.92)translateY(-20px)}to{opacity:1;transform:scale(1)translateY(0)}}@keyframes magic-modal-zoom-out{0%{opacity:1;transform:scale(1)translateY(0)}to{opacity:0;transform:scale(.92)translateY(-20px)}}.magic-modal-wrapper{z-index:var(--magic-modal-z-index,99999);overscroll-behavior:contain;box-sizing:border-box;text-align:center;pointer-events:auto;position:fixed;inset:0;overflow:hidden auto}.magic-modal-wrapper.is-leaving{pointer-events:none!important}.magic-modal-wrapper:after{content:"";vertical-align:middle;width:0;height:100%;display:inline-block}.magic-modal-wrapper.is-centered{justify-content:center;align-items:center;padding-bottom:16vh;display:flex}.magic-modal-wrapper.is-centered:after{display:none}.magic-modal-wrapper.is-centered .magic-modal{margin:24px auto;top:0!important}.magic-modal-mask{z-index:var(--magic-modal-z-index,99999);background:var(--magic-modal-mask-bg,#000000a6);-webkit-backdrop-filter:blur(4px);animation:.25s forwards magic-modal-mask-fade-in;position:fixed;inset:0}.magic-modal-mask.is-leaving{animation:.2s forwards magic-modal-mask-fade-out;pointer-events:none!important}.magic-modal{vertical-align:middle;text-align:left;box-sizing:border-box;background:var(--magic-modal-bg,#1c1e24f5);border:1px solid var(--magic-modal-border,#ffffff1f);border-radius:var(--magic-modal-radius,12px);width:100%;box-shadow:var(--magic-modal-shadow,0 16px 48px #0009);-webkit-backdrop-filter:blur(16px);color:var(--magic-modal-color,#e5e9ef);pointer-events:auto;flex-direction:column;margin:0 auto;animation:.25s cubic-bezier(.16,1,.3,1) forwards magic-modal-zoom-in;display:inline-flex;position:relative}.magic-modal.is-leaving{animation:.2s cubic-bezier(.4,0,1,1) forwards magic-modal-zoom-out;pointer-events:none!important}.magic-modal__header{border-bottom:1px solid var(--magic-modal-divider,#ffffff14);box-sizing:border-box;justify-content:space-between;align-items:center;padding:16px 20px;display:flex}.magic-modal__title{color:var(--magic-modal-title-color,#fff);font-size:16px;font-weight:600;line-height:1.4}.magic-modal__close{width:28px;height:28px;color:var(--magic-modal-close-color,#9499a0);cursor:pointer;background:0 0;border:none;border-radius:6px;justify-content:center;align-items:center;margin:-4px -6px -4px auto;padding:0;transition:all .2s;display:inline-flex}.magic-modal__close:hover{background:var(--magic-bg-hover,#ffffff1a);color:var(--magic-modal-title-color,var(--magic-text-primary,#fff))}.magic-modal__close svg{width:16px;height:16px;display:block}.magic-modal__body{word-break:break-word;overscroll-behavior:contain;box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--magic-bg-hover,#fff3) transparent;max-height:calc(80vh - 140px);padding:20px;font-size:14px;line-height:1.6;overflow-y:auto}.magic-modal__body::-webkit-scrollbar{width:5px}.magic-modal__body::-webkit-scrollbar-thumb{background:var(--magic-bg-hover,#fff3);border-radius:4px}.magic-modal__footer{border-top:1px solid var(--magic-modal-divider,#ffffff14);box-sizing:border-box;justify-content:flex-end;align-items:center;gap:12px;padding:14px 20px;display:flex}';
-  var style_default$3 =
-    ':host{vertical-align:middle;display:inline-flex}:host([block]){width:100%;display:flex}.magic-button{box-sizing:border-box;white-space:nowrap;text-align:center;cursor:pointer;-webkit-user-select:none;user-select:none;vertical-align:middle;border:1px solid #0000;border-radius:6px;outline:none;justify-content:center;align-items:center;width:100%;font-family:inherit;font-weight:500;line-height:1;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-button--small{gap:4px;height:28px;padding:0 10px;font-size:12px}.magic-button--medium{gap:6px;height:34px;padding:0 16px;font-size:14px}.magic-button--large{gap:8px;height:40px;padding:0 20px;font-size:16px}.magic-button.is-round{border-radius:9999px}.magic-button.is-circle{border-radius:50%;padding:0}.magic-button.is-circle.magic-button--small{width:28px}.magic-button.is-circle.magic-button--medium{width:34px}.magic-button.is-circle.magic-button--large{width:40px}.magic-button--default{background:var(--magic-btn-default-bg,#ffffff14);color:var(--magic-btn-default-color,#e5e9ef);border-color:var(--magic-btn-default-border,#ffffff26)}.magic-button--default:hover:not(.is-disabled){background:var(--magic-btn-default-hover-bg,#ffffff24);border-color:var(--magic-btn-default-hover-border,#ffffff40)}.magic-button--default:active:not(.is-disabled){background:var(--magic-btn-default-active-bg,#fff3)}.magic-button--primary{background:var(--magic-btn-primary-bg,var(--magic-primary-color));color:#fff;border-color:var(--magic-btn-primary-bg,var(--magic-primary-color))}.magic-button--primary:hover:not(.is-disabled){background:var(--magic-btn-primary-hover-bg,var(--magic-primary-hover-color));border-color:var(--magic-btn-primary-hover-bg,var(--magic-primary-hover-color));box-shadow:0 2px 8px var(--magic-primary-shadow)}.magic-button--primary:active:not(.is-disabled){background:var(--magic-btn-primary-active-bg,var(--magic-primary-active-color));border-color:var(--magic-btn-primary-active-bg,var(--magic-primary-active-color))}.magic-button--success{background:var(--magic-btn-success-bg,#2ac864);color:#fff;border-color:var(--magic-btn-success-bg,#2ac864)}.magic-button--success:hover:not(.is-disabled){background:var(--magic-btn-success-hover-bg,#3ad473);border-color:var(--magic-btn-success-hover-bg,#3ad473);box-shadow:0 2px 8px #2ac86459}.magic-button--success:active:not(.is-disabled){background:var(--magic-btn-success-active-bg,#23b056);border-color:var(--magic-btn-success-active-bg,#23b056)}.magic-button--warning{background:var(--magic-btn-warning-bg,#fa9600);color:#fff;border-color:var(--magic-btn-warning-bg,#fa9600)}.magic-button--warning:hover:not(.is-disabled){background:var(--magic-btn-warning-hover-bg,#ffa624);border-color:var(--magic-btn-warning-hover-bg,#ffa624);box-shadow:0 2px 8px #fa960059}.magic-button--warning:active:not(.is-disabled){background:var(--magic-btn-warning-active-bg,#e08700);border-color:var(--magic-btn-warning-active-bg,#e08700)}.magic-button--danger{background:var(--magic-btn-danger-bg,#ff5c7c);color:#fff;border-color:var(--magic-btn-danger-bg,#ff5c7c)}.magic-button--danger:hover:not(.is-disabled){background:var(--magic-btn-danger-hover-bg,#ff738e);border-color:var(--magic-btn-danger-hover-bg,#ff738e);box-shadow:0 2px 8px #ff5c7c59}.magic-button--danger:active:not(.is-disabled){background:var(--magic-btn-danger-active-bg,#e64b69);border-color:var(--magic-btn-danger-active-bg,#e64b69)}.magic-button--text{color:var(--magic-btn-text-color,var(--magic-primary-color));background:0 0;border-color:#0000;padding-left:4px;padding-right:4px}.magic-button--text:hover:not(.is-disabled){background:var(--magic-btn-text-hover-bg,var(--magic-primary-light-bg))}.magic-button--text:active:not(.is-disabled){background:var(--magic-btn-text-active-bg,var(--magic-primary-light-bg))}.magic-button.is-disabled{cursor:not-allowed;opacity:.5;box-shadow:none!important}.magic-button.is-loading{cursor:default;pointer-events:none}.magic-button .magic-button__loading-icon,.magic-button .magic-button__icon{justify-content:center;align-items:center;display:inline-flex}.magic-button .magic-button__content{align-items:center;display:inline-flex}';
   var MagicButton = class extends i {
     static properties = {
       type: String,
@@ -4114,7 +1597,7 @@
       circle: Boolean,
       block: Boolean,
     };
-    static styles = r$2(style_default$3);
+    static styles = r$2(style_default$9);
     constructor() {
       super();
       this.type = 'default';
@@ -4239,7 +1722,7 @@
       },
       _isLeaving: { state: true },
     };
-    static styles = r$2(style_default$4);
+    static styles = r$2(style_default$10);
     #cleanupKeydown = null;
     constructor() {
       super();
@@ -4457,7 +1940,102 @@
     }
   };
   if (!customElements.get('magic-modal')) customElements.define('magic-modal', MagicModal);
-  var style_default$2 =
+  var style_default$7 =
+    ':host{vertical-align:middle;-webkit-user-select:none;user-select:none;align-items:center;display:inline-flex}.magic-switch{cursor:pointer;background:0 0;border:none;outline:none;align-items:center;gap:6px;margin:0;padding:0;font-family:inherit;display:inline-flex}.magic-switch--small{--switch-width:30px;--switch-height:16px;--switch-knob:12px;--switch-offset:14px;--switch-font-size:12px}.magic-switch--medium{--switch-width:38px;--switch-height:20px;--switch-knob:16px;--switch-offset:18px;--switch-font-size:13px}.magic-switch--large{--switch-width:46px;--switch-height:24px;--switch-knob:20px;--switch-offset:22px;--switch-font-size:14px}.magic-switch__core{width:var(--switch-width,38px);height:var(--switch-height,20px);background-color:var(--magic-switch-inactive-color,#8c8c8c59);box-sizing:border-box;border-radius:999px;transition:background-color .25s,border-color .25s;display:inline-block;position:relative}.magic-switch__action{width:var(--switch-knob,16px);height:var(--switch-knob,16px);background-color:#fff;border-radius:50%;justify-content:center;align-items:center;transition:transform .25s cubic-bezier(.4,0,.2,1);display:flex;position:absolute;top:2px;left:2px;box-shadow:0 1px 3px #00000040}.magic-switch__label{color:var(--magic-switch-color,#9499a0);font-size:13px;line-height:1;transition:color .2s}.magic-switch.is-checked .magic-switch__core{background-color:var(--magic-switch-active-color,var(--magic-primary-color))}.magic-switch.is-checked .magic-switch__action{transform:translateX(var(--switch-offset,18px))}.magic-switch.is-checked .magic-switch__label{color:var(--magic-switch-active-label-color,#fff)}.magic-switch.is-disabled{cursor:not-allowed;opacity:.55}.magic-switch.is-disabled .magic-switch__core{cursor:not-allowed}.magic-switch.is-loading{cursor:wait;opacity:.8}';
+  var MagicSwitch = class extends i {
+    static properties = {
+      checked: {
+        type: Boolean,
+        reflect: true,
+      },
+      disabled: {
+        type: Boolean,
+        reflect: true,
+      },
+      size: String,
+      activeText: {
+        type: String,
+        attribute: 'active-text',
+      },
+      inactiveText: {
+        type: String,
+        attribute: 'inactive-text',
+      },
+      loading: {
+        type: Boolean,
+        reflect: true,
+      },
+    };
+    static styles = r$2(style_default$7);
+    constructor() {
+      super();
+      this.checked = false;
+      this.disabled = false;
+      this.size = 'medium';
+      this.activeText = '';
+      this.inactiveText = '';
+      this.loading = false;
+    }
+    handleClick(event) {
+      if (this.disabled || this.loading) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        return;
+      }
+      this.checked = !this.checked;
+      const detail = { value: this.checked };
+      this.dispatchEvent(
+        new CustomEvent('change', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.dispatchEvent(
+        new CustomEvent('input', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+    renderLabel() {
+      const labelText = this.checked ? this.activeText : this.inactiveText || this.activeText;
+      if (!labelText) return b`<slot></slot>`;
+      return b`
+      <span class="magic-switch__label">
+        <slot>${labelText}</slot>
+      </span>
+    `;
+    }
+    render() {
+      return b`
+      <div
+        class="${[
+          'magic-switch',
+          `magic-switch--${this.size || 'medium'}`,
+          this.checked ? 'is-checked' : '',
+          this.disabled ? 'is-disabled' : '',
+          this.loading ? 'is-loading' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}"
+        role="switch"
+        aria-checked="${this.checked}"
+        aria-disabled="${this.disabled}"
+        tabindex="${this.disabled ? -1 : 0}"
+        @click=${this.handleClick}
+      >
+        <span class="magic-switch__core">
+          <span class="magic-switch__action"></span>
+        </span>
+        ${this.renderLabel()}
+      </div>
+    `;
+    }
+  };
+  if (!customElements.get('magic-switch')) customElements.define('magic-switch', MagicSwitch);
+  var style_default$6 =
     ':host{vertical-align:middle;display:inline-flex}:host([direction=vertical]){display:flex}.magic-radio{cursor:pointer;-webkit-user-select:none;user-select:none;color:var(--magic-radio-text-color,#e5e9ef);align-items:center;font-family:inherit;font-size:14px;line-height:1;transition:opacity .2s;display:inline-flex;position:relative}.magic-radio__input{flex-shrink:0;justify-content:center;align-items:center;display:inline-flex;position:relative}.magic-radio__original{opacity:0;z-index:-1;pointer-events:none;outline:none;margin:0;position:absolute;inset:0}.magic-radio__inner{box-sizing:border-box;border:1.5px solid var(--magic-radio-border-color,#ffffff40);background:var(--magic-radio-bg,#ffffff0d);border-radius:50%;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-block;position:relative}.magic-radio__inner:after{content:"";background-color:#fff;border-radius:50%;transition:transform .2s cubic-bezier(.175,.885,.32,1.275);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)scale(0)}.magic-radio__label{align-items:center;line-height:1.2;display:inline-flex}.magic-radio--small{gap:6px;font-size:12px}.magic-radio--small .magic-radio__inner{width:14px;height:14px}.magic-radio--small .magic-radio__inner:after{width:6px;height:6px}.magic-radio--medium{gap:8px;font-size:14px}.magic-radio--medium .magic-radio__inner{width:16px;height:16px}.magic-radio--medium .magic-radio__inner:after{width:7px;height:7px}.magic-radio--large{gap:10px;font-size:16px}.magic-radio--large .magic-radio__inner{width:18px;height:18px}.magic-radio--large .magic-radio__inner:after{width:8px;height:8px}.magic-radio:hover:not(.is-disabled) .magic-radio__inner{border-color:var(--magic-radio-color,var(--magic-primary-color))}.magic-radio.is-checked .magic-radio__inner{border-color:var(--magic-radio-color,var(--magic-primary-color));background-color:var(--magic-radio-color,var(--magic-primary-color))}.magic-radio.is-checked .magic-radio__inner:after{transform:translate(-50%,-50%)scale(1)}.magic-radio.is-disabled{cursor:not-allowed;opacity:var(--magic-radio-disabled-opacity,.5)}.magic-radio.is-disabled .magic-radio__inner{background-color:#ffffff05;border-color:#ffffff26}.magic-radio-group{flex-wrap:wrap;align-items:center;gap:16px;display:inline-flex}.magic-radio-group--vertical{flex-direction:column;align-items:flex-start;gap:10px;display:flex}';
   var MagicRadio = class extends i {
     static properties = {
@@ -4474,7 +2052,7 @@
       },
       size: String,
     };
-    static styles = r$2(style_default$2);
+    static styles = r$2(style_default$6);
     constructor() {
       super();
       this.value = '';
@@ -4551,7 +2129,7 @@
       direction: String,
       size: String,
     };
-    static styles = r$2(style_default$2);
+    static styles = r$2(style_default$6);
     #cleanupChange = null;
     constructor() {
       super();
@@ -4620,7 +2198,7 @@
   if (!customElements.get('magic-radio')) customElements.define('magic-radio', MagicRadio);
   if (!customElements.get('magic-radio-group'))
     customElements.define('magic-radio-group', MagicRadioGroup);
-  var style_default$1 =
+  var style_default$5 =
     ':host{vertical-align:middle;display:inline-block}.magic-version{box-sizing:border-box;font-variant-numeric:tabular-nums;background:var(--magic-version-bg,var(--magic-bg-subtle));border:1px solid var(--magic-version-border,var(--magic-border-color));color:var(--magic-version-color,var(--magic-text-secondary));-webkit-user-select:none;user-select:none;border-radius:9999px;justify-content:center;align-items:center;gap:4px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-weight:500;line-height:1;transition:all .2s cubic-bezier(.16,1,.3,1);display:inline-flex}.magic-version--mini{height:18px;padding:0 6px;font-size:11px}.magic-version--small{height:20px;padding:0 8px;font-size:12px}.magic-version--medium{height:24px;padding:0 10px;font-size:13px}.magic-version__content{align-items:center;display:inline-flex}';
   var MagicVersion = class extends i {
     static properties = {
@@ -4628,7 +2206,7 @@
       prefix: String,
       size: String,
     };
-    static styles = r$2(style_default$1);
+    static styles = r$2(style_default$5);
     constructor() {
       super();
       this.version = '';
@@ -4655,7 +2233,7 @@
     }
   };
   if (!customElements.get('magic-version')) customElements.define('magic-version', MagicVersion);
-  var style_default =
+  var style_default$4 =
     ':host{vertical-align:middle;display:inline-flex}:host([block]){width:100%;display:flex}.magic-hotkey{box-sizing:border-box;cursor:pointer;-webkit-user-select:none;user-select:none;text-align:center;white-space:nowrap;border:1px solid var(--magic-border-color,var(--line_regular,#e3e5e7));background:var(--magic-bg-subtle,var(--graph_bg_thin,#f6f7f8));width:100%;color:var(--magic-primary-color,var(--brand_blue,#00aeec));border-radius:6px;outline:none;justify-content:center;align-items:center;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-weight:600;line-height:1;transition:all .2s cubic-bezier(.16,1,.3,1);display:inline-flex;position:relative}.magic-hotkey--small{min-width:72px;height:26px;padding:0 8px;font-size:11.5px}.magic-hotkey--medium{min-width:80px;height:30px;padding:0 10px;font-size:12px}.magic-hotkey--large{min-width:90px;height:36px;padding:0 14px;font-size:13.5px}.magic-hotkey:hover:not(.is-disabled):not(.is-recording){background:var(--magic-primary-light-bg,var(--brand_blue_thin,#00aeec1a));border-color:var(--magic-primary-color,var(--brand_blue,#00aeec))}.magic-hotkey.is-recording{background:var(--magic-primary-color,var(--brand_blue,#00aeec));border-color:var(--magic-primary-color,var(--brand_blue,#00aeec));color:#fff;box-shadow:0 0 0 3px var(--magic-primary-focus-shadow,#00aeec40);animation:1.2s ease-in-out infinite magic-hotkey-pulse}.magic-hotkey.is-disabled{cursor:not-allowed;opacity:.5;background:var(--magic-bg-subtle,#f6f7f8);border-color:var(--magic-border-color,#e3e5e7);color:var(--magic-text-tertiary,#9499a0);box-shadow:none!important}.magic-hotkey__content{text-overflow:ellipsis;justify-content:center;align-items:center;max-width:100%;display:inline-flex;overflow:hidden}.magic-hotkey__clear{color:currentColor;opacity:.6;cursor:pointer;justify-content:center;align-items:center;margin-left:6px;font-size:12px;line-height:1;transition:opacity .2s;display:inline-flex}.magic-hotkey__clear:hover{opacity:1}@keyframes magic-hotkey-pulse{0%,to{opacity:1}50%{opacity:.6}}';
   var MagicHotkey = class MagicHotkey extends i {
     static activeRecorder = null;
@@ -4684,7 +2262,7 @@
         reflect: true,
       },
     };
-    static styles = r$2(style_default);
+    static styles = r$2(style_default$4);
     #cleanupOutsideClick = null;
     #cleanupKeydown = null;
     constructor() {
@@ -4828,6 +2406,360 @@
     }
   };
   if (!customElements.get('magic-hotkey')) customElements.define('magic-hotkey', MagicHotkey);
+  var version = '1.2.6';
+  var POD_MODE = {
+    LIST: 'LIST',
+    CARD: 'CARD',
+  };
+  var POD_TYPE = {
+    EPISODE: 'EPISODE',
+    COLLECTION: 'COLLECTION',
+    SERIES: 'SERIES',
+  };
+  var SORT_MODE = {
+    DEFAULT: 'DEFAULT_ASC',
+    DEFAULT_ASC: 'DEFAULT_ASC',
+    DEFAULT_DESC: 'DEFAULT_DESC',
+    TIME_DESC: 'TIME_DESC',
+    TIME_ASC: 'TIME_ASC',
+    VIEWS_DESC: 'VIEWS_DESC',
+    VIEWS_ASC: 'VIEWS_ASC',
+    DANMAKUS_DESC: 'DANMAKUS_DESC',
+    DANMAKUS_ASC: 'DANMAKUS_ASC',
+  };
+  var CTRL_ACTION = {
+    PREV: 'PREV',
+    NEXT: 'NEXT',
+  };
+  var SHUFFLE_SCOPE = {
+    ALL: 'ALL',
+    GROUP: 'GROUP',
+  };
+  var DEFAULT_SETTINGS = {
+    autoPlayNext: true,
+    shuffle: false,
+    shuffleScope: SHUFFLE_SCOPE.GROUP,
+    stopOnGroupEnd: true,
+    markPlayedVideos: true,
+    scrollActiveOnClick: true,
+    scrollToActiveOnSort: true,
+    hotkeyPrev: '[',
+    hotkeyNext: ']',
+    sortMode: SORT_MODE.TIME_DESC,
+  };
+  var SORT_OPTIONS = [
+    {
+      label: '官方排序',
+      value: 'GROUP_DEFAULT',
+      children: [
+        {
+          label: '升序',
+          value: SORT_MODE.DEFAULT_ASC,
+        },
+        {
+          label: '降序',
+          value: SORT_MODE.DEFAULT_DESC,
+        },
+      ],
+    },
+    {
+      label: '发布时间',
+      value: 'GROUP_TIME',
+      children: [
+        {
+          label: '最新发布',
+          value: SORT_MODE.TIME_DESC,
+        },
+        {
+          label: '最早发布',
+          value: SORT_MODE.TIME_ASC,
+        },
+      ],
+    },
+    {
+      label: '播放热度',
+      value: 'GROUP_VIEWS',
+      children: [
+        {
+          label: '最多播放',
+          value: SORT_MODE.VIEWS_DESC,
+        },
+        {
+          label: '最少播放',
+          value: SORT_MODE.VIEWS_ASC,
+        },
+      ],
+    },
+    {
+      label: '弹幕数量',
+      value: 'GROUP_DANMAKUS',
+      children: [
+        {
+          label: '最多弹幕',
+          value: SORT_MODE.DANMAKUS_DESC,
+        },
+        {
+          label: '最少弹幕',
+          value: SORT_MODE.DANMAKUS_ASC,
+        },
+      ],
+    },
+  ];
+  var SHUFFLE_SCOPE_OPTIONS = [
+    {
+      label: '全合集随机',
+      value: SHUFFLE_SCOPE.ALL,
+    },
+    {
+      label: '仅当前分组',
+      value: SHUFFLE_SCOPE.GROUP,
+    },
+  ];
+  function getNativeInnerVm() {
+    let vm =
+      document.querySelector('.multip-list-item-inner')?.__vue__ ??
+      document.querySelector('.singlep-list-item-inner')?.__vue__;
+    let switchVideoVm = null;
+    let playlistRouteVm = null;
+    while (vm) {
+      if (!switchVideoVm && isFunction(vm.switchVideo)) switchVideoVm = vm;
+      if (!playlistRouteVm && isFunction(vm.handlePlaylistRoute)) playlistRouteVm = vm;
+      if (switchVideoVm && playlistRouteVm) break;
+      vm = vm.$parent;
+    }
+    return {
+      switchVideoVm,
+      playlistRouteVm,
+    };
+  }
+  var playerState = () => {
+    const player = unsafeWindow?.player;
+    if (!player) return {};
+    return {
+      pause: () => player.pause?.(),
+      reload: (payload) => player.reload(payload),
+      autoPlayNext: (flag = true) => player.setHandoff(flag ? 0 : 2),
+      isAutoPlayNext: () => player.getHandoff() === 0,
+      isWide: unsafeWindow?.isWide,
+    };
+  };
+  function executeVideoSwitch(podType, payload) {
+    if (podType === POD_TYPE.SERIES) {
+      const { switchVideoVm, playlistRouteVm } = getNativeInnerVm();
+      if (switchVideoVm) {
+        switchVideoVm.switchVideo({
+          ...payload,
+          type: 2,
+        });
+        if (!playlistRouteVm.curResourceListItem)
+          playlistRouteVm.$router.push({
+            query: {
+              ...playlistRouteVm.$route.query,
+              oid: payload.aid,
+              bvid: payload.bvid,
+              p: payload.p,
+            },
+          });
+        return;
+      }
+    }
+    playerState().reload(payload);
+  }
+  function interceptPlayerControls(callback) {
+    return on(
+      document,
+      'click',
+      (event) => {
+        if (!event.target?.closest?.('.bpx-player-control-bottom-left')) return;
+        const btn = event.target?.closest?.('.bpx-player-ctrl-prev, .bpx-player-ctrl-next');
+        if (!btn) return;
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        const action = btn.classList.contains('bpx-player-ctrl-prev')
+          ? CTRL_ACTION.PREV
+          : CTRL_ACTION.NEXT;
+        callback?.(action, event);
+      },
+      { capture: true },
+    );
+  }
+  function interceptPlayerEnding(onEndedHandler) {
+    return on(
+      document,
+      'ended',
+      (event) => {
+        if (event.target?.tagName !== 'VIDEO') return;
+        onEndedHandler?.(event);
+      },
+      { capture: true },
+    );
+  }
+  var settingsState = (0, vue.reactive)({ ...DEFAULT_SETTINGS });
+  function useSettings() {
+    const updateSettings = (patch) => {
+      assign(settingsState, patch);
+    };
+    const resetSettings = () => {
+      assign(settingsState, DEFAULT_SETTINGS);
+    };
+    return {
+      settings: settingsState,
+      updateSettings,
+      resetSettings,
+    };
+  }
+  var ICONS = {
+    expand: {
+      viewBox: '0 0 24 24',
+      d: 'M2.68934 7.68934C3.27513 7.10356 4.22487 7.10356 4.81066 7.68934L12 14.8787L19.18935 7.68934C19.7751 7.10356 20.7249 7.10356 21.31065 7.68934C21.89645 8.27512 21.89645 9.22488 21.31065 9.81066L13.41425 17.70715C12.6332 18.48815 11.3668 18.48815 10.58575 17.70715L2.68934 9.81066C2.10356 9.22488 2.10356 8.27513 2.68934 7.68934z',
+    },
+    collapse: {
+      viewBox: '0 0 24 24',
+      d: 'M21.3107 16.3107C20.7249 16.8964 19.7751 16.8964 19.1893 16.3107L12 9.12132L4.81066 16.3107C4.22487 16.8964 3.27513 16.8964 2.68934 16.3107C2.10355 15.7249 2.10355 14.7751 2.68934 14.1893L10.5858 6.29289C11.3668 5.51185 12.6332 5.51185 13.4142 6.29289L21.3107 14.1893C21.8964 14.7751 21.8964 15.7249 21.3107 16.3107Z',
+    },
+    views: {
+      viewBox: '0 0 18 18',
+      d: 'M2.728 5.419C2.803 4.586 3.454 3.945 4.293 3.877 5.458 3.782 7.11 3.686 9 3.686s3.542.096 4.707.191c.839.068 1.49.709 1.565 1.542.086.951.166 2.207.166 3.58s-.08 2.628-.166 3.58c-.075.832-.726 1.473-1.565 1.541-1.165.095-2.817.191-4.707.191s-3.542-.096-4.707-.191c-.839-.068-1.49-.709-1.565-1.541C2.642 11.627 2.563 10.371 2.563 8.999s.08-2.629.165-3.58zm5.616 1.458c-.574-.331-1.292.083-1.292.746v2.755c0 .663.718 1.077 1.292.746l2.385-1.378c.574-.331.574-1.16 0-1.491L8.344 6.877z',
+      fillRule: 'evenodd',
+      clipRule: 'evenodd',
+    },
+    danmaku: {
+      viewBox: '0 0 18 18',
+      d: 'M2.728 5.419C2.803 4.586 3.454 3.945 4.293 3.877 5.458 3.782 7.11 3.686 9 3.686s3.542.096 4.707.191c.839.068 1.49.709 1.565 1.542.086.951.166 2.207.166 3.58s-.08 2.628-.166 3.58c-.075.832-.726 1.473-1.565 1.541-1.165.095-2.817.191-4.707.191s-3.542-.096-4.707-.191c-.839-.068-1.49-.709-1.565-1.541C2.642 11.627 2.563 10.371 2.563 8.999s.08-2.629.165-3.58zm4.647 1.581a.5.5 0 0 0 0 1h4.563a.5.5 0 0 0 0-1H7.375zm1.125 3a.5.5 0 0 0 0 1h4.563a.5.5 0 0 0 0-1H8.5z',
+      fillRule: 'evenodd',
+      clipRule: 'evenodd',
+    },
+    pubdate: {
+      viewBox: '0 0 18 18',
+      d: 'M9 2C5.134 2 2 5.134 2 9s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 1.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm.75 2.25a.75.75 0 0 0-1.5 0v3.5c0 .204.083.4.23.543l2.25 2.186a.75.75 0 1 0 1.04-1.078l-2.02-1.963V5.75z',
+      fillRule: 'evenodd',
+      clipRule: 'evenodd',
+    },
+    settings: {
+      viewBox: '0 0 24 24',
+      d: 'M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z',
+    },
+    play: {
+      viewBox: '0 0 24 24',
+      d: 'M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86a1 1 0 0 0-1.5.86z',
+    },
+    block: {
+      viewBox: '0 0 24 24',
+      d: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9C4.63 15.55 4 13.85 4 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1C19.37 8.45 20 10.15 20 12c0 4.42-3.58 8-8 8z',
+    },
+    list: {
+      viewBox: '0 0 24 24',
+      d: 'M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z',
+    },
+    shuffle: {
+      viewBox: '0 0 24 24',
+      d: 'M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z',
+    },
+    search: {
+      viewBox: '0 0 24 24',
+      d: 'M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z',
+    },
+    close: {
+      viewBox: '0 0 24 24',
+      d: 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z',
+    },
+    eye: {
+      viewBox: '0 0 24 24',
+      d: 'M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z',
+    },
+    'eye-off': {
+      viewBox: '0 0 24 24',
+      d: 'M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z',
+    },
+    export: {
+      viewBox: '0 0 24 24',
+      stroke: 2,
+      d: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4 M7 10l5 5 5-5 M12 15V3',
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+    },
+    import: {
+      viewBox: '0 0 24 24',
+      stroke: 2,
+      d: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4 M17 8l-5-5-5 5 M12 3v12',
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+    },
+    sync: {
+      viewBox: '0 0 24 24',
+      stroke: 2,
+      d: 'M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8 M3 3v5h5 M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16 M16 16h5v5',
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+    },
+    check: {
+      viewBox: '0 0 24 24',
+      stroke: 2,
+      d: 'M20 6L9 17l-5-5',
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+    },
+  };
+  var style_default$3 =
+    ':host{vertical-align:-.15em;color:inherit;width:var(--magic-icon-size,1em);height:var(--magic-icon-size,1em);justify-content:center;align-items:center;line-height:1;display:inline-flex}.magic-icon{width:100%;height:100%;color:var(--magic-icon-color,currentColor);justify-content:center;align-items:center;transition:transform .2s;display:inline-flex}.magic-icon svg{pointer-events:none;width:100%;height:100%;display:block}.magic-icon.is-spin svg{animation:1s linear infinite magic-icon-spin}@keyframes magic-icon-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}';
+  var MagicIcon = class extends i {
+    static properties = {
+      name: String,
+      size: String,
+      color: String,
+      rotate: Number,
+      spin: Boolean,
+    };
+    static styles = r$2(style_default$3);
+    constructor() {
+      super();
+      this.name = '';
+      this.size = '';
+      this.color = '';
+      this.rotate = 0;
+      this.spin = false;
+    }
+    render() {
+      const icon = ICONS[this.name];
+      const sizeVal =
+        isNumber(this.size) || /^\d+$/.test(String(this.size)) ? `${this.size}px` : this.size;
+      const dynamicStyle = [
+        sizeVal ? `--magic-icon-size: ${sizeVal}` : '',
+        this.color ? `--magic-icon-color: ${this.color}` : '',
+        this.rotate ? `transform: rotate(${this.rotate}deg)` : '',
+      ]
+        .filter(Boolean)
+        .join('; ');
+      if (!icon)
+        return b`
+        <span class="magic-icon ${this.spin ? 'is-spin' : ''}" style="${dynamicStyle}">
+          <slot></slot>
+        </span>
+      `;
+      const isStroke = Boolean(icon.stroke);
+      const strokeWidth = icon.stroke === true ? 2 : icon.stroke || 2;
+      return b`
+      <span class="magic-icon ${this.spin ? 'is-spin' : ''}" style="${dynamicStyle}">
+        <svg
+          viewBox="${icon.viewBox || '0 0 24 24'}"
+          fill="${isStroke ? 'none' : 'currentColor'}"
+          stroke="${isStroke ? 'currentColor' : 'none'}"
+          stroke-width="${isStroke ? strokeWidth : '0'}"
+          stroke-linecap="${icon.strokeLinecap || 'round'}"
+          stroke-linejoin="${icon.strokeLinejoin || 'round'}"
+          aria-hidden="true"
+        >
+          <path
+            d="${icon.d}"
+            clip-rule="${icon.clipRule || ''}"
+            fill-rule="${icon.fillRule || ''}"
+          />
+        </svg>
+      </span>
+    `;
+    }
+  };
+  if (!customElements.get('magic-icon')) customElements.define('magic-icon', MagicIcon);
   var _plugin_vue_export_helper_default = (sfc, props) => {
     const target = sfc.__vccOpts || sfc;
     for (const [key, val] of props) target[key] = val;
@@ -5377,6 +3309,2025 @@
     },
     [['__scopeId', 'data-v-e628917f']],
   );
+  var normalizeQuery = (str) => (str || '').trim().toLowerCase();
+  var isTextMatched = (text, query) => text.toLowerCase().includes(query);
+  function filterGroupItem(group, query) {
+    if (!query) return group;
+    if (isTextMatched(group.title, query))
+      return {
+        ...group,
+        isAutoExpanded: true,
+      };
+    const matchedEpisodes = (group.episodes || []).filter((ep) => isTextMatched(ep.title, query));
+    if (matchedEpisodes.length > 0)
+      return {
+        ...group,
+        episodes: matchedEpisodes,
+        isAutoExpanded: true,
+      };
+    return null;
+  }
+  function filterGroupList(groups, keyword) {
+    const query = normalizeQuery(keyword);
+    if (!query) return groups || [];
+    return (groups || []).map((g) => filterGroupItem(g, query)).filter(Boolean);
+  }
+  function countTotalMatches(filteredGroups) {
+    return (filteredGroups || []).reduce((acc, g) => acc + (g.episodes?.length || 1), 0);
+  }
+  function getHighlightSegments(text, keyword) {
+    if (!text) return [];
+    const query = (keyword || '').trim().toLowerCase();
+    if (!query)
+      return [
+        {
+          text,
+          isMatch: false,
+        },
+      ];
+    const textLower = text.toLowerCase();
+    let currIndex = textLower.indexOf(query);
+    if (currIndex === -1)
+      return [
+        {
+          text,
+          isMatch: false,
+        },
+      ];
+    const segments = [];
+    let startIndex = 0;
+    while (currIndex !== -1) {
+      if (currIndex > startIndex)
+        segments.push({
+          text: text.slice(startIndex, currIndex),
+          isMatch: false,
+        });
+      segments.push({
+        text: text.slice(currIndex, currIndex + query.length),
+        isMatch: true,
+      });
+      startIndex = currIndex + query.length;
+      currIndex = textLower.indexOf(query, startIndex);
+    }
+    if (startIndex < text.length)
+      segments.push({
+        text: text.slice(startIndex),
+        isMatch: false,
+      });
+    return segments;
+  }
+  function usePodSearch(groups) {
+    const keyword = (0, vue.ref)('');
+    const isSearchOpen = (0, vue.ref)(false);
+    const searchInputRef = (0, vue.ref)(null);
+    const filteredGroups = (0, vue.computed)(() => filterGroupList(groups.value, keyword.value));
+    const matchCount = (0, vue.computed)(() => countTotalMatches(filteredGroups.value));
+    const hasSearchQuery = (0, vue.computed)(() => !!(keyword.value || '').trim());
+    const openSearch = () => {
+      isSearchOpen.value = true;
+      (0, vue.nextTick)(() => searchInputRef.value?.focus());
+    };
+    const closeSearch = () => {
+      keyword.value = '';
+      isSearchOpen.value = false;
+    };
+    const clearKeyword = () => {
+      keyword.value = '';
+      searchInputRef.value?.focus();
+    };
+    const toggleSearch = () => {
+      if (isSearchOpen.value) {
+        closeSearch();
+        return;
+      }
+      openSearch();
+    };
+    return {
+      keyword,
+      isSearchOpen,
+      searchInputRef,
+      filteredGroups,
+      matchCount,
+      hasSearchQuery,
+      openSearch,
+      closeSearch,
+      clearKeyword,
+      toggleSearch,
+      getHighlightSegments,
+    };
+  }
+  var style_default$2 =
+    ':host{box-sizing:border-box;flex:1;width:100%;min-width:0;font-family:inherit;display:block}:host([inline]){width:auto;display:inline-block}.magic-tabs{box-sizing:border-box;align-items:center;width:100%;display:flex;position:relative}.magic-tabs__wrap{flex:1;align-items:center;min-width:0;display:flex;position:relative;overflow:hidden}.magic-tabs__shadow{z-index:2;pointer-events:none;opacity:0;width:24px;transition:opacity .2s;position:absolute;top:0;bottom:0}.magic-tabs__shadow--left{background:linear-gradient(to right, var(--magic-tabs-mask-bg,#000000d9), transparent);left:0}.magic-tabs__shadow--right{background:linear-gradient(to left, var(--magic-tabs-mask-bg,#000000d9), transparent);right:0}.magic-tabs__shadow.is-show{opacity:1}.magic-tabs__nav{white-space:nowrap;scroll-behavior:smooth;box-sizing:border-box;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;align-items:center;gap:8px;width:100%;padding:4px 2px;display:flex;overflow:auto hidden}.magic-tabs__nav::-webkit-scrollbar{width:0;height:0;display:none}.magic-tabs__item{-webkit-user-select:none;user-select:none;cursor:pointer;white-space:nowrap;box-sizing:border-box;outline:none;flex-shrink:0;justify-content:center;align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-tabs__item.is-disabled{cursor:not-allowed;opacity:.45;pointer-events:none}.magic-tabs--capsule .magic-tabs__item{color:var(--magic-tabs-color,#ffffffb3);background:var(--magic-tabs-capsule-bg,#ffffff14);border:1px solid var(--magic-tabs-border,transparent);border-radius:999px}.magic-tabs--capsule .magic-tabs__item:hover:not(.is-disabled):not(.is-active){color:var(--magic-tabs-hover-color,#fff);background:var(--magic-tabs-hover-bg,#ffffff24)}.magic-tabs--capsule .magic-tabs__item.is-active{color:var(--magic-primary-color);background:var(--magic-primary-light-bg);border-color:var(--magic-tabs-active-border,var(--magic-primary-light-bg));font-weight:500}.magic-tabs--line{border-bottom:1px solid var(--magic-tabs-line-border,#ffffff1f)}.magic-tabs--line .magic-tabs__item{color:var(--magic-tabs-color,#ffffffb3);background:0 0;border-radius:4px}.magic-tabs--line .magic-tabs__item:hover:not(.is-disabled):not(.is-active){color:var(--magic-tabs-hover-color,#fff)}.magic-tabs--line .magic-tabs__item.is-active{color:var(--magic-primary-color);font-weight:500}.magic-tabs--line .magic-tabs__item.is-active:after{content:"";background:var(--magic-primary-color);border-radius:2px;width:80%;height:2px;position:absolute;bottom:-4px;left:10%}.magic-tabs--small .magic-tabs__item{height:24px;padding:0 10px;font-size:12px}.magic-tabs--medium .magic-tabs__item{height:30px;padding:0 14px;font-size:13px}.magic-tabs--large .magic-tabs__item{height:36px;padding:0 18px;font-size:14px}.magic-tabs .magic-tabs__label{font-weight:600}';
+  var MagicTabs = class extends i {
+    static properties = {
+      items: Array,
+      value: {
+        type: String,
+        reflect: true,
+      },
+      size: String,
+      type: String,
+      scrollable: {
+        type: Boolean,
+        reflect: true,
+      },
+      block: {
+        type: Boolean,
+        reflect: true,
+      },
+      _canScrollLeft: { state: true },
+      _canScrollRight: { state: true },
+    };
+    static styles = r$2(style_default$2);
+    #cleanups = [];
+    constructor() {
+      super();
+      this.items = [];
+      this.value = '';
+      this.size = 'medium';
+      this.type = 'capsule';
+      this.scrollable = true;
+      this.block = true;
+      this._canScrollLeft = false;
+      this._canScrollRight = false;
+      this._isDragging = false;
+      this._startX = 0;
+      this._scrollLeftStart = 0;
+      this._hasDragged = false;
+      this._onScroll = this._onScroll.bind(this);
+      this._onWheel = this._onWheel.bind(this);
+      this._onMouseDown = this._onMouseDown.bind(this);
+      this._onMouseMove = this._onMouseMove.bind(this);
+      this._onMouseUp = this._onMouseUp.bind(this);
+    }
+    get navElement() {
+      return this.renderRoot?.querySelector('.magic-tabs__nav');
+    }
+    firstUpdated() {
+      const nav = this.navElement;
+      if (nav)
+        this.#cleanups.push(
+          on(nav, 'scroll', this._onScroll, { passive: true }),
+          on(nav, 'wheel', this._onWheel, { passive: false }),
+          on(nav, 'mousedown', this._onMouseDown),
+          on(window, 'mousemove', this._onMouseMove),
+          on(window, 'mouseup', this._onMouseUp),
+        );
+      this.updateScrollState();
+    }
+    disconnectedCallback() {
+      super.disconnectedCallback();
+      this.#cleanups.forEach((fn) => fn?.());
+      this.#cleanups = [];
+    }
+    updated(changedProperties) {
+      if (changedProperties.has('items') || changedProperties.has('value')) {
+        this.updateScrollState();
+        const shouldSmooth = !changedProperties.has('items');
+        setTimeout(() => {
+          this.scrollToActiveItem(shouldSmooth);
+        }, 0);
+      }
+    }
+    updateScrollState() {
+      const nav = this.navElement;
+      if (!nav) return;
+      const { scrollLeft, scrollWidth, clientWidth } = nav;
+      const maxScrollLeft = Math.max(0, scrollWidth - clientWidth);
+      this._canScrollLeft = scrollLeft > 2;
+      this._canScrollRight = maxScrollLeft - scrollLeft > 2;
+    }
+    _onScroll() {
+      this.updateScrollState();
+    }
+    _onWheel(event) {
+      if (!this.scrollable) return;
+      const nav = this.navElement;
+      if (!nav) return;
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        event.preventDefault();
+        nav.scrollLeft += event.deltaY;
+      }
+    }
+    _onMouseDown(event) {
+      if (!this.scrollable || event.button !== 0) return;
+      const nav = this.navElement;
+      if (!nav) return;
+      this._isDragging = true;
+      this._hasDragged = false;
+      this._startX = event.pageX;
+      this._scrollLeftStart = nav.scrollLeft;
+      nav.style.scrollBehavior = 'auto';
+    }
+    _onMouseMove(event) {
+      if (!this._isDragging) return;
+      const nav = this.navElement;
+      if (!nav) return;
+      const deltaX = event.pageX - this._startX;
+      if (Math.abs(deltaX) > 4) this._hasDragged = true;
+      nav.scrollLeft = this._scrollLeftStart - deltaX;
+    }
+    _onMouseUp() {
+      if (!this._isDragging) return;
+      this._isDragging = false;
+      const nav = this.navElement;
+      if (nav) nav.style.scrollBehavior = 'smooth';
+    }
+    scrollToActiveItem(smooth = true) {
+      const nav = this.navElement;
+      if (!nav) return;
+      const activeItem = nav.querySelector('.magic-tabs__item.is-active');
+      if (!activeItem) return;
+      const targetLeft = activeItem.offsetLeft - (nav.clientWidth - activeItem.clientWidth) / 2;
+      nav.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: smooth ? 'smooth' : 'auto',
+      });
+      this.updateScrollState();
+    }
+    handleItemClick(item, index, event) {
+      if (this._hasDragged) {
+        event.preventDefault();
+        event.stopPropagation();
+        return;
+      }
+      const itemObj = isObject(item) ? item : null;
+      if (itemObj ? Boolean(itemObj.disabled) : false) {
+        event.preventDefault();
+        return;
+      }
+      const val = itemObj ? (itemObj.value ?? itemObj.label) : item;
+      this.value = String(val);
+      const detail = {
+        value: this.value,
+        item,
+        index,
+      };
+      this.dispatchEvent(
+        new CustomEvent('change', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.dispatchEvent(
+        new CustomEvent('tab-click', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+    renderTabItem(item, index) {
+      const itemObj = isObject(item) ? item : null;
+      const label = itemObj ? (itemObj.label ?? itemObj.value) : item;
+      const val = itemObj ? (itemObj.value ?? itemObj.label) : item;
+      const isDisabled = itemObj ? Boolean(itemObj.disabled) : false;
+      const isActive = String(this.value) === String(val);
+      return b`
+      <div
+        class="${['magic-tabs__item', isActive ? 'is-active' : '', isDisabled ? 'is-disabled' : '']
+          .filter(Boolean)
+          .join(' ')}"
+        role="tab"
+        tabindex="${isDisabled ? '-1' : '0'}"
+        aria-selected="${isActive ? 'true' : 'false'}"
+        @click=${(e) => this.handleItemClick(item, index, e)}
+      >
+        <span class="magic-tabs__label">${label}</span>
+      </div>
+    `;
+    }
+    render() {
+      const navClasses = [
+        'magic-tabs',
+        `magic-tabs--${this.size || 'medium'}`,
+        `magic-tabs--${this.type || 'capsule'}`,
+        this.block ? 'is-block' : '',
+      ]
+        .filter(Boolean)
+        .join(' ');
+      const safeItems = isArray(this.items) ? this.items : [];
+      return b`
+      <div class="${navClasses}">
+        <slot name="prefix"></slot>
+        <div class="magic-tabs__wrap">
+          <div
+            class="magic-tabs__shadow magic-tabs__shadow--left ${this._canScrollLeft ? 'is-show' : ''}"
+          ></div>
+          <div class="magic-tabs__nav" role="tablist">
+            ${safeItems.map((item, index) => this.renderTabItem(item, index))}
+          </div>
+          <div
+            class="magic-tabs__shadow magic-tabs__shadow--right ${this._canScrollRight ? 'is-show' : ''}"
+          ></div>
+        </div>
+        <slot name="suffix"></slot>
+      </div>
+    `;
+    }
+  };
+  if (!customElements.get('magic-tabs')) customElements.define('magic-tabs', MagicTabs);
+  var style_default$1 =
+    ':host{vertical-align:middle;box-sizing:border-box;font-family:inherit;display:inline-block;position:relative}:host([block]){width:100%;display:block}@keyframes magic-select-dropdown-in{0%{opacity:0;transform:translateY(-8px)scaleY(.95)}to{opacity:1;transform:translateY(0)scaleY(1)}}.magic-select{box-sizing:border-box;-webkit-user-select:none;user-select:none;width:100%;position:relative}.magic-select__trigger{box-sizing:border-box;border:1px solid var(--magic-select-border,#ffffff26);background:var(--magic-select-bg,#ffffff14);width:100%;color:var(--magic-select-color,#e5e9ef);cursor:pointer;border-radius:6px;outline:none;justify-content:space-between;align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:flex}.magic-select__label{text-overflow:ellipsis;white-space:nowrap;text-align:left;flex:1;overflow:hidden}.magic-select__label.is-placeholder{color:var(--magic-select-placeholder-color,#9499a0)}.magic-select__suffix{color:var(--magic-select-suffix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:transform .2s;display:inline-flex}.magic-select__suffix svg{width:14px;height:14px;transition:transform .2s;display:block}.magic-select__suffix.is-reverse svg{transform:rotate(180deg)}.magic-select__clear{color:var(--magic-select-clear-color,#9499a0);cursor:pointer;flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:color .2s;display:none}.magic-select__clear:hover{color:var(--magic-select-clear-hover-color,#e5e9ef)}.magic-select__clear svg{width:14px;height:14px;display:block}.magic-select--small .magic-select__trigger{height:28px;padding:0 8px;font-size:12px}.magic-select--medium .magic-select__trigger{height:34px;padding:0 12px;font-size:14px}.magic-select--large .magic-select__trigger{height:40px;padding:0 16px;font-size:16px}.magic-select:hover:not(.is-disabled) .magic-select__trigger{border-color:var(--magic-select-hover-border,#ffffff40);background:var(--magic-select-hover-bg,#ffffff1f)}.magic-select:hover:not(.is-disabled).has-value.is-clearable .magic-select__suffix{display:none}.magic-select:hover:not(.is-disabled).has-value.is-clearable .magic-select__clear{display:inline-flex}.magic-select.is-open .magic-select__trigger{border-color:var(--magic-select-active-color,var(--magic-primary-color));box-shadow:0 0 0 2px var(--magic-primary-focus-shadow)}.magic-select.is-disabled .magic-select__trigger{cursor:not-allowed;opacity:.5;background:#ffffff0a;border-color:#ffffff1a}.magic-select__dropdown-container{min-width:100%;z-index:var(--magic-select-z-index,10000);position:absolute;top:calc(100% + 4px);left:0}.magic-select__dropdown{box-sizing:border-box;background:var(--magic-select-dropdown-bg,#1c1e24f5);border:1px solid var(--magic-select-dropdown-border,#ffffff1f);width:100%;min-width:100%;max-height:240px;box-shadow:var(--magic-select-dropdown-shadow,0 10px 30px #00000080);-webkit-backdrop-filter:blur(12px);transform-origin:top;border-radius:6px;padding:4px;animation:.2s cubic-bezier(.16,1,.3,1) forwards magic-select-dropdown-in;overflow-y:auto}.magic-select__dropdown::-webkit-scrollbar{width:5px}.magic-select__dropdown::-webkit-scrollbar-thumb{background:#fff3;border-radius:4px}.magic-select__sub-dropdown{box-sizing:border-box;background:var(--magic-select-dropdown-bg,#1c1e24f5);border:1px solid var(--magic-select-dropdown-border,#ffffff1f);width:max-content;min-width:130px;box-shadow:var(--magic-select-dropdown-shadow,0 10px 30px #00000080);-webkit-backdrop-filter:blur(12px);transform-origin:0 0;border-radius:6px;padding:4px;animation:.18s cubic-bezier(.16,1,.3,1) forwards magic-select-dropdown-in;position:absolute;left:calc(100% + 4px)}.magic-select__sub-dropdown:before{content:"";width:8px;height:100%;position:absolute;top:0;left:-8px}.magic-select__empty{text-align:center;color:var(--magic-select-placeholder-color,#9499a0);padding:12px;font-size:13px}.magic-option{box-sizing:border-box;color:var(--magic-select-color,#e5e9ef);cursor:pointer;-webkit-user-select:none;user-select:none;white-space:nowrap;border-radius:4px;justify-content:space-between;align-items:center;padding:8px 10px;font-size:14px;line-height:1.2;transition:all .15s;display:flex}.magic-option:hover:not(.is-disabled),.magic-option.is-active-parent{background-color:var(--magic-select-option-hover-bg,#ffffff14)}.magic-option.is-selected,.magic-option.has-selected-child{color:var(--magic-select-active-color,var(--magic-primary-color));font-weight:500}.magic-option.is-selected{background-color:var(--magic-select-option-active-bg,var(--magic-primary-light-bg))}.magic-option.is-disabled{cursor:not-allowed;opacity:.4}.magic-option__arrow{color:var(--magic-select-suffix-color,#9499a0);justify-content:center;align-items:center;margin-left:8px;display:inline-flex}.magic-option__arrow svg{width:12px;height:12px;display:block}';
+  var SELECT_ICONS = {
+    arrowDown: b`
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  `,
+    chevronRight: b`
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
+  `,
+    clear: b`
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="15" y1="9" x2="9" y2="15" />
+      <line x1="9" y1="9" x2="15" y2="15" />
+    </svg>
+  `,
+  };
+  function findLabelInOptions(list, value, parent = null) {
+    for (const item of list) {
+      if (String(item.value) === String(value))
+        return parent
+          ? `${parent.label} · ${item.label ?? item.value}`
+          : (item.label ?? item.value);
+      if (isArray(item.children)) {
+        const match = findLabelInOptions(item.children, value, item);
+        if (match) return match;
+      }
+    }
+    return null;
+  }
+  var MagicOption = class extends i {
+    static properties = {
+      value: String,
+      label: String,
+      disabled: {
+        type: Boolean,
+        reflect: true,
+      },
+      selected: {
+        type: Boolean,
+        reflect: true,
+      },
+    };
+    static styles = r$2(style_default$1);
+    constructor() {
+      super();
+      this.value = '';
+      this.label = '';
+      this.disabled = false;
+      this.selected = false;
+    }
+    handleClick(event) {
+      if (this.disabled) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    }
+    render() {
+      return b`
+      <div class="${[
+        'magic-option',
+        this.selected ? 'is-selected' : '',
+        this.disabled ? 'is-disabled' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}" @click=${this.handleClick}>
+        <slot>${this.label || this.value}</slot>
+      </div>
+    `;
+    }
+  };
+  var MagicSelect = class extends i {
+    static properties = {
+      value: String,
+      placeholder: String,
+      disabled: {
+        type: Boolean,
+        reflect: true,
+      },
+      clearable: Boolean,
+      size: String,
+      block: Boolean,
+      open: {
+        type: Boolean,
+        reflect: true,
+      },
+      options: Array,
+      activeSubmenuValue: { state: true },
+      submenuTop: { state: true },
+    };
+    static styles = r$2(style_default$1);
+    #cleanupOutsideClick = null;
+    constructor() {
+      super();
+      this.value = '';
+      this.placeholder = '请选择';
+      this.disabled = false;
+      this.clearable = false;
+      this.size = 'medium';
+      this.block = false;
+      this.open = false;
+      this.options = [];
+      this.activeSubmenuValue = '';
+      this.submenuTop = 0;
+    }
+    get currentLabel() {
+      if (isArray(this.options) && this.options.length > 0) {
+        const match = findLabelInOptions(this.options, this.value);
+        if (match) return match;
+      }
+      const slot = this.shadowRoot?.querySelector('slot');
+      if (slot) {
+        const matchedEl = slot
+          .assignedElements({ flatten: true })
+          .find((el) => el.value === this.value);
+        if (matchedEl) return matchedEl.label || matchedEl.textContent?.trim() || matchedEl.value;
+      }
+      return this.value || '';
+    }
+    get activeSubmenuItem() {
+      if (!this.activeSubmenuValue || !isArray(this.options)) return null;
+      return (
+        this.options.find((item) => String(item.value) === String(this.activeSubmenuValue)) || null
+      );
+    }
+    connectedCallback() {
+      super.connectedCallback();
+      this.#cleanupOutsideClick = on(document, 'pointerdown', (event) =>
+        this.handleOutsideClick(event),
+      );
+    }
+    disconnectedCallback() {
+      super.disconnectedCallback();
+      this.#cleanupOutsideClick?.();
+    }
+    handleOutsideClick(event) {
+      if (this.open && !event.composedPath().includes(this)) {
+        this.open = false;
+        this.activeSubmenuValue = '';
+      }
+    }
+    toggleDropdown(event) {
+      event.stopPropagation();
+      if (this.disabled) return;
+      this.open = !this.open;
+      if (!this.open) this.activeSubmenuValue = '';
+    }
+    handleClear(event) {
+      event.stopPropagation();
+      this.value = '';
+      this.open = false;
+      this.activeSubmenuValue = '';
+      this.dispatchEvent(
+        new CustomEvent('clear', {
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.dispatchChangeEvent('');
+    }
+    handleSelectOption(option, event) {
+      event?.stopPropagation();
+      if (option.disabled) return;
+      this.value = option.value;
+      this.open = false;
+      this.activeSubmenuValue = '';
+      this.dispatchChangeEvent(option.value, option.label);
+    }
+    dispatchChangeEvent(value, label = '') {
+      const detail = {
+        value,
+        label,
+      };
+      this.dispatchEvent(
+        new CustomEvent('change', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.dispatchEvent(
+        new CustomEvent('input', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+    handleSlotClick(event) {
+      const target = event.target.closest('magic-option');
+      if (target && !target.disabled)
+        this.handleSelectOption({
+          value: target.value,
+          label: target.label || target.textContent?.trim(),
+        });
+    }
+    handleOptionMouseEnter(item, event) {
+      if (isArray(item.children) && item.children.length > 0) {
+        this.activeSubmenuValue = item.value;
+        const target = event.currentTarget;
+        this.submenuTop = target?.offsetTop || 0;
+      } else this.activeSubmenuValue = '';
+    }
+    handleDropdownMouseLeave() {
+      this.activeSubmenuValue = '';
+    }
+    renderSubOptionList(children) {
+      if (!isArray(children) || children.length === 0) return b``;
+      return children.map((item) => {
+        return b`
+        <div class="${[
+          'magic-option',
+          String(item.value) === String(this.value) ? 'is-selected' : '',
+          item.disabled ? 'is-disabled' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}" @click=${(e) => this.handleSelectOption(item, e)}>
+          <span>${item.label ?? item.value}</span>
+        </div>
+      `;
+      });
+    }
+    renderOptionList() {
+      if (!this.options || this.options.length === 0)
+        return b`
+        <div @click=${this.handleSlotClick}>
+          <slot></slot>
+        </div>
+      `;
+      return this.options.map((item) => {
+        const hasChildren = isArray(item.children) && item.children.length > 0;
+        const isSelected = String(item.value) === String(this.value);
+        const hasSelectedChild =
+          hasChildren && item.children.some((c) => String(c.value) === String(this.value));
+        const isActiveParent = String(item.value) === String(this.activeSubmenuValue);
+        return b`
+        <div
+          class="${[
+            'magic-option',
+            isSelected ? 'is-selected' : '',
+            hasSelectedChild ? 'has-selected-child' : '',
+            isActiveParent ? 'is-active-parent' : '',
+            item.disabled ? 'is-disabled' : '',
+            hasChildren ? 'has-children' : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}"
+          @mouseenter=${(e) => this.handleOptionMouseEnter(item, e)}
+          @click=${(e) => {
+            if (!hasChildren) this.handleSelectOption(item, e);
+          }}
+        >
+          <span>${item.label ?? item.value}</span>
+          ${hasChildren ? b`<span class="magic-option__arrow">${SELECT_ICONS.chevronRight}</span>` : b``}
+        </div>
+      `;
+      });
+    }
+    render() {
+      const hasValue = this.value !== void 0 && this.value !== null && this.value !== '';
+      const displayLabel = this.currentLabel;
+      const subItem = this.activeSubmenuItem;
+      return b`
+      <div class="${[
+        'magic-select',
+        `magic-select--${this.size || 'medium'}`,
+        this.open ? 'is-open' : '',
+        this.disabled ? 'is-disabled' : '',
+        hasValue ? 'has-value' : '',
+        this.clearable ? 'is-clearable' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}">
+        <div class="magic-select__trigger" @click=${this.toggleDropdown} role="button" tabindex="0">
+          <span class="magic-select__label ${hasValue ? '' : 'is-placeholder'}">
+            ${hasValue ? displayLabel : this.placeholder}
+          </span>
+          <span class="magic-select__suffix ${this.open ? 'is-reverse' : ''}">
+            ${SELECT_ICONS.arrowDown}
+          </span>
+          ${
+            this.clearable && hasValue && !this.disabled
+              ? b`
+                  <span
+                    class="magic-select__clear"
+                    @click=${this.handleClear}
+                    title="清空"
+                    role="button"
+                  >
+                    ${SELECT_ICONS.clear}
+                  </span>
+                `
+              : b``
+          }
+        </div>
+
+        ${
+          this.open
+            ? b`
+                <div
+                  class="magic-select__dropdown-container"
+                  @mouseleave=${this.handleDropdownMouseLeave}
+                >
+                  <div class="magic-select__dropdown" role="listbox">
+                    ${this.renderOptionList()}
+                  </div>
+                  ${
+                    subItem && isArray(subItem.children)
+                      ? b`
+                          <div
+                            class="magic-select__sub-dropdown"
+                            style="top: ${this.submenuTop}px"
+                            role="listbox"
+                          >
+                            ${this.renderSubOptionList(subItem.children)}
+                          </div>
+                        `
+                      : b``
+                  }
+                </div>
+              `
+            : b``
+        }
+      </div>
+    `;
+    }
+  };
+  if (!customElements.get('magic-option')) customElements.define('magic-option', MagicOption);
+  if (!customElements.get('magic-select')) customElements.define('magic-select', MagicSelect);
+  var style_default =
+    ':host{vertical-align:middle;box-sizing:border-box;font-family:inherit;display:inline-block}:host([block]){width:100%;display:block}.magic-input{box-sizing:border-box;border-radius:var(--magic-input-radius,6px);background:var(--magic-input-bg,#ffffff14);border:1px solid var(--magic-input-border,#ffffff26);width:100%;color:var(--magic-input-color,#e5e9ef);align-items:center;transition:all .2s cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative}.magic-input--small{height:28px;padding:0 8px;font-size:12px}.magic-input--medium{height:34px;padding:0 12px;font-size:14px}.magic-input--large{height:40px;padding:0 16px;font-size:16px}.magic-input:hover:not(.is-disabled):not(.is-focused){border-color:var(--magic-input-hover-border,#ffffff40);background:var(--magic-input-hover-bg,#ffffff1f)}.magic-input.is-focused{border-color:var(--magic-input-focus-border,var(--magic-primary-color));background:var(--magic-input-focus-bg,#ffffff1a);box-shadow:var(--magic-input-focus-shadow,var(--magic-primary-focus-shadow))}.magic-input.is-disabled{cursor:not-allowed;opacity:.5;background:#ffffff0a;border-color:#ffffff1a}.magic-input.is-disabled .magic-input__inner{cursor:not-allowed}.magic-input__prefix{color:var(--magic-input-prefix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-right:6px;line-height:1;display:inline-flex}.magic-input__prefix svg{width:14px;height:14px;display:block}.magic-input__inner{width:100%;min-width:0;height:100%;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;box-sizing:border-box;background:0 0;border:none;outline:none;flex:1;margin:0;padding:0}.magic-input__inner::placeholder{color:var(--magic-input-placeholder-color,#9499a0)}.magic-input__suffix{color:var(--magic-input-suffix-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;line-height:1;display:inline-flex}.magic-input__suffix svg{width:14px;height:14px;display:block}.magic-input__clear{cursor:pointer;color:var(--magic-input-clear-color,#9499a0);flex-shrink:0;justify-content:center;align-items:center;margin-left:6px;transition:color .15s;display:inline-flex}.magic-input__clear svg{width:14px;height:14px;display:block}.magic-input__clear:hover{color:var(--magic-input-clear-hover-color,#e5e9ef)}';
+  var INPUT_ICONS = {
+    clear: b`
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="15" y1="9" x2="9" y2="15" />
+      <line x1="9" y1="9" x2="15" y2="15" />
+    </svg>
+  `,
+  };
+  var MagicInput = class extends i {
+    static properties = {
+      value: {
+        type: String,
+        reflect: true,
+      },
+      placeholder: String,
+      type: String,
+      size: String,
+      disabled: {
+        type: Boolean,
+        reflect: true,
+      },
+      readonly: {
+        type: Boolean,
+        reflect: true,
+      },
+      clearable: Boolean,
+      block: {
+        type: Boolean,
+        reflect: true,
+      },
+      maxlength: {
+        type: Number,
+        attribute: 'maxlength',
+      },
+      autofocus: Boolean,
+      focused: { state: true },
+    };
+    static styles = r$2(style_default);
+    constructor() {
+      super();
+      this.value = '';
+      this.placeholder = '';
+      this.type = 'text';
+      this.size = 'medium';
+      this.disabled = false;
+      this.readonly = false;
+      this.clearable = false;
+      this.block = false;
+      this.maxlength = void 0;
+      this.autofocus = false;
+      this.focused = false;
+    }
+    firstUpdated() {
+      if (this.autofocus && !this.disabled && !this.readonly) this.focus();
+    }
+    get inputElement() {
+      return this.shadowRoot?.querySelector('.magic-input__inner') || null;
+    }
+    focus() {
+      this.inputElement?.focus();
+    }
+    blur() {
+      this.inputElement?.blur();
+    }
+    select() {
+      this.inputElement?.select();
+    }
+    handleInput(event) {
+      event.stopPropagation();
+      this.value = event.target.value;
+      const detail = { value: this.value };
+      this.dispatchEvent(
+        new CustomEvent('input', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+    handleChange(event) {
+      event.stopPropagation();
+      this.value = event.target.value;
+      const detail = { value: this.value };
+      this.dispatchEvent(
+        new CustomEvent('change', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+    handleFocus(event) {
+      this.focused = true;
+      this.dispatchEvent(
+        new CustomEvent('focus', {
+          detail: { event },
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+    handleBlur(event) {
+      this.focused = false;
+      this.dispatchEvent(
+        new CustomEvent('blur', {
+          detail: { event },
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+    handleKeyDown(event) {
+      event.stopPropagation();
+      this.dispatchEvent(
+        new KeyboardEvent('keydown', {
+          key: event.key,
+          code: event.code,
+          keyCode: event.keyCode,
+          which: event.which,
+          shiftKey: event.shiftKey,
+          ctrlKey: event.ctrlKey,
+          altKey: event.altKey,
+          metaKey: event.metaKey,
+          repeat: event.repeat,
+          isComposing: event.isComposing,
+          bubbles: false,
+          composed: false,
+        }),
+      );
+    }
+    handleKeyUp(event) {
+      event.stopPropagation();
+      this.dispatchEvent(
+        new KeyboardEvent('keyup', {
+          key: event.key,
+          code: event.code,
+          keyCode: event.keyCode,
+          which: event.which,
+          shiftKey: event.shiftKey,
+          ctrlKey: event.ctrlKey,
+          altKey: event.altKey,
+          metaKey: event.metaKey,
+          repeat: event.repeat,
+          isComposing: event.isComposing,
+          bubbles: false,
+          composed: false,
+        }),
+      );
+    }
+    handleClear(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      this.value = '';
+      this.dispatchEvent(
+        new CustomEvent('clear', {
+          detail: { value: '' },
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.dispatchEvent(
+        new CustomEvent('input', {
+          detail: { value: '' },
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.dispatchEvent(
+        new CustomEvent('change', {
+          detail: { value: '' },
+          bubbles: true,
+          composed: true,
+        }),
+      );
+      this.focus();
+    }
+    renderClearBtn() {
+      if (!this.clearable || !this.value || this.disabled || this.readonly) return null;
+      return b`
+      <span class="magic-input__clear" title="清空" @click=${this.handleClear}>
+        ${INPUT_ICONS.clear}
+      </span>
+    `;
+    }
+    render() {
+      return b`
+      <div class="${[
+        'magic-input',
+        `magic-input--${this.size || 'medium'}`,
+        this.focused ? 'is-focused' : '',
+        this.disabled ? 'is-disabled' : '',
+        this.readonly ? 'is-readonly' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}">
+        <span class="magic-input__prefix">
+          <slot name="prefix"></slot>
+        </span>
+
+        <input
+          class="magic-input__inner"
+          .type=${this.type || 'text'}
+          .value=${this.value || ''}
+          .placeholder=${this.placeholder || ''}
+          .disabled=${this.disabled}
+          .readOnly=${this.readonly}
+          maxlength=${this.maxlength > 0 ? this.maxlength : A}
+          @input=${this.handleInput}
+          @change=${this.handleChange}
+          @focus=${this.handleFocus}
+          @blur=${this.handleBlur}
+          @keydown=${this.handleKeyDown}
+          @keyup=${this.handleKeyUp}
+        />
+
+        ${this.renderClearBtn()}
+
+        <span class="magic-input__suffix">
+          <slot name="suffix"></slot>
+        </span>
+      </div>
+    `;
+    }
+  };
+  if (!customElements.get('magic-input')) customElements.define('magic-input', MagicInput);
+  function getCurrentBvid() {
+    const { pathname, search } = window.location;
+    const pathMatch = pathname.match(/\/video\/(BV[a-zA-Z0-9]+)/i);
+    if (pathMatch) return pathMatch[1];
+    const paramBvid = new URLSearchParams(search).get('bvid');
+    if (paramBvid && /^BV[a-zA-Z0-9]+$/i.test(paramBvid)) return paramBvid;
+    return null;
+  }
+  function getCurrentPage() {
+    const { p } = getUrlParams();
+    return parseInt(p || '1', 10);
+  }
+  async function fetchMedialistEpisodes(type, bizId) {
+    const rawList = [];
+    const seenIds = new Set();
+    let hasMore = true;
+    let lastOid;
+    let safetyCounter = 30;
+    while (hasMore && safetyCounter > 0) {
+      safetyCounter -= 1;
+      const res = await http({
+        url: 'https://api.bilibili.com/x/v2/medialist/resource/list',
+        params: {
+          type,
+          biz_id: bizId,
+          ps: 100,
+          otype: 2,
+          mobi_app: 'web',
+          ...(lastOid ? { oid: lastOid } : {}),
+        },
+      });
+      const mediaList = res?.data?.media_list;
+      if (!mediaList || res?.code !== 0) break;
+      for (const item of mediaList)
+        if (!seenIds.has(item.id)) {
+          seenIds.add(item.id);
+          rawList.push(item);
+        }
+      hasMore = !!(res.data.has_more && mediaList.length > 0);
+      lastOid = mediaList[mediaList.length - 1]?.id;
+    }
+    if (!rawList.length) return null;
+    return {
+      sections: rawList,
+      seasonSections: [],
+      hasMultipleSections: false,
+      currentSectionId: '',
+      mode: POD_MODE.CARD,
+      type: POD_TYPE.SERIES,
+    };
+  }
+  async function fetchVideoEpisodes(bvid) {
+    const res = await http({
+      url: 'https://api.bilibili.com/x/web-interface/view',
+      params: { bvid },
+    });
+    if (res?.code !== 0 || !res?.data) return null;
+    const { data } = res;
+    const rawSections = data.ugc_season?.sections || [];
+    if (rawSections.length > 0) {
+      const seasonSections = rawSections.map((s) => {
+        const sectionId = String(s.id || s.season_id || '');
+        const title = s.title || '';
+        return {
+          id: sectionId,
+          title,
+          label: title,
+          value: sectionId,
+          episodes: s.episodes || [],
+        };
+      });
+      const currentSection =
+        seasonSections.find((s) => s.episodes.some((ep) => ep.bvid === bvid)) || seasonSections[0];
+      return {
+        sections: currentSection?.episodes || [],
+        seasonSections,
+        hasMultipleSections: seasonSections.length > 1,
+        currentSectionId: currentSection?.value || '',
+        mode: POD_MODE.LIST,
+        type: POD_TYPE.COLLECTION,
+      };
+    }
+    const pages = data.pages || [];
+    if (pages.length <= 1) return null;
+    return {
+      sections: pages,
+      seasonSections: [],
+      hasMultipleSections: false,
+      currentSectionId: '',
+      mode: POD_MODE.LIST,
+      type: POD_TYPE.EPISODE,
+    };
+  }
+  function getMediaListMid() {
+    const { pathname } = window.location;
+    const match = pathname.match(/\/list\/(?:ml)?(\d+)/i);
+    return match ? match[1] : null;
+  }
+  async function fetchSeasonInfo(bvid, sid) {
+    try {
+      if (sid) return await fetchMedialistEpisodes(5, sid);
+      const upMid = getMediaListMid();
+      if (upMid) return await fetchMedialistEpisodes(1, upMid);
+      return await fetchVideoEpisodes(bvid);
+    } catch (err) {
+      console.error('[bilibili-playlist-enhancer] 获取合集信息失败:', err);
+      return null;
+    }
+  }
+  function buildEpisodes({
+    pages,
+    title,
+    duration,
+    isGroupActive,
+    currentPage,
+    fallbackCid,
+    fallbackPage = 1,
+  }) {
+    const defaultPage = fallbackPage || 1;
+    return (
+      isArray(pages) && pages.length > 0
+        ? pages
+        : [
+            {
+              cid: fallbackCid,
+              page: defaultPage,
+              part: title,
+              duration,
+            },
+          ]
+    ).map((pageItem, pIdx) => {
+      const pageNum = pageItem.page || defaultPage || pIdx + 1;
+      return {
+        cid: pageItem.cid || pageItem.id,
+        page: pageNum,
+        rawEpIndex: pIdx,
+        title: pageItem.part || pageItem.title || title,
+        duration: formatDuration(pageItem.duration || duration),
+        isActive: isGroupActive && Number(pageNum) === Number(currentPage || 1),
+      };
+    });
+  }
+  function extractRawItem(item, currentBvid, index) {
+    return {
+      aid: item.aid || item.id,
+      type: item.type,
+      bvid: item.bvid || item.bv_id || currentBvid,
+      title: item.title || item.part,
+      cover: item.cover || item.pic || item.arc?.pic || '',
+      pubdate: formatDate(item.arc?.pubdate || item.pubtime || item.pubdate || 0),
+      duration: item.arc?.duration || item.duration || 0,
+      views: formatCount(item.arc?.stat?.view ?? item.stat?.view ?? item.cnt_info?.play ?? 0),
+      danmakus: formatCount(
+        item.arc?.stat?.danmaku ?? item.stat?.danmaku ?? item.cnt_info?.danmaku ?? 0,
+      ),
+      rawViews: Number(item.arc?.stat?.view ?? item.stat?.view ?? item.cnt_info?.play ?? 0),
+      rawDanmakus: Number(
+        item.arc?.stat?.danmaku ?? item.stat?.danmaku ?? item.cnt_info?.danmaku ?? 0,
+      ),
+      pubTimestamp: item.pubdate || item.arc?.pubdate || item.pubtime || 0,
+      page: item.page,
+      rawIndex: index,
+    };
+  }
+  function processSeasonData(podType, rawList = [], currentBvid = '', currentPage = 1) {
+    const isEpisode = podType === POD_TYPE.EPISODE;
+    return rawList.map((item, idx) => {
+      const raw = extractRawItem(item, currentBvid, idx);
+      const isGroupActive = raw.bvid === currentBvid;
+      const hasPages = isArray(item.pages) && item.pages.length > 1;
+      const episodes = buildEpisodes({
+        pages: hasPages ? item.pages : null,
+        title: raw.title,
+        duration: raw.duration,
+        isGroupActive,
+        currentPage,
+        fallbackCid: raw.cid || item.cid,
+        fallbackPage: raw.page,
+      });
+      const isActive = isEpisode
+        ? isGroupActive && Number(raw.page) === Number(currentPage)
+        : isGroupActive;
+      return {
+        ...raw,
+        isActive,
+        isMultiPage: hasPages,
+        episodes,
+      };
+    });
+  }
+  var SORT_STRATEGIES = {
+    [SORT_MODE.DEFAULT_ASC]: (list) =>
+      [...list].sort((a, b) => (a.rawIndex || 0) - (b.rawIndex || 0)),
+    [SORT_MODE.DEFAULT_DESC]: (list) =>
+      [...list].sort((a, b) => (b.rawIndex || 0) - (a.rawIndex || 0)),
+    [SORT_MODE.TIME_DESC]: (list) =>
+      [...list].sort(
+        (a, b) =>
+          (b.pubTimestamp || 0) - (a.pubTimestamp || 0) || (b.rawIndex || 0) - (a.rawIndex || 0),
+      ),
+    [SORT_MODE.TIME_ASC]: (list) =>
+      [...list].sort(
+        (a, b) =>
+          (a.pubTimestamp || 0) - (b.pubTimestamp || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+      ),
+    [SORT_MODE.VIEWS_DESC]: (list) =>
+      [...list].sort(
+        (a, b) => (b.rawViews || 0) - (a.rawViews || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+      ),
+    [SORT_MODE.VIEWS_ASC]: (list) =>
+      [...list].sort(
+        (a, b) => (a.rawViews || 0) - (b.rawViews || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+      ),
+    [SORT_MODE.DANMAKUS_DESC]: (list) =>
+      [...list].sort(
+        (a, b) =>
+          (b.rawDanmakus || 0) - (a.rawDanmakus || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+      ),
+    [SORT_MODE.DANMAKUS_ASC]: (list) =>
+      [...list].sort(
+        (a, b) =>
+          (a.rawDanmakus || 0) - (b.rawDanmakus || 0) || (a.rawIndex || 0) - (b.rawIndex || 0),
+      ),
+  };
+  var findActiveAccordionBvid = (current) =>
+    current?.group?.isMultiPage ? current.group.bvid : '';
+  function updateGroupActive(group, podType, activeBvid, activePage) {
+    const currentP = Number(activePage) || 1;
+    const isGroupActive = group.bvid === activeBvid;
+    const isEpisodeMatch = Number(group.page || 1) === currentP;
+    const isActive = podType === POD_TYPE.EPISODE ? isGroupActive && isEpisodeMatch : isGroupActive;
+    const isEpisodeType = podType === POD_TYPE.EPISODE;
+    const episodes = (group.episodes || []).map((ep) => ({
+      ...ep,
+      isActive:
+        isGroupActive &&
+        (Number(ep.page || 1) === currentP || (!isEpisodeType && !group.isMultiPage)),
+    }));
+    return {
+      ...group,
+      isActive,
+      episodes,
+    };
+  }
+  async function fetchPodPayload(bvid, page) {
+    const { sid } = getUrlParams();
+    const podData = await fetchSeasonInfo(bvid, sid);
+    if (!podData) return null;
+    return {
+      type: podData.type,
+      mode: podData.mode,
+      seasonSections: podData.seasonSections || [],
+      hasMultipleSections: !!podData.hasMultipleSections,
+      currentSectionId: podData.currentSectionId || '',
+      groups: processSeasonData(podData.type, podData.sections, bvid, page),
+    };
+  }
+  var isSameVideoTarget = (currentBvid, currentPage, nextBvid, nextPage) =>
+    currentBvid === nextBvid && Number(currentPage || 1) === Number(nextPage || 1);
+  var hasSeasonBvid = (groups, bvid) => groups.some((g) => g.bvid === bvid);
+  var findSectionByBvid = (seasonSections = [], bvid = '') =>
+    seasonSections.find((s) => (s.episodes || []).some((ep) => ep.bvid === bvid));
+  var flattenEpisodes = (groups) =>
+    groups.flatMap((group, groupIndex) =>
+      (group.episodes || []).map((ep, epIndex) => ({
+        group,
+        groupIndex,
+        epIndex,
+        episode: ep,
+        bvid: group.bvid,
+        page: Number(ep.page || 1),
+      })),
+    );
+  function findCurrentPlaying(flatList, activeBvid, activePage) {
+    const currentP = Number(activePage) || 1;
+    let flatIndex = flatList.findIndex(
+      (item) => item.bvid === activeBvid && item.page === currentP,
+    );
+    if (flatIndex === -1 && activeBvid)
+      flatIndex = flatList.findIndex((item) => item.bvid === activeBvid);
+    if (flatIndex === -1) return null;
+    const currentItem = flatList[flatIndex];
+    const totalEpisodes = flatList.length;
+    const groupEpisodes = currentItem.group?.episodes || [];
+    return {
+      groupIndex: currentItem.groupIndex,
+      group: currentItem.group,
+      epIndex: currentItem.epIndex,
+      episode: currentItem.episode,
+      flatIndex,
+      totalEpisodes,
+      isFirst: flatIndex === 0,
+      isLast: flatIndex === totalEpisodes - 1,
+      isGroupFirst: currentItem.epIndex === 0,
+      isGroupLast: currentItem.epIndex === groupEpisodes.length - 1,
+    };
+  }
+  function getAdjacentVideo(flatList, currentFlatIndex, action) {
+    if (currentFlatIndex === -1 || currentFlatIndex == null) return null;
+    if (action === CTRL_ACTION.PREV) {
+      const currentItem = flatList[currentFlatIndex];
+      if (currentItem?.epIndex === 0) {
+        const prevGroupIndex = currentItem.groupIndex - 1;
+        if (prevGroupIndex < 0) return null;
+        return (
+          flatList.find((item) => item.groupIndex === prevGroupIndex && item.epIndex === 0) || null
+        );
+      }
+      return flatList[currentFlatIndex - 1] || null;
+    }
+    return flatList[currentFlatIndex + 1] || null;
+  }
+  var correctionOffset = 17;
+  function getPodTargetSelectors(podType) {
+    const isSeries = (0, vue.toValue)(podType) === POD_TYPE.SERIES;
+    return {
+      playlistContainerRight: isSeries ? '.playlist-container--right' : '.right-container-inner',
+      listBody: isSeries ? '#playlist-video-action-list' : '.video-pod__body',
+      actionHeader: isSeries ? '.action-list-header' : '.video-pod__header .right',
+      activeActionHeader: isSeries
+        ? '.action-list-header.action-list-header-folded'
+        : '.video-pod.expanded',
+    };
+  }
+  function calculateMaxHeight(podType, wrapEl, defaultHeight) {
+    if ((0, vue.toValue)(podType) !== POD_TYPE.SERIES) return defaultHeight;
+    const bodyHeight = wrapEl.querySelector('#playlist-video-action-list-body')?.clientHeight || 0;
+    const topHeight = wrapEl.querySelector('.action-list-body-top')?.clientHeight || 0;
+    return Math.max(bodyHeight - (topHeight + 24), 0);
+  }
+  function observeSeriesContainers(ro, wrapEl) {
+    const danmakuBox = wrapEl.querySelector('.danmaku-box');
+    const actionListContainer = wrapEl.querySelector('.action-list-container');
+    if (danmakuBox) ro.observe(danmakuBox);
+    if (actionListContainer) ro.observe(actionListContainer);
+  }
+  function calculateRelativeOffset(targetEl, containerEl) {
+    let offset = 0;
+    let node = targetEl;
+    while (node && node !== containerEl) {
+      offset += node.offsetTop;
+      node = node.offsetParent;
+    }
+    return offset;
+  }
+  function alignActiveItem(container, smooth) {
+    const activeEl =
+      container.querySelector('.episode.is-active') || container.querySelector('.header.is-active');
+    if (!activeEl?.clientHeight || !container.clientHeight) return false;
+    const targetTop =
+      calculateRelativeOffset(activeEl, container) -
+      (container.clientHeight - activeEl.clientHeight) / 2;
+    container.scrollTo({
+      top: Math.max(0, targetTop),
+      behavior: smooth ? 'smooth' : 'auto',
+    });
+    return true;
+  }
+  function observeContainerSettling(container, onSettle) {
+    const ro = new ResizeObserver(() => {
+      if (onSettle()) ro.disconnect();
+    });
+    ro.observe(container);
+  }
+  function scrollActiveItem(container, smooth = true) {
+    if (!container) return;
+    if (smooth) {
+      (0, vue.nextTick)(() => alignActiveItem(container, true));
+      return;
+    }
+    observeContainerSettling(container, () => alignActiveItem(container, false));
+  }
+  function setBilibiliVideoPodMinHeight() {
+    const el = document.querySelector(getPodTargetSelectors(POD_TYPE.COLLECTION).listBody);
+    if (el) el.style.minHeight = '250px';
+  }
+  function calculateCollectionToggleTargetLayout(
+    podType,
+    isExpanded,
+    currentTop,
+    hasMultipleSections,
+  ) {
+    if (podType === POD_TYPE.COLLECTION) {
+      const toolbar = document.querySelector('#arc_toolbar_report');
+      const card = document.querySelector('.rec-list')?.firstElementChild;
+      const aboveModule = document.querySelector('.video-pod-above-modules');
+      const podBody = document.querySelector(getPodTargetSelectors(podType).listBody);
+      const s = toolbar?.getBoundingClientRect().bottom ?? 0;
+      const c = card?.getBoundingClientRect().top ?? 0;
+      const l = aboveModule?.getBoundingClientRect().height || aboveModule?.scrollHeight || 0;
+      const n = podBody?.clientHeight ?? 0;
+      const totalOffset =
+        correctionOffset +
+        ((0, vue.toValue)(hasMultipleSections)
+          ? document.querySelector('.video-pod__slide')?.clientHeight || 0
+          : 0);
+      const diff = s && c ? s - c : 0;
+      const baseHeight = isExpanded ? Math.max(250, Math.floor(n + diff + l)) : 250;
+      const targetTop = isExpanded ? currentTop - l : currentTop + l;
+      return {
+        targetHeight: baseHeight + totalOffset,
+        targetTop,
+      };
+    }
+    if (podType === POD_TYPE.SERIES) {
+      const listEl = document.querySelector('#playlist-video-action-list');
+      let targetTop = listEl
+        ? listEl.getBoundingClientRect().top + window.scrollY - correctionOffset
+        : currentTop;
+      const bodyBottomHeight =
+        document.querySelector('.action-list-body-bottom')?.clientHeight ?? 0;
+      return {
+        targetHeight: isExpanded ? 0 : bodyBottomHeight + correctionOffset,
+        targetTop,
+      };
+    }
+    return {
+      targetHeight: 250,
+      targetTop: currentTop,
+    };
+  }
+  async function watchPositionSync(podType, hostEl, onPositionUpdate, hasMultipleSections) {
+    const currentType = (0, vue.toValue)(podType);
+    const selectors = getPodTargetSelectors(currentType);
+    const wrapEl = await waitElement(selectors.playlistContainerRight);
+    const targetEl = await waitElement(selectors.listBody, { el: wrapEl });
+    let isAnimating = false;
+    const getHost = () => (isFunction(hostEl) ? hostEl() : (0, vue.toValue)(hostEl));
+    const updatePosition = (force = false) => {
+      if (isAnimating && !force) return;
+      const host = getHost();
+      if (!targetEl.isConnected || (host && !host.isConnected)) return;
+      const {
+        top: targetTop,
+        left: targetLeft,
+        width,
+        height: targetHeight,
+      } = targetEl.getBoundingClientRect();
+      const slideHeight =
+        ((0, vue.toValue)(hasMultipleSections) ? document.querySelector('.video-pod__slide') : null)
+          ?.clientHeight || 0;
+      let height = calculateMaxHeight(currentType, wrapEl, targetHeight) + slideHeight;
+      height = height ? height + correctionOffset : 0;
+      onPositionUpdate({
+        top:
+          targetTop +
+          window.scrollY -
+          slideHeight -
+          (currentType === POD_TYPE.EPISODE ? 0 : correctionOffset),
+        left: targetLeft + window.scrollX,
+        width,
+        height,
+      });
+    };
+    let isDestroyed = false;
+    const ro = new ResizeObserver(() => updatePosition(false));
+    ro.observe(wrapEl);
+    waitElement('.player-wrap', { timeout: 5e3 })
+      .then((playerEl) => {
+        if (!isDestroyed && playerEl) ro.observe(playerEl);
+      })
+      .catch(() => {});
+    if (currentType === POD_TYPE.SERIES) observeSeriesContainers(ro, wrapEl);
+    const offResize = on(window, 'resize', () => updatePosition(false));
+    const cleanup = () => {
+      isDestroyed = true;
+      ro.disconnect();
+      offResize();
+    };
+    cleanup.setAnimating = (val) => {
+      isAnimating = val;
+    };
+    cleanup.updatePosition = updatePosition;
+    cleanup.destroy = cleanup;
+    cleanup.wrapEl = wrapEl;
+    cleanup.targetEl = targetEl;
+    return cleanup;
+  }
+  async function listenNativeToggle(podType, onToggle) {
+    const currentType = (0, vue.toValue)(podType);
+    if (currentType === POD_TYPE.EPISODE) return;
+    const actionHeader = getPodTargetSelectors(currentType).actionHeader;
+    const nativeToggleBtn = await waitElement(actionHeader);
+    if (!nativeToggleBtn) return;
+    const handler = () => {
+      const { isWide } = playerState();
+      if (isWide && currentType === POD_TYPE.COLLECTION) return;
+      requestAnimationFrame(() => {
+        const expanded = document.querySelector(
+          getPodTargetSelectors(currentType).activeActionHeader,
+        );
+        onToggle?.(!!expanded);
+      });
+    };
+    return on(nativeToggleBtn, 'click', handler, { capture: true });
+  }
+  function usePositionSync(podType, rootRef, onModeChange, hasMultipleSections) {
+    const position = (0, vue.ref)({
+      top: 0,
+      left: 0,
+      width: 0,
+      height: 0,
+    });
+    const isAnimating = (0, vue.ref)(false);
+    let cleanupTracker = null;
+    let cleanupResize = null;
+    const containerStyle = (0, vue.computed)(() => ({
+      top: `${position.value.top}px`,
+      left: `${position.value.left}px`,
+      width: `${position.value.width}px`,
+      height: `${position.value.height}px`,
+    }));
+    const videoBodyStyle = (0, vue.computed)(() => ({ width: `${position.value.width}px` }));
+    const stopSync = () => {
+      cleanupTracker?.destroy?.();
+      cleanupResize?.();
+      cleanupTracker = null;
+      cleanupResize = null;
+      isAnimating.value = false;
+    };
+    const startSync = async (type) => {
+      stopSync();
+      const resolvedType = (0, vue.toValue)(type);
+      if (!resolvedType) return;
+      cleanupTracker = await watchPositionSync(
+        resolvedType,
+        rootRef,
+        (newPos) => {
+          position.value = newPos;
+        },
+        hasMultipleSections,
+      );
+      cleanupResize = await listenNativeToggle(resolvedType, (isExpanded) => {
+        isAnimating.value = true;
+        cleanupTracker.setAnimating(true);
+        if (podType.value === POD_TYPE.COLLECTION && !isExpanded) setBilibiliVideoPodMinHeight();
+        const { targetHeight, targetTop } = calculateCollectionToggleTargetLayout(
+          resolvedType,
+          isExpanded,
+          position.value.top,
+          hasMultipleSections,
+        );
+        position.value = {
+          ...position.value,
+          top: targetTop,
+          height: targetHeight,
+        };
+        onModeChange?.(isExpanded);
+        setTimeout(() => {
+          cleanupTracker?.setAnimating(false);
+          isAnimating.value = false;
+        }, 300);
+      });
+    };
+    return {
+      isAnimating,
+      containerStyle,
+      videoBodyStyle,
+      startSync,
+    };
+  }
+  function useAccordion() {
+    const expandedBvid = (0, vue.ref)('');
+    const isExpanded = (bvid) => expandedBvid.value === bvid;
+    const toggleAccordion = (bvid) => {
+      expandedBvid.value = expandedBvid.value === bvid ? '' : bvid;
+    };
+    const setExpanded = (bvid) => {
+      expandedBvid.value = bvid;
+    };
+    return {
+      expandedBvid,
+      isExpanded,
+      toggleAccordion,
+      setExpanded,
+    };
+  }
+  function usePlayedHistory({ activeBvid, activePage }) {
+    const playedKeys = (0, vue.ref)(new Set());
+    const recordPlayedVideo = (bvid, page) => {
+      if (!bvid) return;
+      const key = `${bvid}_${page || 1}`;
+      if (!playedKeys.value.has(key)) playedKeys.value = new Set(playedKeys.value.add(key));
+    };
+    const isEpisodePlayed = (bvid, ep) => {
+      if (!bvid || !ep) return false;
+      const page = ep.page ?? ep.cid ?? 1;
+      return playedKeys.value.has(`${bvid}_${page}`);
+    };
+    const isGroupPlayed = (group) => {
+      if (!group || !group.episodes?.length) return false;
+      return group.episodes.every((ep) => isEpisodePlayed(group.bvid, ep));
+    };
+    (0, vue.watch)(
+      [activeBvid, activePage],
+      ([bvid, page]) => {
+        if (bvid) recordPlayedVideo(bvid, page);
+      },
+      { immediate: true },
+    );
+    return {
+      isEpisodePlayed,
+      isGroupPlayed,
+    };
+  }
+  function usePodHotkeys({ settings, handlePlayerCtrl }) {
+    return registerHotkeys([
+      {
+        key: () => settings.hotkeyPrev,
+        handler: () => handlePlayerCtrl?.(CTRL_ACTION.PREV),
+      },
+      {
+        key: () => settings.hotkeyNext,
+        handler: () => handlePlayerCtrl?.(CTRL_ACTION.NEXT),
+      },
+    ]);
+  }
+  function usePodSections({
+    rawGroups,
+    podType,
+    activeBvid,
+    activePage,
+    setExpanded,
+    setActiveTarget,
+    refreshActiveStates,
+  }) {
+    const seasonSections = (0, vue.ref)([]);
+    const hasMultipleSections = (0, vue.ref)(false);
+    const currentSectionId = (0, vue.ref)('');
+    const initSections = (payload) => {
+      seasonSections.value = payload?.seasonSections || [];
+      hasMultipleSections.value = !!payload?.hasMultipleSections;
+      currentSectionId.value = payload?.currentSectionId || '';
+    };
+    const resetSections = () => {
+      seasonSections.value = [];
+      hasMultipleSections.value = false;
+      currentSectionId.value = '';
+    };
+    const applySectionEpisodes = (section, targetBvid, targetPage) => {
+      currentSectionId.value = String(section.value);
+      setExpanded('');
+      rawGroups.value = processSeasonData(podType.value, section.episodes, targetBvid, targetPage);
+    };
+    const switchSection = (sectionId) => {
+      const targetId = String(sectionId);
+      if (targetId === String(currentSectionId.value)) return;
+      const targetSection = seasonSections.value.find((s) => String(s.value) === targetId);
+      if (!targetSection) return;
+      applySectionEpisodes(targetSection, activeBvid.value, activePage.value);
+      refreshActiveStates();
+    };
+    const trySwitchSectionByBvid = (nextBvid, nextPage) => {
+      if (!(0, vue.toValue)(hasMultipleSections)) return false;
+      const targetSection = findSectionByBvid(seasonSections.value, nextBvid);
+      if (!targetSection) return false;
+      applySectionEpisodes(targetSection, nextBvid, nextPage);
+      setActiveTarget(nextBvid, nextPage);
+      refreshActiveStates();
+      return true;
+    };
+    return {
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      initSections,
+      resetSections,
+      switchSection,
+      trySwitchSectionByBvid,
+    };
+  }
+  function usePodLoader({
+    rawGroups,
+    podType,
+    activeBvid,
+    activePage,
+    rootRef,
+    scrollContainerRef,
+    setExpanded,
+    currentPlaying,
+    setActiveTarget,
+    refreshActiveStates,
+  }) {
+    const isLoading = (0, vue.ref)(false);
+    const isRunnable = (0, vue.ref)(false);
+    const podMode = (0, vue.ref)(POD_MODE.LIST);
+    const {
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      initSections,
+      resetSections,
+      switchSection,
+      trySwitchSectionByBvid,
+    } = usePodSections({
+      rawGroups,
+      podType,
+      activeBvid,
+      activePage,
+      setExpanded,
+      setActiveTarget,
+      refreshActiveStates,
+    });
+    const onModeChange = (isExpandedMode) => {
+      podMode.value = isExpandedMode ? POD_MODE.CARD : POD_MODE.LIST;
+      setTimeout(() => {
+        scrollActiveItem(scrollContainerRef.value, true);
+      }, 300);
+    };
+    const { isAnimating, containerStyle, videoBodyStyle, startSync } = usePositionSync(
+      podType,
+      rootRef,
+      onModeChange,
+      hasMultipleSections,
+    );
+    const resetPodState = () => {
+      rawGroups.value = [];
+      podType.value = null;
+      resetSections();
+    };
+    const trySwitchSameSeason = (nextBvid, nextPage) => {
+      if (!hasSeasonBvid(rawGroups.value, nextBvid)) return false;
+      if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return true;
+      setActiveTarget(nextBvid, nextPage);
+      refreshActiveStates();
+      return true;
+    };
+    const initPodState = async (payload, bvid, page) => {
+      if (!payload) {
+        resetPodState();
+        setExpanded('');
+        return;
+      }
+      podType.value = payload.type;
+      podMode.value = payload.mode;
+      rawGroups.value = payload.groups;
+      setActiveTarget(bvid, page);
+      initSections(payload);
+      setExpanded(findActiveAccordionBvid(currentPlaying.value));
+      await startSync(podType.value);
+      scrollActiveItem(scrollContainerRef.value, false);
+    };
+    const fetchFullPod = async (nextBvid, nextPage) => {
+      setActiveTarget(nextBvid, nextPage);
+      resetPodState();
+      isLoading.value = true;
+      isRunnable.value = true;
+      try {
+        const payload = await fetchPodPayload(nextBvid, nextPage);
+        isRunnable.value = !!payload;
+        await initPodState(payload, nextBvid, nextPage);
+        await (0, vue.nextTick)();
+      } finally {
+        isLoading.value = false;
+      }
+    };
+    const loadPod = async () => {
+      const nextBvid = getCurrentBvid();
+      const nextPage = getCurrentPage();
+      if (!nextBvid) return;
+      if (isSameVideoTarget(activeBvid.value, activePage.value, nextBvid, nextPage)) return;
+      if (trySwitchSameSeason(nextBvid, nextPage)) return;
+      if (trySwitchSectionByBvid(nextBvid, nextPage)) return;
+      await fetchFullPod(nextBvid, nextPage);
+      if ((0, vue.toValue)(podType) !== POD_TYPE.SERIES) setBilibiliVideoPodMinHeight();
+    };
+    return {
+      isAnimating,
+      isLoading,
+      isRunnable,
+      podMode,
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      containerStyle,
+      videoBodyStyle,
+      initPodState,
+      loadPod,
+      switchSection,
+      trySwitchSameSeason,
+    };
+  }
+  function usePodPlayback({
+    rawGroups,
+    podType,
+    activeBvid,
+    activePage,
+    flatEpisodes,
+    currentPlaying,
+    scrollContainerRef,
+    setExpanded,
+    toggleAccordion,
+    settings,
+    shuffleActions,
+  }) {
+    const refreshActiveStates = (isManualClick = false) => {
+      rawGroups.value = rawGroups.value.map((g) =>
+        updateGroupActive(g, podType.value, activeBvid.value, activePage.value),
+      );
+      setExpanded(findActiveAccordionBvid(currentPlaying.value));
+      if (isManualClick && settings && !settings.scrollActiveOnClick) return;
+      scrollActiveItem(scrollContainerRef.value, true);
+    };
+    const switchActiveVideo = (type, data, index, isManual = true) => {
+      const { bvid, aid, episodes } = data;
+      const { page, cid, isActive } = episodes[index];
+      if (isActive) return;
+      if (isManual)
+        shuffleActions?.recordManualPlay?.({
+          bvid,
+          page,
+        });
+      activeBvid.value = bvid;
+      activePage.value = page;
+      executeVideoSwitch(podType.value, {
+        aid,
+        bvid,
+        cid,
+        p: page,
+      });
+      refreshActiveStates(isManual);
+    };
+    const handleHeaderClick = (group) => {
+      if (group.isActive && group.isMultiPage) {
+        toggleAccordion(group.bvid);
+        return;
+      }
+      switchActiveVideo(podType.value, group, 0, true);
+    };
+    const getNextTarget = (action) => {
+      if (settings?.shuffle) {
+        const shuffleTarget =
+          action === CTRL_ACTION.PREV
+            ? shuffleActions?.getPrevShuffleTarget?.()
+            : shuffleActions?.getNextShuffleTarget?.();
+        if (shuffleTarget) return shuffleTarget;
+      }
+      const currentIndex = currentPlaying.value?.flatIndex;
+      return getAdjacentVideo(flatEpisodes.value, currentIndex, action);
+    };
+    const handlePlayerCtrl = throttle((action) => {
+      const target = getNextTarget(action);
+      if (target) {
+        switchActiveVideo(podType.value, target.group, target.epIndex, false);
+        return;
+      }
+      toast.info(action === CTRL_ACTION.PREV ? '已经是第一集了' : '已经是最后一集了');
+    }, 300);
+    const setActiveTarget = (bvid, page) => {
+      activeBvid.value = bvid;
+      activePage.value = page;
+    };
+    return {
+      refreshActiveStates,
+      switchActiveVideo,
+      handleHeaderClick,
+      handlePlayerCtrl,
+      setActiveTarget,
+    };
+  }
+  function usePodSort(rawGroups, settings, podType) {
+    const sortMode = (0, vue.computed)({
+      get: () => settings.sortMode,
+      set: (val) => {
+        settings.sortMode = val;
+      },
+    });
+    return {
+      sortMode,
+      groups: (0, vue.computed)(() => {
+        if (podType?.value === POD_TYPE.EPISODE) return rawGroups.value;
+        return (SORT_STRATEGIES[sortMode.value] || SORT_STRATEGIES[SORT_MODE.DEFAULT])(
+          rawGroups.value,
+        );
+      }),
+      setSortMode: (mode) => (settings.sortMode = mode),
+    };
+  }
+  var MAX_HISTORY_LENGTH = 50;
+  var getEpisodeKey = (bvid, page) => `${bvid}_${Number(page || 1)}`;
+  var extractCurrentKey = (current) => {
+    if (!current?.group?.bvid) return '';
+    const page = current.episode?.page || current.page || 1;
+    return getEpisodeKey(current.group.bvid, page);
+  };
+  function filterCandidatesByScope(flatList, scope, activeBvid) {
+    if (scope === SHUFFLE_SCOPE.GROUP && activeBvid)
+      return flatList.filter((item) => item.bvid === activeBvid);
+    return [...flatList];
+  }
+  function buildCandidateKeys(flatList, scope, curBvid, curKey) {
+    return filterCandidatesByScope(flatList, scope, curBvid)
+      .map((item) => getEpisodeKey(item.bvid, item.page))
+      .filter((k) => k !== curKey);
+  }
+  function pickRandomKey(keys) {
+    if (keys.length === 0)
+      return {
+        selectedKey: null,
+        remainingKeys: [],
+      };
+    const selectedKey = keys[Math.floor(Math.random() * keys.length)];
+    return {
+      selectedKey,
+      remainingKeys: keys.filter((k) => k !== selectedKey),
+    };
+  }
+  function pushHistoryStack(stack, key, max = MAX_HISTORY_LENGTH) {
+    if (!key) return;
+    stack.push(key);
+    if (stack.length > max) stack.shift();
+  }
+  var findEpisodeByKey = (flatList, key) =>
+    key ? flatList.find((ep) => getEpisodeKey(ep.bvid, ep.page) === key) || null : null;
+  function resolveCandidateKeys(unplayedPool, flatEpisodes, settings, curBvid, curKey) {
+    const remainingKeys = unplayedPool.filter((k) => k !== curKey);
+    if (remainingKeys.length > 0) return remainingKeys;
+    const refreshedKeys = buildCandidateKeys(flatEpisodes, settings.shuffleScope, curBvid, curKey);
+    if (refreshedKeys.length === 0 && settings.shuffleScope === SHUFFLE_SCOPE.GROUP)
+      toast.info('当前分 P 仅有 1 集，无法在分组内随机播放');
+    return refreshedKeys;
+  }
+  function useShuffle({ settings, flatEpisodes, currentPlaying }) {
+    const unplayedPool = (0, vue.ref)([]);
+    const historyStack = (0, vue.ref)([]);
+    const getCurrentBvid = () => currentPlaying.value?.group?.bvid || '';
+    const getCurrentKey = () => extractCurrentKey(currentPlaying.value);
+    const rebuildPool = () => {
+      unplayedPool.value = buildCandidateKeys(
+        flatEpisodes.value,
+        settings.shuffleScope,
+        getCurrentBvid(),
+        getCurrentKey(),
+      );
+    };
+    const getNextShuffleTarget = () => {
+      const curKey = getCurrentKey();
+      const { selectedKey, remainingKeys } = pickRandomKey(
+        resolveCandidateKeys(
+          unplayedPool.value,
+          flatEpisodes.value,
+          settings,
+          getCurrentBvid(),
+          curKey,
+        ),
+      );
+      if (!selectedKey) return null;
+      unplayedPool.value = remainingKeys;
+      pushHistoryStack(historyStack.value, curKey);
+      return findEpisodeByKey(flatEpisodes.value, selectedKey);
+    };
+    const getPrevShuffleTarget = () => {
+      const prevKey = historyStack.value.pop();
+      return findEpisodeByKey(flatEpisodes.value, prevKey);
+    };
+    const recordManualPlay = (target) => {
+      if (!target) return;
+      const curKey = getCurrentKey();
+      const targetKey = getEpisodeKey(target.bvid, target.page || target.episode?.page);
+      if (curKey && curKey !== targetKey) pushHistoryStack(historyStack.value, curKey);
+      unplayedPool.value = unplayedPool.value.filter((k) => k !== targetKey);
+    };
+    const toggleShuffle = () => {
+      settings.shuffle = !settings.shuffle;
+      return settings.shuffle;
+    };
+    (0, vue.watch)(
+      () => [settings.shuffle, settings.shuffleScope, flatEpisodes.value.length],
+      () => {
+        if (settings.shuffle) rebuildPool();
+      },
+      { immediate: true },
+    );
+    (0, vue.watch)(
+      () => currentPlaying.value?.group?.bvid,
+      (newBvid, oldBvid) => {
+        const isGroupScope = settings.shuffleScope === SHUFFLE_SCOPE.GROUP;
+        if (settings.shuffle && isGroupScope && newBvid !== oldBvid) rebuildPool();
+      },
+    );
+    return {
+      unplayedPool,
+      historyStack,
+      rebuildPool,
+      getNextShuffleTarget,
+      getPrevShuffleTarget,
+      recordManualPlay,
+      toggleShuffle,
+    };
+  }
+  function useVideoPod() {
+    const rootRef = (0, vue.ref)(null);
+    const scrollContainerRef = (0, vue.ref)(null);
+    const podType = (0, vue.ref)(null);
+    const rawGroups = (0, vue.ref)([]);
+    const activeBvid = (0, vue.ref)('');
+    const activePage = (0, vue.ref)(1);
+    const { settings } = useSettings();
+    const { isExpanded, toggleAccordion, setExpanded } = useAccordion();
+    const { sortMode, groups, setSortMode } = usePodSort(rawGroups, settings, podType);
+    const flatEpisodes = (0, vue.computed)(() => flattenEpisodes(groups.value));
+    const currentPlaying = (0, vue.computed)(() =>
+      findCurrentPlaying(flatEpisodes.value, activeBvid.value, activePage.value),
+    );
+    const { getNextShuffleTarget, getPrevShuffleTarget, recordManualPlay, toggleShuffle } =
+      useShuffle({
+        settings,
+        flatEpisodes,
+        currentPlaying,
+      });
+    const { isEpisodePlayed, isGroupPlayed } = usePlayedHistory({
+      activeBvid,
+      activePage,
+    });
+    const {
+      refreshActiveStates,
+      switchActiveVideo,
+      handleHeaderClick,
+      handlePlayerCtrl,
+      setActiveTarget,
+    } = usePodPlayback({
+      rawGroups,
+      podType,
+      activeBvid,
+      activePage,
+      flatEpisodes,
+      currentPlaying,
+      scrollContainerRef,
+      setExpanded,
+      toggleAccordion,
+      settings,
+      shuffleActions: {
+        getNextShuffleTarget,
+        getPrevShuffleTarget,
+        recordManualPlay,
+      },
+    });
+    const {
+      isAnimating,
+      isLoading,
+      isRunnable,
+      podMode,
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      containerStyle,
+      videoBodyStyle,
+      loadPod,
+      switchSection,
+    } = usePodLoader({
+      rawGroups,
+      podType,
+      activeBvid,
+      activePage,
+      rootRef,
+      scrollContainerRef,
+      setExpanded,
+      currentPlaying,
+      setActiveTarget,
+      refreshActiveStates,
+    });
+    (0, vue.watch)(
+      () => settings.sortMode,
+      () => {
+        if (settings.scrollToActiveOnSort) {
+          scrollActiveItem(scrollContainerRef.value, true);
+          return;
+        }
+        scrollContainerRef.value?.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      },
+      { flush: 'post' },
+    );
+    (0, vue.watch)(
+      () => settings.autoPlayNext,
+      () => {
+        playerState().autoPlayNext?.(false);
+      },
+      { immediate: true },
+    );
+    const isPlaybackEndReached = () => {
+      if (settings.shuffle) return false;
+      const shouldStopOnGroup =
+        podType.value === POD_TYPE.COLLECTION &&
+        settings.stopOnGroupEnd &&
+        currentPlaying.value?.group?.isMultiPage &&
+        currentPlaying.value?.isGroupLast;
+      return currentPlaying.value?.isLast || shouldStopOnGroup;
+    };
+    const handleVideoEnded = () => {
+      if (!(0, vue.toValue)(isRunnable) || !settings.autoPlayNext || isPlaybackEndReached()) return;
+      handlePlayerCtrl(CTRL_ACTION.NEXT);
+    };
+    let cleanups = [];
+    (0, vue.onMounted)(() => {
+      loadPod();
+      cleanups = [
+        interceptPlayerControls(handlePlayerCtrl),
+        interceptPlayerEnding(handleVideoEnded),
+        usePodHotkeys({
+          settings,
+          handlePlayerCtrl,
+        }),
+      ];
+    });
+    (0, vue.onUnmounted)(() => {
+      cleanups.forEach((fn) => fn?.());
+    });
+    return {
+      isAnimating,
+      isLoading,
+      isRunnable,
+      podType,
+      rootRef,
+      scrollContainerRef,
+      podMode,
+      sortMode,
+      setSortMode,
+      groups,
+      seasonSections,
+      hasMultipleSections,
+      currentSectionId,
+      switchSection,
+      flatEpisodes,
+      currentPlaying,
+      containerStyle,
+      videoBodyStyle,
+      isExpanded,
+      toggleAccordion,
+      handleHeaderClick,
+      switchActiveVideo,
+      toggleShuffle,
+      loadPod,
+      isGroupPlayed,
+      isEpisodePlayed,
+    };
+  }
   var _hoisted_1 = { class: 'tk-reaction-header' };
   var _hoisted_2 = { class: 'header-left' };
   var _hoisted_3 = ['options', 'value'];
@@ -5443,13 +5394,11 @@
     {
       __name: 'App',
       setup(__props, { expose: __expose }) {
-        const settingsTooltip = `${name} (v${version})`;
         const {
           isAnimating,
           isLoading,
+          isRunnable,
           podType,
-          rootRef,
-          scrollContainerRef,
           podMode,
           groups,
           seasonSections,
@@ -5574,19 +5523,15 @@
         const handleOpenSettings = () => {
           isSettingsOpen.value = true;
         };
-        (0, vue.onMounted)(() => {
-          initSettings();
-        });
         __expose({ loadPod });
         return (_ctx, _cache) => {
-          return (0, vue.unref)(groups).length > 0
+          return (0, vue.unref)(isRunnable)
             ? ((0, vue.openBlock)(),
               (0, vue.createElementBlock)(
                 'div',
                 {
                   key: 0,
-                  ref_key: 'rootRef',
-                  ref: rootRef,
+                  ref: 'rootRef',
                   class: (0, vue.normalizeClass)([
                     {
                       'is-card-mode': (0, vue.unref)(podMode) === (0, vue.unref)(POD_MODE).CARD,
@@ -5694,7 +5639,7 @@
                         'div',
                         {
                           class: 'settings-btn',
-                          title: settingsTooltip,
+                          title: '打开设置',
                           onClick: (0, vue.withModifiers)(handleOpenSettings, ['stop']),
                         },
                         [
@@ -5914,8 +5859,7 @@
                   (0, vue.createElementVNode)(
                     'div',
                     {
-                      ref_key: 'scrollContainerRef',
-                      ref: scrollContainerRef,
+                      ref: 'scrollContainerRef',
                       class: (0, vue.normalizeClass)([
                         { 'is-loading': (0, vue.unref)(isLoading) },
                         'tk-reaction-video',
@@ -6523,7 +6467,7 @@
         };
       },
     },
-    [['__scopeId', 'data-v-7669f4cb']],
+    [['__scopeId', 'data-v-9d995b77']],
   );
   if (!isWatchLaterRoute()) {
     injectNativeHidingStyles();
