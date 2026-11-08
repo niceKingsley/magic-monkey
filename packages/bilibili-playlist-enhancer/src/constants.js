@@ -1,5 +1,7 @@
 export { name as STORAGE_NAMESPACE, version as SCRIPT_VERSION } from '../package.json';
 
+export const USER_SETTINGS = 'user_settings';
+
 export const POD_MODE = {
   LIST: 'LIST',
   CARD: 'CARD',

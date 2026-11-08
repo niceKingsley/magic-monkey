@@ -1,6 +1,6 @@
 import { playerState } from '@/helpers/playerBridge';
 import { assign, createStorage } from '@shared/utils';
-import { DEFAULT_SETTINGS, STORAGE_NAMESPACE } from '../constants';
+import { DEFAULT_SETTINGS, STORAGE_NAMESPACE, USER_SETTINGS } from '../constants';
 
 const storage = createStorage(STORAGE_NAMESPACE);
 
@@ -14,7 +14,7 @@ function setupSettingsWatchers() {
   watch(
     settingsState,
     (newVal) => {
-      storage.set('user_settings', { ...newVal });
+      storage.set(USER_SETTINGS, { ...newVal });
     },
     { deep: true },
   );
@@ -27,7 +27,7 @@ export function initSettings() {
   if (isInitialized) return settingsState;
   isInitialized = true;
 
-  const savedSettings = storage.get('user_settings', null);
+  const savedSettings = storage.get(USER_SETTINGS, null);
 
   if (savedSettings) {
     assign(settingsState, savedSettings);

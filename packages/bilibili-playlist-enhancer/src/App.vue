@@ -267,7 +267,7 @@ import { toast } from '@shared/components/toast';
 import { on } from '@shared/utils';
 import SettingsModal from './components/SettingsModal';
 import { usePodSearch } from './composables/usePodSearch';
-import { useSettings } from './composables/useSettings';
+import { initSettings, useSettings } from './composables/useSettings';
 import '@shared/components/tabs';
 import '@shared/components/spinner';
 import '@shared/components/switch';
@@ -433,6 +433,10 @@ const handleSortChange = (event) => {
 const handleOpenSettings = () => {
   isSettingsOpen.value = true;
 };
+
+onMounted(() => {
+  initSettings();
+});
 
 defineExpose({
   loadPod,
