@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="isRunnable"
+    v-if="groups.length > 0"
     ref="rootRef"
     :class="{
       'is-card-mode': podMode === POD_MODE.CARD,
@@ -282,6 +282,8 @@ const {
   isLoading,
   isRunnable,
   podType,
+  rootRef,
+  scrollContainerRef,
   podMode,
   groups,
   seasonSections,
