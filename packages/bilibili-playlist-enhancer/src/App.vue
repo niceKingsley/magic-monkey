@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="groups.length > 0"
+    v-if="isRunnable"
     ref="rootRef"
     :class="{
       'is-card-mode': podMode === POD_MODE.CARD,
@@ -43,7 +43,7 @@
         >
           <magic-icon class="icon" name="search" />
         </div>
-        <div class="settings-btn" :title="settingsTooltip" @click.stop="handleOpenSettings">
+        <div class="settings-btn" title="打开设置" @click.stop="handleOpenSettings">
           <magic-icon class="icon" name="settings" />
         </div>
       </div>
@@ -263,35 +263,25 @@
 </template>
 
 <script setup>
+import { toast } from '@shared/components/toast';
 import { on } from '@shared/utils';
-import {
-  POD_MODE,
-  POD_TYPE,
-  STORAGE_NAMESPACE,
-  SCRIPT_VERSION,
-  SHUFFLE_SCOPE,
-  SORT_OPTIONS,
-} from './constants';
-import { useVideoPod } from './composables/useVideoPod';
+import SettingsModal from './components/SettingsModal';
 import { usePodSearch } from './composables/usePodSearch';
-import { initSettings, useSettings } from './composables/useSettings';
+import { useSettings } from './composables/useSettings';
 import '@shared/components/tabs';
 import '@shared/components/spinner';
 import '@shared/components/switch';
 import '@shared/components/select';
 import '@shared/components/input';
 import '@shared/components/icon';
-import SettingsModal from './components/SettingsModal';
-import { toast } from '@shared/components/toast/index';
-
-const settingsTooltip = `${STORAGE_NAMESPACE} (v${SCRIPT_VERSION})`;
+import { useVideoPod } from './composables/useVideoPod';
+import { POD_MODE, POD_TYPE, SHUFFLE_SCOPE, SORT_OPTIONS } from './constants';
 
 const {
   isAnimating,
   isLoading,
+  isRunnable,
   podType,
-  rootRef,
-  scrollContainerRef,
   podMode,
   groups,
   seasonSections,
@@ -443,10 +433,6 @@ const handleSortChange = (event) => {
 const handleOpenSettings = () => {
   isSettingsOpen.value = true;
 };
-
-onMounted(() => {
-  initSettings();
-});
 
 defineExpose({
   loadPod,

@@ -29,6 +29,7 @@ export function usePodLoader({
   refreshActiveStates,
 }) {
   const isLoading = ref(false);
+  const isRunnable = ref(false);
   const podMode = ref(POD_MODE.LIST);
 
   const {
@@ -115,10 +116,13 @@ export function usePodLoader({
     setActiveTarget(nextBvid, nextPage);
     resetPodState();
     isLoading.value = true;
+    isRunnable.value = true;
 
     try {
       const payload = await fetchPodPayload(nextBvid, nextPage);
+      isRunnable.value = !!payload;
       await initPodState(payload, nextBvid, nextPage);
+      await nextTick();
     } finally {
       isLoading.value = false;
     }
@@ -147,6 +151,7 @@ export function usePodLoader({
   return {
     isAnimating,
     isLoading,
+    isRunnable,
     podMode,
     seasonSections,
     hasMultipleSections,

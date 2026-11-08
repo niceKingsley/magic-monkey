@@ -67,6 +67,7 @@ export function useVideoPod() {
   const {
     isAnimating,
     isLoading,
+    isRunnable,
     podMode,
     seasonSections,
     hasMultipleSections,
@@ -129,23 +130,29 @@ export function useVideoPod() {
    * 处理视频播放完毕
    */
   const handleVideoEnded = () => {
-    if (!settings.autoPlayNext || isPlaybackEndReached()) return;
+    if (!toValue(isRunnable) || !settings.autoPlayNext || isPlaybackEndReached()) return;
     handlePlayerCtrl(CTRL_ACTION.NEXT);
   };
 
+  let cleanups = [];
+
   onMounted(() => {
     void loadPod();
-    const cleanups = [
+    cleanups = [
       interceptPlayerControls(handlePlayerCtrl),
       interceptPlayerEnding(handleVideoEnded),
       usePodHotkeys({ settings, handlePlayerCtrl }),
     ];
-
-    onUnmounted(() => cleanups.forEach((fn) => fn?.()));
   });
+
+  onUnmounted(() => {
+    cleanups.forEach((fn) => fn?.());
+  });
+
   return {
     isAnimating,
     isLoading,
+    isRunnable,
     podType,
     rootRef,
     scrollContainerRef,
